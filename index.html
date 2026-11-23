@@ -2267,7 +2267,7 @@ svg.gi{width:20px;height:20px;flex:none}
 'use strict';
 
 var APP_NAME = 'Off-Grid';  // THE app name: page title, wordmark, About and the share text all read this one constant. The owner picked "Off-Grid" as the working name (2026-11-13).
-var VERSION = 'v5.35 (2026-11-17)';   // v5.35: shared trips with an invite link (#t_<token>, supabase/trips.sql). v5.34: the picked half of a would-you-rather counts as a liked place for "Save all"
+var VERSION = 'v5.36 (2026-11-22)';   // v5.36: Las Vegas city (slug vegas, America/Los_Angeles), hidden while the file has 0 Vegas items. v5.35: shared trips with an invite link (#t_<token>, supabase/trips.sql). v5.34: the picked half of a would-you-rather counts as a liked place for "Save all"
 // v5.33:   // v5.33: party sizes 1 / 2 / 3-8 / 9+ (old 3-4 / 5-8 read as 3-8); "Save all" the places liked in the test (Result, taste profile, one-time pop-up for earlier tests)
 // v5.32 history:   // v5.32: Retake fix - the taste deck is built from Chicago's places wherever the app's city is (in Oahu it ran out after 1 card), a slot that can't be filled never ends the deck, and a Retake keeps the previous result until the new 35 answers are in. v5.31: the About panel and the Surprise panel in ru / zh-Hans / ko (A31 string table, unverified). v5.30: the rest of the text in ru / zh-Hans / ko (phrase table for the location sheet, friends, privacy, poll, Group Blend, taste result, pop-ups, toasts), rarer leave-now sentences, photo credit words, ko times from Intl, the trip page redrawn on a language switch, the action row at 320 px, stricter food answers. v5.29: Ask about this place (answers only from the item's data), group size + occasion filters, trip party size. v5.28: the app text in ru / zh-Hans / ko (dates and times via Intl, ~230 new keys, data + guide translation plumbing)
 //   // v5.27: Generate my itinerary on the trip page (day-by-day plan from the shortlist + group picks: home base start/end, area clusters, hours/events/sunset, either/or, didn't fit, editable, saved with the trip on this device). v5.26: trip mode lite (on this phone only: city + dates + optional group, a home base that every distance starts from while trip mode is on, a shortlist with a status per trip day, vote link with places only, og.trips.v1 max 5). v5.25: Group Blend v1 (2-5 friends, on this phone only: poster + group match, picks tagged "4 of 5", vote link with places only, saved groups og.groups.v1). v5.24: multi-city (Chicago + Oʻahu): city picker, per-city data, map bounds, spots, travel and badges; open-now in the item's city time zone. v5.23: the rest ofthe UI words in ru / zh-Hans / ko (unverified), Visiting Chicago from the data field us_cities (< 3 US cities; visit_override). v5.22: Google rating line on place pages (edge function, page memory only), holiday status from fields only, more UI words in ru / zh-Hans / ko, Visiting Chicago without chains. v5.21: languages (ru / zh-Hans / ko, picker, per-field English fallback), Only in Chicago badge, Visiting Chicago filter, tester fixes. v5.20: weather (Open-Meteo chip + sheet, weather-aware re-ranking, idea lines, rain/snow on the map). v5.19: Blend with a friend (match %, both characters, tagged picks, share card), friends' stars + one-line reviews. v5.18: guides as articles, been date month/none, friend profile
@@ -2297,13 +2297,21 @@ var CITIES = [
   {slug:'oahu', name:'Oʻahu', timezone:'Pacific/Honolulu', std:-10, dst:false, center:{lat:21.2794, lng:-157.8286, label:'Waikīkī'},
     maxBounds:[[-158.65, 21.05], [-157.35, 21.90]], minZoom:7, fit:[[21.712, -158.2806], [21.255, -157.649]], farMi:50, box:[-158.32, 21.215, -157.61, 21.75],
     viewbox:'-158.32,21.75,-157.60,21.22', transit:false, proj:{lat0:21.48, lng0:-158.35, top:21.76}, water:{lat:21.2, lng:-157.98, name:'Pacific Ocean'},
-    credit:'Island outline © OpenStreetMap contributors', spotHint:'Neighborhood, beach or landmark', picks:['Waikīkī', 'Ala Moana', 'Downtown Honolulu', 'Kailua', 'Haleʻiwa', 'Ko Olina']}
+    credit:'Island outline © OpenStreetMap contributors', spotHint:'Neighborhood, beach or landmark', picks:['Waikīkī', 'Ala Moana', 'Downtown Honolulu', 'Kailua', 'Haleʻiwa', 'Ko Olina']},
+  // v5.36: Las Vegas Valley + day trips (Red Rock, Valley of Fire, Hoover Dam, Mt Charleston, Lake Mead all within farMi of Bellagio).
+  // Center, bounds and box typed from general knowledge (needs check). box null = "in the city" is a 60 mi radius. No outline file: the drawn map draws a plain area.
+  {slug:'vegas', name:'Las Vegas', timezone:'America/Los_Angeles', std:-8, dst:true, center:{lat:36.1126, lng:-115.1767, label:'The Strip'},
+    maxBounds:[[-116.9, 35.1], [-113.6, 37.1]], minZoom:7, fit:[[36.33, -115.36], [35.96, -114.95]], farMi:60, box:null,
+    viewbox:'-115.45,36.40,-114.85,35.90', transit:false, proj:{lat0:36.11, lng0:-116.30, top:37.0}, water:null,
+    credit:'© OpenStreetMap contributors', spotHint:'Neighborhood, casino or landmark', picks:['The Strip', 'Fremont Street', 'Arts District', 'Chinatown', 'Henderson', 'Summerlin']}
 ];
 var CITY_BY = {}; CITIES.forEach(function(c){ CITY_BY[c.slug] = c; });
 var CITY = CITY_BY.chicago, CITY_KEY = 'offgrid.city.v1', ALL_DATA = [];
 // Oʻahu outline (lng, lat pairs, 4 decimals) from data/geo/oahu-boundary.geojson, for the drawn-map fallback
 var OAHU_RING = [-158.2806,21.5744,-158.2485,21.5558,-158.2315,21.5372,-158.2284,21.5207,-158.2309,21.4824,-158.2197,21.4755,-158.2183,21.4676,-158.2131,21.462,-158.2148,21.4597,-158.2036,21.4581,-158.2028,21.4539,-158.1901,21.4459,-158.192,21.4401,-158.1893,21.4404,-158.1797,21.4278,-158.1758,21.4004,-158.159,21.3932,-158.1361,21.3689,-158.1302,21.3557,-158.1229,21.3239,-158.1132,21.3029,-158.1065,21.2964,-158.0863,21.2957,-158.0514,21.3009,-157.9768,21.3168,-157.9706,21.3271,-157.977,21.3232,-157.9721,21.3292,-157.9726,21.3353,-157.9817,21.3482,-157.9921,21.3484,-157.9937,21.3532,-158.0022,21.3519,-158.008,21.357,-158.0208,21.3568,-158.023,21.3612,-158.0214,21.3651,-158.0163,21.3657,-158.0206,21.3736,-158.0173,21.3728,-158.0141,21.3779,-158.013,21.373,-158.0107,21.3771,-158.0123,21.3733,-158.0032,21.3702,-158.0049,21.3671,-158.0001,21.357,-157.9877,21.3621,-157.9883,21.3578,-157.9932,21.3569,-157.9889,21.3515,-157.9809,21.3517,-157.9714,21.3417,-157.9708,21.3527,-157.976,21.361,-157.9749,21.3655,-157.9831,21.366,-157.9913,21.3779,-157.9923,21.3867,-157.9842,21.3884,-157.983,21.3826,-157.9752,21.3782,-157.9761,21.3751,-157.9698,21.3699,-157.9666,21.3761,-157.9693,21.3859,-157.9614,21.388,-157.9415,21.3795,-157.9413,21.3751,-157.9344,21.3767,-157.9401,21.3666,-157.9355,21.364,-157.9324,21.3649,-157.929,21.3695,-157.9253,21.3711,-157.9248,21.3712,-157.9215,21.3705,-157.9191,21.3689,-157.9249,21.3711,-157.9288,21.3694,-157.9312,21.3656,-157.9343,21.3633,-157.9406,21.3659,-157.9454,21.3622,-157.9487,21.3576,-157.9468,21.3552,-157.9406,21.3589,-157.9436,21.3547,-157.94,21.3526,-157.9437,21.3524,-157.9431,21.3499,-157.9504,21.3542,-157.9525,21.3524,-157.9511,21.3553,-157.953,21.3527,-157.9518,21.356,-157.9543,21.3569,-157.9575,21.3521,-157.9678,21.3496,-157.9646,21.3415,-157.9686,21.3314,-157.9636,21.3276,-157.9594,21.3172,-157.9471,21.3163,-157.9462,21.3097,-157.9488,21.3095,-157.9504,21.3038,-157.9069,21.3041,-157.907,21.31,-157.9183,21.3106,-157.9195,21.313,-157.899,21.3275,-157.8994,21.3298,-157.8927,21.3314,-157.895,21.3254,-157.8908,21.3145,-157.8832,21.3171,-157.8825,21.32,-157.8806,21.3168,-157.8792,21.3193,-157.8782,21.3191,-157.8781,21.3139,-157.8698,21.3087,-157.8707,21.3123,-157.8676,21.3104,-157.8658,21.3138,-157.8664,21.3056,-157.8636,21.3034,-157.8698,21.2955,-157.8653,21.296,-157.8669,21.2943,-157.8612,21.2904,-157.8574,21.2944,-157.8558,21.2916,-157.8581,21.2922,-157.8595,21.2908,-157.8473,21.2882,-157.8461,21.2815,-157.8442,21.2845,-157.8258,21.2754,-157.8214,21.2613,-157.8144,21.2559,-157.7961,21.2573,-157.7916,21.255,-157.79,21.2597,-157.7647,21.2751,-157.7556,21.2739,-157.7433,21.2798,-157.7228,21.2813,-157.7189,21.2853,-157.7094,21.2777,-157.7112,21.2609,-157.7006,21.2599,-157.6918,21.2637,-157.6972,21.2682,-157.6955,21.2727,-157.6896,21.2686,-157.6864,21.2758,-157.6507,21.2992,-157.649,21.311,-157.6586,21.3102,-157.6615,21.3158,-157.6677,21.3165,-157.6932,21.3321,-157.7088,21.3599,-157.7058,21.3802,-157.7157,21.3934,-157.7348,21.4012,-157.7412,21.4098,-157.7443,21.4215,-157.7381,21.4258,-157.7366,21.4441,-157.726,21.4492,-157.7228,21.4593,-157.73,21.4602,-157.7426,21.4533,-157.7597,21.4577,-157.7637,21.4599,-157.7632,21.4628,-157.7683,21.4563,-157.7731,21.4573,-157.7783,21.4513,-157.7771,21.4435,-157.7641,21.4382,-157.7622,21.44,-157.7555,21.4346,-157.7642,21.4281,-157.7664,21.4158,-157.7816,21.4111,-157.7904,21.418,-157.7883,21.423,-157.7915,21.4241,-157.7919,21.4285,-157.7987,21.4243,-157.8034,21.4268,-157.8074,21.4428,-157.8122,21.4437,-157.8161,21.4546,-157.8252,21.4534,-157.8327,21.4626,-157.8408,21.4604,-157.8445,21.4705,-157.8421,21.4844,-157.849,21.4867,-157.8472,21.4928,-157.8523,21.5039,-157.8509,21.5074,-157.8354,21.5096,-157.8362,21.5313,-157.8524,21.5566,-157.8644,21.5604,-157.871,21.5559,-157.8763,21.5584,-157.875,21.5729,-157.8847,21.5789,-157.8981,21.6026,-157.9084,21.6083,-157.9128,21.6145,-157.9126,21.6199,-157.921,21.6267,-157.9181,21.6463,-157.9174,21.6474,-157.9129,21.648,-157.9123,21.6485,-157.9221,21.6484,-157.9273,21.6524,-157.9271,21.661,-157.9342,21.6639,-157.9369,21.6686,-157.9329,21.674,-157.9401,21.6776,-157.945,21.6879,-157.9674,21.7095,-157.9841,21.712,-157.9901,21.7049,-157.9996,21.7073,-158.0012,21.7002,-158.0094,21.7007,-158.011,21.696,-158.014,21.6983,-158.033,21.682,-158.0378,21.6811,-158.0403,21.6744,-158.063,21.6554,-158.064,21.6396,-158.0686,21.6378,-158.076,21.626,-158.1073,21.6031,-158.1039,21.6001,-158.1031,21.5958,-158.1059,21.5951,-158.1039,21.5934,-158.107,21.5951,-158.1125,21.5892,-158.1189,21.5894,-158.1162,21.5842,-158.1194,21.5819,-158.1217,21.5849,-158.129,21.5823,-158.1381,21.5841,-158.168,21.5791,-158.2009,21.5828,-158.2192,21.5789,-158.253,21.5796,-158.2806,21.5744];
 var OAHU_SPOTS = [{name:'Waikīkī', lat:21.27936, lng:-157.82857, type:'Neighborhood'}, {name:'Ala Moana', lat:21.29147, lng:-157.84378, type:'Landmark'}, {name:'Kakaʻako', lat:21.29863, lng:-157.85795, type:'Neighborhood'}, {name:'Chinatown', lat:21.3129, lng:-157.8628, type:'Neighborhood'}, {name:'Downtown Honolulu', lat:21.30681, lng:-157.85877, type:'Landmark'}, {name:'Diamond Head', lat:21.26249, lng:-157.80679, type:'Landmark'}, {name:'Kapahulu', lat:21.27928, lng:-157.81283, type:'Neighborhood'}, {name:'Kaimukī', lat:21.27857, lng:-157.80213, type:'Neighborhood'}, {name:'Mānoa', lat:21.30938, lng:-157.81182, type:'Neighborhood'}, {name:'Kāhala', lat:21.27056, lng:-157.78624, type:'Neighborhood'}, {name:'Hawaiʻi Kai', lat:21.28633, lng:-157.71047, type:'Neighborhood'}, {name:'Hanauma Bay', lat:21.26962, lng:-157.69381, type:'Beach or coast'}, {name:'Makapuʻu Point', lat:21.31101, lng:-157.64895, type:'Beach or coast'}, {name:'Waimānalo', lat:21.3453, lng:-157.72142, type:'Neighborhood'}, {name:'Kailua', lat:21.39383, lng:-157.73387, type:'Neighborhood'}, {name:'Kāneʻohe', lat:21.41856, lng:-157.80418, type:'Neighborhood'}, {name:'Kualoa Ranch', lat:21.52083, lng:-157.83726, type:'Landmark'}, {name:'Lāʻie', lat:21.64384, lng:-157.92444, type:'Neighborhood'}, {name:'Sunset Beach', lat:21.67085, lng:-158.04567, type:'Beach or coast'}, {name:'Waimea Bay', lat:21.64137, lng:-158.06684, type:'Beach or coast'}, {name:'Haleʻiwa', lat:21.5936, lng:-158.10447, type:'Neighborhood'}, {name:'Wahiawā', lat:21.50062, lng:-158.01667, type:'Neighborhood'}, {name:'Mililani', lat:21.45083, lng:-158.00958, type:'Neighborhood'}, {name:'Pearl Harbor', lat:21.36748, lng:-157.93845, type:'Neighborhood'}, {name:'ʻAiea', lat:21.38222, lng:-157.93361, type:'Neighborhood'}, {name:'Airport (HNL)', lat:21.32114, lng:-157.91844, type:'Landmark'}, {name:'Kapolei', lat:21.34483, lng:-158.06333, type:'Neighborhood'}, {name:'Ko Olina', lat:21.32816, lng:-158.12199, type:'Beach or coast'}];
+// v5.36: Las Vegas "where am I" spots. Typed from general knowledge, NOT from Nominatim or a survey: coordinates are approximate (needs check).
+var VEGAS_SPOTS = [{name:'The Strip', lat:36.1126, lng:-115.1767, type:'Neighborhood'}, {name:'Bellagio Fountains', lat:36.1129, lng:-115.1741, type:'Landmark'}, {name:'Caesars Palace', lat:36.1162, lng:-115.1745, type:'Casino resort'}, {name:'The Venetian', lat:36.1212, lng:-115.1697, type:'Casino resort'}, {name:'Sphere', lat:36.1208, lng:-115.1621, type:'Landmark'}, {name:'High Roller (The LINQ)', lat:36.1176, lng:-115.1682, type:'Landmark'}, {name:'MGM Grand', lat:36.1024, lng:-115.1700, type:'Casino resort'}, {name:'Mandalay Bay', lat:36.0919, lng:-115.1747, type:'Casino resort'}, {name:'Welcome to Las Vegas sign', lat:36.0821, lng:-115.1728, type:'Landmark'}, {name:'The STRAT', lat:36.1475, lng:-115.1566, type:'Landmark'}, {name:'Fremont Street', lat:36.1707, lng:-115.1437, type:'Neighborhood'}, {name:'Neon Museum', lat:36.1770, lng:-115.1353, type:'Landmark'}, {name:'Arts District', lat:36.1590, lng:-115.1530, type:'Neighborhood'}, {name:'Chinatown', lat:36.1260, lng:-115.1980, type:'Neighborhood'}, {name:'UNLV', lat:36.1075, lng:-115.1430, type:'Landmark'}, {name:'Allegiant Stadium', lat:36.0909, lng:-115.1833, type:'Landmark'}, {name:'Airport (LAS)', lat:36.0840, lng:-115.1537, type:'Landmark'}, {name:'Henderson', lat:36.0395, lng:-114.9817, type:'Neighborhood'}, {name:'Summerlin', lat:36.1517, lng:-115.3330, type:'Neighborhood'}, {name:'North Las Vegas', lat:36.1989, lng:-115.1175, type:'Neighborhood'}, {name:'Red Rock Canyon', lat:36.1357, lng:-115.4279, type:'Nature'}, {name:'Boulder City', lat:35.9786, lng:-114.8325, type:'Neighborhood'}, {name:'Hoover Dam', lat:36.0160, lng:-114.7377, type:'Landmark'}, {name:'Valley of Fire', lat:36.4290, lng:-114.5148, type:'Nature'}, {name:'Mt Charleston', lat:36.2700, lng:-115.6400, type:'Nature'}];
 function cityOf(it){ var c = it && typeof it.city === 'string' ? it.city.trim().toLowerCase() : ''; return c || 'chicago'; }   // an unknown slug stays itself, so it never shows in Chicago
 function tzOf(it){ if (!it || typeof it !== 'object') return CITY.timezone; var c = CITY_BY[cityOf(it)]; return c ? c.timezone : CITY.timezone; }
 function inCityBox(lat, lng, c){ c = c || CITY; if (!isNum(lat) || !isNum(lng)) return false; if (c.box) return lng >= c.box[0] && lng <= c.box[2] && lat >= c.box[1] && lat <= c.box[3]; return distMi(lat, lng, c.center.lat, c.center.lng) <= c.farMi; }
@@ -2312,7 +2320,11 @@ function nearestCity(lat, lng){ var best = 'chicago', bd = 1e9; if (!isNum(lat) 
 function cityItems(all, slug){ return (all || []).filter(function(it){ return cityOf(it) === slug; }); }
 function cityCounts(all){ var o = {}; (all || []).forEach(function(it){ var c = cityOf(it); o[c] = (o[c] || 0) + 1; }); return o; }
 function driveWord(){ return CITY.transit ? 'drive' : 'by car/Uber'; }   // Oʻahu has no CTA: walk + car, and the car line says Uber too
-function citySpots(c){ return c.slug === 'oahu' ? OAHU_SPOTS : SPOTS_CHI; }
+function citySpots(c){ return c.slug === 'oahu' ? OAHU_SPOTS : c.slug === 'vegas' ? VEGAS_SPOTS : SPOTS_CHI; }
+// v5.36: a city is offered (picker chips, trip city, GPS switch) only when the loaded file has items for it. Chicago always; before the file loads every city counts.
+function cityOpen(slug){ if (!CITY_BY[slug]) return false; if (slug === 'chicago' || !DATA_LOADED) return true; for (var i = 0; i < ALL_DATA.length; i++) if (cityOf(ALL_DATA[i]) === slug) return true; return false; }
+function openCities(){ return CITIES.filter(function(c){ return c.slug === CITY.slug || cityOpen(c.slug); }); }
+function cityAtOpen(lat, lng){ var c = cityAt(lat, lng); return c && cityOpen(c) ? c : ''; }
 // Applies a city to the pure state (time zone, center, spots, projection, data). No map moves and no screen work: setCity does those.
 function setCityCore(slug){
   var c = CITY_BY[slug]; if (!c) return false;
@@ -5433,7 +5445,11 @@ function leaveByText(l, lang){ // the "Leave by" line in the language (the Engli
 var CITY_STR = {
   'oh.only.oahu':['Only on Oʻahu', 'Только на Оаху', '瓦胡岛独有', '오아후에만'], 'oh.classic.oahu':['Oʻahu classic', 'Классика Оаху', '瓦胡岛经典', '오아후 클래식'],
   'f.visit.oahu':['Visiting Oʻahu', 'Гостям Оаху', '游览瓦胡岛', '오아후 여행'], 'f.visitSub.oahu':['Only-on-Oʻahu places and classic must-sees', 'Только на Оаху и главная классика', '瓦胡岛独有和必去经典', '오아후에만 있는 곳과 꼭 가 볼 명소'],
-  'f.ohere.oahu':['Only on Oʻahu or rare', 'Только на Оаху и редкое', '瓦胡岛独有或罕见', '오아후에만 있거나 보기 드문 곳'], 'f.drive.oahu':['Car/Uber', 'Машина/Uber', '开车/Uber', '자동차/Uber']
+  'f.ohere.oahu':['Only on Oʻahu or rare', 'Только на Оаху и редкое', '瓦胡岛独有或罕见', '오아후에만 있거나 보기 드문 곳'], 'f.drive.oahu':['Car/Uber', 'Машина/Uber', '开车/Uber', '자동차/Uber'],
+  // v5.36: Las Vegas twins. ru / zh-Hans / ko written by the developer, no native review (unverified).
+  'oh.only.vegas':['Only in Vegas', 'Только в Вегасе', '拉斯维加斯独有', '라스베이거스에만'], 'oh.classic.vegas':['Vegas classic', 'Классика Вегаса', '拉斯维加斯经典', '라스베이거스 클래식'],
+  'f.visit.vegas':['Visiting Vegas', 'Гостям Вегаса', '游览拉斯维加斯', '라스베이거스 여행'], 'f.visitSub.vegas':['Only-in-Vegas places and classic must-sees', 'Только в Вегасе и главная классика', '拉斯维加斯独有和必去经典', '라스베이거스에만 있는 곳과 꼭 가 볼 명소'],
+  'f.ohere.vegas':['Only in Vegas or rare', 'Только в Вегасе и редкое', '拉斯维加斯独有或罕见', '라스베이거스에만 있거나 보기 드문 곳'], 'f.drive.vegas':['Car/Uber', 'Машина/Uber', '开车/Uber', '자동차/Uber']
 };
 function i18t(key, v, lang){
   var e = STR[key]; if (!e) return String(key);
@@ -5705,7 +5721,8 @@ var POP_CAT = {'seasonal':42, 'immersive-popup':40, 'art-museum':36, 'nature-out
   'active':36, 'mini-golf':36, 'escape-room':34, 'racing-karting':34, 'sports-watch':36, 'social-events':28, 'classes-workshops':28, 'unique-niche':22};
 // v5.24: Oʻahu must-sees for Visiting Oʻahu and popularity (developer's list of famous names, unverified; only_here tags replace it once merged)
 var POP_KNOWN_OAHU = /diamond head|hanauma|pearl harbor|uss arizona|battleship missouri|waikiki beach|i.?olani palace|bishop museum|dole plantation|polynesian cultural center|kualoa|waimea (bay|valley)|lanikai|ala moana beach|honolulu zoo|waikiki aquarium|makapu.?u|byodo.?in|manoa falls/;
-function popKnownFor(it){ return cityOf(it) === 'oahu' ? POP_KNOWN_OAHU : POP_KNOWN; }
+var POP_KNOWN_VEGAS = /bellagio (fountain|conservatory)|fountains of bellagio|fremont street|slotzilla|\bsphere\b|high roller|neon museum|mob museum|red rock|hoover dam|welcome to fabulous las vegas|las vegas sign|valley of fire|\bstrat\b|stratosphere|venetian gondola|gondola ride|area ?15|omega mart|eiffel tower viewing|mirage volcano|flamingo wildlife|seven magic mountains|pinball hall of fame|cirque du soleil/;   // v5.36: Vegas must-sees (typed from general knowledge)
+function popKnownFor(it){ var c = cityOf(it); return c === 'oahu' ? POP_KNOWN_OAHU : c === 'vegas' ? POP_KNOWN_VEGAS : POP_KNOWN; }
 var POP_KNOWN = /art institute|field museum|shedd|museum of science and industry|griffin museum|lincoln park zoo|brookfield zoo|navy pier|millennium park|cloud gate|the bean|maggie daley|skydeck|willis tower|360 chicago|second city|christkindlmarket|adler planetarium|garfield park conservatory|lincoln park conservatory|botanic garden|morton arboretum|riverwalk|the 606|museum of contemporary art|chicago architecture center|zoolights|lightscape|magnificent mile lights|kingston mines|green mill|music box theatre|chicago cultural center|joffrey|nutcracker|goodman theatre|christmas carol|topgolf|puttshack|museum of ice cream|cindy s rooftop|three dots and a dash|eataly|lakefront trail|northerly island|king spa|aire ancient baths|chicago auto show|thanksgiving parade|tree lighting|winter wonderfest|frank lloyd wright home|robie house|baha i house of worship/;
 var POP_QUIET = /\blibrary\b|cemetery|bookstore|\bbooks\b|apothecary|\brecords\b|button museum|rock shop|pedway|chapel|cathedral|house of worship|antiques|lapidary|broadcast|garden center|visitor center/;
 function popularityOf(it){
@@ -6635,7 +6652,7 @@ var SUBURBS_CHI = 'M-20000 -12000 700 -12000 900 -7000 950 -5940 900 -3564 1286 
 var SUBURBS_D = SUBURBS_CHI;   // v5.24: '' in a city without the hand-drawn outline (Oʻahu: everything off the island is water)
 var RIVER_D = 'M2649 1525 2617 1526 2569 1527 2538 1528 2508 1537 2485 1540 2460 1543 2435 1547 2423 1523 2408 1498 2382 1441 2368 1404 2336 1366 2275 1291M2435 1547 2432 1558 2430 1600 2430 1627 2431 1655 2439 1685 2448 1757 2460 1858 2470 1960';
 var RIVER_CHI = RIVER_D;
-var FEATURED_LABELS = {'Oʻahu':1, 'Loop':1,'Near North Side':1, 'Lincoln Park':1, 'Lake View':1, 'Logan Square':1, 'West Town':1, 'Near West Side':1, 'Hyde Park':1, 'Near South Side':1, 'Uptown':1, 'Lower West Side':1, 'Austin':1, 'Rogers Park':1, 'South Shore':1};
+var FEATURED_LABELS = {'Oʻahu':1, 'Las Vegas':1,'Loop':1,'Near North Side':1, 'Lincoln Park':1, 'Lake View':1, 'Logan Square':1, 'West Town':1, 'Near West Side':1, 'Hyde Park':1, 'Near South Side':1, 'Uptown':1, 'Lower West Side':1, 'Austin':1, 'Rogers Park':1, 'South Shore':1};
 var LINE_ORDER = ['purple', 'blue', 'green', 'pink', 'orange', 'brown', 'yellow', 'red'];
 function polysOf(g){ if (!g) return []; if (g.type === 'Polygon') return [g.coordinates]; if (g.type === 'MultiPolygon') return g.coordinates; return []; }
 function linesOf(g){ if (!g) return []; if (g.type === 'LineString') return [g.coordinates]; if (g.type === 'MultiLineString') return g.coordinates; return []; }
@@ -6687,15 +6704,21 @@ function drawGeoIntoMap(){
   $('gCas').innerHTML = GEO.lines.map(function(l){ return lineSvg(l, true); }).join('');
   $('gLines').innerHTML = GEO.lines.map(function(l){ return lineSvg(l, false); }).join('');
   var lab = GEO.areas.map(function(a){ return '<span class="mlab" data-x="' + r1(a.cx) + '" data-y="' + r1(a.cy) + '" data-f="' + (FEATURED_LABELS[a.name] ? 1 : 0) + '">' + esc(a.name) + '</span>'; }).join('');
-  var lake = proj(CITY.water.lat, CITY.water.lng);   // v5.24: Lake Michigan / Pacific Ocean
-  lab += '<span class="mlab lake" data-x="' + r1(lake[0]) + '" data-y="' + r1(lake[1]) + '" data-f="2">' + esc(CITY.water.name) + '</span>';
+  if (CITY.water) { var lake = proj(CITY.water.lat, CITY.water.lng);   // v5.24: Lake Michigan / Pacific Ocean (v5.36: Las Vegas has no water label)
+    lab += '<span class="mlab lake" data-x="' + r1(lake[0]) + '" data-y="' + r1(lake[1]) + '" data-f="2">' + esc(CITY.water.name) + '</span>'; }
   $('mlabels').innerHTML = lab;
   labelEls = Array.prototype.slice.call($('mlabels').children).map(function(el){ return {el:el, x:+el.getAttribute('data-x'), y:+el.getAttribute('data-y'), f:+el.getAttribute('data-f'), on:true}; });
 }
 function oahuGJ(){ var ring = []; for (var i = 0; i + 1 < OAHU_RING.length; i += 2) ring.push([OAHU_RING[i], OAHU_RING[i + 1]]); return {type:'FeatureCollection', features:[{type:'Feature', properties:{num:1, name:'Oʻahu'}, geometry:{type:'Polygon', coordinates:[ring]}}]}; }
+function plainAreaGJ(c){ // v5.36: a 32-sided ring of radius farMi around the city center (no outline file needed)
+  var ring = [], R = c.farMi || 30, kLat = R / 69.0, kLng = R / (69.0 * Math.cos(c.center.lat * Math.PI / 180));
+  for (var i = 0; i <= 32; i++) { var a = (i % 32) / 32 * 2 * Math.PI; ring.push([+(c.center.lng + kLng * Math.cos(a)).toFixed(4), +(c.center.lat + kLat * Math.sin(a)).toFixed(4)]); }
+  return {type:'FeatureCollection', features:[{type:'Feature', properties:{num:1, name:c.name}, geometry:{type:'Polygon', coordinates:[ring]}}]};
+}
 function cityGeo(){ // v5.24: the drawn map's land for the current city (Chicago: community areas + CTA lines, once loaded; Oʻahu: the island outline, built in)
   var keepLines = GEO.linesGJ || (GEO.raw ? GEO.raw.lines : null);
   if (CITY.slug === 'oahu') { buildGeo(oahuGJ(), null); GEO.linesGJ = keepLines; }
+  else if (CITY.slug !== 'chicago') { buildGeo(plainAreaGJ(CITY), null); GEO.linesGJ = keepLines; }   // v5.36: a city with no outline file (Las Vegas): one plain area, never Chicago's
   else if (GEO.raw) buildGeo(GEO.raw.areas, GEO.raw.lines);
   else { GEO.areas = []; GEO.lines = []; GEO.ready = false; }
   if (svgEl) drawGeoIntoMap();
@@ -10931,6 +10954,7 @@ function tripAcctHTML(){ // the account sheet's Trips rows (signed in or not: tr
   return h + '<button class="frrow" type="button" data-trip="new">' + glyphSvg('i-pin') + '<span>' + esc(tripT('plan')) + '</span><span></span>' + glyphSvg('i-right', 'i chev') + '</button></div>';
 }
 function tripArtSvg(slug){
+  if (slug === 'vegas') return '<svg class="tp-art" viewBox="0 0 400 210" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="300" cy="104" r="40" fill="#FFB86B" opacity=".8"/><path d="M0 160 L60 118 L104 146 L168 96 L236 150 L292 120 L350 146 L400 126 V210 H0Z" fill="#B5543C" opacity=".45"/><g fill="#2A1638" opacity=".75"><rect x="120" y="120" width="20" height="62"/><rect x="146" y="98" width="24" height="84"/><rect x="176" y="112" width="18" height="70"/><rect x="214" y="58" width="6" height="124"/><rect x="208" y="52" width="18" height="12" rx="4"/><rect x="232" y="104" width="26" height="78"/><rect x="264" y="126" width="20" height="56"/></g><path d="M0 182 H400 V210 H0Z" fill="#7A3B2E" opacity=".8"/></svg>';   // v5.36: desert sunset, mountains, the Strip
   if (slug === 'oahu') return '<svg class="tp-art" viewBox="0 0 400 210" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="322" cy="92" r="42" fill="#FFE7A3" opacity=".85"/><path d="M150 152 L208 106 Q224 97 240 108 L304 152Z" fill="#3B3F5C" opacity=".34"/><path d="M0 150 Q50 136 100 150 T200 150 T300 150 T400 150 V210 H0Z" fill="#2BA3B8" opacity=".55"/><path d="M0 170 Q50 158 100 170 T200 170 T300 170 T400 170 V210 H0Z" fill="#137FA0" opacity=".7"/><path d="M0 190 Q50 179 100 190 T200 190 T300 190 T400 190 V210 H0Z" fill="#0B5A80" opacity=".85"/></svg>';
   return '<svg class="tp-art" viewBox="0 0 400 210" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="330" cy="70" r="26" fill="#E8F0FF" opacity=".5"/><g fill="#0B0E2A" opacity=".72"><rect x="150" y="96" width="22" height="80"/><rect x="176" y="60" width="26" height="116"/><rect x="181" y="44" width="4" height="16"/><rect x="193" y="44" width="4" height="16"/><rect x="206" y="104" width="20" height="72"/><rect x="230" y="84" width="24" height="92"/><rect x="258" y="118" width="18" height="58"/><rect x="280" y="98" width="22" height="78"/><rect x="306" y="128" width="30" height="48"/></g><path d="M0 176 Q50 168 100 176 T200 176 T300 176 T400 176 V210 H0Z" fill="#1E3A8A" opacity=".8"/></svg>';
 }
@@ -10985,7 +11009,7 @@ function tripPageHTML(t){
 }
 function tripFormHTML(d){
   if (!d) return '';
-  var gs = groupsGet(grpStore()), h = '<p class="tp-lab">' + esc(tripT('cityL')) + '</p><div class="tp-seg">' + CITIES.map(function(c){ return '<button class="chip" type="button" data-trip="city" data-v="' + esc(c.slug) + '" aria-pressed="' + (d.city === c.slug) + '">' + esc(c.name) + '</button>'; }).join('') + '</div>';
+  var gs = groupsGet(grpStore()), h = '<p class="tp-lab">' + esc(tripT('cityL')) + '</p><div class="tp-seg">' + CITIES.filter(function(c){ return c.slug === d.city || cityOpen(c.slug); }).map(function(c){ return '<button class="chip" type="button" data-trip="city" data-v="' + esc(c.slug) + '" aria-pressed="' + (d.city === c.slug) + '">' + esc(c.name) + '</button>'; }).join('') + '</div>';
   h += '<p class="tp-lab">' + esc(tripT('datesL')) + '</p><div class="tp-dd"><label><small>' + esc(tripT('fromL')) + '</small><input id="tpFrom" type="date" value="' + esc(d.from) + '"></label><label><small>' + esc(tripT('toL')) + '</small><input id="tpTo" type="date" value="' + esc(d.to) + '"></label></div>';
   if (TRIP.err) h += '<p class="tp-err" role="alert">' + esc(TRIP.err) + '</p>';
   if (gs.length) h += '<p class="tp-lab">' + esc(tripT('groupL')) + ' <small>' + esc(tripT('optional')) + '</small></p><div class="chips-w">' + [{id:'', name:tripT('none')}].concat(gs).map(function(g){ return '<button class="chip" type="button" data-trip="gid" data-v="' + esc(g.id) + '" aria-pressed="' + (d.gid === g.id) + '">' + esc(g.name) + '</button>'; }).join('') + '</div>';
@@ -12485,7 +12509,7 @@ function setCandidate(lat, lng, label, src){
 }
 function mapVisibleBoxForPanel(){ var pl = $('pLoc'); var top = 70, bottom = MV.H; if (!isWide() && !pl.hidden) bottom = Math.max(top + 100, MV.H - pl.offsetHeight); return {top:top, bottom:bottom}; }
 /* ----- v5.24 city picker: the chips at the top of "Where are you right now?" and the city button on the map. ----- */
-function cityChipsHTML(){ return CITIES.map(function(c){ return '<button class="chip city-chip" type="button" data-city="' + esc(c.slug) + '" aria-pressed="' + (c.slug === CITY.slug) + '">' + esc(c.name) + '</button>'; }).join(''); }
+function cityChipsHTML(){ return openCities().map(function(c){ return '<button class="chip city-chip" type="button" data-city="' + esc(c.slug) + '" aria-pressed="' + (c.slug === CITY.slug) + '">' + esc(c.name) + '</button>'; }).join(''); }
 function applyCityUI(){ // words and labels that name the city
   try {
     var cb = $('cityBtn'); if (cb) { cb.textContent = CITY.name; cb.setAttribute('aria-label', 'City: ' + CITY.name + '. Change'); }
@@ -12500,6 +12524,7 @@ function applyCityUI(){ // words and labels that name the city
 // how: 'pick' (she chose it: remembered, and GPS won't switch it back this visit), 'gps' (her location is in that city), 'boot', 'test'
 function setCity(slug, how){
   if (!CITY_BY[slug]) return false;
+  if (how !== 'test' && slug !== CITY.slug && !cityOpen(slug)) return false;   // v5.36: a city with no places in the loaded file (Las Vegas before its data) is never shown
   if (slug === CITY.slug) { if (how === 'pick') { UI.cityPicked = true; Platform.store.set(CITY_KEY, slug); } return false; }
   if ((how === 'pick' || how === 'gps') && TRIP.on) tripDrop();   // v5.26: she chose another city herself: trip mode ends (the trip stays saved)
   UI.cityLoc = UI.cityLoc || {}; if (S.loc && S.loc.src !== 'trip') UI.cityLoc[CITY.slug] = S.loc;   // v5.26: the trip's home base is never remembered as her spot
@@ -12571,8 +12596,8 @@ function locateMe(){
     Platform.geo.get(function(lat, lng, acc, t){
       geoBusy = false; UI.geoState = 'granted'; gpsBtnReset();
       if (TRIP.on) tripDrop();   // v5.26: a tap on "Use my location" means her real spot: trip mode ends (the trip stays saved)
-      var cc = cityAt(lat, lng);   // v5.24: a tap in another of our cities switches to it; outside every city she picks a spot
-      if (!cc) { setLocNote('You look far from ' + CITIES.map(function(c){ return c.name; }).join(' and ') + '. Pick a spot instead.', true); return; }
+      var cc = cityAtOpen(lat, lng);   // v5.24: a tap in another of our cities switches to it; outside every city she picks a spot (v5.36: only cities with places)
+      if (!cc) { setLocNote('You look far from ' + openCities().map(function(c){ return c.name; }).join(' and ') + '. Pick a spot instead.', true); return; }
       if (cc !== CITY.slug) setCity(cc, 'gps');
       // v5.5: a tap is a choice made in this session, so it beats everything. A rough reading keeps the panel open with the address box.
       var rough = accRough(acc);
@@ -12620,7 +12645,7 @@ function onGeoPermission(state){ // permissions "change" event and the first che
     // kept saying Lincoln Park), but never a choice made in this session or a newer reading (takeFix).
     Platform.geo.get(function(lat, lng, acc, t){
       if (TRIP.on) return;   // v5.26: trip mode on: the quiet reading never replaces the home base or switches the city
-      var cc = cityAt(lat, lng); if (!cc) return;   // v5.24: outside all our cities: nothing changes
+      var cc = cityAtOpen(lat, lng); if (!cc) return;   // v5.24: outside all our cities: nothing changes (v5.36: a city with no places yet counts as outside)
       var fix = {lat:lat, lng:lng, label:'Your location', src:'gps', acc:acc, t:t, fresh:true, explicit:false};
       if (cc !== CITY.slug) { if (UI.cityPicked || geoBusy || (!$('pLoc').hidden && !UI.firstOpen)) return; setCity(cc, 'gps'); }   // the nearest city to her, unless she picked one this visit
       if (geoBusy || !takeFix(S.loc, fix)) return;          // a tap is running, or something better is already set
@@ -14406,6 +14431,7 @@ function runSelfTest0(){
   block('v5.31 the About and Surprise panels in ru / zh-Hans / ko (A31 table), English unchanged', function(){ v531SelfTest(ok, eq, info); });
   block('v5.29 Ask about this place (data answers, "not in our info", no guessing) + group size and occasion filters + trip party size', function(){ v529SelfTest(ok, eq, info); });
   block('v5.35 shared trips (#t_ token, who may edit what, local + server merge, footer, hidden without the tables, sheet stacking)', function(){ v535SelfTest(ok, eq, info); });
+  block('v5.36 Las Vegas (Pacific open-now, DST, city switch, spots, words, drawn map without an outline, hidden while the file has no Vegas items)', function(){ v536SelfTest(ok, eq, info); });
 
   block('time zone', function(){
     eq('Chicago noon Jul 4 2026 = 17:00 UTC (CDT)', fromChicago('2026-07-04', 720), Date.UTC(2026, 6, 4, 17, 0));
@@ -15968,7 +15994,7 @@ function runSelfTest0(){
     eq('8 tiles: Limited time + 7 kinds', $('tiles') ? $('tiles').querySelectorAll('.tile').length : -1, 8);
     ok('no chip row on the main screen', !document.getElementById('chips'), 'found #chips');
     ok('Relax glyph and genre colors are defined', !!document.getElementById('g-steam') && getComputedStyle(document.documentElement).getPropertyValue('--g-relax').trim() !== '', 'missing');
-    eq('version', VERSION, 'v5.35 (2026-11-17)');
+    eq('version', VERSION, 'v5.36 (2026-11-22)');
     eq('previous version', VERSION_PREV, 'v5.31 (2026-11-15)');
   });
 
@@ -18637,11 +18663,88 @@ function v527SelfTestReal(ok, eq, note){ // the itinerary on the loaded file (re
     eq('real data I8: a 3-day Chicago plan from 8 real places: nothing lost, inside hours, no overlaps', [JSON.stringify(itTestAll(rc)) === JSON.stringify(chi.map(function(x){ return x.sid; }).sort(function(a, b){ return a - b; })), itTestInHours(rc, chi, CITY_BY.chicago), itTestOverlap(rc)].join('|'), 'true||');
   }
 }
+function v536SelfTest(ok, eq, info){ // v5.36: Las Vegas (Pacific time, city switch, hidden while the file has no Vegas items)
+  function fxv(o){ return ext({id:'fx36-' + (++uid), name:'Fixture', kind:'place', category:'games-arcade', tags:[], city:'vegas', lat:36.1126, lng:-115.1767, indoor_outdoor:'indoor', price_level:'$', booking:'walk-in', hours:allDays(['09:00', '17:00']), season:null, verified:{status:'verified', checked_on:'2026-11-22'}}, o); }
+  var V = CITY_BY.vegas;
+  eq('V536-1 the vegas entry: name, zone, US DST, UTC-8, no transit, 60 mi radius (box null), no water label', V ? [V.name, V.timezone, V.dst, V.std, V.transit, V.box, V.farMi, V.water].join('|') : 'missing', 'Las Vegas|America/Los_Angeles|true|-8|false||60|');
+  var lv = fxv({name:'Vegas nine-to-five'}), chi = fxv({name:'Chicago nine-to-five', city:'chicago', lat:41.88, lng:-87.63});
+  var T = Date.UTC(2026, 11, 13, 2, 0), T2 = Date.UTC(2026, 11, 12, 16, 30), T3 = Date.UTC(2026, 11, 13, 0, 30);   // Sat Dec 12: 8 pm Chicago = 6 pm Vegas; 10:30 am Chicago = 8:30 am Vegas; 6:30 pm Chicago = 4:30 pm Vegas
+  eq('V536-2 Pacific open-now from a Chicago clock: 6 pm Vegas closed, 8:30 am Vegas not yet open, 4:30 pm Vegas open', [statusAt(lv, T).open, statusAt(lv, T2).open, statusAt(lv, T3).open].join(), 'false,false,true');
+  eq('V536-2 ...while the Chicago 9-5 place is closed at 8 pm and 6:30 pm, open at 10:30 am', [statusAt(chi, T).open, statusAt(chi, T3).open, statusAt(chi, T2).open].join(), 'false,false,true');
+  var d3 = describe(statusAt(lv, T3), lv);
+  ok('V536-2 the Vegas words use Vegas time (closes at 5 pm / in 30 min)', /5 pm|30 min/.test((d3.text || '') + ' ' + (d3.sub || '')), JSON.stringify(d3));
+  eq('V536-2 the shown city stays on Chicago time', TZ, 'America/Chicago');
+  eq('V536-3 Vegas DST: noon Jul 4 = 19:00 UTC, noon Dec 4 = 20:00 UTC; 10 am on Mar 8 2026 (PDT) = 17:00, on Nov 1 2026 (PST) = 18:00', [fromCityTime('vegas', '2026-07-04', 720) === Date.UTC(2026, 6, 4, 19), fromCityTime('vegas', '2026-12-04', 720) === Date.UTC(2026, 11, 4, 20), fromCityTime('vegas', '2026-03-08', 600) === Date.UTC(2026, 2, 8, 17), fromCityTime('vegas', '2026-11-01', 600) === Date.UTC(2026, 10, 1, 18)].join(), 'true,true,true,true');
+  if (tzFmt('America/Los_Angeles')) {
+    var bad = withTZ('America/Los_Angeles', function(){ var n = 0; for (var t = Date.UTC(2026, 0, 1); t < Date.UTC(2027, 0, 1); t += 7 * 3600000 + 13 * 60000) { var a = partsIntl(t), b = partsRule(t); if (a.hh !== b.hh || a.mm !== b.mm || a.d !== b.d) n++; } return n; });
+    eq('V536-3 Intl and the built-in rule (UTC-8 + US DST) agree for Las Vegas all through 2026', bad, 0);
+  } else info('Intl has no America/Los_Angeles here: the built-in UTC-8 + US DST rule is used');
+  var on = fxv({name:'Vegas late bar', hours:allDays(['18:00', '02:00'])}), T4 = Date.UTC(2026, 11, 13, 9, 0);   // 1:00 am Sun Dec 13 in Vegas (3 am Chicago)
+  ok('V536-4 overnight hours in Vegas: an 18:00-02:00 bar is open at 1 am Vegas time (3 am in Chicago)', statusAt(on, T4).open === true, JSON.stringify({key:statusAt(on, T4).key}));
+  eq('V536-5 cityAt / nearestCity with Vegas: the Strip and Hoover Dam are vegas, Los Angeles is none, San Francisco is nearest Vegas', [cityAt(36.1126, -115.1767), cityAt(36.016, -114.7377), cityAt(34.05, -118.25), nearestCity(37.77, -122.42), cityAt(41.88, -87.63), cityAt(21.3, -157.85)].join(), 'vegas,vegas,,vegas,chicago,oahu');
+  eq('V536-5 every Vegas spot is inside the Vegas radius; 20+ spots', [VEGAS_SPOTS.every(function(s){ return inCityBox(s.lat, s.lng, V); }), VEGAS_SPOTS.length >= 20].join(), 'true,true');
+  ok('V536-5 every Vegas quick pick is a Vegas spot', V.picks.every(function(n){ return VEGAS_SPOTS.some(function(s){ return s.name === n; }); }), V.picks.join());
+  eq('V536-6 Vegas must-sees: Bellagio fountains, Fremont Street, Sphere count; a Chicago name does not; Chicago items still use the Chicago list', [visitorPick({name:'Fountains of Bellagio', city:'vegas'}), visitorPick({name:'Fremont Street Experience', city:'vegas'}), visitorPick({name:'Sphere', city:'vegas'}), visitorPick({name:'Navy Pier', city:'vegas'}), popKnownFor({city:'chicago'}) === POP_KNOWN].join(), 'true,true,true,false,true');
+  // city switch (pure state), then back to Chicago
+  var keep = CITY.slug, r = {};
+  try {
+    setCityCore('vegas');
+    r.core = [TZ, LOOP.label, SPOTS === VEGAS_SPOTS, CITY.transit, QUICK_PICKS[0], driveWord()].join('|');
+    r.travel = travelText(travel(3, 'transit'));
+    r.words = [i18t('oh.only'), i18t('f.visit'), i18t('oh.only', null, 'ru'), i18t('f.drive')].join('|');
+    r.nomi = nominatimUrl('Las Vegas Blvd').indexOf('viewbox=-115.45,36.40,-114.85,35.90&q=') > 0;
+    r.wx = wxUrl(36.11, -115.17).indexOf('timezone=America%2FLos_Angeles') > 0;
+    r.box = [inCityBox(36.1126, -115.1767), inCityBox(36.429, -114.5148), inCityBox(36.27, -115.64), inCityBox(34.05, -118.25), inCityBox(41.88, -87.63)].join();
+    var pr = unproj.apply(null, proj(36.17, -115.14)); r.proj = Math.abs(pr[0] - 36.17) < 1e-9 && Math.abs(pr[1] + 115.14) < 1e-9;
+    r.sun = cparts(sunTimes('2026-12-12').set).min;
+    r.data = DATA.every(function(it){ return cityOf(it) === 'vegas'; }) && DATA.length === cityItems(ALL_DATA, 'vegas').length;
+    r.art = /<svg class="tp-art"/.test(tripArtSvg('vegas')) && tripArtSvg('vegas') !== tripArtSvg('chicago');
+    cityGeo(); var u = proj(36.1126, -115.1767), v = proj(38.2, -115.17);
+    r.geo = GEO.areas.length + '|' + (GEO.areas[0] && GEO.areas[0].name) + '|' + isLake(u[0], u[1]) + '|' + isLake(v[0], v[1]);
+    r.lab = svgEl ? ($('mlabels').innerHTML.indexOf('mlab lake') < 0) : true;
+  } catch (e) { r.err = String(e && e.message); } finally { setCityCore(keep); cityGeo(); }
+  if (r.err) ok('V536-7 the Vegas switch ran without an error', false, r.err);
+  eq('V536-7 Vegas: Pacific zone, the Strip center and spots, no transit, Vegas quick picks, car/Uber', r.core, 'America/Los_Angeles|The Strip|true|false|The Strip|by car/Uber');
+  ok('V536-7 Vegas: Walk + CTA becomes a car/Uber estimate', /by car\/Uber/.test(r.travel || ''), r.travel);
+  eq('V536-7 Vegas badge and filter words (en, ru), drive chip', r.words, 'Only in Vegas|Visiting Vegas|Только в Вегасе|Car/Uber');
+  eq('V536-7 Vegas: address search box and weather time zone', [r.nomi, r.wx].join(), 'true,true');
+  eq('V536-7 Vegas "in the city": the Strip, Valley of Fire, Mt Charleston in; Los Angeles and Chicago out', r.box, 'true,true,true,false,false');
+  ok('V536-7 Vegas projection round trip', r.proj === true, String(r.proj));
+  ok('V536-7 Vegas sunset on Dec 12 reads about 4:30 pm in Vegas time', r.sun >= 960 && r.sun <= 1010, String(r.sun));
+  ok('V536-7 Vegas: the list holds Vegas items only (' + cityItems(ALL_DATA, 'vegas').length + ' in the loaded file)', r.data === true, String(r.data));
+  eq('V536-7 drawn map without an outline file: one plain "Las Vegas" area, the Strip is land, 145 mi north is outside; no water label', r.geo + '|' + r.lab, '1|Las Vegas|false|true|true');
+  ok('V536-7 trip-page art for Vegas', r.art === true, String(r.art));
+  eq('V536-8 back in Chicago: zone, the Loop, Chicago spots, CTA, Chicago words', [TZ, LOOP.label, SPOTS === SPOTS_CHI, travelText(travel(3, 'transit')), i18t('oh.only')].join('|'), 'America/Chicago|The Loop|true|about 26 min by CTA|Only in Chicago');
+  // hidden while the file has no Vegas items (fixtures in memory; nothing saved)
+  var keepAll = ALL_DATA, keepDL = DATA_LOADED, h = {};
+  try {
+    ALL_DATA = keepAll.filter(function(it){ return cityOf(it) !== 'vegas'; }); DATA_LOADED = true;
+    h.open0 = [cityOpen('vegas'), cityOpen('chicago'), cityOpen('tokyo')].join();
+    h.list0 = openCities().map(function(c){ return c.slug; }).join();
+    h.chips0 = cityChipsHTML().indexOf('data-city="vegas"') >= 0;
+    h.gps0 = cityAtOpen(36.1126, -115.1767) + '|' + cityAtOpen(41.88, -87.63);
+    h.set0 = setCity('vegas', 'pick') + '|' + CITY.slug;
+    ALL_DATA = ALL_DATA.concat([lv]);
+    h.open1 = cityOpen('vegas') + '|' + (cityChipsHTML().indexOf('data-city="vegas"') >= 0) + '|' + cityAtOpen(36.1126, -115.1767);
+    DATA_LOADED = false; ALL_DATA = [];
+    h.pre = cityOpen('vegas');
+  } catch (e) { h.err = String(e && e.message); } finally { ALL_DATA = keepAll; DATA_LOADED = keepDL; if (CITY.slug !== keep) setCityCore(keep); }
+  if (h.err) ok('V536-9 the hidden-city checks ran without an error', false, h.err);
+  eq('V536-9 0 Vegas items: Vegas is not offered (Chicago always is; an unknown city never)', h.open0, 'false,true,false');
+  eq('V536-9 0 Vegas items: the picker lists Chicago and Oʻahu only, no Vegas chip', h.list0 + '|' + h.chips0, (cityItems(keepAll, 'oahu').length ? 'chicago,oahu' : 'chicago') + '|false');
+  eq('V536-9 0 Vegas items: GPS on the Strip counts as outside our cities; picking Vegas is refused; still Chicago', h.gps0 + '|' + h.set0, '|chicago|false|chicago');
+  eq('V536-9 one Vegas item: the chip, the picker and GPS all offer Vegas', h.open1, 'true|true|vegas');
+  eq('V536-9 before the file loads every city counts (the boot falls back to Chicago after the load if a city is empty)', h.pre, true);
+  var nv = cityItems(ALL_DATA, 'vegas').length;
+  info('V536 loaded file: ' + nv + ' Vegas item(s)');
+  if (DATA_LOADED) eq('real data V536-10: the Vegas chip is shown exactly when the file has Vegas items (' + nv + ')', cityChipsHTML().indexOf('data-city="vegas"') >= 0, nv > 0);
+  eq('V536-10 the checks end in Chicago with every city restored', [CITY.slug, TZ, ALL_DATA === keepAll, DATA_LOADED === keepDL].join(), 'chicago,America/Chicago,true,true');
+}
 function v524SelfTest(ok, eq, info){
   function fxc(o){ return ext({id:'fx24-' + (++uid), name:'Fixture', kind:'place', category:'games-arcade', tags:[], lat:41.88, lng:-87.63, indoor_outdoor:'indoor', price_level:'$', booking:'walk-in', hours:null, season:null, verified:{status:'verified', checked_on:'2026-11-10'}}, o); }
   var nineFive = allDays(['09:00', '17:00']);
   var chi = fxc({name:'Chicago nine-to-five', hours:nineFive}), hon = fxc({name:'Honolulu nine-to-five', city:'oahu', lat:21.2794, lng:-157.8286, hours:nineFive});
-  eq('C1 two cities (cities.json), Chicago first', CITIES.map(function(c){ return c.slug + ':' + c.timezone; }).join(), 'chicago:America/Chicago,oahu:Pacific/Honolulu');
+  eq('C1 three cities (v5.36 adds Las Vegas), Chicago first', CITIES.map(function(c){ return c.slug + ':' + c.timezone; }).join(), 'chicago:America/Chicago,oahu:Pacific/Honolulu,vegas:America/Los_Angeles');
   eq('C1 a missing city means chicago; a set one is kept (trimmed, lower case)', [cityOf({}), cityOf({city:'oahu'}), cityOf({city:' OAHU '}), cityOf({city:'tokyo'}), cityOf(null)].join(), 'chicago,oahu,oahu,tokyo,chicago');
   eq('C1 the checks run in Chicago', CITY.slug + '|' + TZ + '|' + LOOP.label, 'chicago|America/Chicago|The Loop');
   // per-city counts (fixtures), never mixed
@@ -18688,7 +18791,7 @@ function v524SelfTest(ok, eq, info){
   ok('C4 Oʻahu: the list holds Oʻahu items only (' + cityItems(ALL_DATA, 'oahu').length + ' in the loaded file)', r.data === true, String(r.data));
   if (geoSw) eq('C4 the drawn map: one island area; open sea south is water, the middle of the island is land', r.geo, '1|Oʻahu|true|false'); else info('C4 drawn-map check skipped: the Chicago map files were not loaded yet');
   eq('C5 back in Chicago: zone, the Loop, CTA, Chicago words and search box', [TZ, LOOP.label, SPOTS === SPOTS_CHI, travelText(travel(3, 'transit')), i18t('oh.only'), nominatimUrl('x').indexOf('viewbox=-88.4,42.5,-87.4,41.4') > 0].join('|'), 'America/Chicago|The Loop|true|about 26 min by CTA|Only in Chicago|true');
-  eq('C5 cityAt / nearestCity', [cityAt(41.88, -87.63), cityAt(21.3, -157.85), cityAt(34.05, -118.25), nearestCity(37.77, -122.42), nearestCity(20.9, -156.4)].join(), 'chicago,oahu,,chicago,oahu');
+  eq('C5 cityAt / nearestCity (v5.36: St. Louis replaces San Francisco, which is now nearer Las Vegas)', [cityAt(41.88, -87.63), cityAt(21.3, -157.85), cityAt(34.05, -118.25), nearestCity(38.63, -90.20), nearestCity(20.9, -156.4)].join(), 'chicago,oahu,,chicago,oahu');
   if (DATA_LOADED) {
     var cnt = cityCounts(ALL_DATA);
     info('C5 loaded file per city: ' + Object.keys(cnt).map(function(k){ return k + ' ' + cnt[k]; }).join(', '));
@@ -18925,6 +19028,12 @@ function i18nSelfTestAsync(ok, eq){
         finally { setCityCore(keep24); cityGeo(); }
         eq('real data C7: the drawn map in Oʻahu: one island area, sea is water, mid-island is land, drawn; back in Chicago ' + GEO.areas.length + ' community areas', g6 + '|' + (GEO.areas.length > 50), '1|Oʻahu|true|false|true|true');
       } else note('C7 drawn-map check skipped (street map on, or the map files did not load)');
+      // v5.36 Las Vegas on the loaded file: offered exactly when the file has Vegas items
+      var nv36 = cityItems(ALL_DATA, 'vegas').length, oaN36 = cityItems(ALL_DATA, 'oahu').length;
+      eq('real data V536-11: Las Vegas is offered (chip, GPS) exactly when the file has Vegas items (' + nv36 + '); Chicago' + (oaN36 ? ' and Oʻahu' : '') + ' always listed', [cityChipsHTML().indexOf('data-city="vegas"') >= 0, cityAtOpen(36.1126, -115.1767) === 'vegas', openCities().map(function(c){ return c.slug; }).join()].join('|'), [nv36 > 0, nv36 > 0, ['chicago'].concat(oaN36 ? ['oahu'] : [], nv36 ? ['vegas'] : []).join()].join('|'));
+      if (nv36) { var keep36 = CITY.slug, vg = null; try { setCityCore('vegas'); vg = {n:DATA.length, ok:DATA.every(function(it){ return cityOf(it) === 'vegas'; }), tz:TZ}; } finally { setCityCore(keep36); }
+        ok('real data V536-12: the Vegas list = the file\'s Vegas items only (' + vg.n + '), Pacific time; Chicago back to ' + DATA.length, vg.ok && vg.n === nv36 && vg.tz === 'America/Los_Angeles' && CITY.slug === 'chicago' && DATA.length === cityItems(ALL_DATA, 'chicago').length, JSON.stringify(vg)); }
+      else note('real data V536-12 skipped: no Vegas items in this file (the city stays hidden)');
       try { v525SelfTestReal(ok, eq, note); } catch (e25) { ok('v5.25 Group Blend real-data checks: crashed', false, e25 && e25.message ? e25.message : String(e25)); }
       try { v526SelfTestReal(ok, eq, note); } catch (e26) { ok('v5.26 trip mode real-data checks: crashed', false, e26 && e26.message ? e26.message : String(e26)); }
       try { v527SelfTestReal(ok, eq, note); } catch (e27) { ok('v5.27 itinerary real-data checks: crashed', false, e27 && e27.message ? e27.message : String(e27)); }
@@ -19122,7 +19231,9 @@ function loadData(){
   Platform.fetchJSON(DATA_URL).then(function(raw){
     var n = normalize(raw);
     ALL_DATA = n.items; SKIPPED = n.skipped; DATA_LOADED = true;
+    if (!cityOpen(CITY.slug)) { try { setCity('chicago', 'boot'); } catch (e) { setCityCore('chicago'); S.loc = ext(LOOP, {}); } }   // v5.36: booted into a city the file has no places for (#city=vegas, a remembered spot there): back to Chicago
     cityData();   // v5.24: DATA = the current city's items only; venue links (v2.1 tester H-A) inside that city
+    try { applyCityUI(); } catch (e) {}   // v5.36: the city chips now know which cities have places
     buildSidIndex(ALL_DATA);   // v5.8: sid -> place, for friends' list links (every city)
     worldFromData();
     refresh();
@@ -19790,7 +19901,7 @@ window.__cff = {
   typeTaste: typeTaste, groupMember: groupMember, groupLikes: groupLikes, groupPicks: groupPicks, groupScore: groupScore, groupMembersFrom: groupMembersFrom, groupVoteLink: groupVoteLink, groupsGet: groupsGet, groupsPut: groupsPut, groupsForget: groupsForget, pollGoWith: pollGoWith,   // v5.25 Group Blend
   group: function(){ return {mode:GRP.mode, pick:GRP.pick.slice(), cur:GRP.cur, picks:(GRP.picks || []).map(function(p){ return {sid:p.sid, n:p.n, m:p.m, city:cityOf(p.c.item)}; }), vote:GRP.vote.slice(), saved:groupsGet(grpStore()).length}; }, groupOpen: grpOpen,
   CITIES: CITIES, city: function(){ return {slug:CITY.slug, name:CITY.name, tz:TZ, center:ext(LOOP, {}), n:DATA.length, all:ALL_DATA.length, counts:cityCounts(ALL_DATA), fly:CITY_FLY.phase, picked:!!UI.cityPicked}; },   // v5.24
-  setCity: function(s, how){ return setCity(s, how || 'pick'); }, cityOf: cityOf, cityAt: cityAt, nearestCity: nearestCity, inCityBox: inCityBox, cityItems: cityItems, cityCounts: cityCounts, tzOf: tzOf, withTZ: withTZ, fromCityTime: fromCityTime, driveWord: driveWord,
+  setCity: function(s, how){ return setCity(s, how || 'pick'); }, cityOf: cityOf, cityAt: cityAt, cityAtOpen: cityAtOpen, cityOpen: cityOpen, openCities: function(){ return openCities().map(function(c){ return c.slug; }); }, VEGAS_SPOTS: VEGAS_SPOTS, nearestCity: nearestCity, inCityBox: inCityBox, cityItems: cityItems, cityCounts: cityCounts, tzOf: tzOf, withTZ: withTZ, fromCityTime: fromCityTime, driveWord: driveWord,
   bkPlan: bkPlan, bkState: function(){ var s = null; try { s = history.state; } catch (e) {} return {pushed:BK.pushed, skip:BK.skip, state:s, len:history.length}; },   // v5.24 phone Back
   grParse: grParse, grEligible: grEligible, grLineHTML: grLineHTML, grRequest: grRequest, grState: function(){ return {calls:GR.calls, nav:GR.nav, inflight:GR.inflight, mock:!!GR.fetchFn, live:grLive(), ids:Object.keys(GR.mem)}; },   // v5.22 (no ratings stored anywhere but page memory)
   leaveByText: leaveByText, statusNotes: statusNotes, holidayCaution: holidayCaution, hasHolidayInfo: hasHolidayInfo, i18L: i18L,   // v5.22
