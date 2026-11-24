@@ -86708,7 +86708,11 @@
         "lng":  -115.083846741278,
         "sid":  672,
         "photos":  [
-
+                       {
+                           "file":  "photos/vegas-ev-silver-knights-1.jpg",
+                           "credit":  "Henderson Silver Knights / Zak Krill (team photographer, per the article)",
+                           "page_url":  "https://www.hendersonsilverknights.com/shooting-storytelling-behind-the-lens-of-knights-photographer-zak-krill/"
+                       }
                    ]
     },
     {
@@ -86778,7 +86782,11 @@
         "lng":  -115.230390581765,
         "sid":  673,
         "photos":  [
-
+                       {
+                           "file":  "photos/vegas-ev-great-santa-run-1.jpg",
+                           "credit":  "Steve Marcus / Las Vegas Sun",
+                           "page_url":  "https://lasvegassun.com/photos/galleries/2025/dec/06/2025-great-santa-run/"
+                       }
                    ]
     },
     {
@@ -87746,7 +87754,11 @@
         "lng":  -115.144024,
         "sid":  681,
         "photos":  [
-
+                       {
+                           "file":  "photos/vegas-dh-top-of-binions-1.jpg",
+                           "credit":  "Fremont Street Experience (photographer not named)",
+                           "page_url":  "https://fremontstreetexperience.com/eat-and-drink/top-of-binions-steakhouse/"
+                       }
                    ]
     },
     {
@@ -88086,7 +88098,11 @@
         "lng":  -115.2097115,
         "sid":  684,
         "photos":  [
-
+                       {
+                           "file":  "photos/vegas-dh-shang-artisan-noodle-1.jpg",
+                           "credit":  "FOX5 / KVVU (video frame, reporter Regina Ahn)",
+                           "page_url":  "https://www.fox5vegas.com/2022/12/05/las-vegas-restaurant-gaining-attention-hand-pulled-noodles-techniques-china/"
+                       }
                    ]
     },
     {
