@@ -86252,5 +86252,2530 @@
                            "page_url":  "https://commons.wikimedia.org/wiki/File:Desert_bighorn_sheep_at_Hemenway_Park_on_4_September_2021_8.jpg"
                        }
                    ]
+    },
+    {
+        "id":  "vegas-ev-santa-train",
+        "city":  "vegas",
+        "name":  "Santa Train at the Nevada State Railroad Museum",
+        "kind":  "event",
+        "category":  "seasonal",
+        "genre":  "shows-nights",
+        "tags":  [
+                     "holiday",
+                     "train",
+                     "families",
+                     "boulder-city",
+                     "daytime"
+                 ],
+        "neighborhood":  "Boulder City",
+        "indoor_outdoor":  "both",
+        "price_level":  1,
+        "price_from":  12,
+        "price_note":  "$12 per person; $6 for museum members.",
+        "hours":  null,
+        "event_dates":  [
+                            {
+                                "start":  "2026-11-28T09:00",
+                                "end":  "2026-11-28T15:00"
+                            },
+                            {
+                                "start":  "2026-11-29T09:00",
+                                "end":  "2026-11-29T15:00"
+                            },
+                            {
+                                "start":  "2026-12-05T09:00",
+                                "end":  "2026-12-05T15:00"
+                            },
+                            {
+                                "start":  "2026-12-06T09:00",
+                                "end":  "2026-12-06T15:00"
+                            },
+                            {
+                                "start":  "2026-12-12T09:00",
+                                "end":  "2026-12-12T15:00"
+                            },
+                            {
+                                "start":  "2026-12-13T09:00",
+                                "end":  "2026-12-13T15:00"
+                            },
+                            {
+                                "start":  "2026-12-19T09:00",
+                                "end":  "2026-12-19T15:00"
+                            },
+                            {
+                                "start":  "2026-12-20T09:00",
+                                "end":  "2026-12-20T15:00"
+                            }
+                        ],
+        "end_date_confirmed":  true,
+        "hours_note":  "Saturdays and Sundays Nov 28 - Dec 20. Departures at 9:00, 10:30, 12:00, 1:30 and 3:00. Ride length not posted.",
+        "closed_dates":  [
+
+                         ],
+        "season":  {
+                       "open_from":  "2026-11-28",
+                       "open_to":  "2026-12-20",
+                       "note":  "Weekends only, Nov 28 to Dec 20."
+                   },
+        "booking":  "ticket",
+        "booking_url":  "https://www.boulderrailroadmuseum.org/santatrain/",
+        "phone":  "(702) 486-4149",
+        "website":  "https://www.boulderrailroadmuseum.org/santatrain/",
+        "source_urls":  [
+                            "https://www.boulderrailroadmuseum.org/santatrain/"
+                        ],
+        "good_for":  [
+                         "date",
+                         "friends",
+                         "family"
+                     ],
+        "verified":  {
+                         "status":  "verified",
+                         "checked_on":  "2026-11-24",
+                         "evidence_url":  "https://www.boulderrailroadmuseum.org/santatrain/"
+                     },
+        "hook":  "A vintage holiday train ride with Santa walking the cars",
+        "description":  "On December weekends the Nevada State Railroad Museum in Boulder City turns its heritage train ride into a Santa Train. You board a vintage railroad car for a ride out toward Henderson and back while holiday songs play and everyone sings along. Santa and his helpers walk through the cars handing out candy canes and stopping for photos. Seats are limited and the museum says to book early; it is aimed at families but works as a sweet, low-key outing with friends, and the museum\u0027s open-air train pavilion is next door.",
+        "highlights":  [
+                           "Weekends Nov 28 - Dec 20, 5 departures a day",
+                           "$12 per person, $6 museum members",
+                           "Vintage railroad car, out to Henderson and back",
+                           "Santa walks the train with candy canes and photos",
+                           "Limited seats: book ahead"
+                       ],
+        "age_note":  "All ages; no age rule posted",
+        "duration_minutes":  null,
+        "min_minutes":  60,
+        "address":  "1000 Boulder City Pkwy, Boulder City, NV 89005",
+        "lat":  35.9714783,
+        "lng":  -114.8547837,
+        "sid":  668,
+        "photos":  [
+                       {
+                           "file":  "photos/vegas-ev-santa-train-1.jpg",
+                           "credit":  "Nevada State Railroad Museum Boulder City (official site)",
+                           "page_url":  "https://www.boulderrailroadmuseum.org/santatrain/"
+                       }
+                   ]
+    },
+    {
+        "id":  "vegas-ev-enchant-las-vegas",
+        "city":  "vegas",
+        "name":  "Enchant Christmas light maze at Las Vegas Ballpark",
+        "kind":  "event",
+        "category":  "seasonal",
+        "genre":  "shows-nights",
+        "tags":  [
+                     "holiday",
+                     "lights",
+                     "ice-skating",
+                     "date",
+                     "friends",
+                     "evening",
+                     "summerlin"
+                 ],
+        "neighborhood":  "Summerlin (Downtown Summerlin)",
+        "indoor_outdoor":  "outdoor",
+        "price_level":  null,
+        "price_from":  null,
+        "price_note":  "Prices on the Enchant ticket site. Ice skating, snow slide, s\u0027mores pit and parking cost extra; Premier Pass upgrade $30 (drink, gift, fast pass).",
+        "hours":  null,
+        "event_dates":  [
+                            {
+                                "start":  "2026-11-24",
+                                "end":  "2026-12-27"
+                            }
+                        ],
+        "end_date_confirmed":  true,
+        "hours_note":  "Open through Dec 27. Evening event with timed arrival windows; nightly hours are not posted, so check the ticket site before going. Opening date not posted.",
+        "closed_dates":  [
+
+                         ],
+        "season":  {
+                       "open_from":  null,
+                       "open_to":  "2026-12-27",
+                       "note":  "Holiday season, open through Dec 27."
+                   },
+        "date_hours":  {
+                           "2026-11-26":  "unknown",
+                           "2026-12-24":  "unknown",
+                           "2026-12-25":  "unknown"
+                       },
+        "booking":  "ticket",
+        "booking_url":  "https://tickets.enchantchristmas.com/",
+        "phone":  "",
+        "website":  "https://www.enchantchristmas.com/las-vegas/",
+        "source_urls":  [
+                            "https://www.enchantchristmas.com/las-vegas/",
+                            "https://www.enchantchristmas.com/las-vegas/plan-your-visit/"
+                        ],
+        "good_for":  [
+                         "date",
+                         "friends",
+                         "family"
+                     ],
+        "verified":  {
+                         "status":  "unverified",
+                         "checked_on":  "2026-11-24",
+                         "evidence_url":  "https://www.enchantchristmas.com/las-vegas/plan-your-visit/"
+                     },
+        "hook":  "A huge walk-through Christmas light maze with skating and a holiday village",
+        "description":  "Enchant fills the Las Vegas Ballpark in Summerlin with what it bills as the world\u0027s largest Christmas light maze, this year a storyline called The Great Search where you hunt for Santa\u0027s missing reindeer among glowing light sculptures. General admission also covers the shopping village with seasonal food and drink, live music and caroling, photo spots, a Santa visit and a light-up dance floor. Ice skating, a snow slide and a s\u0027mores pit cost extra, as does parking (free lots are first come, first served). You pick an arrival window when you book and can then stay until closing; the event is cashless and only soft bags up to 16x16x8 in are allowed.",
+        "highlights":  [
+                           "Open through Dec 27",
+                           "Light maze with a find-the-reindeer storyline",
+                           "Food, drinks, live music and a holiday village",
+                           "Ice skating, snow slide, s\u0027mores: paid add-ons",
+                           "Timed arrival window, stay until close; cashless"
+                       ],
+        "age_note":  "All ages; alcoholic drinks sold (Premier Pass offers alcoholic or non-alcoholic)",
+        "duration_minutes":  150,
+        "min_minutes":  90,
+        "address":  "Las Vegas Ballpark, 1650 S Pavilion Center Dr, Las Vegas, NV 89135",
+        "lat":  36.152643456256,
+        "lng":  -115.330897114308,
+        "sid":  669,
+        "photos":  [
+
+                   ]
+    },
+    {
+        "id":  "vegas-ev-very-vegas-christmas",
+        "city":  "vegas",
+        "name":  "A Very Vegas Christmas (Las Vegas Philharmonic)",
+        "kind":  "event",
+        "category":  "show-comedy-music",
+        "genre":  "shows-nights",
+        "tags":  [
+                     "holiday",
+                     "concert",
+                     "orchestra",
+                     "date",
+                     "downtown"
+                 ],
+        "neighborhood":  "Symphony Park (Downtown)",
+        "indoor_outdoor":  "indoor",
+        "price_level":  null,
+        "price_from":  null,
+        "price_note":  "Prices not shown on the Philharmonic page; tickets through The Smith Center box office, (702) 749-2000.",
+        "hours":  null,
+        "event_dates":  [
+                            {
+                                "start":  "2026-12-05T19:30"
+                            },
+                            {
+                                "start":  "2026-12-06T14:00"
+                            }
+                        ],
+        "end_date_confirmed":  true,
+        "hours_note":  "Sat Dec 5 at 7:30 pm and Sun Dec 6 at 2 pm. Doors open 6:30 pm for the evening show.",
+        "closed_dates":  [
+
+                         ],
+        "season":  null,
+        "booking":  "ticket",
+        "booking_url":  "https://lvphil.org/events/a-very-vegas-christmas26/",
+        "phone":  "(702) 749-2000",
+        "website":  "https://lvphil.org/events/a-very-vegas-christmas26/",
+        "source_urls":  [
+                            "https://lvphil.org/events/a-very-vegas-christmas26/",
+                            "https://lvphil.org/seasons/2026-2027/"
+                        ],
+        "good_for":  [
+                         "date",
+                         "friends",
+                         "family"
+                     ],
+        "verified":  {
+                         "status":  "verified",
+                         "checked_on":  "2026-11-24",
+                         "evidence_url":  "https://lvphil.org/events/a-very-vegas-christmas26/"
+                     },
+        "hook":  "The Philharmonic\u0027s all-new Vegas-style holiday pops concert",
+        "description":  "The Las Vegas Philharmonic\u0027s holiday show, led by music director Rei Hotoda, is an all-new edition this year. Five singers from Strip shows join the orchestra for classics, carols and sing-alongs, with a children\u0027s choir and Nevada Ballet Theatre dancing the Waltz of the Flowers from The Nutcracker. Santa and the Grinch both drop in, and the orchestra promises more surprises. It plays in Reynolds Hall at The Smith Center downtown, a dressy-but-fun date night before or after dinner nearby.",
+        "highlights":  [
+                           "Sat Dec 5, 7:30 pm; Sun Dec 6, 2 pm",
+                           "Five Strip vocalists plus full orchestra",
+                           "Nutcracker excerpt by Nevada Ballet Theatre",
+                           "Sing-alongs, Santa and the Grinch",
+                           "The Smith Center, Symphony Park"
+                       ],
+        "age_note":  "Family concert; no age rule posted",
+        "duration_minutes":  null,
+        "min_minutes":  120,
+        "photo_note":  "No usable official photo: the only event image is a text title banner. Kept because dates, times and venue are verified on the organizer\u0027s page.",
+        "address":  "The Smith Center (Reynolds Hall), 361 Symphony Park Ave, Las Vegas, NV 89106",
+        "lat":  36.169296462565,
+        "lng":  -115.151968796126,
+        "sid":  670,
+        "photos":  [
+
+                   ]
+    },
+    {
+        "id":  "vegas-ev-nbt-nutcracker",
+        "city":  "vegas",
+        "name":  "George Balanchine\u0027s The Nutcracker (Nevada Ballet Theatre)",
+        "kind":  "event",
+        "category":  "show-comedy-music",
+        "genre":  "shows-nights",
+        "tags":  [
+                     "holiday",
+                     "ballet",
+                     "date",
+                     "downtown",
+                     "live-orchestra"
+                 ],
+        "neighborhood":  "Symphony Park (Downtown)",
+        "indoor_outdoor":  "indoor",
+        "price_level":  null,
+        "price_from":  null,
+        "price_note":  "Prices not shown on the ballet\u0027s page; single tickets via the page\u0027s Buy Now links.",
+        "hours":  null,
+        "event_dates":  [
+                            {
+                                "start":  "2026-12-12T14:00"
+                            },
+                            {
+                                "start":  "2026-12-12T19:30"
+                            },
+                            {
+                                "start":  "2026-12-13T14:00"
+                            },
+                            {
+                                "start":  "2026-12-16T19:30"
+                            },
+                            {
+                                "start":  "2026-12-17T19:30"
+                            },
+                            {
+                                "start":  "2026-12-18T19:30"
+                            },
+                            {
+                                "start":  "2026-12-19T14:00"
+                            },
+                            {
+                                "start":  "2026-12-19T19:30"
+                            },
+                            {
+                                "start":  "2026-12-20T14:00"
+                            },
+                            {
+                                "start":  "2026-12-22T14:00"
+                            },
+                            {
+                                "start":  "2026-12-22T19:30"
+                            },
+                            {
+                                "start":  "2026-12-23T14:00"
+                            },
+                            {
+                                "start":  "2026-12-23T19:30"
+                            },
+                            {
+                                "start":  "2026-12-24T14:00"
+                            },
+                            {
+                                "start":  "2026-12-26T14:00"
+                            },
+                            {
+                                "start":  "2026-12-27T14:00"
+                            }
+                        ],
+        "end_date_confirmed":  true,
+        "hours_note":  "16 performances Dec 12-27: matinees 2 pm, evenings 7:30 pm (see dates). About 1 hr 50 min with intermission. No show on Christmas Day.",
+        "closed_dates":  [
+
+                         ],
+        "season":  null,
+        "booking":  "ticket",
+        "booking_url":  "https://nevadaballet.org/performances/nutcracker-26-27/",
+        "phone":  "",
+        "website":  "https://nevadaballet.org/performances/nutcracker-26-27/",
+        "source_urls":  [
+                            "https://nevadaballet.org/performances/nutcracker-26-27/"
+                        ],
+        "good_for":  [
+                         "date",
+                         "family"
+                     ],
+        "verified":  {
+                         "status":  "verified",
+                         "checked_on":  "2026-11-24",
+                         "evidence_url":  "https://nevadaballet.org/performances/nutcracker-26-27/"
+                     },
+        "hook":  "Balanchine\u0027s classic Nutcracker with a live orchestra downtown",
+        "description":  "Nevada Ballet Theatre brings back George Balanchine\u0027s version of The Nutcracker, which it first staged in 2025, with the Las Vegas Philharmonic playing Tchaikovsky\u0027s score live. The production mixes traditional sets and costumes with projected media, following Marie and her Nutcracker Prince from the Christmas Eve party and the battle with the Mouse King through the snow forest to the Land of Sweets. Expect the big set pieces: the snowflake waltz, Dewdrop, the Sugarplum Fairy, Mother Ginger and her Polichinelles. Act I runs 49 minutes, then a 20-minute intermission and a 41-minute Act II, at The Smith Center\u0027s Reynolds Hall.",
+        "highlights":  [
+                           "16 shows, Dec 12-27 (2 pm and 7:30 pm)",
+                           "Balanchine choreography",
+                           "Live Las Vegas Philharmonic",
+                           "About 1 hr 50 min with intermission",
+                           "Christmas Eve 2 pm matinee"
+                       ],
+        "age_note":  "Family show; no age rule posted",
+        "duration_minutes":  110,
+        "min_minutes":  110,
+        "address":  "The Smith Center (Reynolds Hall), 361 Symphony Park Ave, Las Vegas, NV 89106",
+        "lat":  36.169296462565,
+        "lng":  -115.151968796126,
+        "sid":  671,
+        "photos":  [
+                       {
+                           "file":  "photos/vegas-ev-nbt-nutcracker-1.jpg",
+                           "credit":  "Nevada Ballet Theatre (official site): Artists of NBT in The Snowflakes",
+                           "page_url":  "https://nevadaballet.org/performances/nutcracker-26-27/"
+                       }
+                   ]
+    },
+    {
+        "id":  "vegas-ev-silver-knights",
+        "city":  "vegas",
+        "name":  "Henderson Silver Knights home games (AHL hockey)",
+        "kind":  "event",
+        "category":  "unique-niche",
+        "genre":  "shows-nights",
+        "tags":  [
+                     "sports",
+                     "hockey",
+                     "friends",
+                     "date",
+                     "henderson"
+                 ],
+        "neighborhood":  "Henderson (Green Valley)",
+        "indoor_outdoor":  "indoor",
+        "price_level":  null,
+        "price_from":  null,
+        "price_note":  "Prices vary by game and seat; not shown on the schedule page.",
+        "hours":  null,
+        "event_dates":  [
+                            {
+                                "start":  "2026-11-25T19:00"
+                            },
+                            {
+                                "start":  "2026-11-27T13:00"
+                            },
+                            {
+                                "start":  "2026-12-01T19:00"
+                            },
+                            {
+                                "start":  "2026-12-09T19:00"
+                            },
+                            {
+                                "start":  "2026-12-19T18:00"
+                            },
+                            {
+                                "start":  "2026-12-20T17:00"
+                            }
+                        ],
+        "end_date_confirmed":  true,
+        "hours_note":  "Home games: Wed Nov 25 7 pm (Abbotsford), Fri Nov 27 1 pm Marvel Night (Abbotsford), Tue Dec 1 7 pm (San Diego), Wed Dec 9 7 pm (Bakersfield), Sat Dec 19 6 pm (Ontario, holiday ornament giveaway), Sun Dec 20 5 pm Kids Day (Ontario). Season continues into 2027.",
+        "closed_dates":  [
+
+                         ],
+        "season":  null,
+        "booking":  "ticket",
+        "booking_url":  "https://www.hendersonsilverknights.com/2026-27-single-game-tickets/",
+        "phone":  "(702) 645-4259",
+        "website":  "https://www.hendersonsilverknights.com/2026-27-single-game-tickets/",
+        "source_urls":  [
+                            "https://www.hendersonsilverknights.com/2026-27-single-game-tickets/",
+                            "https://leesfamilyforum.com/"
+                        ],
+        "good_for":  [
+                         "friends",
+                         "date"
+                     ],
+        "verified":  {
+                         "status":  "verified",
+                         "checked_on":  "2026-11-24",
+                         "evidence_url":  "https://www.hendersonsilverknights.com/2026-27-single-game-tickets/"
+                     },
+        "hook":  "Cheap-and-cheerful minor-league hockey, the Golden Knights\u0027 farm team",
+        "description":  "The Henderson Silver Knights are the Vegas Golden Knights\u0027 AHL affiliate, so you are watching future NHL players in a smaller, closer-to-the-ice arena in Henderson. Games come with theme nights and giveaways, such as a Marvel Night on the Friday after Thanksgiving and a holiday ornament night on Dec 19. The arena, Lee\u0027s Family Forum, sits by The District at Green Valley Ranch and has its own sports bar and grill. A good, easy night out with friends that costs less and is calmer than a Strip arena.",
+        "highlights":  [
+                           "Golden Knights\u0027 AHL farm team",
+                           "Home games Nov 25, Nov 27, Dec 1, 9, 19, 20",
+                           "Theme nights and giveaways",
+                           "Lee\u0027s Family Forum, Henderson"
+                       ],
+        "age_note":  "All ages; no age rule posted",
+        "duration_minutes":  150,
+        "min_minutes":  150,
+        "photo_note":  "No usable official photo: the team and arena images found are text ticket banners or under 800 px. Kept because dates, times and venue are verified on the team\u0027s page.",
+        "address":  "Lee\u0027s Family Forum, 200 S Green Valley Pkwy, Henderson, NV 89012",
+        "lat":  36.021582315006,
+        "lng":  -115.083846741278,
+        "sid":  672,
+        "photos":  [
+
+                   ]
+    },
+    {
+        "id":  "vegas-ev-great-santa-run",
+        "city":  "vegas",
+        "name":  "Las Vegas Great Santa Run (5K and 1-mile walk)",
+        "kind":  "event",
+        "category":  "social-events",
+        "genre":  "shows-nights",
+        "tags":  [
+                     "holiday",
+                     "run",
+                     "charity",
+                     "friends",
+                     "costume",
+                     "daytime"
+                 ],
+        "neighborhood":  "West Las Vegas (Opportunity Village)",
+        "indoor_outdoor":  "outdoor",
+        "price_level":  null,
+        "price_from":  57.5,
+        "price_note":  "Registration $57.50 from Nov 23 to race day (was $42.50 / $52.50 earlier); pets $10; children 3 and under free. Includes a five-piece Santa suit, finisher medal and swag bag while supplies last.",
+        "hours":  null,
+        "event_dates":  [
+                            {
+                                "start":  "2026-12-05T12:30"
+                            }
+                        ],
+        "end_date_confirmed":  true,
+        "hours_note":  "Sat Dec 5: registration, packet pickup and pre-race fun from 12:30 pm; races start 2:30 pm. Runners\u0027 medals get early entry to the Magical Forest at 4 pm.",
+        "closed_dates":  [
+
+                         ],
+        "season":  null,
+        "booking":  "ticket",
+        "booking_url":  "https://www.opportunityvillage.org/ovevents/great-santa-run",
+        "phone":  "(702) 259-3700",
+        "website":  "https://www.opportunityvillage.org/ovevents/great-santa-run",
+        "source_urls":  [
+                            "https://www.opportunityvillage.org/ovevents/great-santa-run"
+                        ],
+        "good_for":  [
+                         "friends",
+                         "date",
+                         "family"
+                     ],
+        "verified":  {
+                         "status":  "verified",
+                         "checked_on":  "2026-11-24",
+                         "evidence_url":  "https://www.opportunityvillage.org/ovevents/great-santa-run"
+                     },
+        "hook":  "Thousands of people in Santa suits running a holiday 5K for charity",
+        "description":  "Opportunity Village\u0027s yearly Santa Run turns a crowd of runners and walkers into a sea of Santas: every paid entry comes with a five-piece Santa suit, a finisher medal and a swag bag. You pick a 5K or a 1-mile walk around the Magical Forest grounds on West Oakey, and it is stroller, wheelchair, walker and pet friendly. Festivities start at 12:30 pm with the races at 2:30, then there is food and entertainment afterward. Your medal gets you into the Magical Forest light display early at 4 pm, and all proceeds support people with intellectual and developmental disabilities in Nevada.",
+        "highlights":  [
+                           "Sat Dec 5, races at 2:30 pm",
+                           "5K or 1-mile walk",
+                           "Santa suit, medal and swag bag included",
+                           "Medal = early entry to the Magical Forest at 4 pm",
+                           "Dogs welcome ($10)"
+                       ],
+        "age_note":  "All ages; children 3 and under free",
+        "duration_minutes":  180,
+        "min_minutes":  90,
+        "photo_note":  "No usable official photo: the page has a text ticket banner and a collage of identifiable participants. Kept because date, times, place and prices are verified on the organizer\u0027s page.",
+        "address":  "Opportunity Village Magical Forest, 6300 W Oakey Blvd, Las Vegas, NV 89146",
+        "lat":  36.151747670628,
+        "lng":  -115.230390581765,
+        "sid":  673,
+        "photos":  [
+
+                   ]
+    },
+    {
+        "id":  "vegas-ev-comedy-cellar-rio",
+        "city":  "vegas",
+        "name":  "Comedy Cellar at Rio",
+        "kind":  "event",
+        "category":  "show-comedy-music",
+        "genre":  "shows-nights",
+        "tags":  [
+                     "comedy",
+                     "date",
+                     "friends",
+                     "evening",
+                     "off-strip"
+                 ],
+        "neighborhood":  "Off-Strip (Rio, West Flamingo)",
+        "indoor_outdoor":  "indoor",
+        "price_level":  null,
+        "price_from":  null,
+        "price_note":  "Ticket prices not posted; see the Rio box office.",
+        "hours":  null,
+        "event_dates":  [
+                            {
+                                "start":  "2026-11-24T19:00"
+                            },
+                            {
+                                "start":  "2026-11-24T21:30"
+                            },
+                            {
+                                "start":  "2026-11-25T19:00"
+                            },
+                            {
+                                "start":  "2026-11-25T21:30"
+                            },
+                            {
+                                "start":  "2026-11-26T19:00"
+                            },
+                            {
+                                "start":  "2026-11-26T21:30"
+                            },
+                            {
+                                "start":  "2026-11-27T19:00"
+                            },
+                            {
+                                "start":  "2026-11-27T21:30"
+                            },
+                            {
+                                "start":  "2026-11-28T19:00"
+                            },
+                            {
+                                "start":  "2026-11-28T21:30"
+                            },
+                            {
+                                "start":  "2026-11-29T19:00"
+                            },
+                            {
+                                "start":  "2026-11-29T21:30"
+                            },
+                            {
+                                "start":  "2026-11-30T19:00"
+                            },
+                            {
+                                "start":  "2026-11-30T21:30"
+                            },
+                            {
+                                "start":  "2026-12-01T19:00"
+                            },
+                            {
+                                "start":  "2026-12-01T21:30"
+                            },
+                            {
+                                "start":  "2026-12-02T19:00"
+                            },
+                            {
+                                "start":  "2026-12-02T21:30"
+                            },
+                            {
+                                "start":  "2026-12-03T19:00"
+                            },
+                            {
+                                "start":  "2026-12-03T21:30"
+                            },
+                            {
+                                "start":  "2026-12-04T19:00"
+                            },
+                            {
+                                "start":  "2026-12-04T21:30"
+                            },
+                            {
+                                "start":  "2026-12-05T19:00"
+                            },
+                            {
+                                "start":  "2026-12-05T21:30"
+                            },
+                            {
+                                "start":  "2026-12-06T19:00"
+                            },
+                            {
+                                "start":  "2026-12-06T21:30"
+                            }
+                        ],
+        "end_date_confirmed":  false,
+        "hours_note":  "Two shows nightly, 7:00 pm and 9:30 pm, Thanksgiving included. End times not posted. Lineups posted through Dec 6; more dates are on the Rio page.",
+        "closed_dates":  [
+
+                         ],
+        "season":  null,
+        "date_hours":  {
+                           "2026-12-24":  "unknown",
+                           "2026-12-25":  "unknown"
+                       },
+        "booking":  "ticket",
+        "booking_url":  "https://www.riolasvegas.com/shows/comedy-cellar",
+        "phone":  "(866) 746-7671",
+        "website":  "https://www.riolasvegas.com/shows/comedy-cellar",
+        "source_urls":  [
+                            "https://www.riolasvegas.com/shows/comedy-cellar"
+                        ],
+        "good_for":  [
+                         "date",
+                         "friends"
+                     ],
+        "verified":  {
+                         "status":  "verified",
+                         "checked_on":  "2026-11-24",
+                         "evidence_url":  "https://www.riolasvegas.com/shows/comedy-cellar"
+                     },
+        "hook":  "The NYC comedy landmark\u0027s Vegas club: five headliners a night",
+        "description":  "The first West Coast branch of New York\u0027s famous Comedy Cellar, the club that helped launch Ray Romano, Jon Stewart and Amy Schumer, sits in an intimate 300-seat underground room at the Rio. It uses the same showcase format as the original: five headliner-level comics each do a 15-20 minute set, so you get a real mix in one show. Lineups change weekly and are posted on the Rio page (Thanksgiving week includes Tom Rhodes and Butch Bradley with host Mark Cohen). There are two shows every night, and the club now serves shareable bites and cocktails. Guests must be 18 or older.",
+        "highlights":  [
+                           "Shows nightly at 7:00 and 9:30 pm",
+                           "Five comics, 15-20 minute sets each",
+                           "300-seat underground room",
+                           "Food and cocktails served",
+                           "18+"
+                       ],
+        "age_note":  "18+ (Rio page)",
+        "duration_minutes":  100,
+        "min_minutes":  90,
+        "address":  "Rio Hotel \u0026 Casino, 3700 W Flamingo Rd, Las Vegas, NV 89103",
+        "lat":  36.115284403095,
+        "lng":  -115.186853754961,
+        "sid":  674,
+        "photos":  [
+                       {
+                           "file":  "photos/vegas-ev-comedy-cellar-rio-1.jpg",
+                           "credit":  "Rio Las Vegas (official site)",
+                           "page_url":  "https://www.riolasvegas.com/shows/comedy-cellar"
+                       }
+                   ]
+    },
+    {
+        "id":  "vegas-dh-herbs-and-rye",
+        "city":  "vegas",
+        "name":  "Herbs \u0026 Rye",
+        "kind":  "place",
+        "category":  "food-drink-experience",
+        "genre":  "eat-drink",
+        "tags":  [
+                     "date",
+                     "friends",
+                     "cocktails",
+                     "steakhouse",
+                     "late-night",
+                     "off-strip"
+                 ],
+        "neighborhood":  "West Sahara (off-Strip)",
+        "indoor_outdoor":  "indoor",
+        "price_level":  null,
+        "price_from":  null,
+        "price_note":  "Prices not posted.",
+        "hours":  {
+                      "mon":  [
+                                  [
+                                      "17:00",
+                                      "03:00"
+                                  ]
+                              ],
+                      "tue":  [
+                                  [
+                                      "17:00",
+                                      "03:00"
+                                  ]
+                              ],
+                      "wed":  [
+                                  [
+                                      "17:00",
+                                      "03:00"
+                                  ]
+                              ],
+                      "thu":  [
+                                  [
+                                      "17:00",
+                                      "03:00"
+                                  ]
+                              ],
+                      "fri":  [
+                                  [
+                                      "17:00",
+                                      "03:00"
+                                  ]
+                              ],
+                      "sat":  [
+                                  [
+                                      "17:00",
+                                      "03:00"
+                                  ]
+                              ],
+                      "sun":  [
+
+                              ]
+                  },
+        "closed_dates":  [
+
+                         ],
+        "season":  null,
+        "booking":  "reservations recommended",
+        "booking_url":  "https://www.herbsandrye.com/",
+        "phone":  "(702) 982-8036",
+        "website":  "https://www.herbsandrye.com/",
+        "source_urls":  [
+                            "https://www.herbsandrye.com/"
+                        ],
+        "good_for":  [
+                         "date",
+                         "friends"
+                     ],
+        "verified":  {
+                         "status":  "verified",
+                         "checked_on":  "2026-11-24",
+                         "evidence_url":  "https://www.herbsandrye.com/"
+                     },
+        "hours_note":  "5 pm to 3 am Monday to Saturday; Sunday not listed on the site. Holiday hours not posted.",
+        "description":  "An off-Strip cocktail bar and steakhouse on West Sahara, open since 2009. The house line is that they make \u0027pretty good steaks, and REALLY good cocktails\u0027. It stays open until 3 am six nights a week, so it works as a late dinner or a nightcap away from the casinos. Book ahead for a table.",
+        "hook":  "Serious cocktails and steaks off-Strip, open till 3 am",
+        "highlights":  [
+                           "Open since 2009",
+                           "Cocktails plus steakhouse menu",
+                           "Until 3 am, Monday to Saturday",
+                           "Off-Strip on W Sahara Ave"
+                       ],
+        "age_note":  "Bar; age rules not posted",
+        "duration_minutes":  90,
+        "date_hours":  {
+                           "2026-11-26":  "unknown",
+                           "2026-12-24":  "unknown",
+                           "2026-12-25":  "unknown",
+                           "2026-12-31":  "unknown"
+                       },
+        "min_minutes":  45,
+        "address":  "3713 W Sahara Ave, Las Vegas, NV 89102",
+        "lat":  36.1440383,
+        "lng":  -115.1917872,
+        "sid":  675,
+        "photos":  [
+
+                   ]
+    },
+    {
+        "id":  "vegas-dh-esthers-kitchen",
+        "city":  "vegas",
+        "name":  "Esther\u0027s Kitchen",
+        "kind":  "place",
+        "category":  "food-drink-experience",
+        "genre":  "eat-drink",
+        "tags":  [
+                     "date",
+                     "friends",
+                     "italian",
+                     "arts-district",
+                     "brunch",
+                     "downtown"
+                 ],
+        "neighborhood":  "Arts District",
+        "indoor_outdoor":  "indoor",
+        "price_level":  2,
+        "price_from":  null,
+        "price_note":  "Moderate ($$). Parties of 6+ get a $15 per person credit-card hold.",
+        "hours":  {
+                      "mon":  [
+                                  [
+                                      "11:00",
+                                      "15:00"
+                                  ],
+                                  [
+                                      "17:00",
+                                      "23:00"
+                                  ]
+                              ],
+                      "tue":  [
+                                  [
+                                      "11:00",
+                                      "15:00"
+                                  ],
+                                  [
+                                      "17:00",
+                                      "23:00"
+                                  ]
+                              ],
+                      "wed":  [
+                                  [
+                                      "11:00",
+                                      "15:00"
+                                  ],
+                                  [
+                                      "17:00",
+                                      "23:00"
+                                  ]
+                              ],
+                      "thu":  [
+                                  [
+                                      "11:00",
+                                      "15:00"
+                                  ],
+                                  [
+                                      "17:00",
+                                      "23:00"
+                                  ]
+                              ],
+                      "fri":  [
+                                  [
+                                      "11:00",
+                                      "15:00"
+                                  ],
+                                  [
+                                      "17:00",
+                                      "23:00"
+                                  ]
+                              ],
+                      "sat":  [
+                                  [
+                                      "10:00",
+                                      "15:00"
+                                  ],
+                                  [
+                                      "17:00",
+                                      "23:00"
+                                  ]
+                              ],
+                      "sun":  [
+                                  [
+                                      "10:00",
+                                      "15:00"
+                                  ],
+                                  [
+                                      "17:00",
+                                      "23:00"
+                                  ]
+                              ]
+                  },
+        "closed_dates":  [
+
+                         ],
+        "season":  null,
+        "booking":  "reservations recommended",
+        "booking_url":  "https://www.estherslv.com/",
+        "phone":  "(702) 570-7864",
+        "website":  "https://www.estherslv.com/",
+        "source_urls":  [
+                            "https://www.estherslv.com/",
+                            "https://www.estherslv.com/location/esthers-kitchen/"
+                        ],
+        "good_for":  [
+                         "date",
+                         "friends"
+                     ],
+        "verified":  {
+                         "status":  "verified",
+                         "checked_on":  "2026-11-24",
+                         "evidence_url":  "https://www.estherslv.com/location/esthers-kitchen/"
+                     },
+        "hours_note":  "Lunch 11 am-3 pm weekdays, brunch 10 am-3 pm weekends, dinner 5-11 pm daily. Holiday hours not posted.",
+        "description":  "Chef James Trees\u0027 seasonal Italian restaurant in the Arts District, named for the great-aunt who got him cooking. The menu leans on West Coast produce and Italian tradition, and it has been praised by Food \u0026 Wine and USA Today 10Best. The dining room is warm and moody, with an open kitchen, leather booths and big hanging lamps. It does weekend brunch as well as lunch and dinner; there is street and lot parking nearby.",
+        "hook":  "Chef-run seasonal Italian in the Arts District",
+        "highlights":  [
+                           "Chef James Trees\u0027 first restaurant",
+                           "Seasonal Italian, West Coast produce",
+                           "Weekend brunch 10 am-3 pm",
+                           "Street and lot parking nearby"
+                       ],
+        "age_note":  "Restaurant, all ages",
+        "duration_minutes":  90,
+        "date_hours":  {
+                           "2026-11-26":  "unknown",
+                           "2026-12-24":  "unknown",
+                           "2026-12-25":  "unknown",
+                           "2026-12-31":  "unknown"
+                       },
+        "min_minutes":  60,
+        "address":  "1131 S Main St, Las Vegas, NV 89104",
+        "lat":  36.157653,
+        "lng":  -115.152704,
+        "sid":  676,
+        "photos":  [
+                       {
+                           "file":  "photos/vegas-dh-esthers-kitchen-1.jpg",
+                           "credit":  "Esther\u0027s Kitchen (official site)",
+                           "page_url":  "https://www.estherslv.com/location/esthers-kitchen/"
+                       }
+                   ]
+    },
+    {
+        "id":  "vegas-dh-carson-kitchen",
+        "city":  "vegas",
+        "name":  "Carson Kitchen",
+        "kind":  "place",
+        "category":  "food-drink-experience",
+        "genre":  "eat-drink",
+        "tags":  [
+                     "date",
+                     "friends",
+                     "downtown",
+                     "rooftop",
+                     "happy-hour"
+                 ],
+        "neighborhood":  "Downtown (Fremont East)",
+        "indoor_outdoor":  "both",
+        "price_level":  null,
+        "price_from":  null,
+        "price_note":  "Happy hour Mon-Fri 3-5 pm at the bar: grilled oysters $3 each, deviled eggs $3, gyro tacos $5, tempura green beans $6, select beers $5, wine $8, well drinks $6.",
+        "hours":  {
+                      "mon":  [
+                                  [
+                                      "11:30",
+                                      "22:00"
+                                  ]
+                              ],
+                      "tue":  [
+                                  [
+                                      "11:30",
+                                      "22:00"
+                                  ]
+                              ],
+                      "wed":  [
+                                  [
+                                      "11:30",
+                                      "22:00"
+                                  ]
+                              ],
+                      "thu":  [
+                                  [
+                                      "11:30",
+                                      "22:00"
+                                  ]
+                              ],
+                      "fri":  [
+                                  [
+                                      "11:30",
+                                      "23:00"
+                                  ]
+                              ],
+                      "sat":  [
+                                  [
+                                      "11:30",
+                                      "23:00"
+                                  ]
+                              ],
+                      "sun":  [
+                                  [
+                                      "11:30",
+                                      "22:00"
+                                  ]
+                              ]
+                  },
+        "closed_dates":  [
+
+                         ],
+        "season":  null,
+        "booking":  "reservations or walk-in",
+        "booking_url":  "https://www.carsonkitchen.com/",
+        "phone":  "(702) 473-9523",
+        "website":  "https://www.carsonkitchen.com/",
+        "source_urls":  [
+                            "https://www.carsonkitchen.com/"
+                        ],
+        "good_for":  [
+                         "date",
+                         "friends"
+                     ],
+        "verified":  {
+                         "status":  "verified",
+                         "checked_on":  "2026-11-24",
+                         "evidence_url":  "https://www.carsonkitchen.com/"
+                     },
+        "hours_note":  "11:30 am-10 pm Sunday to Thursday, until 11 pm Friday and Saturday. Holiday hours not posted.",
+        "description":  "A downtown favourite since 2014 inside the John E. Carson Hotel, a repurposed mid-century motel at Carson Ave and 6th St. The food is reimagined comfort food made with fine-dining ingredients, plus crafted cocktails. There is a bar, an open kitchen counter, community tables, a courtyard and an outdoor rooftop bar. Weekday happy hour (3-5 pm, bar only) has $3 grilled oysters and $6 well drinks.",
+        "hook":  "Shareable comfort food and a rooftop bar downtown",
+        "highlights":  [
+                           "Opened 2014 by Cory Harwell and the late Kerry Simon",
+                           "Rooftop bar and courtyard",
+                           "Happy hour Mon-Fri 3-5 pm",
+                           "In a mid-century motel building"
+                       ],
+        "age_note":  "Restaurant; age rules not posted",
+        "duration_minutes":  90,
+        "date_hours":  {
+                           "2026-11-26":  "unknown",
+                           "2026-12-24":  "unknown",
+                           "2026-12-25":  "unknown",
+                           "2026-12-31":  "unknown"
+                       },
+        "min_minutes":  60,
+        "address":  "124 S 6th St, Suite 100, Las Vegas, NV 89101",
+        "lat":  36.1679129,
+        "lng":  -115.1406508,
+        "sid":  677,
+        "photos":  [
+
+                   ]
+    },
+    {
+        "id":  "vegas-dh-double-down-saloon",
+        "city":  "vegas",
+        "name":  "Double Down Saloon",
+        "kind":  "place",
+        "category":  "food-drink-experience",
+        "genre":  "eat-drink",
+        "tags":  [
+                     "friends",
+                     "dive-bar",
+                     "live-music",
+                     "punk",
+                     "late-night",
+                     "free-shows"
+                 ],
+        "neighborhood":  "Paradise Rd (east of the Strip)",
+        "indoor_outdoor":  "indoor",
+        "price_level":  1,
+        "price_from":  0,
+        "price_note":  "Free entry: all shows are free. Drink prices not posted.",
+        "hours":  {
+                      "mon":  [
+                                  [
+                                      "00:00",
+                                      "24:00"
+                                  ]
+                              ],
+                      "tue":  [
+                                  [
+                                      "00:00",
+                                      "24:00"
+                                  ]
+                              ],
+                      "wed":  [
+                                  [
+                                      "00:00",
+                                      "24:00"
+                                  ]
+                              ],
+                      "thu":  [
+                                  [
+                                      "00:00",
+                                      "24:00"
+                                  ]
+                              ],
+                      "fri":  [
+                                  [
+                                      "00:00",
+                                      "24:00"
+                                  ]
+                              ],
+                      "sat":  [
+                                  [
+                                      "00:00",
+                                      "24:00"
+                                  ]
+                              ],
+                      "sun":  [
+                                  [
+                                      "00:00",
+                                      "24:00"
+                                  ]
+                              ]
+                  },
+        "closed_dates":  [
+
+                         ],
+        "season":  null,
+        "booking":  "walk-in",
+        "booking_url":  "",
+        "phone":  null,
+        "website":  "https://doubledownsaloon.com/",
+        "source_urls":  [
+                            "https://doubledownsaloon.com/",
+                            "https://doubledownsaloon.com/photos/"
+                        ],
+        "good_for":  [
+                         "friends"
+                     ],
+        "verified":  {
+                         "status":  "verified",
+                         "checked_on":  "2026-11-24",
+                         "evidence_url":  "https://doubledownsaloon.com/"
+                     },
+        "hours_note":  "The bar says \u0027We Never Close\u0027. Band and DJ nights usually start 9-10 pm; a punk rock matinee is listed Dec 5, 2-6 pm.",
+        "description":  "A self-described punk rock dive off Paradise Road, open around the clock, with walls covered in wild murals, pool, pinball and video poker. Live bands and DJ nights are free, and the bar\u0027s motto is \u0027Shut up \u0026 drink!\u0027. It celebrates its 34th anniversary Nov 25-28 with nightly shows, and December brings punk nights, a Saturday punk rock matinee and a New Year\u0027s Eve video jukebox. Smoking is allowed, so it is a rowdy late-night stop rather than a quiet date.",
+        "hook":  "24-hour punk dive with free shows",
+        "highlights":  [
+                           "Never closes",
+                           "Free live shows",
+                           "34th anniversary Nov 25-28",
+                           "Pool, pinball, video poker",
+                           "Smoking bar"
+                       ],
+        "age_note":  "Bar, 21+ presumed; age rule not posted",
+        "duration_minutes":  90,
+        "date_hours":  {
+                           "2026-11-26":  "unknown",
+                           "2026-12-24":  "unknown",
+                           "2026-12-25":  "unknown",
+                           "2026-12-31":  "unknown"
+                       },
+        "min_minutes":  30,
+        "address":  "4640 Paradise Rd, Las Vegas, NV 89169",
+        "lat":  36.105670291095,
+        "lng":  -115.15124396976,
+        "sid":  678,
+        "photos":  [
+                       {
+                           "file":  "photos/vegas-dh-double-down-saloon-1.jpg",
+                           "credit":  "Double Down Saloon (official site)",
+                           "page_url":  "https://doubledownsaloon.com/photos/"
+                       }
+                   ]
+    },
+    {
+        "id":  "vegas-dh-minus5-venetian",
+        "city":  "vegas",
+        "name":  "minus5 Ice Bar (The Venetian)",
+        "kind":  "place",
+        "category":  "food-drink-experience",
+        "genre":  "eat-drink",
+        "tags":  [
+                     "date",
+                     "friends",
+                     "ice-bar",
+                     "cocktails",
+                     "photo-spot",
+                     "strip",
+                     "unusual"
+                 ],
+        "neighborhood":  "The Strip (Grand Canal Shoppes)",
+        "indoor_outdoor":  "indoor",
+        "price_level":  2,
+        "price_from":  26,
+        "price_note":  "Cool package $26 (entry, gloves, parka); Coolest $49 (adds 2 ice cocktails); V-ICE-P $79 (faux-fur coat, 2 cocktails, digital photo, hat). Kids 7-12: $19 or $29.",
+        "hours":  {
+                      "mon":  [
+                                  [
+                                      "11:00",
+                                      "23:00"
+                                  ]
+                              ],
+                      "tue":  [
+                                  [
+                                      "11:00",
+                                      "23:00"
+                                  ]
+                              ],
+                      "wed":  [
+                                  [
+                                      "11:00",
+                                      "23:00"
+                                  ]
+                              ],
+                      "thu":  [
+                                  [
+                                      "11:00",
+                                      "23:00"
+                                  ]
+                              ],
+                      "fri":  [
+                                  [
+                                      "11:00",
+                                      "23:00"
+                                  ]
+                              ],
+                      "sat":  [
+                                  [
+                                      "11:00",
+                                      "23:00"
+                                  ]
+                              ],
+                      "sun":  [
+                                  [
+                                      "11:00",
+                                      "23:00"
+                                  ]
+                              ]
+                  },
+        "closed_dates":  [
+
+                         ],
+        "season":  null,
+        "booking":  "tickets online or walk-in",
+        "booking_url":  "https://www.minus5experience.com/venetian/",
+        "phone":  "(702) 293-3388",
+        "website":  "https://www.minus5experience.com/venetian/",
+        "source_urls":  [
+                            "https://www.minus5experience.com/venetian/",
+                            "https://www.minus5experience.com/"
+                        ],
+        "good_for":  [
+                         "date",
+                         "friends"
+                     ],
+        "verified":  {
+                         "status":  "verified",
+                         "checked_on":  "2026-11-24",
+                         "evidence_url":  "https://www.minus5experience.com/venetian/"
+                     },
+        "hours_note":  "Daily 11 am-11 pm. Kids 7-12 welcome before 9 pm with an adult. Holiday hours not posted.",
+        "description":  "A bar where the walls, seats, sculptures and even the glasses are carved from ice, kept frozen. You get gloves and a parka (or a faux-fur coat on the top package) at the door, then wander the glowing ice rooms and take photos with a cocktail served in an ice glass. Packages run from entry only ($26) to two cocktails, a digital photo and a hat ($79). It is on Level 2 of the Grand Canal Shoppes, at the end of the canal, across from Skechers.",
+        "hook":  "Drinks in glasses made of ice, below freezing",
+        "highlights":  [
+                           "Everything made of ice, glasses too",
+                           "Parka and gloves included",
+                           "From $26; $49 with 2 cocktails",
+                           "Daily 11 am-11 pm",
+                           "Kids 7-12 before 9 pm"
+                       ],
+        "age_note":  "Ages 7-12 welcome before 9 pm with an adult; cocktails 21+",
+        "duration_minutes":  45,
+        "date_hours":  {
+                           "2026-11-26":  "unknown",
+                           "2026-12-24":  "unknown",
+                           "2026-12-25":  "unknown",
+                           "2026-12-31":  "unknown"
+                       },
+        "min_minutes":  30,
+        "address":  "The Grand Canal Shoppes, 3377 S Las Vegas Blvd, Suite 2140, Las Vegas, NV 89109",
+        "lat":  36.122038639241,
+        "lng":  -115.171521172749,
+        "sid":  679,
+        "photos":  [
+                       {
+                           "file":  "photos/vegas-dh-minus5-venetian-1.jpg",
+                           "credit":  "minus5 Ice Experience (official site)",
+                           "page_url":  "https://www.minus5experience.com/"
+                       }
+                   ]
+    },
+    {
+        "id":  "vegas-dh-evel-pie",
+        "city":  "vegas",
+        "name":  "Evel Pie",
+        "kind":  "place",
+        "category":  "food-drink-experience",
+        "genre":  "eat-drink",
+        "tags":  [
+                     "friends",
+                     "pizza",
+                     "late-night",
+                     "fremont-east",
+                     "downtown",
+                     "casual"
+                 ],
+        "neighborhood":  "Fremont East",
+        "indoor_outdoor":  "indoor",
+        "price_level":  null,
+        "price_from":  null,
+        "price_note":  "Prices not posted.",
+        "hours":  {
+                      "mon":  [
+                                  [
+                                      "11:00",
+                                      "02:00"
+                                  ]
+                              ],
+                      "tue":  [
+                                  [
+                                      "11:00",
+                                      "02:00"
+                                  ]
+                              ],
+                      "wed":  [
+                                  [
+                                      "11:00",
+                                      "02:00"
+                                  ]
+                              ],
+                      "thu":  [
+                                  [
+                                      "11:00",
+                                      "02:00"
+                                  ]
+                              ],
+                      "fri":  [
+                                  [
+                                      "11:00",
+                                      "04:00"
+                                  ]
+                              ],
+                      "sat":  [
+                                  [
+                                      "11:00",
+                                      "04:00"
+                                  ]
+                              ],
+                      "sun":  [
+                                  [
+                                      "11:00",
+                                      "02:00"
+                                  ]
+                              ]
+                  },
+        "closed_dates":  [
+                             "2026-11-26",
+                             "2026-12-25"
+                         ],
+        "season":  null,
+        "booking":  "walk-in",
+        "booking_url":  "",
+        "phone":  "(702) 840-6460",
+        "website":  "https://www.evelpie.com/",
+        "source_urls":  [
+                            "https://www.evelpie.com/",
+                            "https://www.evelpie.com/location/evel-pie/"
+                        ],
+        "good_for":  [
+                         "friends",
+                         "date"
+                     ],
+        "verified":  {
+                         "status":  "verified",
+                         "checked_on":  "2026-11-24",
+                         "evidence_url":  "https://www.evelpie.com/location/evel-pie/"
+                     },
+        "hours_note":  "11 am-2 am Sunday to Thursday, 11 am-4 am Friday and Saturday. Closed Thanksgiving and Christmas Day; Christmas Eve 11 am-8 pm; New Year\u0027s Eve 11 am-3 am.",
+        "description":  "A rowdy pizza joint on Fremont East with the motto \u0027Live Hard - Ride Fast - Eat Pizza\u0027. It serves pizza and draft beer and stays open until 2 am (4 am at weekends), so it is an easy late-night stop downtown. The site also lists live music and a \u0027reaper\u0027 eating contest. Walk in; there is a gift-shop line of joint gear too.",
+        "hook":  "Late-night pizza joint on Fremont East, open till 4 am weekends",
+        "highlights":  [
+                           "Open until 2 am; 4 am Fri-Sat",
+                           "Pizza and draft beer",
+                           "Live music and a reaper contest",
+                           "Closed Thanksgiving and Christmas Day"
+                       ],
+        "age_note":  "Restaurant and bar; age rules not posted",
+        "duration_minutes":  45,
+        "date_hours":  {
+                           "2026-12-24":  [
+                                              [
+                                                  "11:00",
+                                                  "20:00"
+                                              ]
+                                          ],
+                           "2026-12-31":  [
+                                              [
+                                                  "11:00",
+                                                  "03:00"
+                                              ]
+                                          ]
+                       },
+        "min_minutes":  20,
+        "address":  "508 Fremont St, Las Vegas, NV 89101",
+        "lat":  36.16924,
+        "lng":  -115.140079,
+        "sid":  680,
+        "photos":  [
+                       {
+                           "file":  "photos/vegas-dh-evel-pie-1.jpg",
+                           "credit":  "Evel Pie (official site)",
+                           "page_url":  "https://www.evelpie.com/"
+                       }
+                   ]
+    },
+    {
+        "id":  "vegas-dh-top-of-binions",
+        "city":  "vegas",
+        "name":  "Top of Binion\u0027s Steakhouse",
+        "kind":  "place",
+        "category":  "food-drink-experience",
+        "genre":  "eat-drink",
+        "tags":  [
+                     "date",
+                     "views",
+                     "old-vegas",
+                     "steakhouse",
+                     "downtown",
+                     "fremont-street"
+                 ],
+        "neighborhood":  "Downtown (Fremont Street)",
+        "indoor_outdoor":  "indoor",
+        "price_level":  null,
+        "price_from":  null,
+        "price_note":  "Prices are on the restaurant\u0027s menu.",
+        "hours":  {
+                      "mon":  [
+                                  [
+                                      "17:00",
+                                      "22:00"
+                                  ]
+                              ],
+                      "tue":  [
+
+                              ],
+                      "wed":  [
+
+                              ],
+                      "thu":  [
+                                  [
+                                      "17:00",
+                                      "22:00"
+                                  ]
+                              ],
+                      "fri":  [
+                                  [
+                                      "17:00",
+                                      "22:00"
+                                  ]
+                              ],
+                      "sat":  [
+                                  [
+                                      "17:00",
+                                      "22:00"
+                                  ]
+                              ],
+                      "sun":  [
+                                  [
+                                      "17:00",
+                                      "22:00"
+                                  ]
+                              ]
+                  },
+        "closed_dates":  [
+
+                         ],
+        "season":  null,
+        "booking":  "reservations recommended",
+        "booking_url":  "https://www.binions.com/dining/binions_steakhouse.php",
+        "phone":  "(702) 382-1600",
+        "website":  "https://www.binions.com/dining/binions_steakhouse.php",
+        "source_urls":  [
+                            "https://www.binions.com/dining/binions_steakhouse.php"
+                        ],
+        "good_for":  [
+                         "date"
+                     ],
+        "verified":  {
+                         "status":  "verified",
+                         "checked_on":  "2026-11-24",
+                         "evidence_url":  "https://www.binions.com/dining/binions_steakhouse.php"
+                     },
+        "hours_note":  "5-10 pm Thursday to Monday; closed Tuesday and Wednesday. Holiday hours not posted.",
+        "description":  "A vintage steakhouse on the 24th floor of Binion\u0027s, first opened as \u0027Top of The Mint\u0027 when the Mint tower was finished in 1965. The draw is the view plus an old-Vegas, romantic room. Steaks are 40-day-aged Certified Angus Beef cut in-house and charbroiled; menu examples include rib eye, prime rib, cowboy steak, chicken-fried lobster, lobster Newburg and a vegetarian mushroom risotto. Dinner only, five nights a week; reserve on OpenTable or by phone.",
+        "hook":  "24th-floor steakhouse with downtown views, since 1965",
+        "highlights":  [
+                           "24th floor views",
+                           "Opened 1965 as Top of The Mint",
+                           "40-day-aged steaks",
+                           "Thu-Mon 5-10 pm"
+                       ],
+        "age_note":  "Restaurant; age rules not posted",
+        "duration_minutes":  105,
+        "date_hours":  {
+                           "2026-11-26":  "unknown",
+                           "2026-12-24":  "unknown",
+                           "2026-12-25":  "unknown",
+                           "2026-12-31":  "unknown"
+                       },
+        "min_minutes":  75,
+        "address":  "Binion\u0027s Gambling Hall, 128 E Fremont St, Las Vegas, NV 89101",
+        "lat":  36.171396,
+        "lng":  -115.144024,
+        "sid":  681,
+        "photos":  [
+
+                   ]
+    },
+    {
+        "id":  "vegas-dh-oscars-steakhouse",
+        "city":  "vegas",
+        "name":  "Oscar\u0027s Steakhouse (Plaza glass dome)",
+        "kind":  "place",
+        "category":  "food-drink-experience",
+        "genre":  "eat-drink",
+        "tags":  [
+                     "date",
+                     "old-vegas",
+                     "steakhouse",
+                     "views",
+                     "downtown",
+                     "happy-hour"
+                 ],
+        "neighborhood":  "Downtown (Plaza, head of Fremont Street)",
+        "indoor_outdoor":  "both",
+        "price_level":  null,
+        "price_from":  null,
+        "price_note":  "Happy hour daily 5-7 pm in the bar and lounge (not holidays): house wine $7, well cocktails $6, domestic beer $3, imported beer $4.",
+        "hours":  {
+                      "mon":  [
+                                  [
+                                      "17:00",
+                                      "22:00"
+                                  ]
+                              ],
+                      "tue":  [
+                                  [
+                                      "17:00",
+                                      "22:00"
+                                  ]
+                              ],
+                      "wed":  [
+                                  [
+                                      "17:00",
+                                      "22:00"
+                                  ]
+                              ],
+                      "thu":  [
+                                  [
+                                      "17:00",
+                                      "22:00"
+                                  ]
+                              ],
+                      "fri":  [
+                                  [
+                                      "17:00",
+                                      "22:00"
+                                  ]
+                              ],
+                      "sat":  [
+                                  [
+                                      "17:00",
+                                      "22:00"
+                                  ]
+                              ],
+                      "sun":  [
+                                  [
+                                      "17:00",
+                                      "22:00"
+                                  ]
+                              ]
+                  },
+        "closed_dates":  [
+
+                         ],
+        "season":  null,
+        "booking":  "reservations recommended",
+        "booking_url":  "https://www.plazahotelcasino.com/dining/oscars-steakhouse/",
+        "phone":  "(702) 386-7227",
+        "website":  "https://www.plazahotelcasino.com/dining/oscars-steakhouse/",
+        "source_urls":  [
+                            "https://www.plazahotelcasino.com/dining/oscars-steakhouse/"
+                        ],
+        "good_for":  [
+                         "date"
+                     ],
+        "verified":  {
+                         "status":  "verified",
+                         "checked_on":  "2026-11-24",
+                         "evidence_url":  "https://www.plazahotelcasino.com/dining/oscars-steakhouse/"
+                     },
+        "hours_note":  "Daily 5-10 pm; happy hour 5-7 pm in the lounge (not on holidays). Business or upscale casual dress.",
+        "description":  "A steakhouse named for Oscar Goodman, the former mob lawyer turned Las Vegas mayor, with its main dining room inside the Plaza\u0027s iconic glass dome. It plays up old Vegas with memorabilia, handcrafted cocktails (including the mayor\u0027s own martini), steaks, classic seafood and family-recipe sides. There is a big lounge and a rooftop patio, and daily happy hour has $6 well cocktails and \u0027No Nose\u0027s meatballs\u0027. Dress code is business or upscale casual: no gym wear, tank tops or flip-flops.",
+        "hook":  "Steak under the Plaza\u0027s glass dome, named for the mob-lawyer mayor",
+        "highlights":  [
+                           "Dining room in the Plaza\u0027s glass dome",
+                           "Named for Mayor Oscar Goodman",
+                           "Rooftop patio and lounge",
+                           "Happy hour daily 5-7 pm",
+                           "Upscale casual dress code"
+                       ],
+        "age_note":  "Restaurant; age rules not posted",
+        "duration_minutes":  105,
+        "date_hours":  {
+                           "2026-11-26":  "unknown",
+                           "2026-12-24":  "unknown",
+                           "2026-12-25":  "unknown",
+                           "2026-12-31":  "unknown"
+                       },
+        "min_minutes":  60,
+        "address":  "Plaza Hotel \u0026 Casino, 1 Main St, Las Vegas, NV 89101",
+        "lat":  36.171775740667,
+        "lng":  -115.146401335781,
+        "sid":  682,
+        "photos":  [
+                       {
+                           "file":  "photos/vegas-dh-oscars-steakhouse-1.jpg",
+                           "credit":  "Plaza Hotel \u0026 Casino (official site)",
+                           "page_url":  "https://www.plazahotelcasino.com/dining/oscars-steakhouse/"
+                       }
+                   ]
+    },
+    {
+        "id":  "vegas-dh-able-baker-brewing",
+        "city":  "vegas",
+        "name":  "Able Baker Brewing (Arts District taproom)",
+        "kind":  "place",
+        "category":  "food-drink-experience",
+        "genre":  "eat-drink",
+        "tags":  [
+                     "friends",
+                     "brewery",
+                     "craft-beer",
+                     "arts-district",
+                     "atomic-age",
+                     "all-ages"
+                 ],
+        "neighborhood":  "Arts District",
+        "indoor_outdoor":  "indoor",
+        "price_level":  null,
+        "price_from":  null,
+        "price_note":  "Small fee for street and lot parking.",
+        "hours":  {
+                      "mon":  [
+                                  [
+                                      "11:30",
+                                      "23:00"
+                                  ]
+                              ],
+                      "tue":  [
+                                  [
+                                      "11:30",
+                                      "23:00"
+                                  ]
+                              ],
+                      "wed":  [
+                                  [
+                                      "11:30",
+                                      "23:00"
+                                  ]
+                              ],
+                      "thu":  [
+                                  [
+                                      "11:30",
+                                      "23:00"
+                                  ]
+                              ],
+                      "fri":  [
+                                  [
+                                      "11:30",
+                                      "01:00"
+                                  ]
+                              ],
+                      "sat":  [
+                                  [
+                                      "11:30",
+                                      "01:00"
+                                  ]
+                              ],
+                      "sun":  [
+                                  [
+                                      "11:30",
+                                      "23:00"
+                                  ]
+                              ]
+                  },
+        "closed_dates":  [
+
+                         ],
+        "season":  null,
+        "booking":  "walk-in",
+        "booking_url":  "",
+        "phone":  null,
+        "website":  "https://www.ablebakerbrewing.com/downtown-brewery",
+        "source_urls":  [
+                            "https://www.ablebakerbrewing.com/",
+                            "https://www.ablebakerbrewing.com/downtown-brewery"
+                        ],
+        "good_for":  [
+                         "friends",
+                         "date"
+                     ],
+        "verified":  {
+                         "status":  "verified",
+                         "checked_on":  "2026-11-24",
+                         "evidence_url":  "https://www.ablebakerbrewing.com/"
+                     },
+        "hours_note":  "11:30 am-11 pm Sunday to Thursday, until 1 am Friday and Saturday. Holiday hours not posted.",
+        "description":  "An Arts District brewery and taproom whose beers and decor nod to Nevada\u0027s Atomic Age and state history. There are more than 30 craft beers on tap, a scratch kitchen, long wooden communal tables and the brewhouse tanks in view. No reservations, just walk in; brewery tours and private events can be booked through the site. All ages are welcome in the taproom, but under-21s cannot sit at or approach the bar.",
+        "hook":  "Atomic Age-themed brewery with 30+ taps in the Arts District",
+        "highlights":  [
+                           "30+ craft beers on tap",
+                           "Scratch kitchen",
+                           "Atomic Age theme",
+                           "All ages in the taproom",
+                           "Open till 1 am Fri-Sat"
+                       ],
+        "age_note":  "All ages in the taproom; under 21 not allowed at the bar",
+        "duration_minutes":  75,
+        "date_hours":  {
+                           "2026-11-26":  "unknown",
+                           "2026-12-24":  "unknown",
+                           "2026-12-25":  "unknown",
+                           "2026-12-31":  "unknown"
+                       },
+        "min_minutes":  40,
+        "address":  "1510 S Main St, Suite 120, Las Vegas, NV 89104",
+        "lat":  36.153297761856,
+        "lng":  -115.154037852574,
+        "sid":  683,
+        "photos":  [
+                       {
+                           "file":  "photos/vegas-dh-able-baker-brewing-1.jpg",
+                           "credit":  "Able Baker Brewing (official site)",
+                           "page_url":  "https://www.ablebakerbrewing.com/downtown-brewery"
+                       }
+                   ]
+    },
+    {
+        "id":  "vegas-dh-shang-artisan-noodle",
+        "city":  "vegas",
+        "name":  "Shang Artisan Noodle",
+        "kind":  "place",
+        "category":  "food-drink-experience",
+        "genre":  "eat-drink",
+        "tags":  [
+                     "friends",
+                     "noodles",
+                     "chinese",
+                     "hand-pulled",
+                     "cheap-eats",
+                     "off-strip"
+                 ],
+        "neighborhood":  "West Flamingo (near Chinatown)",
+        "indoor_outdoor":  "indoor",
+        "price_level":  1,
+        "price_from":  null,
+        "price_note":  "Fast-casual and affordable.",
+        "hours":  {
+                      "mon":  [
+                                  [
+                                      "11:00",
+                                      "22:00"
+                                  ]
+                              ],
+                      "tue":  [
+                                  [
+                                      "11:00",
+                                      "22:00"
+                                  ]
+                              ],
+                      "wed":  [
+                                  [
+                                      "11:00",
+                                      "22:00"
+                                  ]
+                              ],
+                      "thu":  [
+                                  [
+                                      "11:00",
+                                      "22:00"
+                                  ]
+                              ],
+                      "fri":  [
+                                  [
+                                      "11:00",
+                                      "22:00"
+                                  ]
+                              ],
+                      "sat":  [
+                                  [
+                                      "11:00",
+                                      "22:00"
+                                  ]
+                              ],
+                      "sun":  [
+                                  [
+                                      "11:00",
+                                      "22:00"
+                                  ]
+                              ]
+                  },
+        "closed_dates":  [
+
+                         ],
+        "season":  null,
+        "booking":  "walk-in",
+        "booking_url":  "",
+        "phone":  "(702) 888-3292",
+        "website":  "https://www.shangartisannoodle.com/",
+        "source_urls":  [
+                            "https://www.shangartisannoodle.com/",
+                            "https://www.shangartisannoodle.com/location"
+                        ],
+        "good_for":  [
+                         "friends"
+                     ],
+        "verified":  {
+                         "status":  "verified",
+                         "checked_on":  "2026-11-24",
+                         "evidence_url":  "https://www.shangartisannoodle.com/location"
+                     },
+        "hours_note":  "Daily 11 am-10 pm. Holiday hours not posted.",
+        "description":  "A fast-casual noodle shop west of the Strip that makes Shan-Xi style noodles by hand, kneading and pulling the dough in the traditional northern Chinese way. The noodles are silky and springy and go into both hot and cold dishes. It is cheap, quick and open every day until 10 pm, a good off-Strip lunch or casual dinner near Chinatown.",
+        "hook":  "Hand-pulled Shan-Xi noodles, off-Strip and affordable",
+        "highlights":  [
+                           "Hand-pulled noodles",
+                           "Shan-Xi (northern China) style",
+                           "Hot and cold noodle dishes",
+                           "Daily 11 am-10 pm"
+                       ],
+        "age_note":  "Restaurant, all ages",
+        "duration_minutes":  45,
+        "date_hours":  {
+                           "2026-11-26":  "unknown",
+                           "2026-12-24":  "unknown",
+                           "2026-12-25":  "unknown",
+                           "2026-12-31":  "unknown"
+                       },
+        "min_minutes":  25,
+        "address":  "4983 W Flamingo Rd, Suite B, Las Vegas, NV 89103",
+        "lat":  36.1148685,
+        "lng":  -115.2097115,
+        "sid":  684,
+        "photos":  [
+
+                   ]
+    },
+    {
+        "id":  "vegas-ga-dig-this",
+        "city":  "vegas",
+        "name":  "Dig This (heavy equipment playground)",
+        "kind":  "place",
+        "category":  "unique-niche",
+        "genre":  "play",
+        "tags":  [
+                     "date",
+                     "friends",
+                     "bucket-list",
+                     "outdoor",
+                     "only-in-vegas"
+                 ],
+        "neighborhood":  "South Las Vegas (89044)",
+        "indoor_outdoor":  "outdoor",
+        "price_level":  4,
+        "price_from":  359,
+        "price_note":  "Big Dig Excavators and Big Dig Bulldozer from $359 (90 min); Aggression Session from $799 (45 min); custom digs for 4+ people priced on request.",
+        "hours":  null,
+        "closed_dates":  [
+
+                         ],
+        "season":  null,
+        "booking":  "required",
+        "booking_url":  "https://digthisvegas.com/",
+        "phone":  "(702) 222-4344",
+        "website":  "https://digthisvegas.com/",
+        "source_urls":  [
+                            "https://digthisvegas.com/",
+                            "https://digthisvegas.com/faqs/"
+                        ],
+        "good_for":  [
+                         "date",
+                         "friends"
+                     ],
+        "verified":  {
+                         "status":  "unverified",
+                         "checked_on":  "2026-11-24",
+                         "evidence_url":  "https://digthisvegas.com/faqs/"
+                     },
+        "hours_note":  "Opening hours not posted; book a time slot online or call. Holiday hours not posted.",
+        "description":  "Dig This lets you climb into real construction machines, such as a full-size excavator or bulldozer, and play in a giant dirt yard just off the Strip. Each session starts with a safety briefing and in-cab training on every lever and button, then an instructor coaches you by radio while you dig trenches, move mounds and try challenges. No experience or driver\u0027s license is needed, and the cabs are heated and air-conditioned, so winter weather is not a problem. Most sessions are for 1-4 operators; groups of 4 or more can build a custom dig, and there are separate kids digs.",
+        "hook":  "Drive a real bulldozer or excavator in a giant Vegas sandbox",
+        "highlights":  [
+                           "Big Dig Excavators: from $359, 90 min, ages 12+",
+                           "Big Dig Bulldozer: from $359, 90 min, ages 14+",
+                           "Aggression Session: from $799, 45 min, ages 14+",
+                           "No driver\u0027s license needed; climate-controlled cabs",
+                           "Reschedule or credit with 72+ hours\u0027 notice"
+                       ],
+        "age_note":  "Ages 12+ for excavators, 14+ for bulldozer and Aggression Session; separate kids digs exist.",
+        "duration_minutes":  120,
+        "date_hours":  {
+                           "2026-11-26":  "unknown",
+                           "2026-12-24":  "unknown",
+                           "2026-12-25":  "unknown",
+                           "2026-12-31":  "unknown"
+                       },
+        "min_minutes":  90,
+        "address":  "800 W Roban Ave, Las Vegas, NV 89044",
+        "lat":  35.947668518913,
+        "lng":  -115.178419294567,
+        "sid":  685,
+        "photos":  [
+                       {
+                           "file":  "photos/vegas-ga-dig-this-1.jpg",
+                           "credit":  "Dig This (official site)",
+                           "page_url":  "https://digthisvegas.com/"
+                       }
+                   ]
+    },
+    {
+        "id":  "vegas-ov-haunted-museum",
+        "city":  "vegas",
+        "name":  "Zak Bagans\u0027 The Haunted Museum",
+        "kind":  "place",
+        "category":  "unique-niche",
+        "genre":  "look-learn",
+        "tags":  [
+                     "date",
+                     "friends",
+                     "spooky",
+                     "odd",
+                     "downtown"
+                 ],
+        "neighborhood":  "Downtown (E Charleston)",
+        "indoor_outdoor":  "indoor",
+        "price_level":  3,
+        "price_from":  54,
+        "price_note":  "General admission from $54. Discounts for Nevada residents, seniors 65+ and active/retired military (ID required). RIP All Access ticket and Late Night Flashlight Ghost Tour cost extra.",
+        "hours":  {
+                      "mon":  [
+                                  [
+                                      "13:00",
+                                      "21:00"
+                                  ]
+                              ],
+                      "tue":  [
+
+                              ],
+                      "wed":  [
+                                  [
+                                      "13:00",
+                                      "21:00"
+                                  ]
+                              ],
+                      "thu":  [
+                                  [
+                                      "13:00",
+                                      "21:00"
+                                  ]
+                              ],
+                      "fri":  [
+                                  [
+                                      "13:00",
+                                      "21:00"
+                                  ]
+                              ],
+                      "sat":  [
+                                  [
+                                      "13:00",
+                                      "21:00"
+                                  ]
+                              ],
+                      "sun":  [
+                                  [
+                                      "13:00",
+                                      "21:00"
+                                  ]
+                              ]
+                  },
+        "closed_dates":  [
+
+                         ],
+        "season":  null,
+        "booking":  "recommended",
+        "booking_url":  "https://thehauntedmuseum.com/",
+        "phone":  "(702) 444-0744",
+        "website":  "https://thehauntedmuseum.com/",
+        "source_urls":  [
+                            "https://thehauntedmuseum.com/",
+                            "https://thehauntedmuseum.com/faq/"
+                        ],
+        "good_for":  [
+                         "date",
+                         "friends"
+                     ],
+        "verified":  {
+                         "status":  "verified",
+                         "checked_on":  "2026-11-24",
+                         "evidence_url":  "https://thehauntedmuseum.com/faq/"
+                     },
+        "hours_note":  "Wednesday-Monday 1-9 pm; closed Tuesdays. Holiday hours not posted.",
+        "description":  "Ghost Adventures host Zak Bagans fills the historic Wengert Mansion near downtown with his collection of supposedly haunted and macabre objects: rooms of oddities, puppets, a funeral room and infamous artifacts. Visits are guided tours of about two hours that leave roughly every 10-15 minutes within your reserved time block. Reservations are strongly advised because slots sell out; walk-ups are limited. Ghost-hunting gear is not allowed on regular tours, but the Late Night Flashlight Ghost Tour lets 30 guests roam the whole museum for 90 minutes with recorders and EMF meters.",
+        "hook":  "A celebrity ghost hunter\u0027s haunted mansion museum",
+        "highlights":  [
+                           "Guided tour, about 2 hours, ages 12+",
+                           "From $54; resident, senior and military discounts",
+                           "Late Night Flashlight Ghost Tour: 30 guests, 90 min",
+                           "RIP All Access ticket adds extra exhibits, badge and T-shirt",
+                           "Gift shop open without a tour"
+                       ],
+        "age_note":  "Ages 12+",
+        "duration_minutes":  120,
+        "date_hours":  {
+                           "2026-11-26":  "unknown",
+                           "2026-12-24":  "unknown",
+                           "2026-12-25":  "unknown",
+                           "2026-12-31":  "unknown"
+                       },
+        "min_minutes":  120,
+        "address":  "600 E Charleston Blvd, Las Vegas, NV 89104",
+        "lat":  36.158705565822,
+        "lng":  -115.145884557071,
+        "sid":  686,
+        "photos":  [
+                       {
+                           "file":  "photos/vegas-ov-haunted-museum-1.jpg",
+                           "credit":  "Zak Bagans\u0027 The Haunted Museum (official site)",
+                           "page_url":  "https://thehauntedmuseum.com/"
+                       }
+                   ]
+    },
+    {
+        "id":  "vegas-ov-burlesque-hall-of-fame",
+        "city":  "vegas",
+        "name":  "Burlesque Hall of Fame museum",
+        "kind":  "place",
+        "category":  "art-museum",
+        "genre":  "look-learn",
+        "tags":  [
+                     "date",
+                     "friends",
+                     "arts-district",
+                     "history",
+                     "odd"
+                 ],
+        "neighborhood":  "Arts District",
+        "indoor_outdoor":  "indoor",
+        "price_level":  null,
+        "price_from":  null,
+        "price_note":  "Admission price not posted.",
+        "hours":  null,
+        "closed_dates":  [
+
+                         ],
+        "season":  null,
+        "booking":  "walk-in",
+        "booking_url":  "",
+        "phone":  "(888) 661-6465",
+        "website":  "https://burlesquehall.com/",
+        "source_urls":  [
+                            "https://burlesquehall.com/"
+                        ],
+        "good_for":  [
+                         "date",
+                         "friends"
+                     ],
+        "verified":  {
+                         "status":  "unverified",
+                         "checked_on":  "2026-11-24",
+                         "evidence_url":  "https://burlesquehall.com/"
+                     },
+        "hours_note":  "Hours not posted; call (888) 661-6465 before going.",
+        "description":  "A small museum in the Arts District run by the nonprofit Burlesque Hall of Fame, which preserves the history of burlesque. It holds costumes, photos and memorabilia from legends such as Gypsy Rose Lee, Lili St. Cyr, Tempest Storm, Sally Rand and Jennie Lee, and has a museum store. It pairs well with an evening of Arts District bars and galleries on Main Street.",
+        "hook":  "Feathers, fans and showgirl history in the Arts District",
+        "highlights":  [
+                           "Nonprofit museum of burlesque history",
+                           "Memorabilia of Gypsy Rose Lee, Lili St. Cyr, Tempest Storm",
+                           "Museum store",
+                           "On S Main St in the Arts District"
+                       ],
+        "age_note":  "Age rules not posted",
+        "duration_minutes":  60,
+        "date_hours":  {
+                           "2026-11-26":  "unknown",
+                           "2026-12-24":  "unknown",
+                           "2026-12-25":  "unknown",
+                           "2026-12-31":  "unknown"
+                       },
+        "min_minutes":  45,
+        "address":  "1027 S Main St #110, Las Vegas, NV 89101",
+        "lat":  36.160208292846,
+        "lng":  -115.153151449832,
+        "sid":  687,
+        "photos":  [
+
+                   ]
+    },
+    {
+        "id":  "vegas-ov-silverton-aquarium",
+        "city":  "vegas",
+        "name":  "Silverton Aquarium \u0026 Mermaid Swims",
+        "kind":  "place",
+        "category":  "unique-niche",
+        "genre":  "nature-animals",
+        "tags":  [
+                     "free",
+                     "date",
+                     "friends",
+                     "rainy-day",
+                     "off-strip"
+                 ],
+        "neighborhood":  "South Strip / Blue Diamond Rd",
+        "indoor_outdoor":  "indoor",
+        "price_level":  0,
+        "price_from":  0,
+        "price_note":  "Free to watch. Dive Ventures for certified divers: $300, select weekends, advance inquiry required.",
+        "hours":  {
+                      "mon":  [
+                                  [
+                                      "00:00",
+                                      "24:00"
+                                  ]
+                              ],
+                      "tue":  [
+                                  [
+                                      "00:00",
+                                      "24:00"
+                                  ]
+                              ],
+                      "wed":  [
+                                  [
+                                      "00:00",
+                                      "24:00"
+                                  ]
+                              ],
+                      "thu":  [
+                                  [
+                                      "00:00",
+                                      "24:00"
+                                  ]
+                              ],
+                      "fri":  [
+                                  [
+                                      "00:00",
+                                      "24:00"
+                                  ]
+                              ],
+                      "sat":  [
+                                  [
+                                      "00:00",
+                                      "24:00"
+                                  ]
+                              ],
+                      "sun":  [
+                                  [
+                                      "00:00",
+                                      "24:00"
+                                  ]
+                              ]
+                  },
+        "closed_dates":  [
+
+                         ],
+        "season":  null,
+        "booking":  "walk-in",
+        "booking_url":  "",
+        "phone":  "(702) 263-7777",
+        "website":  "https://silvertoncasino.com/hotel/aquarium-mermaid-show/",
+        "source_urls":  [
+                            "https://silvertoncasino.com/hotel/aquarium-mermaid-show/",
+                            "https://silvertoncasino.com/"
+                        ],
+        "good_for":  [
+                         "date",
+                         "friends"
+                     ],
+        "verified":  {
+                         "status":  "verified",
+                         "checked_on":  "2026-11-24",
+                         "evidence_url":  "https://silvertoncasino.com/hotel/aquarium-mermaid-show/"
+                     },
+        "hours_note":  "Aquarium viewable 24/7. Mermaids swim Thursday-Saturday noon-8 pm and Sunday 10:30 am-6:30 pm, every half hour, with a break 3:45-5 pm. Stingray feedings daily at 1:30 and 4:30 pm.",
+        "description":  "Inside the lodge-themed Silverton casino, a 117,000-gallon reef tank holds thousands of tropical fish, rays and sharks, and it can be watched for free at any hour. Thursday to Sunday, live mermaids swim through the tank every half hour, and daily interactive stingray feedings happen at 1:30 and 4:30 pm. Certified divers can book a 30-40 minute dive in the tank on select weekends. It is an easy, free stop on the south end of town.",
+        "hook":  "Free 117,000-gallon aquarium with live mermaids",
+        "highlights":  [
+                           "Free, viewable 24/7",
+                           "Mermaids Thu-Sat noon-8 pm, Sun 10:30 am-6:30 pm",
+                           "Stingray feedings daily 1:30 and 4:30 pm",
+                           "Certified divers: $300 tank dive, select weekends"
+                       ],
+        "age_note":  "Inside a casino; the aquarium page lists no age rule.",
+        "duration_minutes":  30,
+        "date_hours":  {
+                           "2026-11-26":  "unknown",
+                           "2026-12-24":  "unknown",
+                           "2026-12-25":  "unknown",
+                           "2026-12-31":  "unknown"
+                       },
+        "min_minutes":  15,
+        "address":  "3333 Blue Diamond Rd, Las Vegas, NV 89139",
+        "lat":  36.042300230248,
+        "lng":  -115.185571938657,
+        "sid":  688,
+        "photos":  [
+                       {
+                           "file":  "photos/vegas-ov-silverton-aquarium-1.jpg",
+                           "credit":  "Silverton Casino Lodge (official site)",
+                           "page_url":  "https://silvertoncasino.com/hotel/aquarium-mermaid-show/"
+                       }
+                   ]
+    },
+    {
+        "id":  "vegas-nd-goldwell-open-air-museum",
+        "city":  "vegas",
+        "name":  "Goldwell Open Air Museum (near Rhyolite ghost town)",
+        "kind":  "place",
+        "category":  "art-museum",
+        "genre":  "look-learn",
+        "tags":  [
+                     "day-trip",
+                     "road-trip",
+                     "art",
+                     "desert",
+                     "photo-spot",
+                     "odd"
+                 ],
+        "neighborhood":  "Beatty, NV (day trip, on the road to Death Valley)",
+        "indoor_outdoor":  "outdoor",
+        "price_level":  null,
+        "price_from":  null,
+        "price_note":  "Admission price not posted.",
+        "hours":  {
+                      "mon":  [
+                                  [
+                                      "00:00",
+                                      "24:00"
+                                  ]
+                              ],
+                      "tue":  [
+                                  [
+                                      "00:00",
+                                      "24:00"
+                                  ]
+                              ],
+                      "wed":  [
+                                  [
+                                      "00:00",
+                                      "24:00"
+                                  ]
+                              ],
+                      "thu":  [
+                                  [
+                                      "00:00",
+                                      "24:00"
+                                  ]
+                              ],
+                      "fri":  [
+                                  [
+                                      "00:00",
+                                      "24:00"
+                                  ]
+                              ],
+                      "sat":  [
+                                  [
+                                      "00:00",
+                                      "24:00"
+                                  ]
+                              ],
+                      "sun":  [
+                                  [
+                                      "00:00",
+                                      "24:00"
+                                  ]
+                              ]
+                  },
+        "closed_dates":  [
+
+                         ],
+        "season":  null,
+        "booking":  "walk-in",
+        "booking_url":  "",
+        "phone":  "",
+        "website":  "https://www.goldwellmuseum.org/",
+        "source_urls":  [
+                            "https://www.goldwellmuseum.org/"
+                        ],
+        "good_for":  [
+                         "date",
+                         "friends"
+                     ],
+        "verified":  {
+                         "status":  "verified",
+                         "checked_on":  "2026-11-24",
+                         "evidence_url":  "https://www.goldwellmuseum.org/"
+                     },
+        "hours_note":  "Sculpture park open 24 hours, every day. Visitor center and gift shop roughly Monday-Saturday 10 am-4 pm.",
+        "description":  "In the open Mojave desert just outside the Rhyolite ghost town, on the road toward Death Valley, a group of Belgian artists led by Albert Szukalski placed seven large outdoor sculptures, including ghostly plaster-shrouded figures. You walk among the works freely at any hour, then can wander the ruins of Rhyolite next door. The park is private property; personal photography is welcome. It won Best Sculpture Park in the 2026 USA Today 10Best Readers\u0027 Choice awards, and makes a striking stop on a Death Valley road trip.",
+        "hook":  "Ghostly desert sculptures next to a real ghost town",
+        "highlights":  [
+                           "Seven large outdoor sculptures",
+                           "Open 24 hours, 7 days",
+                           "Visitor center Mon-Sat about 10 am-4 pm",
+                           "Best Sculpture Park, USA Today 10Best 2026",
+                           "Next to Rhyolite ghost town, on the way to Death Valley"
+                       ],
+        "age_note":  "All ages",
+        "duration_minutes":  60,
+        "date_hours":  {
+                           "2026-11-26":  "unknown",
+                           "2026-12-24":  "unknown",
+                           "2026-12-25":  "unknown",
+                           "2026-12-31":  "unknown"
+                       },
+        "min_minutes":  30,
+        "address":  "1 Golden St, Beatty, NV 89003",
+        "lat":  36.896530537176616,
+        "lng":  -116.83059300478516,
+        "sid":  689,
+        "photos":  [
+
+                   ]
+    },
+    {
+        "id":  "vegas-ov-sky-combat-ace",
+        "city":  "vegas",
+        "name":  "Sky Combat Ace (stunt-plane and dogfight flights)",
+        "kind":  "place",
+        "category":  "unique-niche",
+        "genre":  "play",
+        "tags":  [
+                     "bucket-list",
+                     "thrill",
+                     "date",
+                     "splurge"
+                 ],
+        "neighborhood":  "North Las Vegas Airport",
+        "indoor_outdoor":  "outdoor",
+        "price_level":  4,
+        "price_from":  599,
+        "price_note":  "Operation Recon ride-along $599; The Afterburner (you fly the aerobatics) $999; Air-to-Air Dogfighting from $1,299; Top Gun Experience from $1,999; all per person.",
+        "hours":  {
+                      "mon":  [
+                                  [
+                                      "07:00",
+                                      "17:00"
+                                  ]
+                              ],
+                      "tue":  [
+
+                              ],
+                      "wed":  [
+
+                              ],
+                      "thu":  [
+                                  [
+                                      "07:00",
+                                      "17:00"
+                                  ]
+                              ],
+                      "fri":  [
+                                  [
+                                      "07:00",
+                                      "17:00"
+                                  ]
+                              ],
+                      "sat":  [
+                                  [
+                                      "07:00",
+                                      "17:00"
+                                  ]
+                              ],
+                      "sun":  [
+                                  [
+                                      "07:00",
+                                      "17:00"
+                                  ]
+                              ]
+                  },
+        "closed_dates":  [
+
+                         ],
+        "season":  null,
+        "booking":  "required",
+        "booking_url":  "https://www.skycombatace.com/",
+        "phone":  "(888) 494-5850",
+        "website":  "https://www.skycombatace.com/",
+        "source_urls":  [
+                            "https://www.skycombatace.com/"
+                        ],
+        "good_for":  [
+                         "date",
+                         "friends"
+                     ],
+        "verified":  {
+                         "status":  "verified",
+                         "checked_on":  "2026-11-24",
+                         "evidence_url":  "https://www.skycombatace.com/"
+                     },
+        "hours_note":  "Flights 7 am-5 pm Sunday, Monday and Thursday-Saturday; Tuesday and Wednesday not listed. Booked by time slot; holiday hours not posted.",
+        "description":  "Sky Combat Ace flies guests in real aerobatic stunt planes from North Las Vegas Airport. The cheapest option is a ride-along where a stunt pilot throws the plane through rolls, dives and zero-G moments; higher tiers let you take the stick for loops and rolls with an instructor beside you, or fly simulated air-to-air dogfights against a friend or partner. The top package is a multi-plane, Top Gun-style combat mission. Plan about 3 hours in total for most packages (4 for Top Gun), including briefing.",
+        "hook":  "Fly loops or dogfight your partner in a real stunt plane",
+        "highlights":  [
+                           "Ride-along stunt flight: $599, about 3 hours total",
+                           "Fly the aerobatics yourself: $999",
+                           "Air-to-air dogfighting from $1,299",
+                           "Top Gun multi-ship mission from $1,999, about 4 hours",
+                           "At North Las Vegas Airport"
+                       ],
+        "age_note":  "Check age, weight and health rules before booking.",
+        "duration_minutes":  180,
+        "date_hours":  {
+                           "2026-11-26":  "unknown",
+                           "2026-12-24":  "unknown",
+                           "2026-12-25":  "unknown",
+                           "2026-12-31":  "unknown"
+                       },
+        "min_minutes":  180,
+        "address":  "2634 Airport Dr #106, North Las Vegas, NV 89032",
+        "lat":  36.20768,
+        "lng":  -115.20076,
+        "sid":  690,
+        "photos":  [
+
+                   ]
+    },
+    {
+        "id":  "vegas-ga-round1-meadows-mall",
+        "city":  "vegas",
+        "name":  "Round1 Bowling \u0026 Arcade (Meadows Mall)",
+        "kind":  "place",
+        "category":  "games-arcade",
+        "genre":  "play",
+        "tags":  [
+                     "friends",
+                     "date",
+                     "late-night",
+                     "arcade",
+                     "bowling",
+                     "karaoke",
+                     "off-strip"
+                 ],
+        "neighborhood":  "Meadows Mall (west of downtown)",
+        "indoor_outdoor":  "indoor",
+        "price_level":  null,
+        "price_from":  null,
+        "price_note":  "Bowling, billiards and karaoke prices are on the venue\u0027s price page.",
+        "hours":  {
+                      "mon":  [
+                                  [
+                                      "10:00",
+                                      "02:00"
+                                  ]
+                              ],
+                      "tue":  [
+                                  [
+                                      "10:00",
+                                      "02:00"
+                                  ]
+                              ],
+                      "wed":  [
+                                  [
+                                      "10:00",
+                                      "02:00"
+                                  ]
+                              ],
+                      "thu":  [
+                                  [
+                                      "10:00",
+                                      "02:00"
+                                  ]
+                              ],
+                      "fri":  [
+                                  [
+                                      "10:00",
+                                      "02:00"
+                                  ]
+                              ],
+                      "sat":  [
+                                  [
+                                      "10:00",
+                                      "02:00"
+                                  ]
+                              ],
+                      "sun":  [
+                                  [
+                                      "10:00",
+                                      "02:00"
+                                  ]
+                              ]
+                  },
+        "closed_dates":  [
+
+                         ],
+        "season":  null,
+        "booking":  "walk-in",
+        "booking_url":  "",
+        "phone":  "",
+        "website":  "https://www.round1usa.com/locations/036las",
+        "source_urls":  [
+                            "https://www.round1usa.com/locations/036las"
+                        ],
+        "good_for":  [
+                         "friends",
+                         "date"
+                     ],
+        "verified":  {
+                         "status":  "verified",
+                         "checked_on":  "2026-11-24",
+                         "evidence_url":  "https://www.round1usa.com/locations/036las"
+                     },
+        "hours_note":  "Daily 10 am-2 am. Holiday hours not posted.",
+        "description":  "Round1\u0027s Las Vegas store at Meadows Mall puts an arcade, bowling lanes, a VIP immersive bowling lane, billiards, private karaoke rooms and a Victory Zone under one roof. It is open until 2 am every day, which makes it an easy late-night plan with friends off the Strip. Party rooms can be booked for groups. Round1 also lists a second store at the Las Vegas Outlets.",
+        "hook":  "Japanese mega-arcade with bowling and karaoke, open till 2 am",
+        "highlights":  [
+                           "Open daily 10 am-2 am",
+                           "Arcade, bowling, VIP immersive lane",
+                           "Billiards and private karaoke rooms",
+                           "Party rooms for groups"
+                       ],
+        "age_note":  "Check age rules with the venue.",
+        "duration_minutes":  120,
+        "date_hours":  {
+                           "2026-11-26":  "unknown",
+                           "2026-12-24":  "unknown",
+                           "2026-12-25":  "unknown",
+                           "2026-12-31":  "unknown"
+                       },
+        "min_minutes":  60,
+        "address":  "4300 Meadows Ln, Las Vegas, NV 89107",
+        "lat":  36.170238790931,
+        "lng":  -115.199168684464,
+        "sid":  691,
+        "photos":  [
+
+                   ]
     }
 ]
