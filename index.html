@@ -466,6 +466,18 @@ svg.i{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-widt
 .cover::before{content:"";position:absolute;top:0;right:0;bottom:0;left:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.12) 0 14px,transparent 14px 28px)}
 .cover svg{position:absolute;right:-36px;bottom:-24px;width:280px;height:280px;fill:none;stroke:rgba(255,255,255,.42);stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round}
 .cover svg.c2{right:auto;left:24px;bottom:auto;top:calc(var(--sat) + 70px);width:90px;height:90px;stroke:rgba(255,255,255,.3)}
+/* v5.38 photo gallery: one photo per slide, swipe (scroll-snap), dots; never a collage */
+.dt-gal{position:absolute;top:0;right:0;bottom:0;left:0;display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;overscroll-behavior-x:contain;outline:none}
+.dt-gal::-webkit-scrollbar{display:none}
+.dt-slide{position:relative;flex:0 0 100%;height:100%;scroll-snap-align:start;scroll-snap-stop:always;overflow:hidden}
+.dt-slide .photo-credit{max-width:calc(100% - 96px)}
+.dt-dots{position:absolute;right:12px;bottom:40px;display:flex;gap:5px;padding:5px 7px;border-radius:99px;background:rgba(10,12,14,.5);pointer-events:none}
+.dt-dots i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.5);transition:background .2s,transform .2s}
+.dt-dots i.on{background:#FFFFFF;transform:scale(1.25)}
+.dt-gnav{position:absolute;top:50%;transform:translateY(-50%);width:36px;height:36px;border:0;border-radius:50%;background:rgba(10,12,14,.55);color:#FFFFFF;font:700 24px/1 var(--f-body);cursor:pointer;display:none;align-items:center;justify-content:center;padding:0 0 3px}
+.dt-gnav.prev{left:10px}.dt-gnav.next{right:10px}
+@media (hover:hover) and (pointer:fine){ .dt-photo:hover .dt-gnav:not([hidden]){display:flex} }
+.dt-gal:focus-visible{box-shadow:inset 0 0 0 3px #FFFFFF}
 .photo-credit{position:absolute;left:12px;bottom:34px;font:600 calc(11px*var(--ts,1))/1.2 var(--f-body);color:#FFFFFF;background:rgba(10,12,14,.6);padding:6px 8px;border-radius:7px;text-decoration:none;max-width:calc(100% - 24px)}
 .dt-top{position:absolute;top:calc(var(--sat) + 10px);left:16px;right:16px;display:flex;justify-content:space-between;z-index:10;pointer-events:none}
 .dt-top .fab{pointer-events:auto}
@@ -746,6 +758,9 @@ p.quiet{margin:0;padding:0 2px 2px;font:500 calc(13.5px*var(--ts,1))/1.4 var(--f
 .hm-icons{display:flex;gap:6px;flex:none}
 .hm-ctl{display:flex;gap:6px;margin-top:8px}
 .hm-ctl + .hm-ctl{margin-top:6px}
+/* v5.38: longer Cyrillic chip words ("Свидание", "Бесплатно") size by their text instead of four equal boxes, and shrink a little on 320-359 px phones */
+html[lang="ru"] .hm-ctl .qchip{flex:1 1 auto;padding:0 5px}
+@media (max-width:359px){ html[lang="ru"] .hm-ctl .qchip{font-size:calc(12.5px*var(--ts,1));padding:0 4px;letter-spacing:-.01em} html[lang="ru"] .hm-ctl{gap:5px} }
 .qchip{flex:1 1 0;min-width:0;height:36px;border-radius:18px;border:1px solid var(--rule);background:var(--paper);font:600 calc(13.5px*var(--ts,1)) var(--f-body);color:var(--ink-2);padding:0 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:background .12s,color .12s}
 .qchip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 .cards3{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:12px}
@@ -2296,7 +2311,7 @@ html[data-ts="xl"]{--ts:1.3}
 'use strict';
 
 var APP_NAME = 'Off-Grid';  // THE app name: page title, wordmark, About and the share text all read this one constant. The owner picked "Off-Grid" as the working name (2026-11-13).
-var VERSION = 'v5.37 (2026-11-25)';   // v5.37-b4: translation leftovers (ru / zh / ko: When sheet, banners, status bits, prices, stations, friend profile, username lines), city wording (search examples, About per city and per copy, phone location-blocked line), a Why? line under hours not confirmed / sources disagree / call first, Access line + Step-free chip, text size (Normal / Large / Larger), 44 px tap targets, map fits a city's places. v5.37-b3: picks (no place inside another, start area first, no unsure-end or card-game top pick, ideas follow their own times), walk time first under 1 mi + nearest CTA stop, quick time chips + city time label + 60 days ahead, real prices on every card, deal chips only on the chosen day + residents, counts match lists, past dates never listed. v5.37-b2: filters (Walk about 20 min, travel both ways in Time I have, Free chip + price by amount + $$$$, kids age bands, No 21+ via adults_only, no 0-result chips, Closest first in lists). v5.37-b1: nothing pops up on first open (sign-in at the first save, taste test = Home card only), language button on the first screen, search by whole words / word starts + synonyms + notes, results open-then-closest, one-tap neighborhood start, 320 px suggestions in view.   // v5.36: Las Vegas city (slug vegas, America/Los_Angeles), hidden while the file has 0 Vegas items. v5.35: shared trips with an invite link (#t_<token>, supabase/trips.sql). v5.34: the picked half of a would-you-rather counts as a liked place for "Save all"
+var VERSION = 'v5.38 (2026-11-25)';   // v5.37-b4: translation leftovers (ru / zh / ko: When sheet, banners, status bits, prices, stations, friend profile, username lines), city wording (search examples, About per city and per copy, phone location-blocked line), a Why? line under hours not confirmed / sources disagree / call first, Access line + Step-free chip, text size (Normal / Large / Larger), 44 px tap targets, map fits a city's places. v5.37-b3: picks (no place inside another, start area first, no unsure-end or card-game top pick, ideas follow their own times), walk time first under 1 mi + nearest CTA stop, quick time chips + city time label + 60 days ahead, real prices on every card, deal chips only on the chosen day + residents, counts match lists, past dates never listed. v5.37-b2: filters (Walk about 20 min, travel both ways in Time I have, Free chip + price by amount + $$$$, kids age bands, No 21+ via adults_only, no 0-result chips, Closest first in lists). v5.37-b1: nothing pops up on first open (sign-in at the first save, taste test = Home card only), language button on the first screen, search by whole words / word starts + synonyms + notes, results open-then-closest, one-tap neighborhood start, 320 px suggestions in view.   // v5.36: Las Vegas city (slug vegas, America/Los_Angeles), hidden while the file has 0 Vegas items. v5.35: shared trips with an invite link (#t_<token>, supabase/trips.sql). v5.34: the picked half of a would-you-rather counts as a liked place for "Save all"
 // v5.33:   // v5.33: party sizes 1 / 2 / 3-8 / 9+ (old 3-4 / 5-8 read as 3-8); "Save all" the places liked in the test (Result, taste profile, one-time pop-up for earlier tests)
 // v5.32 history:   // v5.32: Retake fix - the taste deck is built from Chicago's places wherever the app's city is (in Oahu it ran out after 1 card), a slot that can't be filled never ends the deck, and a Retake keeps the previous result until the new 35 answers are in. v5.31: the About panel and the Surprise panel in ru / zh-Hans / ko (A31 string table, unverified). v5.30: the rest of the text in ru / zh-Hans / ko (phrase table for the location sheet, friends, privacy, poll, Group Blend, taste result, pop-ups, toasts), rarer leave-now sentences, photo credit words, ko times from Intl, the trip page redrawn on a language switch, the action row at 320 px, stricter food answers. v5.29: Ask about this place (answers only from the item's data), group size + occasion filters, trip party size. v5.28: the app text in ru / zh-Hans / ko (dates and times via Intl, ~230 new keys, data + guide translation plumbing)
 //   // v5.27: Generate my itinerary on the trip page (day-by-day plan from the shortlist + group picks: home base start/end, area clusters, hours/events/sunset, either/or, didn't fit, editable, saved with the trip on this device). v5.26: trip mode lite (on this phone only: city + dates + optional group, a home base that every distance starts from while trip mode is on, a shortlist with a status per trip day, vote link with places only, og.trips.v1 max 5). v5.25: Group Blend v1 (2-5 friends, on this phone only: poster + group match, picks tagged "4 of 5", vote link with places only, saved groups og.groups.v1). v5.24: multi-city (Chicago + Oʻahu): city picker, per-city data, map bounds, spots, travel and badges; open-now in the item's city time zone. v5.23: the rest ofthe UI words in ru / zh-Hans / ko (unverified), Visiting Chicago from the data field us_cities (< 3 US cities; visit_override). v5.22: Google rating line on place pages (edge function, page memory only), holiday status from fields only, more UI words in ru / zh-Hans / ko, Visiting Chicago without chains. v5.21: languages (ru / zh-Hans / ko, picker, per-field English fallback), Only in Chicago badge, Visiting Chicago filter, tester fixes. v5.20: weather (Open-Meteo chip + sheet, weather-aware re-ranking, idea lines, rain/snow on the map). v5.19: Blend with a friend (match %, both characters, tagged picks, share card), friends' stars + one-line reviews. v5.18: guides as articles, been date month/none, friend profile
@@ -2494,7 +2509,7 @@ var Platform = (function(){
   function linkFor(id){
     var base = PUBLIC_URL;
     if (!base && !onClaude && !inFrame) { try { if (/^https?:$/.test(location.protocol)) base = location.origin + location.pathname + location.search; } catch (e) {} }
-    return base ? String(base).replace(/#.*$/, '') + '#' + id : '';
+    return base ? langQ(String(base).replace(/#.*$/, '')) + '#' + id : '';   // v5.38: + ?lang=xx when the sharer's app is not in English
   }
   // Hand the phone a file (.ics). Inside claude.ai a page can't start a download by itself and the downloads capability doesn't allow .ics,
   // so this resolves false there and the caller shows the details with a Copy button instead.
@@ -2689,6 +2704,7 @@ function fmtWhen(ms, p, isClose){ // relative clock text from the point of view 
 function fmtDur(min){ min = Math.round(min); if (min < 60) return min + ' min'; var h = Math.floor(min / 60), m = min % 60; return h + ' h' + (m ? ' ' + m + ' m' : ''); }
 function fmtMi(mi){ if (mi < 0.1) return tx('u.under', 'under 0.1 mi'); var n = mi < 10 ? mi.toFixed(1) : String(Math.round(mi)); return LANG === 'en' ? n + ' mi' : tx('u.mi', '{n} mi', {n:n}); }
 function fmtRadius(r){ return r === 0.5 ? '\u00bd mi' : r + ' mi'; }
+function fmtRadiusL(r){ return LANG === 'en' ? fmtRadius(r) : tx('u.mi', '{n} mi', {n:r === 0.5 ? '0.5' : String(r)}); }   // v5.38 fix: '25 миль', never '25 mi' in Russian
 function fmtBudget(b){ if (b === 'night') return 'all night'; if (b < 60) return b + ' min'; var h = b / 60; if (h === Math.floor(h)) return h + (h === 1 ? ' hr' : ' hrs'); if (h * 2 === Math.floor(h * 2)) return Math.floor(h) + '\u00bd hrs'; return fmtDur(b); }
 function travelText(tr){ if (!tr || tr.how === 'unknown') return tx('tt.unknown', 'travel time unknown'); if (LANG !== 'en') return tx('tt.about', 'about {t}', {t:trStatus(tr.min + ' min ' + (tr.how === 'walk' ? 'walk' : tr.how === 'CTA' ? 'by CTA' : driveWord()))}) + (tr.switched ? tx('tt.switched', '') : ''); return 'about ' + tr.min + ' min ' + (tr.how === 'walk' ? 'walk' : tr.how === 'CTA' ? 'by CTA' : driveWord()) + (tr.switched ? ' (too far for our CTA estimate: Metra or drive)' : ''); }
 
@@ -3037,6 +3053,7 @@ function holidayGate(it, st, today){ // never "open" on a day the notes say may 
   if (!hf) return st;
   if (shut && !hf.special) return st;                        // v2.2: a closed day is only reopened as "call first" by special hours (Aurora's extra market days)
   if (hf.noInfo && st.always) return st;                     // open 24 hours (parks, trails): no holiday doubt
+  if (hf.notPosted) { var uw = weeklyRanges(it, day); st = ext(st, {usualKey:st.key, usualRanges:Array.isArray(uw) ? uw : null}); }   // v5.38 fix: date_hours "unknown" keeps the weekly hours as the guide (never "Closed")
   return ext(st, {key:'maybe', open:false, holiday:hf.name, holClosed:hf.closed, holNoInfo:!!hf.noInfo, holSpecial:!!hf.special, holNotPosted:!!hf.notPosted, specialDay:day, holVenue:hf.venue || '', closesAt:null, minsLeft:null, opensAt:null});
 }
 function dayRanges(it, key){ // null = unknown; [] = closed; else [[startMin, endMin]] (end may pass midnight)
@@ -3229,6 +3246,15 @@ function seasonRange(it, ss){ // "May 1 – Oct 30" when the season recurs (or n
   return fmtMonthDay(s.open_from) + ' – ' + fmtMonthDay(s.open_to);
 }
 function seasonShelfTitle(p){ var m = p.m; return (m >= 9 || m <= 3) ? 'Back in spring' : 'Back later'; }   // design spec 4.9
+function holUsualText(st){ // v5.38 fix: "usually 10 am – 10 pm" from the weekly hours of that day ('' when the weekly hours are unknown)
+  var r = st && st.usualRanges; if (!Array.isArray(r)) return '';
+  if (!r.length) return 'usually closed ' + DOW_SHORT[wdOfKey(st.specialDay || st.p.key)];
+  if (r[0][1] - r[0][0] >= 1440) return 'usually open 24 hours';
+  return 'usually ' + r.map(function(x){ return fmtTime(x[0]) + ' – ' + fmtEndTime(x[1] % 1440 === 0 ? 1440 : x[1] % 1440); }).join(', ');
+}
+function isHolNP(c){ return !!(c && c.st && c.st.key === 'maybe' && c.st.holNotPosted && !c.st.holVenue); }   // date_hours "unknown" on the chosen day
+function holRank(c){ var k = c.st.usualKey; return k === 'open' || k === 'closing' ? 0 : k === 'later' ? 1 : 2; }   // usually open now, then later today, then the rest
+function holSort(a, b){ return holRank(a) - holRank(b) || byTravel(a, b); }
 function statusCore(it, ms){ // status from the hours, seasons, dates and notes; statusAt() adds the v2.2 gates
   var p = cparts(ms), today = p.key, v = it.verified || {};
   var base = {p:p, ms:ms, conflicting: v.status === 'conflicting'};
@@ -3486,6 +3512,7 @@ function describeCore(st, it){
       var vsub = st.holVenue ? 'per ' + st.holVenue + '\'s hours' : undefined;
       if (st.entryPassed) return st.lastEntryBare ? {text:'Entry may have closed \u00b7 call first', tone:'soon', sub:'it has a last-entry time we don\'t have; closes ' + fmtClock(st.doorCloses)}
                                                   : {text:'Past last entry (' + fmtClock(st.lastEntryAt) + ') \u00b7 call first', tone:'soon', sub:'last entry from its notes; closes ' + fmtClock(st.doorCloses)};   // v2.2 (C-1)
+      if (st.holNotPosted && !st.holVenue) return {text:'Holiday hours not posted · call first', tone:'soon', sub:holUsualText(st)};   // v5.38 fix (Thanksgiving "everything shows closed"): the weekly hours are the guide
       if (st.holSpecial) return {text:(st.holiday ? st.holiday + ': special hours' : 'Special hours today') + ' \u00b7 call first', tone:'soon',
                                  sub: vsub || (st.holNotPosted ? 'special hours on ' + fmtMonthDay(st.specialDay || p.key) + ', times not posted' : 'our notes list different hours for ' + fmtMonthDay(st.specialDay || p.key))};   // v2.2 (H-1)
       if (st.holClosed) return {text:'May be closed today' + (st.holiday ? ' (' + st.holiday + ')' : '') + ' \u00b7 call first', tone:'soon', sub:vsub};
@@ -4409,7 +4436,8 @@ function stationLine(it, max){ // "Near Clark/Lake · Blue, Green · 4 min walk"
 }
 function areaText(it){ // the friendly area name (area_display: "Pilsen", "River West") before the official community area
   var a = it && typeof it.area_display === 'string' ? it.area_display.trim() : '';
-  return a || shortHood(it && it.neighborhood);
+  a = a || shortHood(it && it.neighborhood);
+  return LANG === 'en' ? a : a.replace(/\(suburb\)/, '(' + tx('w.suburb', 'suburb') + ')');   // v5.38: "Lisle (suburb)" -> "Lisle (пригород)"
 }
 /* Two places where one is inside the other (Millennium Park + Cloud Gate, a museum + its exhibit, two events at one store):
    the same street address, or a name that is the other's venue ("... (Millennium Park)", "... in Millennium Park", "Millennium Park, 201 E. ..."),
@@ -4699,6 +4727,7 @@ function buildView(res, F, sel, sub){ // sel: '' | 'play' | 'limited' | 'limited
     if (c.st.opensAt && !c.st.open && (c.st.key === 'later' || c.st.key === 'closed') && inGs(c) && (!s.lim || c.lim) && (!vm.firstOpen || c.st.opensAt < vm.firstOpen.st.opensAt || (c.st.opensAt === vm.firstOpen.st.opensAt && byTravel(c, vm.firstOpen) < 0))) vm.firstOpen = c;
   });
   GENRES.forEach(function(g){ vm.byGenre[g.id].sort(rankFits); });
+  vm.hol = res.all.filter(function(c){ return isHolNP(c) && inGs(c) && (!s.lim || c.lim); }).sort(holSort);   // v5.38 fix: holiday hours not posted (Thanksgiving)
   // v5.6 "Worth the drive": far fits in the picked kinds (inside the radius but past the mode's reach, or past the radius), best first
   vm.far = [];
   var mode = (F && F.mode) || DEFAULT_MODE;
@@ -4724,17 +4753,18 @@ function buildView(res, F, sel, sub){ // sel: '' | 'play' | 'limited' | 'limited
     var one = s.gs.length === 1, useSub = one && sub;   // sub-chips only when exactly one kind is picked
     var inG = function(c){ return s.gs.indexOf(c.genre) >= 0 && (!useSub || c.sub === sub); };
     if (!one) vm.sub = '';
-    var k = {fits:[], tight:[], rest:{}, restN:0, all:0, subs:[], book:[]};
+    var k = {fits:[], tight:[], rest:{}, restN:0, all:0, subs:[], book:[], hol:[]};
     REST_ORDER.forEach(function(r){ k.rest[r] = []; });
     res.all.forEach(function(c){
       if (!inG(c)) return;
       k.all++;
       if (c.bucket === 'fits') k.fits.push(c);
       else if (c.bucket === 'tight') k.tight.push(c);
+      else if (isHolNP(c)) k.hol.push(c);   // v5.38 fix: holiday hours not posted = its own visible group, never hidden under "Show the rest"
       else if (c.bookTime) k.book.push(c);   // v5.10: showtimes / book-a-time venues stay in the main list, after known hours
       else { k.rest[restGroupOf(c)].push(c); k.restN++; }
     });
-    k.book.sort(byTravel);
+    k.book.sort(byTravel); k.hol.sort(holSort);
     if (one && s.gs[0] === 'play' && sub === 'escape') k.escape = escapeRoomsView(res);   // v5.10: every escape room, whatever the distance
     k.fits.sort(rankFits);
     k.far = vm.far.filter(inG); k.fits = k.fits.filter(function(c){ return !c.far; });   // v5.6: far ones move to "Worth the drive"
@@ -4938,7 +4968,7 @@ function navLangNow(){ try { return navigator.language || (navigator.languages &
 // STR: key -> [English, Russian, Chinese (Simplified), Korean]. Non-English: unverified, needs native review.
 var STR = {
   'lang.title':['Language', 'Язык', '语言', '언어'],
-  'lang.note':['Translations are new and not yet checked by a native speaker. Place names stay in English.', 'Перевод новый и ещё не проверен носителем языка. Названия мест остаются на английском.', '译文是新的，尚未经母语人士审校。地点名称保留英文。', '번역은 새로 추가되어 아직 원어민 검수를 받지 않았어요. 장소 이름은 영어로 표시돼요.'],
+  'lang.note':['Translations are new and not yet checked by a native speaker. Place names stay in English.', 'Перевод новый и ещё не проверен носителем языка. Названия мест написаны по-русски, а поиск понимает и английские.', '译文是新的，尚未经母语人士审校。地点名称保留英文。', '번역은 새로 추가되어 아직 원어민 검수를 받지 않았어요. 장소 이름은 영어로 표시돼요.'],
   'theme.title':['Theme & language', 'Тема и язык', '主题和语言', '테마 및 언어'],
   'who.date':['Date', 'Свидание', '约会', '데이트'], 'who.friends':['Friends', 'Друзья', '朋友', '친구'], 'who.solo':['Solo', 'Одному', '独自', '혼자'],
   'when.now':['Now', 'Сейчас', '现在', '지금'], 'when.today':['Today', 'Сегодня', '今天', '오늘'], 'when.pick':['Pick a day', 'День', '选日期', '날짜 선택'],   // v5.37-b4 (batch 04): "Дата" read like "date" next to "Свидание"
@@ -4963,7 +4993,7 @@ var STR = {
   'g.limited':['Limited', 'Ненадолго', '限时', '기간 한정'], 'g.play':['Play', 'Игры', '玩乐', '놀이'], 'g.look':['Sights', 'Смотреть', '观光', '구경'], 'g.nature':['Nature', 'Природа', '自然', '자연'],
   'g.eat':['Eat & drink', 'Еда', '吃喝', '먹고 마시기'], 'g.shows':['Shows', 'Шоу', '演出', '공연'], 'g.make':['Make', 'Творить', '手作', '만들기'], 'g.relax':['Relax', 'Отдых', '放松', '휴식'],
   // v5.22 (tester v5.21 M1 / L1): more interface words. Non-English: unverified, needs native review. "Google Maps" is never translated.
-  'gr.reviews':['{n} Google reviews', 'Отзывы в Google: {n}', '{n} 条 Google 评价', 'Google 리뷰 {n}개'], 'gr.review1':['{n} Google review', 'Отзывы в Google: {n}', '{n} 条 Google 评价', 'Google 리뷰 {n}개'],
+  'gr.reviews':['{n} Google reviews', '{n} {pl:{n}|отзыв|отзыва|отзывов} в Google', '{n} 条 Google 评价', 'Google 리뷰 {n}개'], 'gr.review1':['{n} Google review', '{n} {pl:{n}|отзыв|отзыва|отзывов} в Google', '{n} 条 Google 评价', 'Google 리뷰 {n}개'],
   'gr.loading':['Loading the Google rating', 'Загружаем оценку Google', '正在加载 Google 评分', 'Google 평점을 불러오는 중'],
   'closed.for':['Closed for {x}', 'Закрыто: {x}', '{x}休息', '{x} 휴무'], 'closed':['Closed', 'Закрыто', '休息', '휴무'],
   'hol.nyDay':['New Year’s Day', 'Новый год', '元旦', '새해 첫날'], 'hol.easter':['Easter', 'Пасха', '复活节', '부활절'], 'hol.memorial':['Memorial Day', 'День памяти', '阵亡将士纪念日', '메모리얼 데이'],
@@ -4981,8 +5011,8 @@ var STR = {
   'bk.none':['Booking: not stated.', 'Бронь: не указано.', '预约：未说明。', '예약: 안내 없음.'],
   'dt.directions':['Directions', 'Маршрут', '路线', '길찾기'], 'dt.share':['Share', 'Поделиться', '分享', '공유'], 'dt.go':['Go', 'Маршрут', '导航', '가기'], 'dt.call':['Call', 'Позвонить', '致电', '전화'],
   'dt.callFirst':['Call first', 'Сначала позвоните', '请先致电', '먼저 전화하기'], 'dt.web':['Check their website', 'Открыть их сайт', '查看官网', '웹사이트 확인'], 'map.btn':['Map', 'Карта', '地图', '지도'],
-  'f.more':['More filters', 'Ещё фильтры', '更多筛选', '필터 더 보기'], 'f.reset':['Reset', 'Сбросить', '重置', '초기화'], 'f.show':['Show {n} things', 'Показать ({n})', '显示 {n} 项', '{n}곳 보기'],
-  'f.show1':['Show 1 thing', 'Показать (1)', '显示 1 项', '1곳 보기'], 'f.none':['No matches · loosen a filter', 'Ничего · ослабьте фильтр', '没有结果 · 放宽筛选', '결과 없음 · 필터를 줄여 보세요'], 'f.done':['Done', 'Готово', '完成', '완료'],
+  'f.more':['More filters', 'Ещё фильтры', '更多筛选', '필터 더 보기'], 'f.reset':['Reset', 'Сбросить', '重置', '초기화'], 'f.show':['Show {n} things', 'Показать {n} {pl:{n}|вариант|варианта|вариантов}', '显示 {n} 项', '{n}곳 보기'],
+  'f.show1':['Show 1 thing', 'Показать 1 вариант', '显示 1 项', '1곳 보기'], 'f.none':['No matches · loosen a filter', 'Ничего · ослабьте фильтр', '没有结果 · 放宽筛选', '결과 없음 · 필터를 줄여 보세요'], 'f.done':['Done', 'Готово', '完成', '완료'],
   'f.hr1':['1 hr', '1 ч', '1 小时', '1시간'], 'f.hrs':['{n} hrs', '{n} ч', '{n} 小时', '{n}시간'], 'f.tonight':['Tonight', 'Сегодня вечером', '今晚', '오늘 밤'], 'f.most':['Most limiting', 'Сильнее всего сужает', '限制最多', '가장 많이 줄임'],
   'th.theme':['Theme', 'Тема', '主题', '테마'], 'th.light':['Light', 'Светлая', '浅色', '라이트'], 'th.dark':['Dark', 'Тёмная', '深色', '다크'], 'th.auto':['Auto', 'Авто', '自动', '자동'],
   'th.autoNote':['Auto follows your phone’s light or dark setting.', 'Авто следует светлой или тёмной теме телефона.', '自动模式跟随手机的浅色或深色设置。', '자동은 휴대폰의 라이트/다크 설정을 따라요.'],
@@ -5041,7 +5071,7 @@ var STR = {
   'sa.all':['See all {n}', 'Все {n}', '全部 {n} 个', '{n}개 모두 보기'], 'sa.aria':['See all {n} in {g}', '{g}: все {n}', '查看{g}全部 {n} 个', '{g} {n}개 모두 보기'],
   'wx.idea':['Idea:', 'Идея:', '点子：', '아이디어:'], 'f.nOn':['{n} on', 'включено: {n}', '已开启 {n} 个', '{n}개 켜짐'],
   'a.save':['Save: {x}', 'Сохранить: {x}', '收藏：{x}', '저장: {x}'], 'a.saved':['Saved: {x}', 'Сохранено: {x}', '已收藏：{x}', '저장됨: {x}'], 'a.share':['Share {x}', 'Поделиться: {x}', '分享 {x}', '{x} 공유'],
-  'cl.n':['{n} places{t}. Show the list', 'Мест: {n}{t}. Показать список', '{n} 个地点{t}。显示列表', '{n}곳{t}. 목록 보기'], 'cl.tk':[', {n} limited-time', ', ненадолго: {n}', '，其中 {n} 个限时', ', 기간 한정 {n}곳'],
+  'cl.n':['{n} places{t}. Show the list', '{n} {pl:{n}|место|места|мест}{t}. Показать список', '{n} 个地点{t}。显示列表', '{n}곳{t}. 목록 보기'], 'cl.tk':[', {n} limited-time', ', ненадолго: {n}', '，其中 {n} 个限时', ', 기간 한정 {n}곳'],
   'more.n':['Show {n} more', 'Показать ещё {n}', '再显示 {n} 个', '{n}개 더 보기'],
   'end.rough':['Travel times are rough.', 'Время в пути примерное.', '路程时间仅供参考。', '이동 시간은 대략이에요.'], 'end.tip':['Send a tip', 'Прислать подсказку', '提供线索', '제보하기'], 'end.about':['About', 'О приложении', '关于', '소개'],
   'loc.nearYou':['Near you', 'Рядом с вами', '你附近', '내 주변'], 'when.any':['Any time', 'Любое время', '任意时间', '아무 때나'], 'tag.now':['Fun that’s open right now.', 'Что открыто прямо сейчас.', '此刻营业的好去处。', '지금 열려 있는 즐길 거리.']
@@ -5051,7 +5081,7 @@ function i18L(key, en){ return LANG === 'en' || !STR[key] ? en : i18t(key); }   
 // unverified, needs native review. Numbers and {placeholders} are identical in all four columns (self-test V528-3 checks it).
 var STR28 = {
   // dates, units, travel
-  'w.tomorrow':['Tomorrow', 'Завтра', '明天', '내일'], 'u.mi':['{n} mi', '{n} миль', '{n} 英里', '{n}마일'], 'u.under':['under 0.1 mi', 'меньше 0.1 мили', '不到 0.1 英里', '0.1마일 미만'],
+  'w.tomorrow':['Tomorrow', 'Завтра', '明天', '내일'], 'u.mi':['{n} mi', '{n} {pl:{n}|миля|мили|миль}', '{n} 英里', '{n}마일'], 'u.under':['under 0.1 mi', 'меньше 0.1 мили', '不到 0.1 英里', '0.1마일 미만'],
   'tt.about':['about {t}', 'примерно {t}', '约 {t}', '약 {t}'], 'tt.unknown':['travel time unknown', 'время в пути неизвестно', '路程时间未知', '이동 시간 알 수 없음'],
   'tt.switched':[' (too far for our CTA estimate: Metra or drive)', ' (слишком далеко для оценки CTA: Metra или машина)', '（超出 CTA 估算范围：乘 Metra 或开车）', ' (CTA 추정 범위 밖: Metra 또는 자동차)'],
   // place page
@@ -5101,11 +5131,11 @@ var STR28 = {
   'rest.closedNow':['Closed now', 'Сейчас закрыто', '现在不营业', '지금은 영업 안 함'], 'rest.closedW':['Closed {w}', 'Закрыто {w}', '{w}不营业', '{w} 영업 안 함'], 'rest.opening':['Opening soon', 'Скоро откроется', '即将开业', '곧 오픈'],
   'rest.dates':['Later dates', 'Позже', '更晚的日期', '나중 날짜'], 'rest.season':['{x} · closed for the season', '{x} · закрыто на сезон', '{x} · 季节性关闭', '{x} · 시즌 휴무'],
   'tg.book':['Book ahead', 'Нужна бронь', '需预约', '예약 필요'], 'rw.opensAt':['Opens {t}', 'Откроется в {t}', '{t} 开门', '{t} 오픈'], 'rw.opensIn':['Opens in {d}', 'Откроется через {d}', '{d}后开门', '{d} 후 오픈'],
-  'fr.n1':['{n} friend', '{n} друг', '{n} 位朋友', '친구 {n}명'], 'fr.n':['{n} friends', 'друзей: {n}', '{n} 位朋友', '친구 {n}명'], 'fr.from':['from {n}', 'от {n}', '来自 {n}', '{n}명 기준'],
-  'ub.nWd':['{n} {w}s', '{w}: {n} раза', '{n} 个{w}', '{w} {n}회'], 'ub.next':['next {d}', 'следующий {d}', '下次 {d}', '다음 {d}'], 'ub.nDates':['{n} dates', 'дат: {n}', '{n} 个日期', '{n}개 날짜'],
+  'fr.n1':['{n} friend', '{n} друг', '{n} 位朋友', '친구 {n}명'], 'fr.n':['{n} friends', '{n} {pl:{n}|друг|друга|друзей}', '{n} 位朋友', '친구 {n}명'], 'fr.from':['from {n}', 'от {n}', '来自 {n}', '{n}명 기준'],
+  'ub.nWd':['{n} {w}s', '{w}: {n} {pl:{n}|раз|раза|раз}', '{n} 个{w}', '{w} {n}회'], 'ub.next':['next {d}', 'следующий {d}', '下次 {d}', '다음 {d}'], 'ub.nDates':['{n} dates', '{n} {pl:{n}|дата|даты|дат}', '{n} 个日期', '{n}개 날짜'],
   'ub.check':['Check dates', 'Проверьте даты', '请确认日期', '날짜 확인'],
   // guides (the article chrome; guide text itself is data: i18n/<lang>/guides.json)
-  'gd.title':['Guides', 'Гиды', '指南', '가이드'], 'gd.top':['Top {n}', 'Топ-{n}', '前 {n}', '톱 {n}'], 'gd.stops':['{n} stops', 'Остановок: {n}', '{n} 站', '{n}곳'],
+  'gd.title':['Guides', 'Гиды', '指南', '가이드'], 'gd.top':['Top {n}', 'Топ-{n}', '前 {n}', '톱 {n}'], 'gd.stops':['{n} stops', '{n} {pl:{n}|остановка|остановки|остановок}', '{n} 站', '{n}곳'],
   'gd.start':['Start with', 'Начните с', '先去', '먼저'], 'gd.then':['Then', 'Потом', '然后', '다음'], 'gd.end':['End at', 'Закончите здесь', '最后', '마지막'], 'gd.skip':['Skip this one', 'Это пропустите', '这站跳过', '이곳은 건너뛰세요'],
   'gd.see':['See place', 'К месту', '查看地点', '장소 보기'], 'gd.all':['All {n} {w}', 'Все {n}: {w}', '全部 {n} 处 · {w}', '{n}곳 모두 · {w}'], 'gd.some':['{a} of {n} {w}', '{a} из {n}: {w}', '{n} 处中 {a} 处 · {w}', '{n}곳 중 {a}곳 · {w}'],
   'gd.none':['None {w}', 'Ни одного: {w}', '没有 · {w}', '없음 · {w}'], 'gd.openNow':['open now', 'открыто сейчас', '现在营业', '지금 영업 중'], 'gd.openThen':['open then', 'открыто в это время', '届时营业', '그때 영업 중'],
@@ -5119,7 +5149,7 @@ var STR28 = {
   'ac.retake':['Retake', 'Пройти заново', '重新测试', '다시 하기'], 'ac.adjust':['Adjust', 'Настроить', '调整', '조정'],
   'ac.pickFirst':['Pick a username first, then add friends.', 'Сначала выберите имя пользователя, потом добавляйте друзей.', '先选一个用户名，再添加朋友。', '먼저 사용자 이름을 정한 뒤 친구를 추가하세요.'],
   'ac.blendWith':['Blend with {x}', 'Blend с {x}', '与 {x} 的 Blend', '{x}님과 Blend'], 'ac.and':['{a} and {b}', '{a} и {b}', '{a} 和 {b}', '{a}, {b}'], 'ac.more':[' + {n} more', ' + ещё {n}', ' 等另外 {n} 位', ' 외 {n}명'],
-  'ac.noFriends':['No friends yet', 'Пока нет друзей', '还没有朋友', '아직 친구가 없어요'], 'ac.req1':['{n} request', 'запросов: {n}', '{n} 个请求', '요청 {n}개'], 'ac.reqN':['{n} requests', 'запросов: {n}', '{n} 个请求', '요청 {n}개'],
+  'ac.noFriends':['No friends yet', 'Пока нет друзей', '还没有朋友', '아직 친구가 없어요'], 'ac.req1':['{n} request', '{n} {pl:{n}|запрос|запроса|запросов}', '{n} 个请求', '요청 {n}개'], 'ac.reqN':['{n} requests', '{n} {pl:{n}|запрос|запроса|запросов}', '{n} 个请求', '요청 {n}개'],
   'ac.wants':['@{x} wants to be friends', '@{x} хочет дружить', '@{x} 想加你为好友', '@{x}님이 친구 신청을 했어요'], 'ac.accept':['Accept', 'Принять', '接受', '수락'], 'ac.notNow':['Not now', 'Не сейчас', '以后再说', '나중에'],
   'ac.addFriend':['+ Add friend', '+ Друг', '+ 添加朋友', '+ 친구 추가'], 'ac.invite':['Invite link', 'Пригласить', '邀请链接', '초대 링크'],
   'ac.location':['Location', 'Местоположение', '位置', '위치'], 'ac.locHelp':['Shows what’s near you', 'Показывает, что рядом', '显示你附近的内容', '내 주변을 보여 줘요'], 'ac.turnOn':['Turn on', 'Включить', '开启', '켜기'],
@@ -5142,9 +5172,9 @@ var STR28 = {
   'sy.tap':['Tap to sync', 'Синхронизировать', '点按同步', '눌러서 동기화'], 'sy.justNow':['just now', 'только что', '刚刚', '방금'], 'sy.minAgo':['{n} min ago', '{n} мин назад', '{n} 分钟前', '{n}분 전'],
   // taste test
   'sw.love':['Love it', 'Обожаю', '超爱', '완전 좋아'], 'sw.yes':['Into it', 'Нравится', '喜欢', '좋아'], 'sw.no':['Nah', 'Не моё', '不太行', '별로'], 'sw.never':['Never', 'Никогда', '绝不', '절대 안 해'],
-  'tk.find':['Find your {a} character', 'Узнайте своего персонажа {a}', '找到你的 {a} 角色', '나의 {a} 캐릭터 찾기'], 'tk.guest':['{n} swipes for {x}', '{n} свайпов для {x}', '为 {x} 滑 {n} 张', '{x}님을 위한 스와이프 {n}번'],
-  'tk.yourGuest':['your guest', 'вашего гостя', '你的客人', '게스트'], 'tk.retake':['{n} swipes to sharpen it', '{n} свайпов, чтобы уточнить', '滑 {n} 张让它更准', '더 정확하게 스와이프 {n}번'], 'tk.mini':['{n} quick swipes', '{n} быстрых свайпов', '{n} 次快速滑动', '빠른 스와이프 {n}번'],
-  'tk.answers':['{n} quick answers · about {m} min', '{n} быстрых ответов · около {m} мин', '{n} 个快速回答 · 约 {m} 分钟', '빠른 답변 {n}개 · 약 {m}분'], 'tk.swipes':['{n} quick swipes · about {m} min', '{n} быстрых свайпов · около {m} мин', '{n} 次快速滑动 · 约 {m} 分钟', '빠른 스와이프 {n}번 · 약 {m}분'],
+  'tk.find':['Find your {a} character', 'Узнайте своего персонажа {a}', '找到你的 {a} 角色', '나의 {a} 캐릭터 찾기'], 'tk.guest':['{n} swipes for {x}', '{n} {pl:{n}|свайп|свайпа|свайпов} для {x}', '为 {x} 滑 {n} 张', '{x}님을 위한 스와이프 {n}번'],
+  'tk.yourGuest':['your guest', 'вашего гостя', '你的客人', '게스트'], 'tk.retake':['{n} swipes to sharpen it', '{n} {pl:{n}|свайп|свайпа|свайпов}, чтобы уточнить', '滑 {n} 张让它更准', '더 정확하게 스와이프 {n}번'], 'tk.mini':['{n} quick swipes', '{n} {pl:{n}|быстрый свайп|быстрых свайпа|быстрых свайпов}', '{n} 次快速滑动', '빠른 스와이프 {n}번'],
+  'tk.answers':['{n} quick answers · about {m} min', '{n} {pl:{n}|быстрый ответ|быстрых ответа|быстрых ответов} · около {m} мин', '{n} 个快速回答 · 约 {m} 分钟', '빠른 답변 {n}개 · 약 {m}분'], 'tk.swipes':['{n} quick swipes · about {m} min', '{n} {pl:{n}|быстрый свайп|быстрых свайпа|быстрых свайпов} · около {m} мин', '{n} 次快速滑动 · 约 {m} 分钟', '빠른 스와이프 {n}번 · 약 {m}분'],
   'tk.learns':['It keeps learning from what you save and like.', 'Подборка учится на том, что вы сохраняете и любите.', '它会根据你收藏和喜欢的内容不断学习。', '저장하고 좋아한 것에서 계속 배워요.'], 'tk.drag':['Drag the photo, or tap an icon', 'Тяните фото или нажмите значок', '拖动照片，或点按图标', '사진을 끌거나 아이콘을 누르세요'],
   'tk.skip':['Skip', 'Пропустить', '跳过', '건너뛰기'], 'tk.dayTrip':[' · Day trip', ' · Поездка на день', ' · 一日游', ' · 당일치기'], 'tk.which':['Which sounds better?', 'Что звучит лучше?', '哪个听起来更好？', '어느 쪽이 더 좋아요?'], 'tk.undo':['Undo (Z)', 'Отменить (Z)', '撤销 (Z)', '되돌리기 (Z)'],
   // "I've been here" box
@@ -5154,7 +5184,7 @@ var STR28 = {
   'bb.line':['One line about it (optional)', 'Пара слов об этом (необязательно)', '一句话说说（可选）', '한 줄 소감 (선택)'],
   'bb.note':['Friends who you share check-ins with can see your stars and review. Your review shows without your name.', 'Друзья, с которыми вы делитесь посещениями, видят ваши звёзды и отзыв. Отзыв показывается без вашего имени.', '与你共享打卡的朋友可以看到你的星级和评价。评价不显示你的名字。', '방문 기록을 공유하는 친구는 별점과 리뷰를 볼 수 있어요. 리뷰에는 이름이 표시되지 않아요.'],
   'bb.noteLocal':[' For now your review stays on this phone.', ' Пока отзыв остаётся на этом телефоне.', ' 目前你的评价只保存在这部手机上。', ' 지금은 리뷰가 이 휴대폰에만 저장돼요.'],
-  'bb.star1':['{n} star', '{n} звезда', '{n} 星', '별 {n}개'], 'bb.stars':['{n} stars', '{n} звезды', '{n} 星', '별 {n}개'],
+  'bb.star1':['{n} star', '{n} звезда', '{n} 星', '별 {n}개'], 'bb.stars':['{n} stars', '{n} {pl:{n}|звезда|звезды|звёзд}', '{n} 星', '별 {n}개'],
   // weather
   'wx.showDay':['Show {d}, any time', 'Показать: {d}, любое время', '显示{d}，任意时间', '{d} 보기, 아무 때나'], 'wx.next12':['Next 12 hours', 'Ближайшие 12 часов', '未来 12 小时', '앞으로 12시간'], 'dt.close':['Close', 'Закрыть', '关闭', '닫기'],
   'rd.all':['All {n}', 'Все {n}', '全部 {n}', '{n}개 모두'], 'hm.allOpen':['All {g} open ({n})', 'Всё открытое: {g} ({n})', '全部营业的{g}（{n}）', '영업 중인 {g} 전체 ({n})'], 'hm.allOpen0':['Everything open ({n})', 'Всё, что открыто ({n})', '全部营业中（{n}）', '영업 중 전체 ({n})'],
@@ -5206,7 +5236,7 @@ var STR29 = {
   'pz.q':['How many of you?', 'Сколько вас?', '你们几个人？', '몇 명이에요?'],
   // v5.33 "save the places you liked in the test"
   'lk.title':['From your test', 'Из вашего теста', '来自你的测试', '테스트 결과에서'],
-  'lk.q':['You liked {n} places in the test. Save them?', 'В тесте вам понравились места: {n}. Сохранить их?', '测试里你喜欢了 {n} 个地方。要收藏吗？', '테스트에서 마음에 든 곳이 {n}곳이에요. 저장할까요?'],
+  'lk.q':['You liked {n} places in the test. Save them?', 'В тесте вам {pl:{n}|понравилось|понравились|понравилось} {n} {pl:{n}|место|места|мест}. Сохранить?', '测试里你喜欢了 {n} 个地方。要收藏吗？', '테스트에서 마음에 든 곳이 {n}곳이에요. 저장할까요?'],
   'lk.all':['Save all {n}', 'Сохранить все ({n})', '全部收藏（{n}）', '모두 저장 ({n})'],
   'lk.not':['Not now', 'Не сейчас', '以后再说', '나중에'],
   'lk.done':['Saved {n}. They\'re in Saved.', 'Сохранено: {n}. Они в «Сохранённом».', '已收藏 {n} 个，都在“已收藏”里。', '{n}곳을 저장했어요. 저장 목록에 있어요.'],
@@ -5252,7 +5282,7 @@ var STR30K = {
   // a range that ends at midnight (ko: Intl gives 오전 12:00, which reads as the start of the day)
   'tm.midnight':['midnight', '24:00', '24:00', '자정'],
   // Home's Blend heading and the place page's friends' stars
-  'cp.your':['Your Blend · {x}', 'Ваш Бленд · {x}', '你们的 Blend · {x}', '우리 블렌드 · {x}'], 'frs.from1':['from {n} friend', 'от {n} друга', '来自 {n} 位朋友', '친구 {n}명의 평가'], 'frs.fromN':['from {n} friends', 'от {n} друзей', '来自 {n} 位朋友', '친구 {n}명의 평가'],
+  'cp.your':['Your Blend · {x}', 'Ваш Бленд · {x}', '你们的 Blend · {x}', '우리 블렌드 · {x}'], 'frs.from1':['from {n} friend', 'от {n} друга', '来自 {n} 位朋友', '친구 {n}명의 평가'], 'frs.fromN':['from {n} friends', 'от {n} {pl:{n}|друга|друзей|друзей}', '来自 {n} 位朋友', '친구 {n}명의 평가'],
   'tk.hiding':['Hiding {x}', 'Скрыто: {x}', '已隐藏：{x}', '숨김: {x}'], 'tk.change':['Change', 'Изменить', '更改', '바꾸기'], 'tk.hw.over $':['over $', 'дороже $', '超过 $', '$ 초과'], 'tk.hw.$+':['$+', '$+', '$+', '$+'], 'tk.hw.21+':['21+', '21+', '21+', '21+'], 'tk.hw.bars':['bars', 'бары', '酒吧', '바'],
   'frs.say':['What friends say', 'Что говорят друзья', '朋友怎么说', '친구들의 한마디'], 'frs.stars':['{n} of 5 stars', '{n} из 5 звёзд', '{n}/5 星', '별 5개 중 {n}개']
 };
@@ -5411,18 +5441,64 @@ var RX30 = [
   [/^Offline · last synced (.+)\. Changes here need a connection\.$/, 'Нет сети · последняя синхронизация $1. Для изменений нужна сеть.', '离线 · 上次同步 $1。修改需要联网。', '오프라인 · 마지막 동기화 $1. 변경하려면 연결이 필요해요.'],
   [/^last synced (.+)$/, 'последняя синхронизация $1', '上次同步 $1', '마지막 동기화 $1'],
   [/^Open (.+)'s profile$/, 'Открыть профиль: $1', '打开 $1 的主页', '$1 프로필 열기'], [/^Link made (.+)$/, 'Ссылка от $1', '$1 创建的链接', '$1에 만든 링크'], [/^expires (.+)$/, 'истекает $1', '$1 过期', '$1 만료'],
-  [/^1 vote$/, '1 голос', '1 票', '1표'], [/^(\d+) votes$/, 'голосов: $1', '$1 票', '$1표'], [/^See (.+)$/, 'Открыть: $1', '查看 $1', '$1 보기'],
+  [/^1 vote$/, '1 голос', '1 票', '1표'], [/^(\d+) votes$/, '$1 {pl:$1|голос|голоса|голосов}', '$1 票', '$1표'], [/^See (.+)$/, 'Открыть: $1', '查看 $1', '$1 보기'],
   [/^Loading (.+)\.\.\.$/, 'Загружаем: $1...', '正在加载 $1...', '$1 불러오는 중...'], [/^Pick (\d+) more$/, 'Выберите ещё $1', '再选 $1 个', '$1개 더 고르세요'],
-  [/^with a streak of (.+)$/, 'с ноткой: $1', '带点「$1」的影子', '$1 기질도 조금'], [/^You passed on (\d+) bar cards$/, 'Вы пропустили карточек с барами: $1', '你跳过了 $1 张酒吧卡片', '바 카드 $1장을 넘겼어요'],
+  [/^with a streak of (.+)$/, 'с ноткой: $1', '带点「$1」的影子', '$1 기질도 조금'], [/^You passed on (\d+) bar cards$/, 'Вы пропустили $1 {pl:$1|карточку|карточки|карточек} с барами', '你跳过了 $1 张酒吧卡片', '바 카드 $1장을 넘겼어요'],
   [/^Copied (.+)$/, 'Скопировано: $1', '已复制 $1', '$1 복사했어요'], [/^On\. Your Blend shows when (.+) turns it on too\.$/, 'Включено. Бленд появится, когда $1 тоже его включит.', '已开启。等 $1 也打开后就会显示 Blend。', '켜졌어요. $1님도 켜면 블렌드가 보여요.'],
   [/^(.+)'s list updated$/, 'Список обновлён: $1', '$1 的清单已更新', '$1님의 목록을 업데이트했어요'], [/^(.+)'s taste is in\. Date picks now blend you both\.$/, 'Вкус $1 учтён. Теперь подборка для свидания на вас двоих.', '$1 的口味已加入。约会推荐现在融合你们俩。', '$1님의 취향이 들어왔어요. 이제 데이트 추천이 둘을 섞어요.'],
   [/^Added (\d+) to Been and your account$/, 'Добавлено в «Был(а)» и в аккаунт: $1', '已添加 $1 个到“去过”和你的账号', '$1곳을 가 본 곳과 계정에 추가했어요'], [/^Added (\d+) to Been on this phone$/, 'Добавлено в «Был(а)» на этом телефоне: $1', '已添加 $1 个到这部手机的“去过”', '$1곳을 이 휴대폰의 가 본 곳에 추가했어요'],
   [/^You and (.+) are friends$/, 'Вы с $1 теперь друзья', '你和 $1 成为朋友了', '$1님과 친구가 됐어요'], [/^Reload (.+) to open this link\.$/, 'Перезагрузите $1, чтобы открыть эту ссылку.', '请重新加载 $1 再打开这个链接。', '이 링크를 열려면 $1을 새로고침하세요.'],
   [/^Removed (.+)'s list$/, 'Список удалён: $1', '已移除 $1 的清单', '$1님의 목록을 삭제했어요'], [/^Removed (.+)$/, 'Удалено: $1', '已移除 $1', '$1 삭제했어요'],
   [/^Shared your newest (\d+)$/, 'Отправлены последние: $1', '已分享最新的 $1 个', '최근 $1곳을 공유했어요'], [/^Couldn't copy here\. It's (.+)$/, 'Здесь не скопировать. Вот: $1', '这里无法复制。内容是 $1', '여기서는 복사할 수 없어요. 내용: $1'],
-  [/^You have (\d+) lists\. Remove one first\.$/, 'У вас уже $1 списков. Сначала удалите один.', '你已有 $1 个清单。请先删除一个。', '목록이 이미 $1개예요. 먼저 하나를 지우세요.'], [/^You're @(.+)$/, 'Вы: @$1', '你是 @$1', '@$1 님이에요'],
+  [/^You have (\d+) lists\. Remove one first\.$/, 'У вас уже $1 {pl:$1|список|списка|списков}. Сначала удалите один.', '你已有 $1 个清单。请先删除一个。', '목록이 이미 $1개예요. 먼저 하나를 지우세요.'], [/^You're @(.+)$/, 'Вы: @$1', '你是 @$1', '@$1 님이에요'],
   [/^Request sent to @(.+)$/, 'Запрос отправлен: @$1', '已向 @$1 发送请求', '@$1님에게 요청을 보냈어요']
 ];
+// v5.38 fix pass: screen-reader labels and the other cities' spot-search hints (ru / zh-Hans / ko unverified)
+var STR30F = [
+  ['Close', 'Закрыть', '关闭', '닫기'], ['Save', 'Сохранить', '收藏', '저장'], ['Saved', 'Сохранено', '已收藏', '저장됨'], ['Search', 'Поиск', '搜索', '검색'], ['Back', 'Назад', '返回', '뒤로'],
+  ['Back to the three picks', 'Назад к трём вариантам', '返回三个推荐', '추천 세 곳으로 돌아가기'], ['Saved and Been', 'Сохранённые и посещённые', '收藏和去过', '저장한 곳과 가 본 곳'], ['Three picks', 'Три варианта', '三个推荐', '추천 세 곳'],
+  ['More', 'Ещё', '更多', '더 보기'], ['Details', 'Подробнее', '详情', '자세히'], ['Show on the map', 'Показать на карте', '在地图上显示', '지도에서 보기'], ['Zoom in', 'Приблизить', '放大', '확대'], ['Zoom out', 'Отдалить', '缩小', '축소'],
+  ['Back to my pin', 'Вернуться к моей метке', '回到我的定位点', '내 핀으로 돌아가기'], ['Sort', 'Сортировка', '排序', '정렬'], ['Show more', 'Показать ещё', '显示更多', '더 보기'], ['Expand the list', 'Развернуть список', '展开列表', '목록 펼치기'],
+  ['Narrow down', 'Уточнить', '缩小范围', '좁히기'], ['Kinds of fun', 'Виды развлечений', '玩乐类型', '놀거리 종류'], ['Things to do', 'Чем заняться', '可做的事', '할 거리'], ['When', 'Когда', '时间', '언제'], ['Your taste', 'Ваш вкус', '你的口味', '내 취향'],
+  ['Theme', 'Тема', '主题', '테마'], ['My saves', 'Мои сохранённые', '我的收藏', '내 저장 목록'], ['Share my saved list', 'Поделиться моим списком', '分享我的收藏清单', '내 저장 목록 공유'], ['Close the guide', 'Закрыть гид', '关闭指南', '가이드 닫기'],
+  ['Share this guide', 'Поделиться гидом', '分享这个指南', '이 가이드 공유'], ['How we know', 'Откуда мы знаем', '我们如何得知', '확인 방법'], ['Who is coming, and free things', 'Кто идёт и бесплатное', '谁一起去，以及免费活动', '함께 가는 사람과 무료'],
+  ['Sign in', 'Войти', '登录', '로그인'], ['Pick one', 'Выберите один', '选一个', '하나 고르기'], ['Close self-test', 'Закрыть самопроверку', '关闭自检', '자체 점검 닫기'], ['Close Opening soon', 'Закрыть «Скоро откроется»', '关闭“即将开业”', '곧 오픈 닫기'],
+  ['Neighborhood, casino or landmark', 'Район, казино или ориентир', '街区、赌场或地标', '동네, 카지노 또는 명소'], ['Neighborhood, beach or landmark', 'Район, пляж или ориентир', '街区、海滩或地标', '동네, 해변 또는 명소']
+];
+Array.prototype.push.apply(STR30, STR30F);
+RX30.push([/^Where: near (.+)\. Change$/, 'Где: рядом с $1. Изменить', '位置：$1 附近。更改', '위치: $1 근처. 바꾸기'], [/^Where: near (.+)\. (.+)\. Change$/, 'Где: рядом с $1. $2. Изменить', '位置：$1 附近。$2。更改', '위치: $1 근처. $2. 바꾸기'],
+  [/^City: (.+)\. Change$/, 'Город: $1. Изменить', '城市：$1。更改', '도시: $1. 바꾸기'], [/^When: (.+)\. Change$/, 'Когда: $1. Изменить', '时间：$1。更改', '언제: $1. 바꾸기'], [/^Where: (.+)\. Change$/, 'Где: $1. Изменить', '位置：$1。更改', '위치: $1. 바꾸기'],
+  [/^Time I have: (.+)\. Change$/, 'Сколько у меня времени: $1. Изменить', '我有的时间：$1。更改', '내 시간: $1. 바꾸기'], [/^Saved, (\d+) items?$/, 'Сохранено: $1', '已收藏：$1', '저장됨: $1'], [/^Show the map$/, 'Показать карту', '显示地图', '지도 보기'],
+  [/^Limited time, (\d+) later today$/, 'Ненадолго: $1 позже сегодня', '限时：今天晚些时候 $1 个', '기간 한정: 오늘 늦게 $1곳'], [/^(.+), (\d+) open now$/, '$1: открыто сейчас $2', '$1：现在营业 $2 个', '$1: 지금 영업 $2곳'], [/^Only (.+)\. Show everything$/, 'Только: $1. Показать всё', '仅 $1。显示全部', '$1만. 전체 보기']);
+// v5.38 fix pass: words that were English in Russian mode (holiday group, freshness band, things to do there)
+var STR38F = {
+  'hol.np':['Holiday hours not posted · call first', 'Праздничные часы не опубликованы · сначала позвоните', '节日营业时间未公布 · 请先致电', '공휴일 영업시간 미게시 · 먼저 전화하세요'],
+  'frb.preview':['Preview: {a} of {n} not confirmed yet. Call first if it\'s close.', 'Предварительно: {a} из {n} пока не подтверждены. Если место рядом, сначала позвоните.', '预览：{n} 个中有 {a} 个尚未确认。如果离得近，先打个电话。', '미리보기: {n}곳 중 {a}곳은 아직 미확인이에요. 가까우면 먼저 전화하세요.'],
+  'frb.pct':['Only {p}% of this list was checked in the last 2 weeks. Hours may have changed, so call first.', 'За последние 2 недели проверено только {p}% этого списка. Часы могли измениться, поэтому сначала позвоните.', '这个清单只有 {p}% 在最近 2 周内核实过。营业时间可能有变，请先致电。', '이 목록의 {p}%만 최근 2주 안에 확인됐어요. 영업시간이 바뀌었을 수 있으니 먼저 전화하세요.'],
+  'hm.onlySel':['Only {g}', 'Только: {g}', '仅{g}', '{g}만'],
+  'wx.ttd':['Things to do there:', 'Чем там заняться:', '在那里可以：', '그곳에서 할 거리:']
+};
+var TTD_L = {};
+function ttdL(t){ t = String(t); var r = LANG !== 'en' && Object.prototype.hasOwnProperty.call(TTD_L, t) ? TTD_L[t][LANG_IX[LANG] - 1] : ''; return r || t; }
+(function(){
+  // the weather "things to do there" tags in the data (English words) -> ru / zh-Hans / ko (unverified)
+  var T = {'walk':['прогулка', '散步', '산책'], 'hike':['поход', '徒步', '하이킹'], 'picnic':['пикник', '野餐', '피크닉'], 'swim':['купание', '游泳', '수영'], 'sunset':['закат', '日落', '일몰'], 'bike':['велосипед', '骑行', '자전거'],
+    'fishing':['рыбалка', '钓鱼', '낚시'], 'snorkel':['снорклинг', '浮潜', '스노클링'], 'bird watching':['наблюдение за птицами', '观鸟', '새 관찰'], 'skyline view':['вид на город', '天际线景色', '스카이라인 전망'], 'live music':['живая музыка', '现场音乐', '라이브 음악'],
+    'kayak':['каяк', '皮划艇', '카약'], 'beach':['пляж', '海滩', '해변'], 'surf watching':['смотреть на сёрферов', '看冲浪', '서핑 구경'], 'cross-country skiing':['беговые лыжи', '越野滑雪', '크로스컨트리 스키'], 'gardens':['сады', '花园', '정원'],
+    'waterfall':['водопад', '瀑布', '폭포'], 'eat':['поесть', '吃东西', '먹기'], 'beach walk':['прогулка по пляжу', '海滩散步', '해변 산책'], 'garden stroll':['прогулка по саду', '花园漫步', '정원 산책'], 'surf':['сёрфинг', '冲浪', '서핑'],
+    'holiday lights':['праздничные огни', '节日灯饰', '연말 조명'], 'fireworks':['фейерверк', '烟花', '불꽃놀이'], 'ice skating':['коньки', '滑冰', '아이스 스케이트'], 'views':['виды', '风景', '전망'], 'sail':['парусная прогулка', '帆船', '세일링'],
+    'whale watching':['наблюдение за китами', '观鲸', '고래 관찰'], 'river walk':['прогулка у реки', '河边散步', '강변 산책'], 'run':['пробежка', '跑步', '달리기'], 'mini golf':['мини-гольф', '迷你高尔夫', '미니골프'], 'turtles':['черепахи', '海龟', '거북이'],
+    'light show':['световое шоу', '灯光秀', '라이트 쇼'], 'zoo':['зоопарк', '动物园', '동물원'], 'lagoon walk':['прогулка у лагуны', '泻湖散步', '석호 산책'], 'shop':['покупки', '购物', '쇼핑'], 'kite':['воздушный змей', '放风筝', '연날리기'],
+    'ice fishing':['подлёдная рыбалка', '冰钓', '얼음낚시'], 'tide pools':['приливные бассейны', '潮池', '조수 웅덩이'], 'art':['искусство', '艺术', '예술'], 'photos':['фото', '拍照', '사진'], 'skate park':['скейт-парк', '滑板公园', '스케이트 파크'],
+    'boating':['катание на лодке', '划船', '보트 타기'], 'zipline':['зиплайн', '滑索', '짚라인'], 'rodeo':['родео', '牛仔竞技', '로데오'], 'nature walk':['прогулка на природе', '自然漫步', '자연 산책'], 'dolphin watching':['наблюдение за дельфинами', '观海豚', '돌고래 관찰'],
+    'audio tour':['аудиоэкскурсия', '语音导览', '오디오 투어'], 'Christmas tree':['рождественская ёлка', '圣诞树', '크리스마스트리'], 'stair climb':['подъём по лестнице', '爬楼梯', '계단 오르기'], 'statue hunt':['поиск статуй', '寻找雕像', '조각상 찾기'],
+    'eagle watching':['наблюдение за орлами', '观鹰', '독수리 관찰'], 'climbing':['скалолазание', '攀岩', '클라이밍'], 'waterfalls':['водопады', '瀑布', '폭포'], 'leaf walk':['прогулка по осенней листве', '赏叶散步', '단풍 산책'], 'winter waves':['зимние волны', '冬季大浪', '겨울 파도'],
+    'lights':['огни', '灯光', '조명'], 'cherry blossoms':['цветение сакуры', '樱花', '벚꽃'], 'sledding':['санки', '滑雪橇', '썰매'], 'sandbar':['песчаная отмель', '沙洲', '모래톱'], 'hula':['хула', '草裙舞', '훌라'], 'bars':['бары', '酒吧', '바'],
+    'bodyboard watching':['смотреть на бодибордистов', '看趴板冲浪', '보디보드 구경'], 'elk viewing':['наблюдение за лосями', '观赏麋鹿', '엘크 관찰'], 'sunrise':['рассвет', '日出', '일출'], 'arboretum':['дендрарий', '植物园', '수목원'], 'sauna':['сауна', '桑拿', '사우나'],
+    'scuba':['дайвинг', '水肺潜水', '스쿠버'], 'garden walk':['прогулка по саду', '花园散步', '정원 산책'], 'stargazing':['наблюдение за звёздами', '观星', '별 보기'], 'canoe':['каноэ', '独木舟', '카누']};
+  TTD_L = T;   // kept out of STR so the panel translator never swaps a lone word like "run" or "eat"
+  for (var k in STR38F) if (Object.prototype.hasOwnProperty.call(STR38F, k) && !STR[k]) STR[k] = STR38F[k];
+})();
 var P30 = null;
 function p30Index(){ // English phrase -> [en, ru, zh, ko]: STR30 first, then the other tables' English with no {placeholders}
   if (P30) return P30;
@@ -5438,7 +5514,7 @@ function tr30(s, lang){ // pure: one text (a toast, a label, a text node) in the
   var m = /^(\s*)([\s\S]*?)(\s*)$/.exec(s), t = m[2]; if (!t || !/[A-Za-z]{2}/.test(t)) return s;
   var ix = LANG_IX[l], P = p30Index(), r = Object.prototype.hasOwnProperty.call(P, t) ? P[t] : null, out = null;
   if (r && r[ix]) out = r[ix];
-  for (var i = 0; out === null && i < RX30.length; i++) { var x = RX30[i], mm = x[0].exec(t); if (mm) out = x[ix].replace(/\$(\d)/g, function(a, d){ var g = mm[+d] || ''; return Object.prototype.hasOwnProperty.call(P, g) ? P[g][ix] : locTokens(g, l); }); }
+  for (var i = 0; out === null && i < RX30.length; i++) { var x = RX30[i], mm = x[0].exec(t); if (mm) out = plFix(x[ix].replace(/\$(\d)/g, function(a, d){ var g = mm[+d] || ''; return Object.prototype.hasOwnProperty.call(P, g) ? P[g][ix] : locTokens(g, l); })); }
   if (out === null && t.indexOf(' · ') > 0) { var parts = t.split(' · '), ch = parts.map(function(p){ return tr30(p, l); }); if (ch.join(' · ') !== t) out = ch.join(' · '); }
   if (out === null) { var st = trStatus(t, l); if (st !== t) out = st; }
   return out === null ? s : m[1] + out + m[3];
@@ -5480,6 +5556,24 @@ function loc30Watch(){ // a panel re-rendered while a language other than Englis
   });
   LOC30_ROOTS.forEach(function(id){ var e = document.getElementById(id); if (e) mo.observe(e, {childList:true, subtree:true, characterData:true, attributes:true, attributeFilter:['aria-label', 'placeholder', 'title']}); });
   if (LANG !== 'en') loc30All();
+  // v5.38 fix pass: screen-reader labels everywhere (Close, Save, Search, "Where: near X. Change"...), not only in the panels above
+  try {
+    var mo2 = new MutationObserver(function(ms){
+      if (LANG === 'en') return; var seen = [];
+      ms.forEach(function(m){
+        if (m.type === 'attributes') { if (m.target && m.target.nodeType === 1) loc30Attr(m.target, m.attributeName, LANG); return; }
+        [].forEach.call(m.addedNodes || [], function(nd){ if (nd.nodeType === 1 && seen.indexOf(nd) < 0) seen.push(nd); });
+      });
+      seen.forEach(function(r){ aria30(r); });
+    });
+    mo2.observe(document.body, {childList:true, subtree:true, attributes:true, attributeFilter:['aria-label', 'title']});
+  } catch (e) {}
+  aria30(document.body);
+}
+function aria30(root, lang){ // aria-label / title of root and everything inside it, in the language (or back to English); -> how many changed
+  var l = isLang(lang) ? lang : LANG, n = 0; if (!root || !root.querySelectorAll) return 0;
+  try { [root].concat([].slice.call(root.querySelectorAll('[aria-label],[title]'))).forEach(function(el){ if (!el.getAttribute || (el.closest && el.closest('[data-l30="off"],[lang="en"]:not(html)'))) return; n += loc30Attr(el, 'aria-label', l) + loc30Attr(el, 'title', l); }); } catch (e) {}
+  return n;
 }
 function relang30(){ // setLang with a panel open: rebuild it in the new language (the trip page too); -> the panels redrawn
   var did = [], open = function(id){ var e = document.getElementById(id); return e && !e.hidden; }, go = function(id, f){ if (open(id)) { try { f(); did.push(id); } catch (e) {} } };
@@ -5487,7 +5581,7 @@ function relang30(){ // setLang with a panel open: rebuild it in the new languag
   go('pPrivacy', function(){ renderPrivacy(); }); go('pPoll', function(){ renderPoll(); }); go('pAbout', function(){ renderAbout(); }); go('pSaved', function(){ renderSaved(); });
   go('taste', function(){ tasteRender(); }); go('pSurprise', function(){ renderSurprise(); });   // v5.31: + Surprise
   if (open('pLoc') && UI.cand) { try { $('locGo').textContent = 'Start at ' + UI.cand.label; did.push('pLoc'); } catch (e) {} }
-  loc30All();
+  loc30All(); aria30(document.body);   // v5.38 fix pass: labels back to English too when she switches back
   return did;
 }
 /* v5.31: the About panel and the Surprise panel in ru / zh-Hans / ko. Keyed templates [en, ru, zh-Hans, ko] with {placeholders}; English is the
@@ -5660,7 +5754,7 @@ function GENRES_SUB_STR(){
 function tx(key, en, v){ // v5.28: like i18L, plus {placeholders} filled in every language (English = the given text, exactly as before)
   var s = LANG === 'en' || !STR[key] ? en : i18t(key);
   if (v) s = String(s).replace(/\{(\w+)\}/g, function(m, k){ return v[k] !== undefined && v[k] !== null ? String(v[k]) : m; });
-  return s;
+  return LANG === 'en' ? s : noDD(plFix(s));   // v5.38: Russian plural forms; fix pass: no ".." after Intl's short month
 }
 function subNameL(it, g){ var s = subName(it, g); return s ? tx('sub.' + s, s) : ''; }
 function swWordL(k){ return tx('sw.' + k, SW_WORD[k]); }
@@ -5721,7 +5815,7 @@ var CITY_STR = {
 // new B4 words. ru / zh-Hans / ko written by the developer: unverified, needs native review. Spanish: later (her decision 2026-11-25).
 var STR37 = {
   'when.exact':['Or an exact time ({c})', 'Или точное время ({c})', '或者选一个确切时间（{c}）', '또는 정확한 시간 ({c})'],
-  'when.laterL':['Or a later day, any time (up to {n} days)', 'Или другой день, любое время (до {n} дней вперёд)', '或者更晚的某天，任意时间（最多 {n} 天后）', '또는 더 나중 날짜, 아무 때나 (최대 {n}일 후)'],
+  'when.laterL':['Or a later day, any time (up to {n} days)', 'Или другой день, любое время (до {n} {pl:{n}|дня|дней|дней} вперёд)', '或者更晚的某天，任意时间（最多 {n} 天后）', '또는 더 나중 날짜, 아무 때나 (최대 {n}일 후)'],
   'when.later':['A later day, any time', 'Другой день, любое время', '更晚的某天，任意时间', '더 나중 날짜, 아무 때나'],
   'ct.time':['{x} time', 'время: {x}', '{x}时间', '{x} 시간'],
   'qt.8pm':['Tonight {t}', 'Сегодня в {t}', '今晚 {t}', '오늘 밤 {t}'], 'qt.10pm':['Late {t}', 'Поздно, {t}', '深夜 {t}', '늦게 {t}'], 'qt.late':['After midnight', 'После полуночи', '午夜之后', '자정 이후'],
@@ -5752,12 +5846,58 @@ var STR37 = {
   'tsz.title':['Text size', 'Размер текста', '文字大小', '글자 크기'], 'tsz.normal':['Normal', 'Обычный', '标准', '보통'], 'tsz.large':['Large', 'Крупный', '大', '크게'], 'tsz.larger':['Larger', 'Ещё крупнее', '更大', '더 크게']
 };
 (function(){ for (var k in STR37) if (Object.prototype.hasOwnProperty.call(STR37, k) && !STR[k]) STR[k] = STR37[k]; })();
+// v5.38 (Russian pass, step 2): shared-trip words, screen-reader labels, share text and the photo gallery. ru / zh-Hans / ko written by
+// the developer: unverified (no native review). {placeholders} are identical in all four columns.
+var STR38 = {
+  'ts.accept':['Accept', 'Принять', '接受', '수락'], 'ts.addFr':['Add friend', 'Добавить в друзья', '加为好友', '친구 추가'], 'ts.aFriend':['a friend', 'друг', '一位朋友', '친구'],
+  'ts.already':['You\'re already on this trip', 'Вы уже в этой поездке', '你已经在这个行程里了', '이미 이 여행에 참여 중이에요'],
+  'ts.copied':['Link copied', 'Ссылка скопирована', '链接已复制', '링크를 복사했어요'], 'ts.copyB':['Copy link', 'Копировать ссылку', '复制链接', '링크 복사'],
+  'ts.dead':['This trip link isn\'t working. Ask for a new one.', 'Эта ссылка на поездку не работает. Попросите новую.', '这个行程链接已失效。请对方发一个新的。', '이 여행 링크는 작동하지 않아요. 새 링크를 요청하세요.'],
+  'ts.delQ':['Delete the {c} trip ({d}) for everyone on it?', 'Удалить поездку «{c}» ({d}) для всех участников?', '要为所有成员删除{c}行程（{d}）吗？', '모든 참여자에게서 {c} 여행({d})을 삭제할까요?'],
+  'ts.fail':['That didn\'t work. Open the link again later.', 'Не получилось. Откройте ссылку позже.', '没有成功。请稍后再打开链接。', '잘 안 됐어요. 나중에 링크를 다시 열어 주세요.'],
+  'ts.foot0':['Invite link ready. No one has joined yet.', 'Ссылка-приглашение готова. Пока никто не присоединился.', '邀请链接已准备好。还没有人加入。', '초대 링크가 준비됐어요. 아직 참여한 사람이 없어요.'],
+  'ts.friends':['Friends', 'Друзья', '朋友', '친구'], 'ts.full':['This trip is full (20 people).', 'В поездке уже нет мест (20 человек).', '这个行程已满（20 人）。', '이 여행은 정원이 찼어요 (20명).'],
+  'ts.fullPhone':['This phone already has 5 trips. Delete one, then open the link again.', 'На этом телефоне уже 5 поездок. Удалите одну и откройте ссылку снова.', '这部手机已有 5 个行程。删除一个后再打开链接。', '이 휴대폰에 여행이 이미 5개 있어요. 하나를 지운 뒤 링크를 다시 여세요.'],
+  'ts.gone':['This trip isn\'t shared with you anymore.', 'Эта поездка вам больше не доступна.', '这个行程已不再与你共享。', '이 여행은 더 이상 공유되지 않아요.'],
+  'ts.hold':['Press and hold the link to copy it. Anyone with it can join (up to 20 people).', 'Нажмите и удерживайте ссылку, чтобы скопировать. По ней может присоединиться любой (до 20 человек).', '长按链接即可复制。任何拿到链接的人都能加入（最多 20 人）。', '링크를 길게 눌러 복사하세요. 링크가 있으면 누구나 참여할 수 있어요 (최대 20명).'],
+  'ts.inviteB':['Invite to trip', 'Пригласить в поездку', '邀请加入行程', '여행에 초대'], 'ts.joinB':['Join', 'Присоединиться', '加入', '참여'],
+  'ts.joinBody':['{n} going. You\'ll see the plan, the shortlist and where everyone is staying. Joining doesn\'t make you friends.', 'Едут: {n}. Вы увидите план, список мест и где все живут. Присоединение не добавляет вас в друзья.', '{n} 人参加。你会看到计划、候选清单和每个人的住处。加入不会让你们成为好友。', '{n}명 참여 중. 일정, 후보 목록, 각자 묵는 곳을 볼 수 있어요. 참여해도 친구가 되지는 않아요.'],
+  'ts.joined':['You\'re on the trip', 'Вы в поездке', '你已加入行程', '여행에 참여했어요'], 'ts.joinQ':['Join {o}\'s {c} trip', 'Присоединиться к поездке {o}: {c}', '加入 {o} 的{c}行程', '{o}님의 {c} 여행에 참여'],
+  'ts.joinSign':['You\'re invited to a trip on {app}. Sign in with Google to see it and join.', 'Вас пригласили в поездку в {app}. Войдите через Google, чтобы посмотреть и присоединиться.', '你被邀请加入 {app} 上的一个行程。用 Google 登录即可查看并加入。', '{app}의 여행에 초대받았어요. Google로 로그인하면 보고 참여할 수 있어요.'],
+  'ts.joinT':['Trip invite', 'Приглашение в поездку', '行程邀请', '여행 초대'], 'ts.later':['Open the link again later.', 'Откройте ссылку позже.', '请稍后再打开链接。', '나중에 링크를 다시 여세요.'],
+  'ts.leaveB':['Leave trip', 'Выйти из поездки', '退出行程', '여행 나가기'],
+  'ts.leaveQ':['Leave the {c} trip? It goes off this phone. You can join again with the link.', 'Выйти из поездки «{c}»? Она исчезнет с этого телефона. Вернуться можно по ссылке.', '要退出{c}行程吗？它会从这部手机上移除。之后可以用链接重新加入。', '{c} 여행에서 나갈까요? 이 휴대폰에서 사라져요. 링크로 다시 참여할 수 있어요.'],
+  'ts.left':['You left the trip', 'Вы вышли из поездки', '你已退出行程', '여행에서 나갔어요'],
+  'ts.limit':['That\'s a lot of shared trips. Delete an old one first.', 'Слишком много общих поездок. Сначала удалите старую.', '共享行程太多了。请先删除一个旧的。', '공유 여행이 너무 많아요. 먼저 오래된 걸 지우세요.'],
+  'ts.loading':['Loading…', 'Загрузка…', '加载中…', '불러오는 중…'], 'ts.making':['Making the link…', 'Создаём ссылку…', '正在生成链接…', '링크 만드는 중…'],
+  'ts.msg':['Join my {c} trip on {app} ({d})', 'Присоединяйтесь к моей поездке: {c}, в {app} ({d})', '来加入我在 {app} 上的{c}行程（{d}）', '{app}에서 내 {c} 여행에 함께해요 ({d})'],
+  'ts.newLink':['New invite link (old links stop working)', 'Новая ссылка (старые перестанут работать)', '新的邀请链接（旧链接将失效）', '새 초대 링크 (이전 링크는 작동 중지)'],
+  'ts.newLinkT':['New link made. Old links don\'t work anymore.', 'Новая ссылка готова. Старые больше не работают.', '新链接已生成。旧链接已失效。', '새 링크를 만들었어요. 이전 링크는 더 이상 작동하지 않아요.'],
+  'ts.noHotel':['Not added yet', 'Пока не добавлено', '尚未添加', '아직 추가 안 함'], 'ts.noThanks':['No thanks', 'Не сейчас', '不用了', '괜찮아요'],
+  'ts.notYet':['Shared trips aren\'t switched on yet.', 'Общие поездки пока не включены.', '共享行程尚未开启。', '공유 여행은 아직 켜지지 않았어요.'],
+  'ts.notYet2':['Shared trips aren\'t switched on yet. Try the link again later.', 'Общие поездки пока не включены. Попробуйте ссылку позже.', '共享行程尚未开启。请稍后再试这个链接。', '공유 여행은 아직 켜지지 않았어요. 나중에 링크를 다시 시도하세요.'],
+  'ts.offline':['Offline. Your changes stay on this phone for now.', 'Нет сети. Изменения пока сохранены на этом телефоне.', '离线。你的修改暂时保存在这部手机上。', '오프라인이에요. 변경 사항은 우선 이 휴대폰에 남아 있어요.'],
+  'ts.onWeb':['Open this invite on the website to join:', 'Чтобы присоединиться, откройте приглашение на сайте:', '在网站上打开这个邀请即可加入：', '참여하려면 웹사이트에서 이 초대를 여세요:'],
+  'ts.planner':['Planner', 'Организатор', '策划人', '플래너'], 'ts.retry':['Can\'t sync this trip · Tap to retry', 'Поездка не синхронизируется · Нажмите, чтобы повторить', '无法同步这个行程 · 点按重试', '이 여행을 동기화할 수 없어요 · 눌러서 다시 시도'],
+  'ts.sent':['Request sent', 'Запрос отправлен', '请求已发送', '요청을 보냈어요'], 'ts.sharedS':['Shared', 'Общая', '已共享', '공유됨'], 'ts.signB':['Sign in with Google', 'Войти через Google', '用 Google 登录', 'Google로 로그인'],
+  'ts.signFirst':['Sign in with Google first, so friends see who invited them.', 'Сначала войдите через Google, чтобы друзья видели, кто их пригласил.', '请先用 Google 登录，这样朋友能看到是谁邀请了他们。', '먼저 Google로 로그인하면 친구들이 누가 초대했는지 알 수 있어요.'],
+  'ts.signNeed':['Sign in to change a shared trip.', 'Войдите, чтобы менять общую поездку.', '登录后才能修改共享行程。', '공유 여행을 바꾸려면 로그인하세요.'], 'ts.syncing':['Syncing…', 'Синхронизация…', '同步中…', '동기화 중…'],
+  'ts.web':['Inviting works on the website.', 'Приглашения работают на сайте.', '邀请功能在网站上可用。', '초대는 웹사이트에서 할 수 있어요.'], 'ts.who':['Who\'s going', 'Кто едет', '谁参加', '함께 가는 사람'], 'ts.you':['You', 'Вы', '你', '나'],
+  // screen-reader labels and share text with the place name (nameL)
+  'a.see':['See {x}', 'Открыть: {x}', '查看{x}', '{x} 보기'], 'a.ending':['Ending soon: {x}, {t}. Opens its details.', 'Скоро закончится: {x}, {t}. Откроет подробности.', '即将结束：{x}，{t}。打开详情。', '곧 종료: {x}, {t}. 자세히 보기를 열어요.'],
+  'a.minimap':['Small map from your pin to {x}', 'Маленькая карта от вашей метки до места: {x}', '从你的位置到{x}的小地图', '내 위치에서 {x}까지의 작은 지도'], 'a.copied':['Copied', 'Скопировано', '已复制', '복사했어요'],
+  'a.via':['via {app}', 'через {app}', '来自 {app}', '{app}에서'], 'w.suburb':['suburb', 'пригород', '郊区', '교외'],
+  // the detail photo gallery (her rule 2026-11-25: main photo first, the rest swipe; never a collage)
+  'dt.photoN':['Photo {a} of {b}: {x}', 'Фото {a} из {b}: {x}', '第 {a} 张，共 {b} 张：{x}', '사진 {a}/{b}: {x}'], 'gal.label':['Photos of {x}', 'Фотографии: {x}', '{x}的照片', '{x} 사진'],
+  'gal.prev':['Previous photo', 'Предыдущее фото', '上一张', '이전 사진'], 'gal.next':['Next photo', 'Следующее фото', '下一张', '다음 사진']
+};
+(function(){ for (var k in STR38) if (Object.prototype.hasOwnProperty.call(STR38, k) && !STR[k]) STR[k] = STR38[k]; })();
 // city names in the picked language (the English name stays the data's)
 var CITY_NAME_L = {chicago:['Chicago', 'Чикаго', '芝加哥', '시카고'], vegas:['Las Vegas', 'Лас-Вегас', '拉斯维加斯', '라스베이거스'], oahu:['Oʻahu', 'Оаху', '瓦胡岛', '오아후']};
 function cityNameL(slug, lang){ var l = isLang(lang) ? lang : LANG, s = slug || (CITY && CITY.slug) || 'chicago', r = CITY_NAME_L[s]; return r ? r[LANG_IX[l]] || r[0] : (CITY && CITY.name) || 'Chicago'; }
 // v5.37-b4: status / price / station / residents words that B1-B3 added (checked by trStatus before its older rules)
 var PRICE_UNIT_L = {'per person':['$1 с человека', '每人 $1', '1인 $1'], 'per adult':['$1 за взрослого', '成人 $1', '성인 $1'], 'per car':['$1 за машину', '每车 $1', '차량당 $1'], 'per game':['$1 за игру', '每局 $1', '게임당 $1'],
-  'per hour':['$1 в час', '每小时 $1', '시간당 $1'], 'per group':['$1 за группу', '每组 $1', '그룹당 $1'], 'per couple':['$1 за пару', '每对 $1', '커플당 $1'], 'per attraction':['$1 за аттракцион', '每项 $1', '어트랙션당 $1'], 'per session':['$1 за сеанс', '每场 $1', '회당 $1']};
+  'per hour':['$1 в час', '每小时 $1', '시간당 $1'], 'per group':['$1 за группу', '每组 $1', '그룹당 $1'], 'per couple':['$1 за пару', '每对 $1', '커플당 $1'], 'per attraction':['$1 за аттракцион', '每项 $1', '어트랙션당 $1'], 'per session':['$1 за сеанс', '每场 $1', '회당 $1'], 'per ticket':['$1 за билет', '每张票 $1', '티켓당 $1'], 'per ride':['$1 за поездку', '每次 $1', '1회 탑승 $1']};
 var RESIDENTS_L = {IL:['жителей Иллинойса', '伊利诺伊州居民', '일리노이 주민'], Chicago:['жителей Чикаго', '芝加哥居民', '시카고 주민']};
 function trStatus37(part, ix){ // -> the part in the language, or null (not one of these)
   var m;
@@ -5784,8 +5924,16 @@ function i18t(key, v, lang){
   if (CITY.slug !== 'chicago' && CITY_STR[key + '.' + CITY.slug]) e = CITY_STR[key + '.' + CITY.slug];
   var l = isLang(lang) ? lang : LANG, s = e[LANG_IX[l]] || e[0];
   if (v) s = s.replace(/\{(\w+)\}/g, function(m, k){ return v[k] !== undefined && v[k] !== null ? String(v[k]) : m; });
-  return s;
+  return l === 'en' ? plFix(s) : noDD(plFix(s));
 }
+// v5.38 fix pass (lesson 2026-11-15, again on 2026-11-25): Intl's short month already ends in a dot ("14 нояб."); a table string that adds its own
+// full stop after {d} gave "нояб..". One dot after a letter, never touching a real ellipsis ("Ищем вас...").
+function noDD(s){ return String(s).replace(/([^\s.])\.\.(?!\.)/g, '$1.'); }
+// v5.38: Russian plural forms. A table string may hold {pl:N|one|few|many} (written as {pl:{n}|...} or {pl:$1|...});
+// after the numbers are filled in it becomes the right word: 1 / 21 место, 2-4 / 22 места, 5-20 / 0 / 11-14 мест; fractions take "few" (1.5 мили).
+function plRu(n, one, few, many){ var x = Number(String(n).replace(/[\s ,]/g, '')); if (!isFinite(x)) return many; if (Math.floor(x) !== x) return few; x = Math.abs(x); var d = x % 10, h = x % 100; return d === 1 && h !== 11 ? one : d >= 2 && d <= 4 && (h < 12 || h > 14) ? few : many; }
+function plStrip(s){ return String(s === null || s === undefined ? '' : s).replace(/\{pl:(?:\{\w+\}|\$\d|[^|{}]+)\|[^{}]*\}/g, ''); }   // the table string without its plural tokens (self-test placeholder checks)
+function plFix(s){ s = String(s); return s.indexOf('{pl:') < 0 ? s : s.replace(/\{pl:([^|{}]+)\|([^|{}]*)\|([^|{}]*)\|([^|{}]*)\}/g, function(m, n, a, b, c){ return plRu(n, a, b, c); }); }
 // Status words: each " · " part is matched on its own; a part with no rule stays English. Times, dates and counts are copied ($1), never retyped.
 var STATUS_RX = [
   [/^Open now$/, ['Открыто сейчас', '营业中', '영업 중']], [/^(?:On|Happening) now$/, ['Идёт сейчас', '正在进行', '진행 중']], [/^Open 24 hours$/, ['Открыто круглосуточно', '24 小时营业', '24시간 영업']],
@@ -5802,20 +5950,23 @@ var STATUS_RX = [
   [/^No more entry today$/, ['Сегодня вход уже закрыт', '今天已停止入场', '오늘 입장 마감']],   // v5.23 (tester v5.22 L1): whole sentences, before the "Last entry" rule
   [/^[Ll]ast entry was (.+); it closes at (.+)$/, ['Последний вход был в $1, закрытие в $2', '最后入场 $1，$2 关门', '마지막 입장 $1, $2 마감']],
   [/^Tickets on sale through (.+)$/, ['Билеты в продаже до $1', '门票售至 $1', '$1까지 티켓 판매']], [/^end date not announced$/, ['дата окончания не объявлена', '结束日期未公布', '종료일 미정']],
+  [/^Last entry in (\d+) min$/, ['Последний вход через $1 мин', '$1 分钟后停止入场', '$1분 후 입장 마감']], [/^at (\d.*|noon|midnight)$/, ['в $1', '$1', '$1']],   // v5.38 fix: search rows "Last entry in 8 min · at 4 pm"
+  [/^last entry (.+), before you'd get there$/, ['последний вход в $1, раньше, чем вы доберётесь', '最后入场 $1，你到之前就停止了', '마지막 입장 $1, 도착 전 마감']], [/^last entry (.+)$/, ['последний вход $1', '最后入场 $1', '마지막 입장 $1']], [/^closes (\d.*|noon|midnight)$/, ['закрытие в $1', '$1 关门', '$1 마감']],
+  [/^Holiday hours not posted$/, ['Праздничные часы не опубликованы', '节日营业时间未公布', '공휴일 영업시간 미게시']], [/^usually open 24 hours$/, ['обычно круглосуточно', '平时 24 小时营业', '평소 24시간 영업']], [/^usually closed (Mon|Tue|Wed|Thu|Fri|Sat|Sun)$/, ['обычно закрыто ($1)', '平时$1不营业', '평소 $1 휴무']], [/^usually (\d.*|noon.*|midnight.*)$/, ['обычно $1', '平时 $1', '평소 $1']],
   [/^Last entry (.+)$/, ['Последний вход $1', '最后入场 $1', '마지막 입장 $1']], [/^Open (\d.* – .+)$/, ['Открыто $1', '营业 $1', '영업 $1']],
   [/^(\d+) min walk$/, ['$1 мин пешком', '步行 $1 分钟', '도보 $1분']], [/^(\d+) min drive$/, ['$1 мин на машине', '开车 $1 分钟', '차로 $1분']], [/^(\d+) min by CTA$/, ['$1 мин на CTA', '乘 CTA $1 分钟', 'CTA로 $1분']],
-  [/^1 day left$/, ['остался 1 день', '还剩 1 天', '1일 남음']], [/^(\d+) days left$/, ['осталось дней: $1', '还剩 $1 天', '$1일 남음']],
+  [/^1 day left$/, ['остался 1 день', '还剩 1 天', '1일 남음']], [/^(\d+) days left$/, ['{pl:$1|остался|осталось|осталось} $1 {pl:$1|день|дня|дней}', '还剩 $1 天', '$1일 남음']],
   [/^Tickets through (.+)$/, ['Билеты до $1', '门票售至 $1', '$1까지 티켓 판매']], [/^Until (.+)$/, ['До $1', '至 $1', '$1까지']], [/^Last date (.+)$/, ['Последняя дата: $1', '最后日期：$1', '마지막 날짜: $1']],
   [/^Back in (.+)$/, ['Снова откроется: $1', '$1 重新开放', '$1 재개장']], [/^No end date listed$/, ['Дата окончания не указана', '未列出结束日期', '종료일 미기재']], [/^Check dates$/, ['Проверьте даты', '请确认日期', '날짜 확인']],
   [/^Deal today$/, ['Скидка сегодня', '今日特惠', '오늘 할인']], [/^Deal (.+)$/, ['Скидка: $1', '特惠：$1', '할인: $1']], [/^Not confirmed yet$/, ['Пока не подтверждено', '尚未确认', '아직 미확인']], [/^Not confirmed$/, ['Не подтверждено', '未确认', '미확인']],
-  [/^Checked today$/, ['Проверено сегодня', '今天已核实', '오늘 확인']], [/^Checked yesterday$/, ['Проверено вчера', '昨天已核实', '어제 확인']], [/^Checked (\d+) days ago$/, ['Проверено $1 дн. назад', '$1 天前已核实', '$1일 전 확인']],
-  [/^Checked (\d+) wks? ago$/, ['Проверено $1 нед. назад', '$1 周前已核实', '$1주 전 확인']], [/^Checked (\d+) weeks? ago$/, ['Проверено $1 нед. назад', '$1 周前已核实', '$1주 전 확인']], [/^Checked (.+)$/, ['Проверено $1', '$1 已核实', '$1 확인']],
+  [/^Checked today$/, ['Проверено сегодня', '今天已核实', '오늘 확인']], [/^Checked yesterday$/, ['Проверено вчера', '昨天已核实', '어제 확인']], [/^Checked (\d+) days ago$/, ['Проверено $1 {pl:$1|день|дня|дней} назад', '$1 天前已核实', '$1일 전 확인']],
+  [/^Checked (\d+) wks? ago$/, ['Проверено $1 {pl:$1|неделю|недели|недель} назад', '$1 周前已核实', '$1주 전 확인']], [/^Checked (\d+) weeks? ago$/, ['Проверено $1 {pl:$1|неделю|недели|недель} назад', '$1 周前已核实', '$1주 전 확인']], [/^Checked (.+)$/, ['Проверено $1', '$1 已核实', '$1 확인']],
   [/^Holiday: call first$/, ['Праздник: сначала позвоните', '节假日：请先致电', '공휴일: 먼저 전화하세요']], [/^Hours not posted$/, ['Часы не опубликованы', '未公布营业时间', '영업시간 미게시']], [/^Hours not listed$/, ['Часы не указаны', '未列出营业时间', '영업시간 미기재']],
   [/^From (\$[\d.,]+)$/, ['от $1', '$1 起', '$1부터']], [/^From (\$[\d.,]+) each$/, ['от $1 с человека', '每人 $1 起', '1인 $1부터']], [/^From (\$[\d.,]+) per group$/, ['от $1 за группу', '每组 $1 起', '그룹당 $1부터']],
   [/^Opening soon$/, ['Скоро откроется', '即将开业', '곧 오픈']], [/^Later dates$/, ['Позже', '更晚的日期', '나중 날짜']], [/^Tomorrow$/, ['Завтра', '明天', '내일']], [/^Today$/, ['Сегодня', '今天', '오늘']], [/^Tonight$/, ['Сегодня вечером', '今晚', '오늘 밤']],
   [/^On (Mon|Tue|Wed|Thu|Fri|Sat|Sun) till (.+)$/, ['Идёт: $1 до $2', '$1 进行至 $2', '$1 $2까지 진행']], [/^On (Mon|Tue|Wed|Thu|Fri|Sat|Sun)$/, ['Идёт: $1', '$1 进行', '$1 진행']],
   [/^Open 24 hours (Mon|Tue|Wed|Thu|Fri|Sat|Sun)$/, ['$1: круглосуточно', '$1 24 小时营业', '$1 24시간 영업']], [/^(Mon|Tue|Wed|Thu|Fri|Sat|Sun) (\d.*)$/, ['$1 $2', '$1 $2', '$1 $2']], [/^(Mon|Tue|Wed|Thu|Fri|Sat|Sun)$/, ['$1', '$1', '$1']],
-  [/^(\d.*) (Mon|Tue|Wed|Thu|Fri|Sat|Sun)$/, ['$2 $1', '$2 $1', '$2 $1']], [/^next (.+)$/, ['следующий $1', '下次 $1', '다음 $1']], [/^today$/, ['сегодня', '今天', '오늘']], [/^(\d+) dates$/, ['дат: $1', '$1 个日期', '$1개 날짜']],
+  [/^(\d.*) (Mon|Tue|Wed|Thu|Fri|Sat|Sun)$/, ['$2 $1', '$2 $1', '$2 $1']], [/^next (.+)$/, ['следующий $1', '下次 $1', '다음 $1']], [/^today$/, ['сегодня', '今天', '오늘']], [/^(\d+) dates$/, ['$1 {pl:$1|дата|даты|дат}', '$1 个日期', '$1개 날짜']],
   [/^Free$/, ['Бесплатно', '免费', '무료']], [/^citywide$/, ['по всему городу', '全市', '시 전역']]
 ];
 var STATUS_WORDS = {ru:{Mon:'пн', Tue:'вт', Wed:'ср', Thu:'чт', Fri:'пт', Sat:'сб', Sun:'вс', today:'сегодня', tomorrow:'завтра'}, 'zh-Hans':{Mon:'周一', Tue:'周二', Wed:'周三', Thu:'周四', Fri:'周五', Sat:'周六', Sun:'周日', today:'今天', tomorrow:'明天'}, ko:{Mon:'월', Tue:'화', Wed:'수', Thu:'목', Fri:'금', Sat:'토', Sun:'일', today:'오늘', tomorrow:'내일'}};
@@ -5829,15 +5980,15 @@ function trStatus(s, lang){ // pure: status / travel / price words in the langua
     for (var j = 0; j < STATUS_RX37.length; j++) { var r7 = STATUS_RX37[j]; if (r7[0].test(part)) return locTokens(part.replace(r7[0], r7[1][ix]).replace(/\b(Mon|Tue|Wed|Thu|Fri|Sat|Sun|today|tomorrow)\b/g, function(w){ return W[w] || w; }), l); }
     for (var i = 0; i < STATUS_RX.length; i++) {
       var r = STATUS_RX[i];
-      if (r[0].test(part)) return locTokens(part.replace(r[0], r[1][ix]).replace(/\b(Mon|Tue|Wed|Thu|Fri|Sat|Sun|today|tomorrow)\b/g, function(w){ return W[w] || w; }), l);   // v5.28: + English times / dates left inside
+      if (r[0].test(part)) return plFix(locTokens(part.replace(r[0], r[1][ix]).replace(/\b(Mon|Tue|Wed|Thu|Fri|Sat|Sun|today|tomorrow)\b/g, function(w){ return W[w] || w; }), l));   // v5.28: + English times / dates left inside; v5.38: plurals
     }
     return part;
   }).join(' · ');
 }
 // numbers: the same pattern as tools/validate-i18n.ps1 ("$41.20", "13:00", "90", "3,5" -> "3.5")
-function numsOf(s){ var o = {}; (String(s === null || s === undefined ? '' : s).match(/\$?\d+(?:[.,:]\d+)?%?/g) || []).forEach(function(x){ o[x.replace(/,/g, '.')] = 1; }); return o; }
+function numsOf(s){ var o = {}; (String(s === null || s === undefined ? '' : s).replace(/(^|[^\d.,])(\d{1,3}(?:[,   ]\d{3})+)(?!\d|,\d)/g, function(m, p, n){ return p + n.replace(/[,   ]/g, ''); }).match(/\$?\d+(?:[.,:]\d+)?%?/g) || []).forEach(function(x){ o[x.replace(/,/g, '.')] = 1; }); return o; }
 function numsKept(en, tr){ var a = numsOf(en), b = numsOf(tr); for (var k in a) if (!b[k]) return false; return true; }
-var I18N_FIELD_LETTER = {hook:'h', description:'d', highlights:'l', price_note:'p', hours_note:'o', age_note:'a', good_to_know:'g', 'season.note':'s', 'only_here.reason':'r'};   // v5.28: + 6 fields (tools/build-site.ps1 writes the same letters)
+var I18N_FIELD_LETTER = {hook:'h', description:'d', highlights:'l', price_note:'p', hours_note:'o', age_note:'a', good_to_know:'g', 'season.note':'s', 'only_here.reason':'r', access_note:'c', name:'n'};   // v5.28: + 6 fields (tools/build-site.ps1 writes the same letters); v5.37-i18n0: + access_note (c), name (n)
 // v5.28 data translations, ready for the translators: besides hook / description / highlights, the item translation may carry
 // price_note, hours_note, age_note, good_to_know ([{q, a}], same length and order), season.note and only_here.reason (nested
 // like the data: "season": {"note": ...}, "only_here": {"reason": ...}). Each field falls back to English on its own: stale hash
@@ -5893,6 +6044,8 @@ function placeTextWith(it, field, lang, trMap, hashMap){ // pure -> {v, lang}: t
   return {v:x, lang:lang};
 }
 function placeText(it, field){ var c = I18N.cache[LANG]; return placeTextWith(it, field, LANG, c ? c.places : null, I18N.hash); }
+function nameL(it){ var r = placeText(it, 'name'); return r.lang !== 'en' && typeof r.v === 'string' && r.v.trim() ? r.v.trim() : String(it && it.name || ''); }   // v5.37-i18n0: the place name in the picked language when a fresh one exists (her decision 2026-11-25), else the English
+function nameLang(it){ var r = placeText(it, 'name'); return r.lang !== 'en' && typeof r.v === 'string' && r.v.trim() ? r.lang : 'en'; }
 function hookL(it){ var r = placeText(it, 'hook'); return (r.lang !== 'en' && r.v) ? r : {v:hookOf(it), lang:'en'}; }   // the card / detail hook
 function langAttr(r){ return LANG === 'en' ? '' : ' lang="' + esc(r && r.lang ? r.lang : 'en') + '"'; }   // English text inside a translated screen keeps lang="en"
 function genreShortL(id){ return LANG === 'en' || !STR['g.' + id] ? genreShort(id) : i18t('g.' + id); }
@@ -5935,6 +6088,10 @@ function staticLang(){ // v5.22 (tester M1): words that live in the page's own H
     var snr = document.querySelector('#sentence > span:not([id])'); if (snr) snr.textContent = tx('home.nearW', 'near');   // v5.28
   } catch (e) {}
 }
+// v5.38: ?lang= links. langFromUrl: pure, '?lang=ru' / 'zh' / 'zh-Hans' / 'ko' / 'en' -> the code, else null. langQ: the url with ?lang=xx for a non-English language (any old lang= dropped; the #part kept).
+var LANG_PARAM = {'en':'en', 'ru':'ru', 'zh-Hans':'zh', 'ko':'ko'};
+function langFromUrl(search){ var m = /[?&]lang=([^&#]*)/i.exec(String(search || '')); if (!m) return null; var v = ''; try { v = decodeURIComponent(m[1]).toLowerCase().replace(/_/g, '-'); } catch (e) { return null; } return v === 'ru' ? 'ru' : /^zh(-hans|-cn|-sg)?$/.test(v) || v === 'cn' ? 'zh-Hans' : v === 'ko' || v === 'kr' ? 'ko' : v === 'en' ? 'en' : null; }
+function langQ(u, lang){ var l = isLang(lang) ? lang : LANG, h = '', i; u = String(u || ''); i = u.indexOf('#'); if (i >= 0) { h = u.slice(i); u = u.slice(0, i); } u = u.replace(/([?&])lang=[^&]*(&|$)/i, function(m, a, b){ return b ? a : ''; }); if (l !== 'en') u += (u.indexOf('?') < 0 ? '?' : '&') + 'lang=' + LANG_PARAM[l]; return u + h; }
 function setLang(code, keep){ // keep = this visit only (test hooks)
   var l = isLang(code) ? code : 'en';
   LANG = l;
@@ -6881,8 +7038,9 @@ function tkFlyStyle(ans, reduced){ // the card's exit: a fly-off, or with reduce
 // NFD drops accents (\u00e9 -> e, \u0439 -> \u0438), then NFC puts Hangul syllables back together.
 function norm(s){ s = String(s === null || s === undefined ? '' : s).toLowerCase(); try { s = s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').normalize('NFC'); } catch (e) {} return s.replace(/&/g, ' and ').replace(/[^a-z0-9\u0400-\u04ff\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af]+/g, ' ').trim(); }
 function searchIndex(it){
-  if (it.__sx) return it.__sx;
-  var g = genreOf(it), name = norm(it.name);
+  var tn = LANG === 'en' ? '' : nameL(it); if (tn === it.name) tn = '';   // v5.37-i18n0: the translated name is searched too (the English name always is)
+  if (it.__sx && it.__sxN === tn) return it.__sx;
+  var g = genreOf(it), name = norm(it.name), nameT = tn ? norm(tn) : '';
   var kind = norm([genreName(g), genreShort(g), subName(it, g), catOf(it).label, it.kind === 'event' ? 'event limited time' : ''].join(' '));
   var tags = norm((Array.isArray(it.tags) ? it.tags : []).join(' ') + ' ' + interestsOf(it).map(interestLabel).join(' '));
   var hood = norm(it.neighborhood);
@@ -6890,7 +7048,8 @@ function searchIndex(it){
   var gq = Array.isArray(it.good_to_know) ? it.good_to_know.filter(function(x){ return x && /old|cost|price|age|discount|free|hour|open/i.test(String(x.q || '')); }).map(function(x){ return x.a; }).join(' ') : '';
   var acc = it.access && it.access.step_free === true ? 'step free step-free accessible' : '';   // v5.37-b4: "wheelchair" / "step-free" / "accessible" find the access line
   var notes = norm([it.price_note, it.age_note, it.hours_note, it.season && it.season.note, gq, it.access_note, acc].join(' '));
-  it.__sx = {name:name, nameW:name.split(' '), kind:kind, kindW:kind.split(' '), tags:tags, tagW:tags.split(' '), hood:hood, hoodW:hood.split(' '), notes:notes, noteW:notes.split(' ')};
+  it.__sxN = tn;
+  it.__sx = {name:name, nameW:name.split(' '), nameT:nameT, nameTW:nameT ? nameT.split(' ') : [], kind:kind, kindW:kind.split(' '), tags:tags, tagW:tags.split(' '), hood:hood, hoodW:hood.split(' '), notes:notes, noteW:notes.split(' ')};
   return it.__sx;
 }
 /* v5.37-b1 search words: each row is one meaning (first word = the group's name). A typed word from a row also finds the others.
@@ -6965,7 +7124,7 @@ function fieldHit(a, words, str, strict){
   return false;
 }
 function altScore(a, sx){
-  if (fieldHit(a, sx.nameW, sx.name)) return 100;
+  if (fieldHit(a, sx.nameW, sx.name) || (sx.nameTW && sx.nameTW.length && fieldHit(a, sx.nameTW, sx.nameT))) return 100;
   if (fieldHit(a, sx.kindW, sx.kind)) return 60;
   if (fieldHit(a, sx.tagW, sx.tags)) return 50;
   if (fieldHit(a, sx.hoodW, sx.hood)) return 40;
@@ -6992,7 +7151,7 @@ function searchItems(items, q){ // [{it, score, fuzzy, weak, top}] best first (b
   items.forEach(function(it){
     var sx = searchIndex(it), sum = 0, fz = false, weak = false;
     for (var i = 0; i < toks.length; i++) { var s = tokenScore(toks[i], sx); if (!s) return; if (s === FUZZY_SCORE) fz = true; if (s <= NOTE_SCORE) weak = true; sum += s; }
-    var top = sx.name === whole || (whole.indexOf(' ') > 0 && sx.name.indexOf(whole + ' ') === 0);   // she typed the place's name
+    var top = sx.name === whole || (whole.indexOf(' ') > 0 && sx.name.indexOf(whole + ' ') === 0) || (!!sx.nameT && (sx.nameT === whole || (whole.indexOf(' ') > 0 && sx.nameT.indexOf(whole + ' ') === 0)));   // she typed the place's name (English or translated)
     if (top) sum += 50;
     if (!fz) exact = true;
     out.push({it:it, score:sum, fuzzy:fz, weak:weak, top:top});
@@ -7019,7 +7178,7 @@ function hashItemId(hash){ var s = String(hash || '').replace(/^#/, ''); try { s
 
 /* Share text and calendar entry */
 function whenLine(c){ var b = c.item.kind === 'event' ? untilBadge(c, c.st.p) : null; return String(c.d.text || '') + (b && !b.muted ? ' \u00b7 ' + b.t : ''); }
-function shareText(c, link){ var it = c.item, lines = [it.name, whenLine(c)]; if (it.address) lines.push(it.address); if (link) lines.push(link); lines.push('via ' + APP_NAME); return lines.filter(Boolean).join('\n'); }   // v5.3: the app name (Off-Grid) signs the share
+function shareText(c, link){ var it = c.item, nl = nameL(it), lines = [LANG === 'en' || nl === it.name ? it.name : nl + ' (' + it.name + ')', LANG === 'en' ? whenLine(c) : trStatus(whenLine(c))]; if (it.address) lines.push(it.address); if (link) lines.push(link); lines.push(LANG === 'en' ? 'via ' + APP_NAME : tx('a.via', 'via {app}', {app:APP_NAME})); return lines.filter(Boolean).join('\n'); }   // v5.38: in Russian the name is Cyrillic with the English after it (so the friend can find it on a map)   // v5.3: the app name (Off-Grid) signs the share
 function icsStamp(ms){ var d = new Date(ms); return d.getUTCFullYear() + pad(d.getUTCMonth() + 1) + pad(d.getUTCDate()) + 'T' + pad(d.getUTCHours()) + pad(d.getUTCMinutes()) + '00Z'; }
 function icsEsc(s){ return String(s || '').replace(/\\/g, '\\\\').replace(/\r?\n/g, '\\n').replace(/([,;])/g, '\\$1'); }
 function calEvent(c, link){ // when she'd be there: the time she is planning for, else when she'd arrive (or when it next opens)
@@ -7028,7 +7187,7 @@ function calEvent(c, link){ // when she'd be there: the time she is planning for
   start = Math.ceil(start / 300000) * 300000;
   var end = start + visitLengths(it).typical * 60000;
   if (st.open && st.closesAt && !st.endUnknown && st.closesAt > start && end > st.closesAt) end = st.closesAt;
-  return {id:String(it.id), title:String(it.name), start:start, end:end, where:String(it.address || ''), link:link || ''};
+  return {id:String(it.id), title:String(nameL(it)), start:start, end:end, where:String(it.address || ''), link:link || ''};
 }
 function icsFor(ev, stampMs){
   var L = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Off-Grid//EN', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH', 'BEGIN:VEVENT',
@@ -7694,7 +7853,7 @@ function pinHTML(e, u){
   var c = e.c, o = e.o || {}, it = c.item, g = c.genre || genreOf(it), st = c.st, label = '';
   if (it.id === UI.sel) {
     var short = st.open && st.closesAt ? 'till ' + fmtWhen(st.closesAt, st.p, true) : c.d.text;
-    label = '<span class="mk-label"><b>' + esc(it.name) + '</b> \u00b7 <span class="' + (st.open ? 'o' : '') + '">' + esc(short) + '</span></span>';
+    label = '<span class="mk-label"><b>' + esc(nameL(it)) + '</b> \u00b7 <span class="' + (st.open ? 'o' : '') + '">' + esc(short) + '</span></span>';
   }
   var aria = LANG === 'en' ? it.name + ', ' + genreName(g) + ', ' + c.d.text + (o.tk ? ', limited time' : '') + (c.dist !== null ? ', ' + travelText(c.trav) : '')
     : it.name + ', ' + genreNameL(g) + ', ' + trStatus(c.d.text) + (o.tk ? ', ' + i18t('dt.limitedTime') : '') + (c.dist !== null && travelShort(c) ? ', ' + trStatus(travelShort(c)) : '');   // v5.23 (tester v5.22 L3)
@@ -7805,7 +7964,7 @@ function renderMapCard(){
   el.style.setProperty('--c', genreColor(g));
   el.setAttribute('data-id', c.item.id);
   el.setAttribute('aria-label', c.item.name + '. ' + factsLine(c) + '. Open');
-  el.innerHTML = thumbHTML(c, {}) + '<span><b>' + esc(c.item.name) + '</b><span>' + esc(factsLine(c)) + '</span></span>' + glyphSvg('i-right');
+  el.innerHTML = thumbHTML(c, {}) + '<span><b>' + esc(nameL(c.item)) + '</b><span>' + esc(factsLine(c)) + '</span></span>' + glyphSvg('i-right');
   el.hidden = false;
   wireImages(el);
 }
@@ -8027,6 +8186,35 @@ function renderApplied(){
   el.hidden = !a.length;
 }
 function firstPhoto(it){ var a = Array.isArray(it.photos) ? it.photos : []; for (var i = 0; i < a.length; i++) if (a[i] && typeof a[i].file === 'string' && a[i].file && !/^[a-z]+:/i.test(a[i].file)) return a[i]; return null; }
+// v5.38 photo gallery (her rule 2026-11-25: main photo = inside, more photos as a swipeable gallery, never a collage). Pure.
+function itemPhotos(it){ var a = Array.isArray(it && it.photos) ? it.photos : [], seen = {}, out = []; a.forEach(function(p){ if (p && typeof p.file === 'string' && p.file && !/^[a-z]+:/i.test(p.file) && !seen[p.file]) { seen[p.file] = 1; out.push(p); } }); return out; }
+function galleryHTML(it, list){ // one slide per photo (scroll-snap), a credit line on each, dots; arrows for a mouse
+  var n = list.length, nm = nameL(it), h = '<div class="dt-gal" data-gal="1" tabindex="0" role="group" aria-roledescription="carousel" aria-label="' + esc(tx('gal.label', 'Photos of {x}', {x:nm})) + '">';
+  list.forEach(function(p, i){
+    var pu = safeUrl(p.page_url), cr = tx('dt.photo', 'Photo: {x}', {x:esc(creditL(photoCredit(p)))});
+    h += '<div class="dt-slide" role="group" aria-label="' + (i + 1) + ' / ' + n + '"><img src="' + esc(p.file) + '" alt="' + esc(tx('dt.photoN', 'Photo {a} of {b}: {x}', {a:i + 1, b:n, x:nm})) + '"' + (i ? ' loading="lazy"' : '') + ' data-fb="1">' +
+      (pu ? '<a class="photo-credit" href="' + esc(pu) + '" target="_blank" rel="noopener">' + cr + '</a>' : '<span class="photo-credit">' + cr + '</span>') + '</div>';
+  });
+  h += '</div><div class="dt-dots" aria-hidden="true">' + list.map(function(p, i){ return '<i' + (i ? '' : ' class="on"') + '></i>'; }).join('') + '</div>';
+  h += '<button class="dt-gnav prev" type="button" data-gnav="-1" aria-label="' + esc(tx('gal.prev', 'Previous photo')) + '">&#8249;</button><button class="dt-gnav next" type="button" data-gnav="1" aria-label="' + esc(tx('gal.next', 'Next photo')) + '">&#8250;</button>';
+  return h;
+}
+function galSync(g){ // dots follow the slide in view; slides whose photo failed are already gone
+  if (!g) return; var box = g.parentNode, dots = box && box.querySelector('.dt-dots'), sl = g.querySelectorAll('.dt-slide'), w = g.clientWidth || 1, ix = Math.round(g.scrollLeft / w);
+  if (!dots) return;
+  if (dots.children.length !== sl.length) dots.innerHTML = Array.prototype.map.call(sl, function(){ return '<i></i>'; }).join('');
+  Array.prototype.forEach.call(dots.children, function(d, i){ d.className = i === ix ? 'on' : ''; });
+  var one = sl.length < 2; dots.hidden = one; Array.prototype.forEach.call(box.querySelectorAll('.dt-gnav'), function(b){ b.hidden = one; });
+}
+function wireGallery(root){
+  Array.prototype.forEach.call(root.querySelectorAll('.dt-gal'), function(g){
+    if (g.__wired) return; g.__wired = 1;
+    var t = null; g.addEventListener('scroll', function(){ if (t) cancelAnimationFrame(t); t = requestAnimationFrame(function(){ galSync(g); }); }, {passive:true});
+    g.addEventListener('keydown', function(e){ if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); g.scrollBy({left:(e.key === 'ArrowRight' ? 1 : -1) * g.clientWidth, behavior:'smooth'}); } });
+    Array.prototype.forEach.call(g.parentNode.querySelectorAll('[data-gnav]'), function(b){ b.addEventListener('click', function(e){ e.stopPropagation(); g.scrollBy({left:+b.getAttribute('data-gnav') * g.clientWidth, behavior:'smooth'}); }); });
+    galSync(g);
+  });
+}
 function thumbHTML(c, o){
   o = o || {};
   var it = c.item, g = c.genre || genreOf(it);
@@ -8100,11 +8288,11 @@ function rowHTML(c, opt){
   var tl = trustLineText(it, p); if (tl) h += '<p class="trustline"><i></i>' + esc(tl) + '</p>';
   if (opt.call && it.phone) h += phoneHTML(it.phone, Platform.telOk);
   var sv = isSaved(it.id);
-  var saveBtn = '<button class="save" type="button" data-save="' + esc(it.id) + '" aria-pressed="' + sv + '" aria-label="' + esc(saveAria(sv, it.name)) + '">' + glyphSvg('i-bookmark') + '</button>';
+  var saveBtn = '<button class="save" type="button" data-save="' + esc(it.id) + '" aria-pressed="' + sv + '" aria-label="' + esc(saveAria(sv, nameL(it))) + '">' + glyphSvg('i-bookmark') + '</button>';
   var fws = opt.nofriends ? [] : wlFriendsFor(it.id, opt.fexcept);   // v5.8: "Maya wants this too" = her initial under the bookmark
   if (fws.length) saveBtn = '<div class="rcol">' + saveBtn + avsHTML(fws, 's', wlWantsText(fws)) + '</div>';
   return '<li class="row' + (hollow ? ' quiet' : '') + '" data-id="' + esc(it.id) + '" tabindex="0" style="--c:' + genreColor(g) + '">' + thumbHTML(c, {date:opt.date, hollow:hollow}) +
-    '<div class="row-main">' + kick + '<div class="row-top"><h3>' + esc(it.name) + '</h3>' + tags + '</div>' + h + '</div>' + saveBtn + '</li>';
+    '<div class="row-main">' + kick + '<div class="row-top"><h3>' + esc(nameL(it)) + '</h3>' + tags + '</div>' + h + '</div>' + saveBtn + '</li>';
 }
 function actBtn(b){ return '<button class="mini-btn" type="button" ' + b.attr + '>' + esc(b.label) + '</button>'; }
 function noneRowHTML(g, title, body, btns){
@@ -8146,7 +8334,7 @@ function homeListHTML(vm, more){
   var h = '', p = vm.p, F = S.f;
   if (vm.ending) {
     var b = untilBadge(vm.ending, p);
-    h += '<button class="strip" type="button" data-open="' + esc(vm.ending.item.id) + '" aria-label="Ending soon: ' + esc(vm.ending.item.name) + ', ' + esc(b.t) + '. Opens its details."><span class="stub">' + (LANG === 'en' ? 'Ending<br>soon' : esc(tx('es.stub', 'Ending soon'))) + '</span><span class="tx"><b>' + esc(vm.ending.item.name) + '</b></span><em class="end">' + esc(b.t) + '</em>' + glyphSvg('i-right') + '</button>';
+    h += '<button class="strip" type="button" data-open="' + esc(vm.ending.item.id) + '" aria-label="' + esc(tx('a.ending', 'Ending soon: {x}, {t}. Opens its details.', {x:nameL(vm.ending.item), t:b.t})) + '"><span class="stub">' + (LANG === 'en' ? 'Ending<br>soon' : esc(tx('es.stub', 'Ending soon'))) + '</span><span class="tx"><b>' + esc(nameL(vm.ending.item)) + '</b></span><em class="end">' + esc(b.t) + '</em>' + glyphSvg('i-right') + '</button>';
   }
   if (!vm.main.length && vm.openNow <= ALL_CLOSED_MAX_OPEN) {
     var fo = vm.firstOpen, btn = '';
@@ -8157,7 +8345,7 @@ function homeListHTML(vm, more){
       btn = actBtn({attr:'data-plan="' + q.key + 'T' + pad(q.hh) + ':' + pad(q.mm) + '"', label:'Show ' + (q.key === p.key ? 'what’s open at ' + fmtTime(q.min) : (dayDiff(p.key, q.key) === 1 ? 'tomorrow at ' : DOW_SHORT[q.wd] + ' at ') + fmtTime(q.min))});
     }
     h += '<div class="empty"><h3>Almost everything is closed ' + (UI.planning ? esc(planWhen(true)) : 'at ' + esc(fmtTime(p.min))) + '.</h3><p>' + esc(body) + '</p><div class="btns">' + btn + '</div></div>';
-    return h + farSectionHTML(vm.far) + endnoteHTML('');
+    return h + holSectionHTML(vm.hol) + farSectionHTML(vm.far) + endnoteHTML('');
   }
   h += '<h3 class="sec-h"><span>' + esc(LANG === 'en' ? 'Best ' + planWhen(true).replace(' at ', ' ') : tx('hm.best', '', {w:UI.planning && isNum(UI.planAt) ? dayWordsL(planWhen(false)) : tx('hm.rightNow', '')})) + '</span><span>' + esc(tx('hm.onePer', 'one per kind')) + '</span></h3><ul class="rows">';
   vm.picks.forEach(function(pk){ h += rowHTML(pk.c, {kicker:genreNameL(pk.g) + (subNameL(pk.c.item, pk.g) ? ' · ' + subNameL(pk.c.item, pk.g) : ''), seeall: pk.n > 1 ? {g:pk.g, n:pk.n} : null, kright: pk.n > 1 ? '' : tx('hm.only', 'the only one')}); });
@@ -8168,6 +8356,7 @@ function homeListHTML(vm, more){
   });
   h += '</ul>';
   var onScreen = {}; vm.picks.forEach(function(pk){ onScreen[pk.c.item.id] = 1; });
+  h += holSectionHTML(vm.hol, onScreen);   // v5.38 fix (Thanksgiving)
   h += farSectionHTML(vm.far, onScreen);   // v5.6
   return h + endnoteHTML(LANG !== 'en' ? tx('hm.lead', '', {o:tx('hm.openW', '', {w:openWhenL()}), x:S.loc ? locWordsNow() : tx('hm.yourPin', '')}) : 'The best pick of each kind that’s ' + openWords() + (S.budgetOn ? ' and ' + doableWords() : '') + ' from ' + (S.loc ? locWordsNow() : 'your pin') + '. Tap a kind above to see all of them.');
 }
@@ -8175,11 +8364,23 @@ function farShown(list, skip){ // v5.6: up to FAR_SHOW (all of them after "Show 
   skip = skip || {}; var l = (list || []).filter(function(c){ return !skip[c.item.id]; });
   return {list:UI.farMore ? l : l.slice(0, FAR_SHOW), more:UI.farMore ? 0 : Math.max(0, l.length - FAR_SHOW), n:l.length};
 }
+function homeHolHTML(vm, picks){ // v5.38 fix: Home on a holiday: the places whose holiday hours aren't posted, as a labelled group below the picks
+  var skip = {}; (picks || []).forEach(function(c){ if (c && c.item) skip[c.item.id] = 1; });
+  return vm && vm.hol && vm.hol.length ? '<div class="hm-hol">' + holSectionHTML(vm.hol, skip) + '</div>' : '';
+}
+function holSectionHTML(list, skip){ // v5.38 fix (Thanksgiving): places whose holiday hours aren't posted, with their usual hours; a labelled group, never "Closed"
+  skip = skip || {}; var l = (list || []).filter(function(c){ return !skip[c.item.id]; }); if (!l.length) return '';
+  var sh = UI.holMore ? l : l.slice(0, FAR_SHOW), more = l.length - sh.length;
+  var h = '<h3 class="sec-h hol-h"><span>' + esc(tx('hol.np', 'Holiday hours not posted · call first')) + '</span><span>' + l.length + '</span></h3><ul class="rows hol">' +
+    sh.map(function(c){ return rowHTML(c, {kicker:genreShortL(c.genre || genreOf(c.item)), call:true}); }).join('') + '</ul>';
+  if (more > 0) h += '<button class="hm-btn" type="button" data-act="holmore">' + esc(tx('more.n', 'Show {n} more', {n:more})) + '</button>';
+  return h;
+}
 function farSectionHTML(list, skip){
   var f = farShown(list, skip); if (!f.list.length) return '';
   var walky = S.f.mode === 'walk' || (S.f.mode === 'transit' && CITY.transit);   // v5.37-b2: on foot / CTA the far ones are "A longer trip", not a drive
   var h = '<h3 class="sec-h far-h"><span>' + esc(walky ? tx('hm.farWalk', 'A longer trip') : tx('hm.far', 'Worth the drive')) + '</span><span>' + f.n + '</span></h3><ul class="rows far">' +
-    f.list.map(function(c){ return rowHTML(c, {kicker:genreShortL(c.genre) + (c.beyond ? tx('hm.past', ' · past {r}', {r:fmtRadius(c.beyond)}) : '')}); }).join('') + '</ul>';
+    f.list.map(function(c){ return rowHTML(c, {kicker:genreShortL(c.genre) + (c.beyond ? tx('hm.past', ' · past {r}', {r:fmtRadiusL(c.beyond)}) : '')}); }).join('') + '</ul>';
   if (f.more) h += '<button class="hm-btn" type="button" data-act="farmore">' + esc(i18L('more.n', 'Show {n} more').replace('{n}', f.more)) + '</button>';
   return h;
 }
@@ -8207,7 +8408,8 @@ function kindListHTML(vm, more){
   var fitsL = sortedForList(k.fits, F);   // v5.37-b2: Closest first / Best match
   if (k.fits.length > 1) h += sortToggleHTML(F);
   h += '<h3 class="sec-h"><span>Open ' + esc(planWhen(false)) + (S.budgetOn ? ', ' + esc(doableWords()) : '') + '</span><span>' + k.fits.length + '</span></h3>';
-  h += k.fits.length ? '<ul class="rows">' + fitsL.map(function(c){ return rowHTML(c, {}); }).join('') + '</ul>' : (k.book.length ? '' : kindEmptyHTML(vm, g, more));
+  h += k.fits.length ? '<ul class="rows">' + fitsL.map(function(c){ return rowHTML(c, {}); }).join('') + '</ul>' : (k.book.length || k.hol.length ? '' : kindEmptyHTML(vm, g, more));
+  h += holSectionHTML(k.hol);   // v5.38 fix: holiday hours not posted, right under what's open (never folded into 'Show the rest')
   if (k.book.length) h += '<h3 class="sec-h"><span>' + (k.book.every(function(c){ return c.bookTime.type === 'show'; }) ? 'Showtimes vary' : 'Book a time') + '</span><span>' + k.book.length + '</span></h3><ul class="rows">' + k.book.map(function(c){ return rowHTML(c, {}); }).join('') + '</ul>';   // v5.10
   h += farSectionHTML(k.far || []);   // v5.6
   if (k.tight.length) {
@@ -8248,7 +8450,7 @@ function limShutGroups(shut, anyDay){ // pure: running limited things that aren'
 function limitedListHTML(vm){
   var sub = vm.sub, h = '', p = vm.p;
   if (!sub || sub === 'now') {
-    var opn = vm.onOpen || vm.onNow, shut = vm.onShut || [], limRow = function(c){ return rowHTML(c, {kicker:genreShort(c.genre), badge:untilBadge(c, p), note:c.bucket !== 'fits'}); };
+    var opn = vm.onOpen || vm.onNow, shut = vm.onShut || [], limRow = function(c){ return rowHTML(c, {kicker:genreShortL(c.genre), badge:untilBadge(c, p), note:c.bucket !== 'fits'}); };
     h += '<h3 class="sec-h"><span>Open ' + esc(planWhen(false)) + '</span><span>ends soonest first</span></h3>';   // v5.1 (tester M1): open now first, running-but-shut apart
     // v5.3: when nothing limited is open, one tap turns Limited off and shows everything open in the picked kinds
     var allN = vm.gs && vm.gs.length ? vm.gs.reduce(function(a, g){ return a + (vm.byGenre[g] || []).length; }, 0) : vm.main.length;
@@ -8347,8 +8549,8 @@ function freshnessOf(items, todayKey){ // v2 (challenger C7): by the share of it
 }
 function freshBandText(fr){
   if (!fr.n) return '';
-  if (fr.preview) return 'Preview: ' + fr.unver + ' of ' + fr.n + ' not confirmed yet. Call first if it\'s close.';   // v5.3: plain words   // v2.1: "conflicting" items were checked, so not "still being checked"
-  if (fr.pct < 70) return 'Only ' + fr.pct + '% of this list was checked in the last 2 weeks. Hours may have changed, so call first.';
+  if (fr.preview) return tx('frb.preview', 'Preview: {a} of {n} not confirmed yet. Call first if it\'s close.', {a:fr.unver, n:fr.n});   // v5.38 fix: in the picked language   // v5.3: plain words   // v2.1: "conflicting" items were checked, so not "still being checked"
+  if (fr.pct < 70) return tx('frb.pct', 'Only {p}% of this list was checked in the last 2 weeks. Hours may have changed, so call first.', {p:fr.pct});
   return '';
 }
 var freshCache = {k:'', n:-1, v:null};
@@ -8363,12 +8565,15 @@ function filterGoState(count, nFilters, lim, nClear, planning){ // v2 Filters bu
 }
 function wireImages(root){
   Array.prototype.forEach.call(root.querySelectorAll('img[data-fb]'), function(img){
-    function gone(){ var par = img.parentNode; if (!par) return; par.removeChild(img); var cr = par.querySelector('.photo-credit'); if (cr) par.removeChild(cr); }   // v4: no photo, no photo credit
+    function gone(){ var par = img.parentNode; if (!par) return;
+      if (par.classList && par.classList.contains('dt-slide')) { var g = par.parentNode; if (g) { g.removeChild(par); if (!g.querySelector('.dt-slide')) { var box = g.parentNode; if (box) { Array.prototype.forEach.call(box.querySelectorAll('.dt-dots,.dt-gnav'), function(x){ x.parentNode.removeChild(x); }); box.removeChild(g); } } else galSync(g); } return; }   // v5.38: a gallery photo that fails takes its slide and credit with it
+      par.removeChild(img); var cr = par.querySelector('.photo-credit'); if (cr) par.removeChild(cr); }   // v4: no photo, no photo credit
     img.addEventListener('error', gone);
     if (img.complete && img.naturalWidth === 0 && img.getAttribute('src')) gone();
     function aim(){ var fp = photoFocus(img.naturalWidth, img.naturalHeight); if (fp) img.style.objectPosition = fp; }
     if (img.complete && img.naturalWidth) aim(); else img.addEventListener('load', aim);
   });
+  try { wireGallery(root); } catch (e) {}   // v5.38
 }
 function photoFocus(w, h){ return w > 0 && h > w * 1.2 ? '50% 25%' : ''; }   // v5.1 (tester M5): a tall photo cropped into a wide card aims at its upper part (the subject), not the middle
 function newestCheck(){ return freshness().newest; }   // newest check of a double-checked item (v2)
@@ -8423,7 +8628,7 @@ function searchListHTML(q){
   });
   searchSort(found).slice(0, SEARCH_MAX).forEach(function(x){   // v5.37-b1: open at the chosen time, then closest first
     var c = x.c, sn = subName(c.item, c.genre);
-    rows.push(rowHTML(c, {kicker:genreName(c.genre) + (sn ? ' · ' + sn : ''), hollow:c.st.key === 'season'}));
+    rows.push(rowHTML(c, {kicker:genreNameL(c.genre) + (sn ? ' · ' + subNameL(c.item, c.genre) : ''), hollow:c.st.key === 'season'}));   // v5.38 fix: headers in the picked language
   });
   if (!rows.length) return '<div class="empty"><h4>No match for “' + esc(q) + '”.</h4><p>Try a kind of fun (karaoke, mini golf), an interest (cheese, bugs) or a neighborhood.</p><div class="btns">' + actBtn({attr:'data-act="tip"', label:'Know a place? Send a tip'}) + '</div></div>';
   return '<h3 class="sec-h"><span>' + esc(tx('sr.results', 'Results')) + '</span><span></span></h3><ul class="rows">' + rows.join('') + '</ul>' + endnoteHTML('');
@@ -8448,8 +8653,9 @@ function radarList(rows, p){
 }
 /* v5.16b (home-guides spec §3): 3 rows, photo first, a quiet date label, full names up to 2 lines, "All N ›" for the rest */
 function shortName(it){ // the name without a trailing "(...)" or a trailing year; the detail screen keeps the full name
-  if (it && typeof it.short_name === 'string' && it.short_name.trim()) return it.short_name.trim();
-  var s = String(it && it.name || '').trim(), t = s.replace(/\s*\([^()]*\)\s*$/, '').replace(/\s+(19|20)\d\d$/, '').trim();
+  var nl = LANG === 'en' || !it ? '' : nameL(it); if (nl === String(it && it.name || '')) nl = '';   // v5.37-i18n0: a translated name wins over the English short_name
+  if (!nl && it && typeof it.short_name === 'string' && it.short_name.trim()) return it.short_name.trim();
+  var s = String(nl || it && it.name || '').trim(), t = s.replace(/\s*\([^()]*\)\s*$/, '').replace(/\s+(19|20)\d\d$/, '').trim();
   return t || s;
 }
 function radarStem(it){ // first two words; a long, distinctive first word alone ("Christkindlmarket ...": Daley Plaza and Wrigleyville count as one)
@@ -8537,17 +8743,17 @@ function guideRows(id, T, ctx){ // computed rows for a guide: open (fits) first,
   rows.sort(function(a, b){ return rk(a) - rk(b) || byTravel(a, b); });
   return rows;
 }
-function guideLink(id){ return Platform.linkFor('guide=' + id) || (SITE_URL + '#guide=' + id); }
+function guideLink(id){ return Platform.linkFor('guide=' + id) || (langQ(SITE_URL) + '#guide=' + id); }
 function guideListHTML(id){
   var g = GUIDE_BY[id]; if (!g) return '';
   var rows = guideRows(id, evalTime(), ctxNow()), nOpen = rows.filter(function(c){ return c.bucket === 'fits'; }).length;
   var h = '<div class="guide-h"><h3>' + esc(g.name) + '</h3><button class="mini-btn" type="button" data-guide-share="' + g.id + '">' + glyphSvg('i-share') + 'Share</button><button class="mini-btn" type="button" data-guide-x="1" aria-label="Close the guide">' + glyphSvg('i-close') + '</button><p>' + esc(g.blurb) + ' ' + nOpen + ' open ' + esc(planWhen(false)) + '.</p></div>';
-  h += rows.length ? '<ul class="rows">' + rows.map(function(c){ return rowHTML(c, {kicker:genreShort(c.genre)}); }).join('') + '</ul>' : '<div class="empty"><h4>Nothing in this guide near you.</h4></div>';
+  h += rows.length ? '<ul class="rows">' + rows.map(function(c){ return rowHTML(c, {kicker:genreShortL(c.genre)}); }).join('') + '</ul>' : '<div class="empty"><h4>Nothing in this guide near you.</h4></div>';
   return h + endnoteHTML('');
 }
 function openGuide(id){ if (!GUIDE_BY[id]) return; UI.guide = id; UI.q = ''; if ($('q')) $('q').value = ''; if (UI.view !== 'browse') showView('browse'); refresh(); if ($('sheetScroll')) $('sheetScroll').scrollTop = 0; }
 function closeGuide(){ UI.guide = ''; try { if (/guide=/.test(location.hash || '')) history.replaceState(null, '', location.pathname + location.search); } catch (e) {} refresh(); }
-function shareGuide(id){ if (id === 'day-plan') { var dl = itinLink(GA.day || []), du = Platform.linkFor(dl) || (SITE_URL + '#' + dl), dt = itT('shareT', {n:(GA.day || []).length}); if (dl) Platform.share({title:dt, text:dt + ' · ' + APP_NAME, url:du}).then(function(r){ if (r === 'copied') toast('Link copied'); }, function(){ toast(du); }); return; } var g = GUIDE_BY[id], R = !g && gaResolveId(id); if (!g && !R) return; var t = g ? g.name : R.title; Platform.share({title:t, text:t + ' · ' + APP_NAME, url:guideLink(id)}).then(function(r){ if (r === 'copied') toast('Link copied'); }, function(){ toast(guideLink(id)); }); }
+function shareGuide(id){ if (id === 'day-plan') { var dl = itinLink(GA.day || []), du = Platform.linkFor(dl) || (langQ(SITE_URL) + '#' + dl), dt = itT('shareT', {n:(GA.day || []).length}); if (dl) Platform.share({title:dt, text:dt + ' · ' + APP_NAME, url:du}).then(function(r){ if (r === 'copied') toast('Link copied'); }, function(){ toast(du); }); return; } var g = GUIDE_BY[id], R = !g && gaResolveId(id); if (!g && !R) return; var t = g ? g.name : R.title; Platform.share({title:t, text:t + ' · ' + APP_NAME, url:guideLink(id)}).then(function(r){ if (r === 'copied') toast('Link copied'); }, function(){ toast(guideLink(id)); }); }
 /* ================= v5.18 guides as articles (design/2026-11-14-home-guides-spec.md + 2026-11-14-guides-v2-spec.md) =================
    Two formats. Plan (no `format`): cover, when, intro, 2-4 numbered steps with photo, why, timing, live status, hop time, See place.
    List (format:"list"): Top N, mosaic cover, ranked entries with a big photo, neighborhood · price · 21+, blurb, live status.
@@ -8720,7 +8926,7 @@ function gaArticleHTML(R){
       var it = r.it, s = sts[i], gone = s.key === 'gone', idx = gone ? -1 : k++, ps = gaPhotos(it), ph = ps[0] === cov[0] ? ps[1] : ps[0], nx = R.rows[i + 1], hop = nx ? gaHop(it, nx.it, S.f.mode) : null;
       return '<li class="gst' + (gone ? ' gone' : '') + (nx ? '' : ' last') + '" data-gi="' + i + '" style="--c:' + genreColor(genreOf(it)) + '"><span class="rail"><b>' + (i + 1) + '</b></span><div class="gsc">' +
         '<p class="glab">' + (gone ? tx('gd.skip', 'Skip this one') : gaLabel(idx, live)) + '</p>' + (ph ? '<div class="gph"><img src="' + esc(ph) + '" alt="' + esc(shortName(it)) + '" loading="lazy" data-fb="1"></div>' : '') +
-        '<h3>' + esc(it.name) + (is21(it) ? ' <span class="age">21+</span>' : '') + '</h3>' + (r.why ? '<p class="gwhy">' + esc(r.why) + '</p>' : '') +
+        '<h3>' + esc(nameL(it)) + (is21(it) ? ' <span class="age">21+</span>' : '') + '</h3>' + (r.why ? '<p class="gwhy">' + esc(r.why) + '</p>' : '') +
         '<p class="gmeta">' + (r.timing ? '<span class="gtime">' + esc(r.timing) + '</span>' : '') + '<span class="s ' + esc(s.tone) + '"><i class="dot"></i>' + esc(trStatus(s.text)) + '</span></p>' +
         (gone ? '' : '<button class="ga-see" type="button" data-ga-place="' + esc(it.id) + '">' + esc(tx('gd.see', 'See place')) + GA_IC.chev + '</button>') +
         (hop ? '<p class="ghop">' + (hop.how === 'walk' ? GA_IC.walk : GA_IC.car) + esc(trStatus(hop.text)) + '</p>' : '') + '</div></li>';
@@ -8823,14 +9029,14 @@ function cardHTML(c){
   var tst = tasteNow(), why = tasteWhy(c, tst), lean = tasteLean(c, tst), ini = function(w){ return w === 'a' ? tasteInitial(TASTE) : tasteInitial(TASTE_GUEST); };   // v5.12
   var wxi = wxIdeaFor(c), wxr = wxReasonFor(c);   // v5.20
   var whoB = lean ? '<span class="tk-lean" aria-label="Leans to ' + esc(lean === 'ab' ? 'both of you' : ini(lean)) + '">' + esc(lean === 'ab' ? ini('a') + ini('b') : ini(lean)) + '</span>' : '';
-  return '<li class="card3" data-id="' + esc(it.id) + '" tabindex="0" aria-label="' + esc(it.name + '. ' + facts) + '" style="--c:' + genreColor(g) + '">' +
+  return '<li class="card3" data-id="' + esc(it.id) + '" tabindex="0" aria-label="' + esc(nameL(it) + '. ' + facts) + '" style="--c:' + genreColor(g) + '">' +
     '<div class="cover">' + kindSvg(g) + '</div>' +
     (ph ? '<img src="' + esc(ph.file) + '" alt="" data-fb="1">' : '') +
     '<span class="c3-kind" aria-hidden="true">' + kindSvg(g) + '</span>' +
     (ck ? '<span class="been-mark">' + esc(beenLabel(ck, cparts(nowMs()).key)) + '</span>' : '') + dealBadgeHTML(c, 'c3-deal' + (ck ? ' low' : '')) +
-    '<div class="c3-btns"><button class="c3-btn" type="button" data-share="' + esc(it.id) + '" aria-label="' + esc(LANG === 'en' ? 'Share ' + it.name : i18t('a.share', {x:it.name})) + '">' + glyphSvg('i-share') + '</button>' +
-    '<button class="c3-btn" type="button" data-save="' + esc(it.id) + '" aria-pressed="' + sv + '" aria-label="' + esc(saveAria(sv, it.name)) + '">' + glyphSvg('i-bookmark') + '</button></div>' +
-    '<div class="c3-text">' + ohBadgeHTML(it, 'c3') + '<h3>' + esc(it.name) + '</h3>' + (wxi ? '<p class="c3-hook c3-idea">' + wxIdeaHTML(wxi) + '</p>' : hook ? '<p class="c3-hook"' + langAttr(hk) + '>' + esc(hook) + '</p>' : '') + '<p class="c3-facts"><i class="dot ' + esc(c.d.tone) + '"></i>' + esc(facts) + '</p>' + (!walkFirstText(c) && stationLine(it) ? '<p class="c3-stn">' + esc(trStatus(stationLine(it))) + '</p>' : '') + cardLeaveHTML(c) + friendAvgLine(it, 'c3-fr') +
+    '<div class="c3-btns"><button class="c3-btn" type="button" data-share="' + esc(it.id) + '" aria-label="' + esc(LANG === 'en' ? 'Share ' + it.name : i18t('a.share', {x:nameL(it)})) + '">' + glyphSvg('i-share') + '</button>' +
+    '<button class="c3-btn" type="button" data-save="' + esc(it.id) + '" aria-pressed="' + sv + '" aria-label="' + esc(saveAria(sv, nameL(it))) + '">' + glyphSvg('i-bookmark') + '</button></div>' +
+    '<div class="c3-text">' + ohBadgeHTML(it, 'c3') + '<h3>' + esc(nameL(it)) + '</h3>' + (wxi ? '<p class="c3-hook c3-idea">' + wxIdeaHTML(wxi) + '</p>' : hook ? '<p class="c3-hook"' + langAttr(hk) + '>' + esc(hook) + '</p>' : '') + '<p class="c3-facts"><i class="dot ' + esc(c.d.tone) + '"></i>' + esc(facts) + '</p>' + (!walkFirstText(c) && stationLine(it) ? '<p class="c3-stn">' + esc(trStatus(stationLine(it))) + '</p>' : '') + cardLeaveHTML(c) + friendAvgLine(it, 'c3-fr') +
     (wxr ? '<p class="c3-why wx">' + wxSvg(wxIcon(WX.cond.code, WX.cond.night ? 0 : 1, WX.cond.gust)) + '<span>' + esc(wxr) + '</span></p>' : why ? '<p class="c3-why">' + esc(why) + '</p>' : '') + '</div>' + whoB + '</li>';   // v5.20: the weather idea replaces the hook when it fits; one reason line at most (weather wins only when it moved the pick)
 }
 function threeKey(){ return [selCode(curSel()), S.when, S.pickAt, S.loc ? r1(S.loc.lat * 1000) + ',' + r1(S.loc.lng * 1000) : '', S.budgetOn ? S.budget : 'any', JSON.stringify(S.f), DATA_LOADED ? 1 : 0, 't' + TASTE_REV].join('|'); }   // v5.12: a taste change re-picks
@@ -8909,7 +9115,7 @@ function renderHome(res, vm, picks){
   h += '<div class="hm-ctl" role="group" aria-label="When">' + '<button class="qchip" type="button" data-when="now" aria-pressed="' + (S.when === 'now') + '">' + esc(i18t('when.now')) + '</button><button class="qchip" type="button" data-when="today" aria-pressed="' + (S.when === 'today') + '">' + esc(i18t('when.today')) + '</button>' +
     '<button class="qchip" type="button" data-when="pick" aria-pressed="' + picked + '">' + (picked ? esc(whenLabel()) : esc(i18t('when.pick'))) + '</button></div>';
   var hsel = selCode(curSel());   // v5: the kinds picked in Browse also narrow the three; one chip says so and clears it
-  if (hsel) h += '<div class="hm-ctl"><button class="qchip selchip" type="button" data-act="clearsel" aria-pressed="true" aria-label="Only ' + esc(genreShort(hsel)) + '. Show everything">Only ' + esc(genreShort(hsel)) + glyphSvg('i-close') + '</button></div>';
+  if (hsel) h += '<div class="hm-ctl"><button class="qchip selchip" type="button" data-act="clearsel" aria-pressed="true" aria-label="Only ' + esc(genreShort(hsel)) + '. Show everything">' + esc(LANG === 'en' ? 'Only ' + genreShort(hsel) : tx('hm.onlySel', 'Only {g}', {g:String(hsel).split('+').map(genreShortL).join(', ')})) + glyphSvg('i-close') + '</button></div>';
   if (!DATA_LOADED) {
     h += DATA_ERR ? '<div class="empty"><h3>Couldn\'t load the list.</h3><p>Your saved things are still here. ' + esc(DATA_ERR) + '</p><button class="mini-btn" type="button" data-act="retry">Try again</button></div>' : '<p class="loading">Loading Chicago...</p>';
   } else {
@@ -8921,6 +9127,7 @@ function renderHome(res, vm, picks){
       if (UI.threeN > picks.length) h += '<button class="hm-btn" type="button" data-act="more3">' + esc(i18t('home.more3')) + '</button>';
       h += coupleHomeHTML(res);   // v5.13 #45: You + Maya
       var few = fewLine(picks.length, p, !!UI.anyDay); if (few) h += '<p class="hm-few">' + esc(few.t) + ' <button class="linkbtn" type="button" data-plan="' + few.plan + '">' + esc(few.btn) + ' ›</button></p>';   // v5.10
+      h += homeHolHTML(vm, picks);   // v5.38 fix (Thanksgiving: "everything shows closed")
     } else {
       var e = homeEmpty(vm, hsel, lab), btn = '', fo = e.fo, whoOn = anyKey(who) || appliedFilters(S.f).length > 0 || S.budgetOn;
       if (fo) {
@@ -8930,6 +9137,7 @@ function renderHome(res, vm, picks){
       if (hsel) btn += ' ' + actBtn({attr:'data-act="clearsel"', label:'Show everything'});   // v5.1 (tester H1): clear the pick
       if (whoOn) btn += ' ' + actBtn({attr:'data-act="clearall"', label:'Clear my filters'});
       h += '<div class="empty"><h3>' + esc(e.title) + '</h3>' + (e.body ? '<p>' + esc(e.body) + '</p>' : '') + '<div class="btns">' + btn + '</div></div>';
+      h += homeHolHTML(vm, []);   // v5.38 fix
     }
     // v5.16b (home-guides spec §1-§3): "Your taste ›" left Home (it lives in the account sheet); a taste card shows only if the test was
     // never done; Guides come before Opening soon, which shows 3 photo-first rows; a shorter endnote (the crow-flies line is in About).
@@ -8988,7 +9196,7 @@ function findComputed(id){ var it = findItem(id); return it ? computeItem(it, ev
 function selectGenre(id, opts){ // v5: a tile tap adds or removes that kind (or Limited); opts.keep = show exactly this (links, "See all", hash)
   opts = opts || {};
   UI.gsel = opts.keep ? normSel(id) : toggleSel(curSel(), id);
-  UI.sub = ''; UI.guide = ''; UI.foldTight = false; UI.foldRest = !!opts.rest || !S.f.openNow; UI.limMore = false; UI.farMore = false; UI.sel = null;
+  UI.sub = ''; UI.guide = ''; UI.foldTight = false; UI.foldRest = !!opts.rest || !S.f.openNow; UI.limMore = false; UI.farMore = false; UI.holMore = false; UI.sel = null;
   if (UI.gsel.lim && !UI.gsel.gs.length && S.when === 'weekend') UI.sub = 'wknd';   // spec 4.3: "This weekend" in the sentence opens Limited time on This weekend
   Platform.store.set('cff.genres.v2', selList(UI.gsel));   // remembered as a list, e.g. ["limited","play"]
   refresh();
@@ -9025,7 +9233,7 @@ function renderSurprise(){ // v5.31: the words through A31 (English as before); 
   } else {
     var f = c.fit || {}, tl = trustLineText(c.item, c.st.p);
     h += '<p class="board-k">' + (surpriseVeto.length >= 3 ? A('sx.final') : A(left === 1 ? 'sx.left1' : 'sx.leftN', {n:left})) + '</p>';
-    h += flaps(String(c.item.name).replace(/\s*\([^)]*\)\s*$/, ''), true) + '<p class="vh"' + lenA + '>' + esc(c.item.name) + '</p>';
+    h += flaps(String(nameL(c.item)).replace(/\s*\([^)]*\)\s*$/, ''), true) + '<p class="vh"' + lenA + '>' + esc(nameL(c.item)) + '</p>';
     h += '<p class="board-line">' + esc(en ? c.d.text : tr30(c.d.text)) + (c.dist !== null ? ' · ' + esc(travelText(c.trav)) : '') + (S.budgetOn ? ' · ' + esc(en ? doableWords() : doableWordsL()) : '') + '</p>';
     if (tl) h += '<p class="board-line warn">' + esc(en ? tl : tr30(tl)) + '</p>';
     h += '<div class="board-btns"><button class="go" type="button" data-sx="go">' + A('sx.go') + '</button>' + (surpriseVeto.length < 3 ? '<button class="no" type="button" data-sx="veto">' + A('sx.veto') + '</button>' : '') + '</div>';
@@ -9253,7 +9461,8 @@ function wlMyKey(make){
   UI.listKey = k; Platform.store.set(LISTKEY_KEY, k);
   return k;
 }
-function wlBase(){ // the website's address (never the claude.ai artifact)
+function wlBase(){ return langQ(wlBase0()); }   // v5.38: share / invite / poll links carry the sharer's language (?lang=ru)
+function wlBase0(){ // the website's address (never the claude.ai artifact)
   if (PUBLIC_URL && !/claude\.ai/.test(PUBLIC_URL)) return String(PUBLIC_URL).replace(/#.*$/, '');
   if (!Platform.onClaude && !Platform.inFrame) { try { if (/^https?:$/.test(location.protocol)) return location.origin + location.pathname + location.search; } catch (e) {} }
   return SITE_URL;
@@ -10055,7 +10264,7 @@ var INV_TEXT = {expired:'This invite expired. Ask for a new one.', used:'This in
 function inviteClearHash(){ if (/^#f_/.test(location.hash || '')) { try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {} } }
 function inviteOpen(code){
   inviteClearHash();
-  if (!cloudHost()) { openSmall('Friend invite', function(){ $('pSmallBody').innerHTML = '<p class="p-note">Open this invite on the website to accept it:</p><pre class="calbox">' + esc(SITE_URL + '#f_' + code) + '</pre>'; }); return; }
+  if (!cloudHost()) { openSmall('Friend invite', function(){ $('pSmallBody').innerHTML = '<p class="p-note">Open this invite on the website to accept it:</p><pre class="calbox">' + esc(langQ(SITE_URL) + '#f_' + code) + '</pre>'; }); return; }
   UI.invite = code;
   function card(title, body, btns){ openSmall(title, function(){ $('pSmallBody').innerHTML = '<p class="p-note">' + esc(body) + '</p>' + (btns ? '<div class="confirm2">' + btns + '</div>' : ''); }); }
   acctLoad().then(function(cl){
@@ -10314,7 +10523,7 @@ function pollPickRender(){
   var items = savedIds.map(findItem).filter(function(it){ return it && ID_SID[it.id]; }), n = PL.pick.length;
   $('pSmallBody').innerHTML = '<ul class="pl-pick">' + items.map(function(it){
     var on = PL.pick.indexOf(it.id) >= 0, ph = firstPhoto(it), g = genreOf(it);
-    return '<li><button type="button" data-poll="tog" data-v="' + esc(it.id) + '" aria-pressed="' + on + '" style="--c:' + genreColor(g) + '"><span class="pl-ph">' + kindSvg(g) + (ph ? '<img src="' + esc(ph.file) + '" alt="" loading="lazy" data-fb="1">' : '') + '<i class="pl-ck">' + glyphSvg('i-check') + '</i></span><span class="pl-nm">' + esc(it.name) + '</span></button></li>';
+    return '<li><button type="button" data-poll="tog" data-v="' + esc(it.id) + '" aria-pressed="' + on + '" style="--c:' + genreColor(g) + '"><span class="pl-ph">' + kindSvg(g) + (ph ? '<img src="' + esc(ph.file) + '" alt="" loading="lazy" data-fb="1">' : '') + '<i class="pl-ck">' + glyphSvg('i-check') + '</i></span><span class="pl-nm">' + esc(nameL(it)) + '</span></button></li>';
   }).join('') + '</ul><button class="btn-primary" type="button" data-poll="go" style="width:100%;margin-top:14px"' + (n < POLL_MIN ? ' aria-disabled="true"' : '') + '>' + (n < POLL_MIN ? 'Pick ' + (POLL_MIN - n) + ' more' : 'Get the link') + '</button>';
   wireImages($('pSmallBody'));
 }
@@ -10392,8 +10601,8 @@ function renderPoll(){
     var c = computeItem(it, T, ctx), g = genreOf(it), ph = firstPhoto(it), gone = wlGoneItem(it, c.st), cnt = ty.counts[i] || 0, pct = pollPct(cnt, ty.total), mine = PL.mine === i, lead = ty.total > 0 && ty.lead.indexOf(i) >= 0;
     var facts = [c.d.text, travelShort(c), priceShort(it)].filter(Boolean).join(' · ');
     h += '<li class="pl-card' + (mine ? ' mine' : '') + (lead ? ' lead' : '') + (gone ? ' gone' : '') + '" style="--c:' + genreColor(g) + '">' +
-      '<button class="pl-ph" type="button" data-poll="open" data-v="' + esc(it.id) + '" aria-label="See ' + esc(it.name) + '">' + kindSvg(g) + (ph ? '<img src="' + esc(ph.file) + '" alt="" loading="lazy" data-fb="1">' : '') + (c.deal ? dealBadgeHTML(c, 'c3-deal') : '') + '</button>' +
-      '<div class="pl-body"><h3>' + esc(it.name) + '</h3><p class="pl-facts"><i class="dot ' + esc(c.d.tone) + '"></i>' + esc(gone ? 'No longer on' : facts) + '</p>' +
+      '<button class="pl-ph" type="button" data-poll="open" data-v="' + esc(it.id) + '" aria-label="' + esc(tx('a.see', 'See {x}', {x:nameL(it)})) + '">' + kindSvg(g) + (ph ? '<img src="' + esc(ph.file) + '" alt="" loading="lazy" data-fb="1">' : '') + (c.deal ? dealBadgeHTML(c, 'c3-deal') : '') + '</button>' +
+      '<div class="pl-body"><h3>' + esc(nameL(it)) + '</h3><p class="pl-facts"><i class="dot ' + esc(c.d.tone) + '"></i>' + esc(gone ? 'No longer on' : facts) + '</p>' +
       (vote && PL.res ? '<div class="pl-bar" role="img" aria-label="' + cnt + (cnt === 1 ? ' vote' : ' votes') + '"><i style="width:' + pct + '%"></i><span>' + cnt + '</span></div>' : '') +
       (vote ? '<button class="pl-vote" type="button" data-poll="vote" data-v="' + i + '" aria-pressed="' + mine + '"' + (PL.busy ? ' aria-disabled="true"' : '') + '>' + (mine ? glyphSvg('i-check') + 'Your pick' : 'Pick this') + '</button>' : '') + '</div></li>';
   });
@@ -10786,11 +10995,11 @@ var GRP = {mode:'pick', pick:[], cur:null, shown:GROUP_SHOW, told:false, picks:[
 // Words: en, ru, zh-Hans, ko. The ru / zh-Hans / ko lines are the developer's own wording, no native review (unverified).
 var GRP_STR = {
   row:['Blend a group', 'Бленд компании', '群组融合', '그룹 블렌드'],
-  people:['{n} people', 'Человек: {n}', '{n} 人', '{n}명'],
+  people:['{n} people', '{n} {pl:{n}|человек|человека|человек}', '{n} 人', '{n}명'],
   pickSub:['Pick 2 to 5 friends.', 'Выберите от 2 до 5 друзей.', '选 2 到 5 位朋友。', '친구를 2~5명 고르세요.'],
   noTypeOut:['No character yet · won\'t count', 'Персонажа пока нет · не учитывается', '还没有角色 · 不计入', '아직 캐릭터 없음 · 계산 안 됨'],
   noType:['No character yet', 'Персонажа пока нет', '还没有角色', '아직 캐릭터 없음'],
-  go:['Blend {n} of you', 'Смешать: вас {n}', '融合你们 {n} 人', '{n}명 블렌드하기'],
+  go:['Blend {n} of you', 'Бленд на {n} {pl:{n}|человека|человека|человек}', '融合你们 {n} 人', '{n}명 블렌드하기'],
   more:['Pick {n} more', 'Выберите ещё {n}', '再选 {n} 个', '{n}개 더 고르세요'],
   tooMany:['Up to 6, you included', 'До 6 человек, включая вас', '最多 6 人，包括你', '나를 포함해 최대 6명'],
   match:['group match', 'совпадение компании', '群组契合度', '그룹 궁합'],
@@ -10842,7 +11051,7 @@ var GRP_STR = {
 function grpT(k, v, lang){
   var e = GRP_STR[k]; if (!e) return String(k);
   var l = isLang(lang) ? lang : LANG, s = e[LANG_IX[l]] || e[0];
-  if (v) s = s.replace(/\{(\w+)\}/g, function(m, x){ return v[x] !== undefined && v[x] !== null ? String(v[x]) : m; });
+  if (v) s = s.replace(/\{(\w+)\}/g, function(m, x){ return v[x] !== undefined && v[x] !== null ? String(v[x]) : m; }); s = plFix(s);   // v5.38: Russian plurals
   return s;
 }
 /* ----- pure parts ----- */
@@ -11082,7 +11291,7 @@ function grpSendRender(){
   $('pSmallBody').innerHTML = '<div class="gp-vote"><ul class="pl-pick">' + list.map(function(sid){
     var it = SID_INDEX[sid]; if (!it) return '';
     var on = GRP.vote.indexOf(sid) >= 0, ph = firstPhoto(it), g = genreOf(it);
-    return '<li><button type="button" data-grp="vtog" data-v="' + sid + '" aria-pressed="' + on + '" style="--c:' + genreColor(g) + '"><span class="pl-ph">' + kindSvg(g) + (ph ? '<img src="' + esc(ph.file) + '" alt="" loading="lazy" data-fb="1">' : '') + '<i class="pl-ck">' + glyphSvg('i-check') + '</i></span><span class="pl-nm">' + esc(it.name) + '</span></button></li>';
+    return '<li><button type="button" data-grp="vtog" data-v="' + sid + '" aria-pressed="' + on + '" style="--c:' + genreColor(g) + '"><span class="pl-ph">' + kindSvg(g) + (ph ? '<img src="' + esc(ph.file) + '" alt="" loading="lazy" data-fb="1">' : '') + '<i class="pl-ck">' + glyphSvg('i-check') + '</i></span><span class="pl-nm">' + esc(nameL(it)) + '</span></button></li>';
   }).join('') + '</ul>' + (!GRP.vmore && GRP.vlist.length > list.length ? '<p><button class="linkbtn" type="button" data-grp="vmore">' + esc(grpT('morePicks')) + '</button></p>' : '') +
     '<button class="btn-primary gp-vgo" type="button" data-grp="vgo" style="width:100%;margin-top:14px"' + (n < POLL_MIN ? ' aria-disabled="true"' : '') + '>' + esc(n < POLL_MIN ? grpT('more', {n:POLL_MIN - n}) : grpT('make')) + '</button></div>';
   wireImages($('pSmallBody'));
@@ -11189,7 +11398,7 @@ var TRIP_STR = {
   start:['Start the trip', 'Начать поездку', '开始行程', '여행 시작'],
   saveB:['Save', 'Сохранить', '保存', '저장'],
   savedT:['Saved on this phone', 'Сохранено на этом телефоне', '已保存在这部手机上', '이 휴대폰에 저장됨'],
-  days:['{n} days', 'Дней: {n}', '{n} 天', '{n}일'],
+  days:['{n} days', '{n} {pl:{n}|день|дня|дней}', '{n} 天', '{n}일'],
   day1:['1 day', '1 день', '1 天', '1일'],
   slT:['Shortlist', 'Короткий список', '候选清单', '후보 목록'],
   slEmpty1:['Nothing on the shortlist yet.', 'В списке пока пусто.', '候选清单还是空的。', '아직 후보가 없어요.'],
@@ -11220,7 +11429,7 @@ var TRIP_STR = {
   errOrder:['The end date is before the start.', 'Дата окончания раньше начала.', '结束日期早于开始日期。', '끝나는 날이 시작보다 빨라요.'],
   errLong:['Up to 14 days.', 'Не больше 14 дней.', '最多 14 天。', '최대 14일이에요.'],
   errDates:['Pick both dates.', 'Выберите обе даты.', '请选择两个日期。', '두 날짜를 모두 고르세요.'],
-  places:['{n} places', 'Мест: {n}', '{n} 个地点', '장소 {n}곳'],
+  places:['{n} places', '{n} {pl:{n}|место|места|мест}', '{n} 个地点', '장소 {n}곳'],
   noWeb:['Address search works on the website. Pick an area for now.', 'Поиск адреса работает на сайте. Пока выберите район.', '地址搜索在网站上可用。先选一个区域吧。', '주소 검색은 웹사이트에서 돼요. 지금은 지역을 고르세요.'],
   noMatch:['No match in {c}. Try the hotel name or street.', 'В {c} ничего не найдено. Попробуйте название отеля или улицу.', '在{c}没有找到。试试酒店名或街道。', '{c}에서 찾지 못했어요. 호텔 이름이나 거리로 해 보세요.'],
   looking:['Looking…', 'Ищем…', '查找中…', '찾는 중…'],
@@ -11233,7 +11442,7 @@ var TRIP_STR = {
 function tripT(k, v, lang){
   var e = TRIP_STR[k]; if (!e) return String(k);
   var l = isLang(lang) ? lang : LANG, s = e[LANG_IX[l]] || e[0];
-  if (v) s = s.replace(/\{(\w+)\}/g, function(m, x){ return v[x] !== undefined && v[x] !== null ? String(v[x]) : m; });
+  if (v) s = s.replace(/\{(\w+)\}/g, function(m, x){ return v[x] !== undefined && v[x] !== null ? String(v[x]) : m; }); s = plFix(s);   // v5.38: Russian plurals
   return s;
 }
 /* ----- pure parts ----- */
@@ -11433,7 +11642,7 @@ function tripArtSvg(slug){
 }
 function tripPosterHTML(t, g, n){
   var c = CITY_BY[t.city], rg = tripRange(t.from, t.to);
-  return '<div class="tp-poster" data-city="' + esc(t.city) + '" role="img" aria-label="' + esc(tripT('tripOf', {c:c.name}) + ', ' + rg) + '">' + tripArtSvg(t.city) +
+  return '<div class="tp-poster" data-city="' + esc(t.city) + '" role="img" aria-label="' + esc(tripT('tripOf', {c:cityNameL(c.slug)}) + ', ' + rg) + '">' + tripArtSvg(t.city) +
     '<div class="tp-pt" aria-hidden="true"><span class="tp-k">' + esc(tripT('trip')) + '</span><b class="tp-city">' + esc(c.name) + '</b><span class="tp-dates">' + esc(rg) + '</span></div>' +
     '<div class="tp-pb" aria-hidden="true"><span class="tp-chip">' + glyphSvg('i-cal') + esc(tripT(n === 1 ? 'day1' : 'days', {n:n})) + '</span>' + (g ? '<span class="tp-chip">' + glyphSvg('i-people') + esc(g.name + ' · ' + (PARTY_BANDS[t.party] ? t.party : (g.uids.length + 1))) + '</span>' : PARTY_BANDS[t.party] ? '<span class="tp-chip">' + glyphSvg('i-people') + esc(tx('pz.chip', 'Party of {n}', {n:t.party})) + '</span>' : '') + '</div></div>';   // v5.29: a picked party size replaces the head count
 }
@@ -11456,7 +11665,7 @@ function tripGroupPicksHTML(t, g){ // "Your group's picks" for this trip (her ph
   var picks = []; try { picks = groupPicksNow(r.members).filter(function(p){ return t.sids.indexOf(p.sid) < 0 && cityOf(p.c.item) === t.city; }).slice(0, 6); } catch (e) { picks = []; }
   if (!picks.length) return '';
   return '<h3 class="sec-h gp-h"><span>' + esc(grpT('picks')) + '</span><span>' + picks.length + '</span></h3><ul class="tp-gp">' + picks.map(function(p){ var it = p.c.item;
-    return '<li class="tp-it" style="--c:' + genreColor(genreOf(it)) + '"><div class="tp-row"><button class="tp-open" type="button" data-trip="openit" data-v="' + p.sid + '">' + tripThumbHTML(it) + '<span class="tp-nm"><b>' + esc(it.name) + '</b><small>' + esc(p.n === p.m ? grpT('all', {m:p.m}) : grpT('nOfM', {n:p.n, m:p.m})) + '</small></span></button><button class="tp-plus" type="button" data-trip="addg" data-v="' + p.sid + '" aria-label="' + esc(tripT('add') + ': ' + it.name) + '">' + TRIP_PLUS + '</button></div></li>';
+    return '<li class="tp-it" style="--c:' + genreColor(genreOf(it)) + '"><div class="tp-row"><button class="tp-open" type="button" data-trip="openit" data-v="' + p.sid + '">' + tripThumbHTML(it) + '<span class="tp-nm"><b>' + esc(nameL(it)) + '</b><small>' + esc(p.n === p.m ? grpT('all', {m:p.m}) : grpT('nOfM', {n:p.n, m:p.m})) + '</small></span></button><button class="tp-plus" type="button" data-trip="addg" data-v="' + p.sid + '" aria-label="' + esc(tripT('add') + ': ' + nameL(it)) + '">' + TRIP_PLUS + '</button></div></li>';
   }).join('') + '</ul>';
 }
 function tripPageHTML(t){
@@ -11473,8 +11682,8 @@ function tripPageHTML(t){
     var ctx = tripCtx(t, S.loc, S.f.mode), T = nowMs(), tz = tripTZ(t);
     h += '<ul class="tp-sl">' + items.map(function(it){
       var sid = ID_SID[it.id], cc = computeItem(it, T, ctx), dl = cc.dist !== null ? fmtMi(cc.dist) + ' · ' + travelShort(cc) : cc.citywide ? 'citywide' : '';
-      return '<li class="tp-it" style="--c:' + genreColor(genreOf(it)) + '"><div class="tp-row"><button class="tp-open" type="button" data-trip="openit" data-v="' + sid + '">' + tripThumbHTML(it) + '<span class="tp-nm"><b>' + esc(it.name) + '</b>' + (dl ? '<small>' + esc(dl) + '</small>' : '') + '</span></button>' +
-        '<button class="tp-x" type="button" data-trip="rm" data-v="' + sid + '" aria-label="' + esc(tripT('rmA') + ': ' + it.name) + '">' + glyphSvg('i-close') + '</button></div>' + tripDaysHTML(it, days, tz, today) + '</li>';
+      return '<li class="tp-it" style="--c:' + genreColor(genreOf(it)) + '"><div class="tp-row"><button class="tp-open" type="button" data-trip="openit" data-v="' + sid + '">' + tripThumbHTML(it) + '<span class="tp-nm"><b>' + esc(nameL(it)) + '</b>' + (dl ? '<small>' + esc(dl) + '</small>' : '') + '</span></button>' +
+        '<button class="tp-x" type="button" data-trip="rm" data-v="' + sid + '" aria-label="' + esc(tripT('rmA') + ': ' + nameL(it)) + '">' + glyphSvg('i-close') + '</button></div>' + tripDaysHTML(it, days, tz, today) + '</li>';
     }).join('') + '</ul><p class="tp-note">' + esc(tripT(t.home ? 'crow' : 'crowGps')) + '</p>';
   }
   h += tripGroupPicksHTML(t, g);
@@ -11508,7 +11717,7 @@ function tripHomeResHTML(c){
 }
 function tripHomeHTML(){
   var c = tripHomeCity();
-  return '<p class="gp-sub">' + esc(tripT('stayHint', {c:c.name})) + '</p><div class="tp-srch"><label class="vh" for="tpHomeQ">' + esc(tripT('stayQ')) + '</label><input id="tpHomeQ" type="search" autocomplete="off" enterkeyhint="search" placeholder="' + esc(tripT('ph')) + '" value="' + esc(TRIP.q) + '"></div>' +
+  return '<p class="gp-sub">' + esc(tripT('stayHint', {c:cityNameL(c.slug)})) + '</p><div class="tp-srch"><label class="vh" for="tpHomeQ">' + esc(tripT('stayQ')) + '</label><input id="tpHomeQ" type="search" autocomplete="off" enterkeyhint="search" placeholder="' + esc(tripT('ph')) + '" value="' + esc(TRIP.q) + '"></div>' +
     '<p class="tp-msg' + (TRIP.warn ? ' warn' : '') + '" id="tpHomeMsg"' + (TRIP.msg ? '' : ' hidden') + '>' + esc(TRIP.msg) + '</p><ul class="tp-res" id="tpHomeRes">' + tripHomeResHTML(c) + '</ul>';
 }
 function tripWebOk(){ return UI.tripDemo === 'home' || addrShown(); }   // the website only (claude.ai and frames can't fetch); the test hook answers from the sample
@@ -11524,7 +11733,7 @@ function tripHomeSearch(how){ // the same rules as the location sheet: 3+ charac
   var c = tripHomeCity(), q = addrQuery(TRIP.q), key = 'trip|' + c.slug + '|' + q.toLowerCase();
   clearTimeout(TRIP.timer); TRIP.timer = null; TRIP.seq++;
   if (!tripWebOk() || q.length < NOMI_MIN_CHARS) { tripHomeList(null); tripHomeMsg(tripWebOk() ? '' : tripT('noWeb'), false); return; }
-  if (TRIP.cache[key]) { tripHomeMsg(TRIP.cache[key].length ? '' : tripT('noMatch', {c:c.name}), false); tripHomeList(TRIP.cache[key]); return; }
+  if (TRIP.cache[key]) { tripHomeMsg(TRIP.cache[key].length ? '' : tripT('noMatch', {c:cityNameL(c.slug)}), false); tripHomeList(TRIP.cache[key]); return; }
   if (UI.tripDemo === 'home') { var mk = addrParse(TRIP_ADDR_SAMPLE, c); TRIP.cache[key] = mk; tripHomeMsg('', false); tripHomeList(mk); return; }
   var my = TRIP.seq, w = addrWait(q, how, Addr.lastAt, Date.now());
   TRIP.timer = setTimeout(function(){ tripHomeSend(q, c, key, my); }, Math.max(0, w));
@@ -11541,7 +11750,7 @@ function tripHomeSend(q, c, key, my){
   fetch(tripNomiUrl(q, c), opts).then(function(r){ if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); }).then(function(js){
     clearTimeout(to); var list = addrParse(js, c); TRIP.cache[key] = list;
     if (my !== TRIP.seq) return;
-    tripHomeMsg(list.length ? '' : tripT('noMatch', {c:c.name}), false); tripHomeList(list);
+    tripHomeMsg(list.length ? '' : tripT('noMatch', {c:cityNameL(c.slug)}), false); tripHomeList(list);
   })['catch'](function(){ clearTimeout(to); if (my !== TRIP.seq) return; tripHomeList(null); tripHomeMsg(tripT('searchErr'), true); });
 }
 function tripHomePick(i){
@@ -11565,7 +11774,7 @@ function renderTrip(){
   $('tpBack').hidden = !(m === 'home' || m === 'edit'); $('tpMore').hidden = m !== 'page';
   $('tpBack').setAttribute('aria-label', grpT('back')); $('tpMore').setAttribute('aria-label', grpT('moreBtn'));
   $('pTrip').classList.toggle('page', m === 'page');
-  $('pTripTitle').textContent = m === 'page' ? tripT('tripOf', {c:CITY_BY[t.city].name}) : m === 'home' ? tripT('stayT') : m === 'new' ? tripT('plan') : m === 'edit' ? tripT('edit') : tripT('trips');
+  $('pTripTitle').textContent = m === 'page' ? tripT('tripOf', {c:cityNameL(t.city)}) : m === 'home' ? tripT('stayT') : m === 'new' ? tripT('plan') : m === 'edit' ? tripT('edit') : tripT('trips');
   var f = m === 'new' || m === 'edit'; foot.hidden = !f; foot.innerHTML = f ? '<button class="btn-primary gp-go" type="button" data-trip="save">' + esc(tripT(m === 'new' ? 'start' : 'saveB')) + '</button>' : '';
   if (m === 'list') b.innerHTML = '<p class="gp-sub">' + esc(tripT('listSub')) + '</p>' + tripAcctHTML();
   else if (f) b.innerHTML = tripFormHTML(TRIP.draft);
@@ -11603,13 +11812,13 @@ function tripAddFromPlace(sid, el){
   if (!t) { tripNew({city:cityOf(it), pend:sid}); return; }
   var r = tripSl(tripStore(), t.id, sid);
   if (!r.ok) { toast(r.full ? tripT('slFull') : tripT('gone')); return; }
-  toast(r.on ? tripT('addedT', {c:CITY_BY[t.city].name}) : tripT('removedT'));
+  toast(r.on ? tripT('addedT', {c:cityNameL(t.city)}) : tripT('removedT'));
   if (el) { el.setAttribute('aria-pressed', String(r.on)); el.innerHTML = glyphSvg(r.on ? 'i-check' : 'i-cal') + esc(tripT(r.on ? 'added' : 'add')); }
   if (!$('pTrip').hidden) renderTrip();
 }
 function tripMenu(){
   var t = tripFind(tripStore(), TRIP.cur); if (!t) return;
-  openSmall(tripT('tripOf', {c:CITY_BY[t.city].name}), function(){
+  openSmall(tripT('tripOf', {c:cityNameL(t.city)}), function(){
     var rl = tripRole(t);   // v5.35: a member can't edit dates / hotel or delete; they can leave. The planner can make a new link.
     $('pSmallBody').innerHTML = (tripCanEdit(rl, 'dates') ? '<button class="frrow" type="button" data-trip="edit">' + glyphSvg('g-pencil') + '<span>' + esc(tripT('edit')) + '</span>' + glyphSvg('i-right', 'i chev') + '</button>' : '') +
       (TRIP.on === t.id ? '<button class="frrow" type="button" data-trip="exit2">' + glyphSvg('i-target') + '<span>' + esc(tripT('exitL')) + '</span>' + glyphSvg('i-right', 'i chev') + '</button>' : '') +
@@ -11621,7 +11830,7 @@ function tripMenu(){
 function tripDelAsk(){
   var t = tripFind(tripStore(), TRIP.cur); if (!t) return;
   openSmall(tripT('del'), function(){
-    $('pSmallBody').innerHTML = '<p class="p-note">' + esc(t.shared ? tx('ts.delQ', 'Delete the {c} trip ({d}) for everyone on it?', {c:CITY_BY[t.city].name, d:tripRange(t.from, t.to)}) : tripT('delQ', {c:CITY_BY[t.city].name, d:tripRange(t.from, t.to)})) + '</p><div class="confirm2"><button class="btn-primary danger" type="button" data-trip="del2">' + esc(tripT('delB')) + '</button><button class="mini-btn" type="button" data-close="pSmall">' + esc(grpT('cancel')) + '</button></div>';
+    $('pSmallBody').innerHTML = '<p class="p-note">' + esc(t.shared ? tx('ts.delQ', 'Delete the {c} trip ({d}) for everyone on it?', {c:cityNameL(t.city), d:tripRange(t.from, t.to)}) : tripT('delQ', {c:cityNameL(t.city), d:tripRange(t.from, t.to)})) + '</p><div class="confirm2"><button class="btn-primary danger" type="button" data-trip="del2">' + esc(tripT('delB')) + '</button><button class="mini-btn" type="button" data-close="pSmall">' + esc(grpT('cancel')) + '</button></div>';
   });
 }
 function tripDel(){ var id = TRIP.cur, ts0 = tripFind(tripStore(), id); closePanel('pSmall'); if (ts0 && ts0.shared) { if (ts0.role === 'owner') tripShDelete(ts0); return; }   /* v5.35: a shared trip is deleted on the server first */ if (TRIP.on === id) tripOff(true); tripsForget(tripStore(), id); TRIP.cur = ''; TRIP.mode = 'list'; renderTrip(); toast(tripT('deleted')); }
@@ -11707,7 +11916,7 @@ function tripShInnerHTML(t){ // the trip page's shared block: Invite (owner / a 
 }
 function tripShareLink(t){
   if (!t || !t.tok) return Promise.resolve(false);
-  var link = wlBase() + '#t_' + t.tok, text = tx('ts.msg', 'Join my {c} trip on {app} ({d})', {c:CITY_BY[t.city].name, app:APP_NAME, d:tripRange(t.from, t.to)});
+  var link = wlBase() + '#t_' + t.tok, text = tx('ts.msg', 'Join my {c} trip on {app} ({d})', {c:cityNameL(t.city), app:APP_NAME, d:tripRange(t.from, t.to)});
   return Platform.share({title:APP_NAME, text:text, url:link}).then(function(x){ if (x === 'copied') toast(tx('ts.copied', 'Link copied')); return x; }, function(){
     openSmall(tx('ts.inviteB', 'Invite to trip'), function(){ $('pSmallBody').innerHTML = '<p class="p-note">' + esc(tx('ts.hold', 'Press and hold the link to copy it. Anyone with it can join (up to 20 people).')) + '</p><pre class="calbox">' + esc(link) + '</pre>'; });
   });
@@ -11737,7 +11946,7 @@ function tripJoinCard(title, body, btns){ openSmall(title, function(){ $('pSmall
 function tripJoinOpen(tok){
   tripJoinClearHash(); tok = tripTokOk(tok); if (!tok) return Promise.resolve(false);
   var T = tx('ts.joinT', 'Trip invite');
-  if (!TRIPSH.fake && !cloudHost()) { tripJoinCard(T, tx('ts.onWeb', 'Open this invite on the website to join:')); try { $('pSmallBody').insertAdjacentHTML('beforeend', '<pre class="calbox">' + esc(SITE_URL + '#t_' + tok) + '</pre>'); } catch (e) {} return Promise.resolve(false); }
+  if (!TRIPSH.fake && !cloudHost()) { tripJoinCard(T, tx('ts.onWeb', 'Open this invite on the website to join:')); try { $('pSmallBody').insertAdjacentHTML('beforeend', '<pre class="calbox">' + esc(langQ(SITE_URL) + '#t_' + tok) + '</pre>'); } catch (e) {} return Promise.resolve(false); }
   TRIPSH.joinTok = tok;
   var go = TRIPSH.fake ? Promise.resolve(!!TRIPSH.fakeMe) : acctLoad().then(function(cl){ if (!cl) return null; return cl.auth.getSession().then(function(r){ var s = r && r.data ? r.data.session : null; if (s && !Acct.user) Acct.user = s.user; return !!s; }); });
   return go.then(function(signed){
@@ -11771,7 +11980,7 @@ function tripJoin(){
 }
 function tripLeaveAsk(){
   var t = tripFind(tripStore(), TRIP.cur); if (!t) return;
-  openSmall(tx('ts.leaveB', 'Leave trip'), function(){ $('pSmallBody').innerHTML = '<p class="p-note">' + esc(tx('ts.leaveQ', 'Leave the {c} trip? It goes off this phone. You can join again with the link.', {c:CITY_BY[t.city].name})) + '</p><div class="confirm2"><button class="btn-primary danger" type="button" data-trip="leave2">' + esc(tx('ts.leaveB', 'Leave trip')) + '</button><button class="mini-btn" type="button" data-close="pSmall">' + esc(grpT('cancel')) + '</button></div>'; });
+  openSmall(tx('ts.leaveB', 'Leave trip'), function(){ $('pSmallBody').innerHTML = '<p class="p-note">' + esc(tx('ts.leaveQ', 'Leave the {c} trip? It goes off this phone. You can join again with the link.', {c:cityNameL(t.city)})) + '</p><div class="confirm2"><button class="btn-primary danger" type="button" data-trip="leave2">' + esc(tx('ts.leaveB', 'Leave trip')) + '</button><button class="mini-btn" type="button" data-close="pSmall">' + esc(grpT('cancel')) + '</button></div>'; });
 }
 function tripLeave(){
   var st = tripStore(), t = tripFind(st, TRIP.cur); closePanel('pSmall'); if (!t || !t.shared) return Promise.resolve(false);
@@ -11856,7 +12065,7 @@ function tripClick(el){
     case 'hpick': tripHomePick(v); break;
     case 'save': tripSave(); break;
     case 'add': tripAddFromPlace(+v, el); break;
-    case 'addg': t0 = tripFind(tripStore(), TRIP.cur); if (t0) { tripSl(tripStore(), t0.id, +v, true); renderTrip(); toast(tripT('addedT', {c:CITY_BY[t0.city].name})); } break;
+    case 'addg': t0 = tripFind(tripStore(), TRIP.cur); if (t0) { tripSl(tripStore(), t0.id, +v, true); renderTrip(); toast(tripT('addedT', {c:cityNameL(t0.city)})); } break;
     case 'rm': t0 = tripFind(tripStore(), TRIP.cur); if (t0) { tripSl(tripStore(), t0.id, +v, false); renderTrip(); toast(tripT('removedT')); } break;
     case 'openit': t0 = SID_INDEX[+v]; if (t0 && findItem(t0.id)) { closePanel('pTrip'); UI.sel = t0.id; recluster(); openDetail(t0.id); UI.tripReturn = true; } break;
     case 'browse': closePanel('pTrip'); toast(tripT('slEmpty2')); break;
@@ -11920,7 +12129,7 @@ var ITIN_STR = {
   genSub:['From your shortlist, by area, opening hours, event times and sunset.', 'Из вашего списка: по районам, часам работы, времени событий и закату.', '根据候选清单，按区域、营业时间、活动时间和日落安排。', '후보 목록에서 지역, 영업시간, 행사 시간, 일몰에 맞춰 짜요.'],
   genSubG:['From your shortlist and your group\'s picks, by area, opening hours, event times and sunset.', 'Из вашего списка и выбора компании: по районам, часам работы, времени событий и закату.', '根据候选清单和群组精选，按区域、营业时间、活动时间和日落安排。', '후보 목록과 그룹 추천에서 지역, 영업시간, 행사 시간, 일몰에 맞춰 짜요.'],
   genNone:['Add places to the shortlist first.', 'Сначала добавьте места в список.', '请先把地点加入候选清单。', '먼저 후보 목록에 장소를 추가하세요.'],
-  daysN:['{n} days', 'Дней: {n}', '{n} 天', '{n}일'],
+  daysN:['{n} days', '{n} {pl:{n}|день|дня|дней}', '{n} 天', '{n}일'],
   stale:['Your shortlist changed since this plan.', 'Список изменился после составления плана.', '生成行程后候选清单有变化。', '일정을 만든 뒤 후보 목록이 바뀌었어요.'],
   redo:['Update the plan', 'Обновить план', '更新行程', '일정 업데이트'],
   noHome:['Add where you\'re staying to start and end each day there. For now days start in the city center.', 'Добавьте, где живёте, чтобы дни начинались и заканчивались там. Пока — от центра города.', '添加住处后，每天从那里出发并回到那里。目前从市中心出发。', '숙소를 추가하면 매일 거기서 출발하고 돌아와요. 지금은 시내 중심에서 시작해요.'],
@@ -11954,21 +12163,21 @@ var ITIN_STR = {
   whySize:['Doesn\'t fit your group size', 'Не подходит по размеру компании', '不适合你们的人数', '인원수에 안 맞아요'],   // v5.29 (ru / zh / ko unverified)
   free:['A free day. Nothing on the list fits here.', 'Свободный день. Ничего из списка сюда не подходит.', '空闲的一天。清单里没有适合这天的。', '자유로운 날이에요. 목록에서 맞는 곳이 없어요.'],
   share:['Share day', 'Поделиться днём', '分享这天', '이날 공유'],
-  shareT:['A day plan · {n} stops', 'План на день · {n} мест', '一日行程 · {n} 站', '하루 일정 · {n}곳'],
+  shareT:['A day plan · {n} stops', 'План на день · {n} {pl:{n}|место|места|мест}', '一日行程 · {n} 站', '하루 일정 · {n}곳'],
   vote:['Vote on these two', 'Голосовать за эти два', '投票选一个', '둘 중 투표하기'],
-  stops:['{n} stops', 'Мест: {n}', '{n} 站', '{n}곳'],
+  stops:['{n} stops', '{n} {pl:{n}|место|места|мест}', '{n} 站', '{n}곳'],
   stop1:['1 stop', '1 место', '1 站', '1곳'],
   backBy:['back by {t}', 'обратно к {t}', '{t}前回来', '{t}까지 복귀'],
   carM:['{n} min by car/Uber', '{n} мин на машине/Uber', '开车/Uber 约 {n} 分钟', '차/우버로 {n}분'],
   walkM:['{n} min walk', '{n} мин пешком', '步行 {n} 分钟', '걸어서 {n}분'],
   same:['Same spot', 'То же место', '同一地点', '같은 장소'],
   rough:['Times are rough: hours on that date, drive times by car/Uber and sunset. Check hours before you go. Saved on this phone; a shared day carries places only.', 'Время примерное: часы на эту дату, дорога на машине/Uber и закат. Проверьте часы перед выходом. Хранится на этом телефоне; в ссылке на день только места.', '时间为估算：当天营业时间、开车/Uber 时间和日落。出发前请确认营业时间。保存在这部手机上；分享的一天只包含地点。', '시간은 대략이에요: 그날 영업시간, 차/우버 이동 시간, 일몰 기준. 가기 전에 영업시간을 확인하세요. 이 휴대폰에 저장되고, 공유 링크에는 장소만 들어가요.'],
-  madeT:['Plan ready: {n} days', 'План готов: дней — {n}', '行程已生成：{n} 天', '일정 완성: {n}일']
+  madeT:['Plan ready: {n} days', 'План готов: {n} {pl:{n}|день|дня|дней}', '行程已生成：{n} 天', '일정 완성: {n}일']
 };
 function itT(k, v, lang){
   var e = ITIN_STR[k]; if (!e) return String(k);
   var l = isLang(lang) ? lang : LANG, s = e[LANG_IX[l]] || e[0];
-  if (v) s = s.replace(/\{(\w+)\}/g, function(m, x){ return v[x] !== undefined && v[x] !== null ? String(v[x]) : m; });
+  if (v) s = s.replace(/\{(\w+)\}/g, function(m, x){ return v[x] !== undefined && v[x] !== null ? String(v[x]) : m; }); s = plFix(s);   // v5.38: Russian plurals
   return s;
 }
 /* ----- pure engine ----- */
@@ -12205,8 +12414,8 @@ function itinDayHTML(t, d, x, home, c){
     if (s.unk) meta.push('<span class="it-tag unk">' + esc(itT('unk')) + '</span>');
     if (s.g) meta.push('<span class="it-tag grp">' + esc(itT('grp')) + '</span>');
     h += '<li class="gst" style="--c:' + genreColor(genreOf(it)) + '"><span class="rail"><b>' + (i + 1) + '</b></span><div class="gsc"><p class="glab">' + esc(per + ' · ' + fmtTime(s.s) + ' – ' + fmtTime(s.e)) + '</p>' + (s.or ? itinOrHTML(s, per) : '') +
-      '<h3>' + esc(it.name) + '</h3>' + (meta.length ? '<p class="gmeta">' + meta.join('') + '</p>' : '') +
-      '<div class="it-acts"><button class="ga-see" type="button" data-trip="openit" data-v="' + s.sid + '">' + esc(itT('see')) + GA_IC.chev + '</button><button class="it-a" type="button" data-trip="itmove" data-v="' + s.sid + '" aria-label="' + esc(itT('move') + ': ' + it.name) + '">' + esc(itT('move')) + '</button><button class="tp-x it-x" type="button" data-trip="itrm" data-v="' + s.sid + '" aria-label="' + esc(itT('rm') + ': ' + it.name) + '" title="' + esc(itT('rm')) + '">' + glyphSvg('i-close') + '</button></div>' +
+      '<h3>' + esc(nameL(it)) + '</h3>' + (meta.length ? '<p class="gmeta">' + meta.join('') + '</p>' : '') +
+      '<div class="it-acts"><button class="ga-see" type="button" data-trip="openit" data-v="' + s.sid + '">' + esc(itT('see')) + GA_IC.chev + '</button><button class="it-a" type="button" data-trip="itmove" data-v="' + s.sid + '" aria-label="' + esc(itT('move') + ': ' + nameL(it)) + '">' + esc(itT('move')) + '</button><button class="tp-x it-x" type="button" data-trip="itrm" data-v="' + s.sid + '" aria-label="' + esc(itT('rm') + ': ' + nameL(it)) + '" title="' + esc(itT('rm')) + '">' + glyphSvg('i-close') + '</button></div>' +
       itinHopHTML(itinHop(it, nx)) + '</div></li>';
   });
   h += '<li class="gst last it-hm"><span class="rail"><b>' + IT_HOME_SVG + '</b></span><div class="gsc"><p class="glab">' + esc(fmtTime(backAt)) + '</p><h3>' + esc(itT('backAt', {x:home.label})) + '</h3></div></li></ol>';
@@ -12217,7 +12426,7 @@ function itinMissHTML(x){
   return '<h3 class="sec-h gp-h it-mh" id="itMiss"><span>' + esc(itT('miss')) + '</span><span>' + m.length + '</span></h3><ul class="tp-sl it-miss">' + m.map(function(r){
     var it = SID_INDEX[r.sid], why = esc(itT(IT_WHY[r.why]) + (r.g ? ' · ' + itT('grp') : ''));
     var btn = !it ? '' : r.why === 'removed' ? '<button class="it-a" type="button" data-trip="itback" data-v="' + r.sid + '">' + esc(itT('putBack')) + '</button>' : r.why === 'full' ? '<button class="it-a" type="button" data-trip="itmove" data-v="' + r.sid + '">' + esc(itT('move')) + '</button>' : '';
-    return '<li class="tp-it"><div class="tp-row">' + (it ? '<button class="tp-open" type="button" data-trip="openit" data-v="' + r.sid + '">' + tripThumbHTML(it) + '<span class="tp-nm"><b>' + esc(it.name) + '</b><small>' + why + '</small></span></button>' : '<span class="tp-nm"><b>#' + r.sid + '</b><small>' + why + '</small></span>') + btn + '</div></li>';
+    return '<li class="tp-it"><div class="tp-row">' + (it ? '<button class="tp-open" type="button" data-trip="openit" data-v="' + r.sid + '">' + tripThumbHTML(it) + '<span class="tp-nm"><b>' + esc(nameL(it)) + '</b><small>' + why + '</small></span></button>' : '<span class="tp-nm"><b>#' + r.sid + '</b><small>' + why + '</small></span>') + btn + '</div></li>';
   }).join('') + '</ul>';
 }
 function itinHTML(t){ // the trip page's plan section
@@ -12246,7 +12455,7 @@ function itinMoveOpen(sid){
 function itinShareDay(t, key){
   var d = null; (t.itin && t.itin.days || []).forEach(function(x){ if (x.key === key) d = x; });
   var sids = itinShown(d, t.itin && t.itin.pick).map(function(s){ return s.sid; }), l = itinLink(sids); if (!l) return '';
-  var url = Platform.linkFor(l) || (SITE_URL + '#' + l), tt = itT('shareT', {n:pollSids(sids).slice(0, 12).length});
+  var url = Platform.linkFor(l) || (langQ(SITE_URL) + '#' + l), tt = itT('shareT', {n:pollSids(sids).slice(0, 12).length});
   Platform.share({title:tt, text:tt + ' · ' + APP_NAME, url:url}).then(function(r){ if (r === 'copied') toast('Link copied'); }, function(){ toast(url); });
   return url;
 }
@@ -12427,7 +12636,7 @@ function miniMapHTML(c){
   if (w / h < W / H) w = h * W / H; else h = w * H / W;
   var vx = (minx + maxx) / 2 - w / 2, vy = (miny + maxy) / 2 - h / 2, k = W / w;
   function hit(bb){ return bb && !(bb[2] < vx || bb[0] > vx + w || bb[3] < vy || bb[1] > vy + h); }
-  var out = '<svg viewBox="' + [vx, vy, w, h].map(r1).join(' ') + '" preserveAspectRatio="xMidYMid slice" style="--lw:2.4px;--halo:4px;--aline:1px;--riverw:5px" role="img" aria-label="Small map from your pin to ' + esc(c.item.name) + '">';
+  var out = '<svg viewBox="' + [vx, vy, w, h].map(r1).join(' ') + '" preserveAspectRatio="xMidYMid slice" style="--lw:2.4px;--halo:4px;--aline:1px;--riverw:5px" role="img" aria-label="' + esc(tx('a.minimap', 'Small map from your pin to {x}', {x:nameL(c.item)})) + '">';
   out += '<path class="suburb" d="' + SUBURBS_D + '"/>';
   GEO.areas.forEach(function(ar){ if (hit(ar.bb)) out += '<path class="t' + (ar.num % 4) + '" fill-rule="evenodd" vector-effect="non-scaling-stroke" d="' + ar.d + '"/>'; });
   out += '<path class="river" fill="none" vector-effect="non-scaling-stroke" d="' + RIVER_D + '"/>';
@@ -12695,8 +12904,8 @@ function whyHTML(k, tr, todayKey){ // a native <details>: "Why?" opens one short
 }
 function accessHTML(it){ // v5.37-b4: "Access: ..." from access_note (the place's own wording, English)
   var n = it && typeof it.access_note === 'string' ? it.access_note.trim() : ''; if (!n) return '';
-  var lab = tx('acc.line', 'Access: {x}').split('{x}');
-  return esc(lab[0]) + '<span' + (LANG === 'en' ? '' : ' lang="en"') + '>' + esc(n) + '</span>' + esc(lab[1] || '');
+  var lab = tx('acc.line', 'Access: {x}').split('{x}'), al = placeText(it, 'access_note'), tr = al.lang !== 'en' && typeof al.v === 'string' && al.v.trim() ? al.v.trim() : '';   // v5.37-i18n0: a fresh translation when there is one
+  return esc(lab[0]) + '<span' + (LANG === 'en' ? '' : ' lang="' + (tr ? esc(al.lang) : 'en') + '"') + '>' + esc(tr || n) + '</span>' + esc(lab[1] || '');
 }
 function renderDetail(c, keepScroll){
   // v4 order: photo, name + hook, status + price, (main button + Share in the bar under your thumb), what you do there, practical facts, good to know, trust and sources (small)
@@ -12705,8 +12914,10 @@ function renderDetail(c, keepScroll){
   el.style.setProperty('--c', genreColor(gid));
   var ph = firstPhoto(it), h = '<div class="dt-photo">';
   h += '<div class="cover"><svg aria-hidden="true"><use href="#' + genreGlyph(gid) + '"/></svg><svg class="c2" aria-hidden="true"><use href="#star6"/></svg></div>';
-  if (ph) {
-    h += '<img src="' + esc(ph.file) + '" alt="' + esc(tx('dt.photoOf', 'Photo of {x}', {x:it.name})) + '" data-fb="1">';
+  var gal = itemPhotos(it);
+  if (gal.length > 1) h += galleryHTML(it, gal);   // v5.38: all of an item's photos, swipeable (first = the same main photo as before)
+  else if (ph) {
+    h += '<img src="' + esc(ph.file) + '" alt="' + esc(tx('dt.photoOf', 'Photo of {x}', {x:nameL(it)})) + '" data-fb="1">';
     var pu = safeUrl(ph.page_url);
     var cr = tx('dt.photo', 'Photo: {x}', {x:esc(creditL(photoCredit(ph)))});   // v2.2 (M-4): never photos[].note or a checker's remark
     h += pu ? '<a class="photo-credit" href="' + esc(pu) + '" target="_blank" rel="noopener">' + cr + '</a>' : '<span class="photo-credit">' + cr + '</span>';
@@ -12715,7 +12926,7 @@ function renderDetail(c, keepScroll){
   // name + hook
   var lim = limitedPhase(c, p), ub = it.kind === 'event' && lim ? untilBadge(c, fewDates(it, todayKey) ? cparts(nowMs()) : p) : null;   // v5.10: a few-dates badge counts from today, like the Dates list
   h += '<p class="dt-kicker">' + esc(genreNameL(gid)) + (it.kind === 'event' ? ' · ' + esc(i18L('dt.limitedTime', 'limited time')) : '') + (areaText(it) ? ' · ' + esc(areaText(it)) : '') + (ub ? ' ' + badgeHTML(ub) : '') + '</p>';   // v5.37-b3: area_display first
-  h += '<h1 class="dt-title' + (String(it.name).length > 40 ? ' long' : '') + '" id="dtTitle">' + esc(it.name) + '</h1>';
+  h += '<h1 class="dt-title' + (String(nameL(it)).length > 40 ? ' long' : '') + '" id="dtTitle">' + esc(nameL(it)) + '</h1>';
   var hkl = hookL(it), hook = hkl.v;   // v5.21
   if (hook) h += '<p class="dt-hook"' + langAttr(hkl) + '>' + esc(hook) + '</p>';
   h += ohLineHTML(it);   // v5.21 "Only in Chicago" + the reason
@@ -12838,7 +13049,7 @@ function renderDetail(c, keepScroll){
                              : '<button class="btn-primary" type="button" data-copy="' + esc(it.phone) + '">' + glyphSvg('i-copy') + '<span class="bl">' + esc(tr30('Copy number, call first')) + '</span></button>';
   else { isDir = true; primary = '<a class="btn-primary" href="' + esc(isIOS ? appleMaps(it) : googleMaps(it)) + '" target="_blank" rel="noopener"><span class="bl">' + esc(i18L('dt.directions', 'Directions')) + '</span>' + glyphSvg('i-ext') + '</a>'; }
   bar += primary;
-  bar += '<button class="btn-sq" type="button" data-share="' + esc(it.id) + '" aria-label="' + esc(LANG === 'en' ? 'Share ' + it.name : i18t('a.share', {x:it.name})) + '">' + glyphSvg('i-share') + '<span>' + esc(i18L('dt.share', 'Share')) + '</span></button>';
+  bar += '<button class="btn-sq" type="button" data-share="' + esc(it.id) + '" aria-label="' + esc(LANG === 'en' ? 'Share ' + it.name : i18t('a.share', {x:nameL(it)})) + '">' + glyphSvg('i-share') + '<span>' + esc(i18L('dt.share', 'Share')) + '</span></button>';
   if (!isDir) bar += '<a class="btn-sq" href="' + esc(isIOS ? appleMaps(it) : googleMaps(it)) + '" target="_blank" rel="noopener">' + glyphSvg('i-map') + esc(i18L('dt.go', 'Go')) + '</a>';
   else if (it.phone && Platform.telOk) bar += '<a class="btn-sq" href="tel:' + esc(telHref(it.phone)) + '">' + glyphSvg('i-phone') + esc(i18L('dt.call', 'Call')) + '</a>';
   else if (it.phone) bar += '<button class="btn-sq" type="button" data-copy="' + esc(it.phone) + '" aria-label="' + esc(tr30('Copy the phone number') + ' ' + it.phone) + '">' + glyphSvg('i-phone') + '<span>' + esc(tr30('Copy no.')) + '</span></button>';
@@ -12851,7 +13062,7 @@ function renderDetail(c, keepScroll){
 function shareItem(id){
   var c = findComputed(id); if (!c) return;
   var link = Platform.linkFor(id);
-  Platform.share({title:c.item.name, text:shareText(c, ''), url:link}).then(function(r){ if (r === 'copied') toast('Copied'); }, function(){
+  Platform.share({title:nameL(c.item), text:shareText(c, ''), url:link}).then(function(r){ if (r === 'copied') toast(tx('a.copied', 'Copied')); }, function(){
     openSmall('Share', function(){ $('pSmallBody').innerHTML = '<p class="p-note">Copying isn’t allowed here. Press and hold the text to copy it.</p><pre class="calbox">' + esc(shareText(c, link)) + '</pre>'; });
   });
 }
@@ -13321,7 +13532,7 @@ function renderFilters(){
   h += '<div class="fsec fs-price">' + H(L('f.price'), 'price') + chips([['pmax:', L('f.any'), !pm, true]].concat(PRICE_MAX.map(function(v){ return ['pmax:' + v, esc(pmaxLabel(v)), pm === v]; }))) +
     '<div style="margin-top:8px">' + chips([['price:$', '$', F.price.$], ['price:$$', '$$', F.price.$$], ['price:$$$', '$$$', F.price.$$$], ['price:$$$$', '$$$$', F.price.$$$$], ['sale', L('f.sale'), F.sale]].concat(F.price.free ? [['price:free', L('f.free'), true]] : [])) + '</div></div>';
   h += '<div class="fsec">' + H(L('f.far'), 'reach') + seg(CITY.transit ? [['mode:car', L('f.drive'), F.mode === 'car'], ['mode:transit', L('f.cta'), F.mode === 'transit'], ['mode:walk', L('f.walk'), F.mode === 'walk']] : [['mode:car', L('f.drive'), F.mode !== 'walk'], ['mode:walk', L('f.walk'), F.mode === 'walk']])   // v5.24: no CTA choice outside Chicago +
-    '<div class="chips-w" style="margin-top:8px">' + RADII.map(function(r){ return '<button class="chip" type="button" data-d="radius:' + r + '" aria-pressed="' + (F.radius === r) + '" aria-label="Within ' + esc(fmtRadius(r)) + '">' + (r === APP_RADIUS ? L('f.any') : esc(fmtRadius(r))) + '</button>'; }).join('') + '</div></div>';
+    '<div class="chips-w" style="margin-top:8px">' + RADII.map(function(r){ return '<button class="chip" type="button" data-d="radius:' + r + '" aria-pressed="' + (F.radius === r) + '" aria-label="Within ' + esc(fmtRadius(r)) + '">' + (r === APP_RADIUS ? L('f.any') : esc(fmtRadiusL(r))) + '</button>'; }).join('') + '</div></div>';
   h += '<div class="fsec">' + H(L('f.io'), 'io') + seg([['io:either', L('f.either'), F.io === 'either'], ['io:indoor', L('f.inside'), F.io === 'indoor'], ['io:outdoor', L('f.outside'), F.io === 'outdoor']]) + '</div>';
   var bk = chips([['walkin', L('f.walkin'), F.walkin], ['hide21', L('f.no21'), F.hide21]]);
   if (bk) h += '<div class="fsec">' + H(L('f.booking'), 'booking') + bk + '</div>';
@@ -13335,7 +13546,7 @@ function renderFilters(){
   body.innerHTML = h; body.scrollTop = st;
   var go = $('pFiltersGo');
   if (!DATA_LOADED) { go.textContent = i18L('f.done', 'Done'); go.classList.remove('zero'); go.removeAttribute('aria-disabled'); return; }
-  go.textContent = n ? (n === 1 ? i18L('f.show1', 'Show 1 thing') : i18L('f.show', 'Show {n} things').replace('{n}', n)) : i18L('f.none', 'No matches · loosen a filter');
+  go.textContent = n ? (n === 1 ? i18L('f.show1', 'Show 1 thing') : tx('f.show', 'Show {n} things', {n:n})) : i18L('f.none', 'No matches · loosen a filter');
   go.classList.toggle('zero', !n);
   if (n) go.removeAttribute('aria-disabled'); else go.setAttribute('aria-disabled', 'true');
 }
@@ -13392,7 +13603,7 @@ function applyF(code){ // single filter change (pSmall panels, the "Make it 2 hr
 /* ----- small panels: when, radius ----- */
 var smallRender = null;
 function openSmall(title, fn){ smallRender = fn; $('pSmallTitle').textContent = title; fn(); openPanel('pSmall'); }
-function smallRadius(){ $('pSmallBody').innerHTML = chipsGroup(RADII.map(function(r){ return ['radius:' + r, fmtRadius(r), S.f.radius === r]; })) + '<div style="margin-top:12px">' + chipsGroup([['mode:car', 'Drive', S.f.mode === 'car'], ['mode:transit', 'Walk + CTA', S.f.mode === 'transit'], ['mode:walk', 'Walk only', S.f.mode === 'walk']]) + '</div><p class="hint">Distances are straight-line (as the crow flies). Travel times are rough. With Walk + CTA, places more than ' + CTA_MAX_MI + ' mi away show a drive time (no CTA estimate).</p>'; }
+function smallRadius(){ $('pSmallBody').innerHTML = chipsGroup(RADII.map(function(r){ return ['radius:' + r, fmtRadiusL(r), S.f.radius === r]; })) + '<div style="margin-top:12px">' + chipsGroup([['mode:car', 'Drive', S.f.mode === 'car'], ['mode:transit', 'Walk + CTA', S.f.mode === 'transit'], ['mode:walk', 'Walk only', S.f.mode === 'walk']]) + '</div><p class="hint">Distances are straight-line (as the crow flies). Travel times are rough. With Walk + CTA, places more than ' + CTA_MAX_MI + ' mi away show a drive time (no CTA estimate).</p>'; }
 var COMPARE_CARD_HTML = '<p>Compare shows how your fun type matches a friend’s, and picks you would both like.</p><p>It needs you to sign in. Nothing is shared until a friend accepts your invite.</p>' +
   '<div class="btns" style="display:flex;gap:8px;margin-top:14px"><button class="btn-primary" type="button" data-cmp="in" style="flex:1">Sign in</button><button class="mini-btn" type="button" data-close="pSmall" style="flex:1;justify-content:center">Not now</button></div>';
 function smallCompare(){ var b = $('pSmallBody'); b.innerHTML = COMPARE_CARD_HTML; var s = b.querySelector('[data-cmp="in"]'); if (s) s.onclick = function(){ closePanel('pSmall'); openFriends(); }; }   // v5.21: "Sign in" continues to the existing sign-in flow
@@ -14403,7 +14614,7 @@ function typeShiftApply(yes){ // Yes = the new one; No = keep the old one (until
   return s;
 }
 function typeShiftAnswer(yes){ if (!typeShiftApply(yes)) return; tasteSave(TASTE); tasteChanged(); tasteRender(); }
-function typeShareUrl(code){ return SITE_URL + '?type=' + encodeURIComponent(code); }   // no dials, saves or name ever go in the link
+function typeShareUrl(code){ return langQ(SITE_URL + '?type=' + encodeURIComponent(code)); }   // no dials, saves or name ever go in the link
 function typeShareImage(id){ // -> Promise(Blob | null): a 1080 x 1350 PNG (type color top half with the character, then name, tagline, code)
   return new Promise(function(res){
     try {
@@ -14893,6 +15104,7 @@ function onHomeClick(e){
   var gop = t.closest('[data-ga-open]'); if (gop) { e.preventDefault(); openArticle(gop.getAttribute('data-ga-open')); return; }   // v5.18 guide cards
   var gar = t.closest('[data-ga="prev"],[data-ga="next"]'); if (gar) { gaRowScroll(gar); return; }
   var hop = t.closest('[data-open]'); if (hop) { openDetail(hop.getAttribute('data-open')); return; }   // v5.10 radar
+  var hhr = t.closest('.hm-hol li[data-id]'); if (hhr && !t.closest('a,[data-copy],[data-stop]')) { openDetail(hhr.getAttribute('data-id')); return; }   // v5.38 fix: Home holiday rows
   var gd = t.closest('[data-guide]'); if (gd) { openGuide(gd.getAttribute('data-guide')); return; }   // v5.10 mini guides
   var act = t.closest('[data-act]');
   if (act) {
@@ -14964,7 +15176,8 @@ function onListClick(e){
     if (a === 'retry') loadData();
     else if (a === 'about') { renderAbout(); openPanel('pAbout'); }
     else if (a === 'whennow') { S.when = 'now'; refresh(); }
-    else if (a === 'farmore') { UI.farMore = true; refresh(); }   // v5.6 Worth the drive: show all
+    else if (a === 'farmore') { UI.farMore = true; refresh(); }
+    else if (a === 'holmore') { UI.holMore = true; refresh(); }   // v5.38 fix: holiday hours not posted: show all   // v5.6 Worth the drive: show all
     else if (a === 'tip') openTip();
     else if (a === 'filters') openFilters();
     return;
@@ -15606,7 +15819,7 @@ function runSelfTest0(){
     eq('"Jan 5-9 ... call to confirm" (range, M-6): Jan 7 call first', stx(fx({hours:nine5, hours_note:'Cleaning week Jan 5-9, call to confirm.'}), '2027-01-07', '12:00').key, 'maybe');
     var unk = fx({hours:allDays(['12:00', '19:00']), date_hours:{'2026-12-24':'unknown'}});
     s = stx(unk, '2026-12-24', '13:00');
-    eq('date_hours "unknown" (data agent): special hours, call first', [s.key, s.d.text, s.d.sub].join(' | '), 'maybe | Christmas Eve: special hours · call first | special hours on Dec 24, times not posted');
+    eq('date_hours "unknown" (data agent): special hours, call first', [s.key, s.d.text, s.d.sub].join(' | '), 'maybe | Holiday hours not posted · call first | usually noon – 7 pm');   // v5.38 fix pass: the weekly hours are the guide
     eq('datesIn: list, ranges with and without months, years, slashes, check dates skipped',
       [Object.keys(datesIn('Dec 21, 22, 23, 28, 29, 30 10:00-19:00').md).length, Object.keys(datesIn('Nov 13-15, 20-22, 27-29 and Dec 4-5').md).length, Object.keys(datesIn('Dec 19-Jan 4').md).length,
        Object.keys(datesIn('Dec 11, 2026 - Jan 3, 2027').iso).length, Object.keys(datesIn('11/23-11/25 10am-8pm').md).length, datesIn('Official page (read 2026-11-12)').n, Object.keys(datesIn('Jan 18 and 19 10:00-19:00').md).join()].join('|'), '6|11|17|24|3|0|01-18,01-19');
@@ -16574,7 +16787,7 @@ function runSelfTest0(){
     eq('8 tiles: Limited time + 7 kinds', $('tiles') ? $('tiles').querySelectorAll('.tile').length : -1, 8);
     ok('no chip row on the main screen', !document.getElementById('chips'), 'found #chips');
     ok('Relax glyph and genre colors are defined', !!document.getElementById('g-steam') && getComputedStyle(document.documentElement).getPropertyValue('--g-relax').trim() !== '', 'missing');
-    eq('version', VERSION, 'v5.37 (2026-11-25)');
+    eq('version', VERSION, 'v5.38 (2026-11-25)');
     eq('previous version', VERSION_PREV, 'v5.31 (2026-11-15)');
   });
 
@@ -18005,7 +18218,7 @@ function runSelfTest0(){
       ok('account button: signed out with a type -> the character; signed in -> the character replaces the letter; never an <img>', /ty-av/.test(bi) && /viewBox="58 40 124 124"/.test(bi) && /ty-av/.test(mi) && !/>M</.test(mi) && (bi + mi).indexOf('<img') < 0, bi.slice(0, 120));
       ok('account sheet: the avatar and the type name', /as-av ty/.test(acctSheetHTML('out')) && /Night Walk Possum/.test(acctSheetHTML('out')), '');
       eq('avatar crops follow the spec table (Koala 50 30 140 140, Goose 64 28 112 112)', [/viewBox="([^"]+)"/.exec(typeSvg(4, true))[1], /viewBox="([^"]+)"/.exec(typeSvg(12, true))[1], /viewBox="([^"]+)"/.exec(typeSvg(4))[1]].join(' | '), '50 30 140 140 | 64 28 112 112 | 0 0 240 240');
-      ok('share link carries only the code', typeShareUrl('WMC') === SITE_URL + '?type=WMC', typeShareUrl('WMC'));
+      ok('share link carries only the code', typeShareUrl('WMC') === langQ(SITE_URL + '?type=WMC'), typeShareUrl('WMC'));
       TASTE.mine.e = -1; TASTE_REV++;
       ok('live: Energy to Chill -> the header becomes the Oddity Moth', funType(tasteMine()).id === 9 && /Oddity Moth/.test(typeHeadInner(funType(tasteMine()), true)) && /You're now a/.test(typeHeadInner(funType(tasteMine()), true)), '');
     } finally { TASTE = K.T; TASTE_SUSPEND = K.sus; TASTE_REV++; TU.mode = K.mode; }
@@ -18487,7 +18700,12 @@ function i18nSelfTest(ok, eq, info){
   var TRM = {'fx-l1':{hook:'Сыграйте 18 лунок', description:'', highlights:['Около 2 часов', '$12 с человека'], hash:'AAAA'}};
   function pt(f, lang, trm, hm){ var r = placeTextWith(it, f, lang, trm, hm); return r.lang; }
   eq('L3 fresh hash: hook + highlights in Russian, empty description in English', [pt('hook', 'ru', TRM, {'fx-l1':'AAAA'}), pt('description', 'ru', TRM, {'fx-l1':'AAAA'}), pt('highlights', 'ru', TRM, {'fx-l1':'AAAA'})].join(), 'ru,en,ru');
-  eq('L3 the place name never changes (not a translated field)', placeTextWith(it, 'name', 'ru', TRM, {'fx-l1':'AAAA'}).v, 'Fixture Golf');
+  eq('L3 the place name stays English when there is no translated name', placeTextWith(it, 'name', 'ru', TRM, {'fx-l1':'AAAA'}).v, 'Fixture Golf');
+  (function(){ var TN = {'fx-l1':{hash:'AAAA', name:'Фикстур Гольф'}}, L0n = LANG;   // v5.37-i18n0: names are translated (her decision 2026-11-25: Cyrillic names), letter n
+    eq('I18N0-2 a fresh ru name shows; a stale name letter (n) brings back the English; English stays English', [placeTextWith(it, 'name', 'ru', TN, {'fx-l1':'AAAA'}).v, placeTextWith(it, 'name', 'ru', TN, {'fx-l1':'AAAA~n'}).v, placeTextWith(it, 'name', 'en', TN, {'fx-l1':'AAAA'}).v].join(' | '), 'Фикстур Гольф | Fixture Golf | Fixture Golf');
+    var c0 = I18N.cache.ru, h0 = I18N.hash; I18N.cache.ru = {places:TN, n:1}; I18N.hash = {'fx-l1':'AAAA'};
+    try { LANG = 'ru'; var it2 = {id:'fx-l1', name:'Fixture Golf (Lakeview)'}, nl = nameL(it), sn = shortName(it2), hit = searchItems([it2], 'fixture golf').length === 1, hit2 = searchItems([it2], 'фикстур').length === 1; } finally { LANG = L0n; I18N.cache.ru = c0; I18N.hash = h0; }
+    eq('I18N0-3 in Russian: nameL gives the ru name; shortName uses it; search finds the English and the Russian name', [nl, sn, hit, hit2].join(' | '), 'Фикстур Гольф | Фикстур Гольф | true | true'); })();
   eq('L3 stale hash (English changed after translating): every field English', [pt('hook', 'ru', TRM, {'fx-l1':'BBBB'}), pt('highlights', 'ru', TRM, {'fx-l1':'BBBB'})].join(), 'en,en');
   eq('L3 only the description changed ("~d"): hook + highlights stay translated', [pt('hook', 'ru', TRM, {'fx-l1':'AAAA~d'}), pt('highlights', 'ru', TRM, {'fx-l1':'AAAA~d'})].join(), 'ru,ru');
   eq('L3 the hook changed ("~h"): hook English, highlights translated', [pt('hook', 'ru', TRM, {'fx-l1':'AAAA~h'}), pt('highlights', 'ru', TRM, {'fx-l1':'AAAA~h'})].join(), 'en,ru');
@@ -18639,7 +18857,7 @@ function v525SelfTest(ok, eq, info){ // Group Blend v1: design/2026-11-14-groups
   ok('G7 saved groups stay on this phone: not in the account sync, kept on sign-out, cleared on account delete', !/GROUPS_KEY|og\.groups/.test(String(acctSync)) && !/GROUPS_KEY/.test(String(acctForget)) && /acctDeviceClear\(/.test(String(acctDelete)) && acctDeviceKeys().indexOf(GROUPS_KEY) >= 0);   // v5.26: acctDelete clears the device keys (groups + trips) through acctDeviceClear
   eq('G7 her real saved groups were not touched by these checks', JSON.stringify(Platform.store.get(GROUPS_KEY, null)), realStore);
   // copy
-  eq('G copy: tags "4 of 5" / "All 5", button, ru (unverified)', [/4 of 5/.test(groupTagHTML(4, 5)), /gp-tag all/.test(groupTagHTML(5, 5)) && /All 5/.test(groupTagHTML(5, 5)), grpT('go', {n:4}), grpT('more', {n:1}), grpT('go', {n:3}, 'ru')].join('|'), 'true|true|Blend 4 of you|Pick 1 more|Смешать: вас 3');
+  eq('G copy: tags "4 of 5" / "All 5", button, ru (unverified)', [/4 of 5/.test(groupTagHTML(4, 5)), /gp-tag all/.test(groupTagHTML(5, 5)) && /All 5/.test(groupTagHTML(5, 5)), grpT('go', {n:4}), grpT('more', {n:1}), grpT('go', {n:3}, 'ru'), grpT('go', {n:5}, 'ru')].join('|'), 'true|true|Blend 4 of you|Pick 1 more|Бленд на 3 человека|Бленд на 5 человек');
   var miss4 = []; Object.keys(GRP_STR).forEach(function(k){ if (!Array.isArray(GRP_STR[k]) || GRP_STR[k].length !== 4 || GRP_STR[k].some(function(x){ return !x; })) miss4.push(k); });
   eq('G copy: every group word has en, ru, zh-Hans and ko', miss4.join(), '');
   // city: picks come from the city on screen
@@ -18707,7 +18925,7 @@ function v537b4SelfTest(ok, eq, note){ // v5.37-b4: translation leftovers, city 
   eq('V537B4-3b quick chips use the language\'s clock', [quickTimeLabel({id:'8pm', label:'Tonight 8 pm', min:1200}, 'ru'), quickTimeLabel({id:'10pm', label:'Late 10 pm', min:1320}, 'ko'), quickTimeLabel({id:'8pm', label:'Tonight 8 pm', min:1200}, 'en')].join(' | '), 'Сегодня в 20:00 | 늦게 ' + fmtTime(1320, 'ko') + ' | Tonight 8 pm');
   eq('V537B4-3c "Pick a day" in Russian is "День" (not "Дата", which read as "date")', i18t('when.pick', null, 'ru'), 'День');
   // B4-4 every new key: 4 columns, same {placeholders}
-  var kb = []; Object.keys(STR37).forEach(function(k){ var r = STR37[k], ph = (r[0].match(/\{\w+\}/g) || []).sort().join(); for (var i = 1; i <= 3; i++) { if (!r[i] || !String(r[i]).trim()) kb.push(k + '[' + i + '] empty'); else if ((String(r[i]).match(/\{\w+\}/g) || []).sort().join() !== ph) kb.push(k + '[' + i + '] placeholders'); else if (i && eng(String(r[i]).replace(/\{\w+\}/g, ''))) kb.push(k + '[' + i + '] English'); } });
+  var kb = []; Object.keys(STR37).forEach(function(k){ var r = STR37[k], ph = (r[0].match(/\{\w+\}/g) || []).sort().join(); for (var i = 1; i <= 3; i++) { if (!r[i] || !String(r[i]).trim()) kb.push(k + '[' + i + '] empty'); else if ((plStrip(r[i]).match(/\{\w+\}/g) || []).sort().join() !== ph) kb.push(k + '[' + i + '] placeholders'); else if (i && eng(plStrip(r[i]).replace(/\{\w+\}/g, ''))) kb.push(k + '[' + i + '] English'); } });
   ok('V537B4-4 ' + Object.keys(STR37).length + ' new interface keys: all 3 languages, same {placeholders}, no English', !kb.length, kb.slice(0, 5).join(' | '));
   // B4-5 friend profile, friend search, username lines (batch 07 pair 4)
   var fp = ['saved', 'visited', 'blend', 'Waiting', 'On', 'Off', 'No character yet', 'Nothing saved yet.', 'Each of you takes your own character test.', 'Each of you takes your own character test (yours is done).', 'Both of you turn this on. Only one switch on = nothing is shared.', 'You see picks you\'d both like. Your swipes stay private.', 'Take my test', 'Tap the bookmark on any you\'d do too.', 'Remove friend', 'Block', 'Visited', 'On for you both', 'Add', 'Accept', 'Friends find you by it. 3-20 letters, numbers, dots or underscores.', 'Use 3-20 letters, numbers, dots or underscores.', 'Places Maya visited', 'Maya keeps "Places I\'ve been" private, or hasn\'t added any.', 'Waiting for Maya', 'Waiting for Maya to turn it on.', 'Maya\'s list', 'Pick a username'];
@@ -19099,7 +19317,7 @@ function v526SelfTest(ok, eq, info){ // trip mode lite: stand-in stores only (he
   // copy
   var miss = []; Object.keys(TRIP_STR).forEach(function(k){ if (!Array.isArray(TRIP_STR[k]) || TRIP_STR[k].length !== 4 || TRIP_STR[k].some(function(x){ return !x; })) miss.push(k); });
   eq('T8 every trip word has en, ru, zh-Hans and ko (ru / zh / ko unverified)', miss.join(), '');
-  eq('T8 words', [tripT('days', {n:6}, 'en'), tripT('add', null, 'en'), tripShort(1185), tripShort(0), tripShort(720), tripT('days', {n:6}, 'ru')].join('|'), '6 days|Add to trip|7:45p|12a|12p|Дней: 6');
+  eq('T8 words', [tripT('days', {n:6}, 'en'), tripT('add', null, 'en'), tripShort(1185), tripShort(0), tripShort(720), tripT('days', {n:6}, 'ru'), tripT('days', {n:2}, 'ru'), tripT('days', {n:1}, 'ru'), tripT('days', {n:11}, 'ru'), tripT('days', {n:21}, 'ru')].join('|'), '6 days|Add to trip|7:45p|12a|12p|6 дней|2 дня|1 день|11 дней|21 день');
   if (LANG === 'en') eq('T8 poster dates', [tripRange('2026-12-11', '2026-12-16'), tripRange('2026-12-30', '2027-01-02'), tripRange('2026-12-11', '2026-12-11')].join(' | '), 'Dec 11 – 16 | Dec 30 – Jan 2 | Dec 11');
   else info('T8 poster dates skipped (app language ' + LANG + ')');
   eq('T8 her real trips were not touched by these checks', JSON.stringify(Platform.store.get(TRIPS_KEY, null)) + '|' + JSON.stringify(Platform.store.get(TRIP_ON_KEY, null)), realTrips + '|' + realOn);
@@ -19169,7 +19387,7 @@ function v528SelfTest(ok, eq, info){ // v5.28 translations: formatters, status r
       n++; var e = STR[k];
       for (var i = 1; i <= 3; i++) {
         if (!e || typeof e[i] !== 'string' || !e[i].trim()) { miss.push(k + '[' + i + ']'); continue; }
-        if (sig(e[i]) !== sig(e[0])) ph.push(k + '[' + i + ']');
+        if (sig(plStrip(e[i])) !== sig(e[0])) ph.push(k + '[' + i + ']');
         if (!numsKept(String(e[0]).replace(/\{\w+\}/g, ''), String(e[i]).replace(/\{\w+\}/g, ''))) nums.push(k + '[' + i + ']');   // every number in the English is kept (a month number like 7 月 4 日 may be added)
       }
     }
@@ -19185,6 +19403,8 @@ function v528SelfTest(ok, eq, info){ // v5.28 translations: formatters, status r
     eq('V528-4 good_to_know: both Q&As translated, sources kept', JSON.stringify(pt('good_to_know', tr).v.map(function(x){ return x.q; })), '["Парковка?","Еда?"]');
     eq('V528-4 a stale letter only drops that field (p = price_note)', [pt('price_note', tr, 'H1~p').lang, pt('age_note', tr, 'H1~p').lang].join(','), 'en,ru');
     eq('V528-4 a lost number, a short Q&A list or a wrong hash fall back to English', [pt('price_note', {hash:'H1', price_note:'Взрослые $25'}).lang, pt('good_to_know', {hash:'H1', good_to_know:[{q:'Парковка?', a:'Стоянка за $5'}]}).lang, pt('hours_note', tr, 'H2').lang].join(','), 'en,en,en');
+    (function(){ var ia = {id:'fx-528', access_note:'Ramp at door 2'}, ta = {hash:'H1', access_note:'Пандус у входа 2'}, pa = function(h){ return placeTextWith(ia, 'access_note', 'ru', {'fx-528':ta}, {'fx-528':h}).lang; };   // v5.37-i18n0: access_note (letter c)
+      eq('I18N0-1 access_note translates; its own stale letter (c) drops only it; a note letter (p) leaves it', [pa('H1'), pa('H1~c'), pa('H1~p')].join(','), 'ru,en,ru'); })();
     // V528-5: guide translations (hash must match guides-hash.json)
     var c0 = I18N.cache.ru, gh0 = I18N.ghash;
     try {
@@ -19263,7 +19483,7 @@ function v530SelfTest(ok, eq, info){ // v5.30: the phrase table (location sheet,
   // V530-2: the table itself
   var bad = [];
   STR30.forEach(function(r){ for (var i = 1; i <= 3; i++) { if (typeof r[i] !== 'string' || !r[i].trim()) bad.push(r[0] + '[' + i + '] empty'); else if (!numsKept(r[0], r[i])) bad.push(r[0] + '[' + i + '] numbers'); } });
-  RX30.forEach(function(r){ var g = new RegExp(r[0].source + '|').exec('').length - 1, want = []; for (var j = 1; j <= g; j++) want.push('$' + j); for (var i = 1; i <= 3; i++) { var have = (String(r[i]).match(/\$\d/g) || []).sort().join(); if (have !== want.join()) bad.push(r[0].source + '[' + i + '] ' + have); } });
+  RX30.forEach(function(r){ var g = new RegExp(r[0].source + '|').exec('').length - 1, want = []; for (var j = 1; j <= g; j++) want.push('$' + j); for (var i = 1; i <= 3; i++) { var have = (plStrip(r[i]).match(/\$\d/g) || []).sort().join(); if (have !== want.join()) bad.push(r[0].source + '[' + i + '] ' + have); } });
   ok('V530-2 phrase table: ' + STR30.length + ' phrases + ' + RX30.length + ' patterns in all 3 languages, numbers and $n kept', !bad.length, bad.slice(0, 8).join(' ; '));
   function leftovers(root){ var tw = document.createTreeWalker(root, 4, null), x, out = [];
     while ((x = tw.nextNode())) { var t = x.nodeValue.trim(); if (t && x.parentNode && !(x.parentNode.closest && x.parentNode.closest('[lang="en"]:not(html),script,style,[data-pick],[data-city]')) && eng(t)) out.push(t); }   /* place and city names stay as they are */
@@ -19819,7 +20039,7 @@ function v522SelfTest(ok, eq){
   ok('V2 popularity still counts the chains as well known', popularityOf(fx({name:'Topgolf Schaumburg', category:'active'})) > popularityOf(fx({name:'Corner Lanes', category:'active'})), '');
   // A (sync part): where the Google line may appear
   eq('GR0 eligible: a place yes; an event, a pop-up category and a pop-up tag no', [grEligible({kind:'place', category:'games-arcade'}), grEligible({kind:'event'}), grEligible({kind:'place', category:'immersive-popup'}), grEligible({kind:'place', tags:['pop-up']})].join(), 'true,false,false,false');
-  eq('GR0 the strings: "Google reviews" translated, "Google Maps" never', ['ru', 'ko'].map(function(l){ return i18t('gr.reviews', {n:'1,234'}, l); }).join(' | ') + ' | ' + grLineHTML({state:'ok', rating:4.6, count:2, mapsUri:'https://maps.google.com/?cid=9'}).indexOf('>Google Maps</a>'), 'Отзывы в Google: 1,234 | Google 리뷰 1,234개 | ' + grLineHTML({state:'ok', rating:4.6, count:2, mapsUri:'https://maps.google.com/?cid=9'}).indexOf('>Google Maps</a>'));
+  eq('GR0 the strings: "Google reviews" translated, "Google Maps" never', ['ru', 'ko'].map(function(l){ return i18t('gr.reviews', {n:'1,234'}, l); }).join(' | ') + ' | ' + grLineHTML({state:'ok', rating:4.6, count:2, mapsUri:'https://maps.google.com/?cid=9'}).indexOf('>Google Maps</a>'), '1,234 отзыва в Google | Google 리뷰 1,234개 | ' + grLineHTML({state:'ok', rating:4.6, count:2, mapsUri:'https://maps.google.com/?cid=9'}).indexOf('>Google Maps</a>'));
   ok('GR0 the map, map cards, search, share and export never carry it (no rating fields on items; page memory only)', [shareText, cardLeaveHTML, factsLineL, passFilters].every(function(fn){ return typeof fn === 'function' && !/\bGR\.|grLineHTML|grBoxHTML/.test(String(fn)); }), '');
 }
 function grSelfTestAsync(ok, eq){
@@ -19868,6 +20088,99 @@ function grSelfTestAsync(ok, eq){
     restore();
   }, function(e){ restore(); ok('GR async checks ran', false, e && e.message ? e.message : String(e)); });
 }
+function v538RealRu(ok, eq, trm, hm){ // v5.38: the real Russian file: Cyrillic names (her decision B) show, and search still finds the English name
+  var all = (typeof ALL_DATA !== 'undefined' && ALL_DATA && ALL_DATA.length) ? ALL_DATA : DATA, n = 0, cyr = 0, pick = {};
+  all.forEach(function(it){ n++; var r = placeTextWith(it, 'name', 'ru', trm, hm); if (r.lang === 'ru' && /[а-яё]/i.test(r.v)) { cyr++; var c = cityOf(it); if (!pick[c] && it.name && /^[A-Za-z]/.test(it.name)) pick[c] = it; } });
+  ok('V538-R1 real ru: ' + cyr + ' of ' + n + ' items (all cities) show a fresh Cyrillic name', n > 0 && cyr >= n * 0.9, 'fewer than 90%: is en-hash.json current?');
+  var c0 = I18N.cache.ru, h0 = I18N.hash, L0 = LANG, rows = [];
+  try {
+    LANG = 'ru'; I18N.cache.ru = {places:trm, n:Object.keys(trm).length}; I18N.hash = hm;
+    Object.keys(pick).forEach(function(c){ var it = pick[c], nl = nameL(it), w = nl.split(/[\s:(–-]+/).filter(function(x){ return x.length > 2; })[0] || nl;
+      rows.push([c, it.id, nl, /[а-яё]/i.test(nl), searchItems([it], it.name).length === 1, searchItems([it], w.toLowerCase()).length === 1]); });
+  } finally { LANG = L0; I18N.cache.ru = c0; I18N.hash = h0; }
+  rows.forEach(function(r){ ok('V538-R2 real ru ' + r[0] + ': ' + r[1] + ' title "' + r[2] + '" is Cyrillic; search by the English name and by the Russian word finds it', r[3] && r[4] && r[5], JSON.stringify(r)); });
+  ok('V538-R3 real ru: checked a Chicago' + (pick.vegas ? ' and a Las Vegas' : '') + ' item', !!pick.chicago, Object.keys(pick).join());
+}
+function v538SelfTest(ok, eq, note){ // v5.38: Russian plurals, thousands, ?lang= links, (suburb), the photo gallery, the new words (fixtures; nothing saved)
+  var P = function(n){ return plRu(n, 'место', 'места', 'мест'); };
+  eq('V538-1 Russian plurals 1/2/5/11/21/22/25/111/112/0/1.5', [1, 2, 5, 11, 21, 22, 25, 111, 112, 0, 1.5].map(P).join(), 'место,места,мест,мест,место,места,мест,мест,мест,мест,места');
+  var L0 = LANG, got = [];
+  try { LANG = 'ru'; got = [tx('cl.n', '{n} places{t}. Show the list', {n:21, t:''}), tripT('days', {n:3}), trStatus('3 days left'), trStatus('21 days left'), trStatus('Checked 2 days ago'), trStatus('Checked 5 weeks ago'), i18t('u.mi', {n:'1.5'}), i18t('u.mi', {n:2}), i18t('gr.reviews', {n:11}), tr30('You have 3 lists. Remove one first.'), areaText({neighborhood:'Lisle (suburb)'}), wlBase().indexOf('lang=ru') > 0, typeShareUrl('WMC').indexOf('?type=WMC&lang=ru') > 0]; }
+  finally { LANG = L0; }
+  eq('V538-2 Russian words with counts', got.join(' | '), '21 место. Показать список | 3 дня | осталось 3 дня | остался 21 день | Проверено 2 дня назад | Проверено 5 недель назад | 1.5 мили | 2 мили | 11 отзывов в Google | У вас уже 3 списка. Сначала удалите один. | Lisle (пригород) | true | true');
+  eq('V538-3 English unchanged: (suburb), share link without lang', [LANG === 'en' ? areaText({neighborhood:'Lisle (suburb)'}) : 'Lisle (suburb)', langQ('https://x.org/off-grid/', 'en')].join(' | '), 'Lisle (suburb) | https://x.org/off-grid/');
+  eq('V538-4 thousands: "1,000" = "1 000" (no-break space) = "1 000"; a lost number still fails', [numsKept('1,000 acres', '1 000 акров'), numsKept('$2,500 or $12,000', '$2 500 или $12 000'), numsKept('1,000 acres', '100 акров'), numsKept('$41.20', '$41.20')].join(), 'true,true,false,true');
+  eq('V538-5 ?lang= read: ru, zh, KO, en, fr (no), none', [langFromUrl('?lang=ru'), langFromUrl('?x=1&lang=zh'), langFromUrl('?lang=KO'), langFromUrl('?lang=en'), langFromUrl('?lang=fr'), langFromUrl('')].join(), 'ru,zh-Hans,ko,en,,');
+  eq('V538-6 ?lang= written into links (hash kept, old lang replaced, English drops it)', [langQ('https://x.org/off-grid/', 'ru'), langQ('https://x.org/?type=W#t_abc', 'ru'), langQ('https://x.org/?lang=ru#selftest', 'en'), langQ('https://x.org/?lang=ko&type=W', 'zh-Hans')].join(' | '), 'https://x.org/off-grid/?lang=ru | https://x.org/?type=W&lang=ru#t_abc | https://x.org/#selftest | https://x.org/?type=W&lang=zh');
+  var fx = {id:'fx-gal', name:'Fixture Gallery', photos:[{file:'photos/a.jpg', credit:'A', page_url:'https://e.org/a'}, {file:'photos/b.jpg', credit:'B'}, {file:'photos/a.jpg', credit:'A again'}, {file:'https://e.org/c.jpg', credit:'remote'}]};
+  var ph = itemPhotos(fx), gh = galleryHTML(fx, ph), cnt = function(re){ return (gh.match(re) || []).length; };
+  eq('V538-7 gallery: every local photo once, in order (first = main photo); one slide, one credit and one dot each; only later photos lazy', [ph.map(function(p){ return p.file; }).join(), cnt(/class="dt-slide"/g), cnt(/class="photo-credit"/g), cnt(/<i( class="on")?><\/i>/g), cnt(/loading="lazy"/g), firstPhoto(fx).file === ph[0].file].join('|'), 'photos/a.jpg,photos/b.jpg|2|2|2|1|true');
+  eq('V538-8 one photo = no gallery (the detail keeps the single photo)', itemPhotos({photos:[{file:'photos/a.jpg'}]}).length, 1);
+  var bad = []; Object.keys(STR38).forEach(function(k){ var r = STR38[k], ph0 = (r[0].match(/\{\w+\}/g) || []).sort().join(); if (r.length !== 4 || r.some(function(x){ return !x; }) || r.some(function(x){ return (x.match(/\{\w+\}/g) || []).sort().join() !== ph0; })) bad.push(k); });
+  eq('V538-9 the ' + Object.keys(STR38).length + ' new words (trip sharing, labels, gallery) have en / ru / zh-Hans / ko with the same {placeholders} (ru, zh, ko unverified)', bad.join(), '');
+  var pl = [], re = /\{pl:([^|{}]+)\|/g; Object.keys(STR).forEach(function(k){ var s = STR[k][1] || '', m; re.lastIndex = 0; while ((m = re.exec(s))) if (!/^(\{\w+\}|\$\d)$/.test(m[1])) pl.push(k); });
+  eq('V538-10 every Russian plural token counts a {placeholder}', pl.join(), '');
+  eq('V538-11 version', VERSION, 'v5.38 (2026-11-25)');
+  v538FixSelfTest(ok, eq);
+}
+function v538FixSelfTest(ok, eq){ // v5.38 fix pass: {pl:} never raw on screen, English leftovers in Russian, Thanksgiving "holiday hours not posted" (fixtures; nothing saved)
+  var H9 = allDays(['10:00', '22:00']), D = '2026-11-26';
+  var uT = fx({name:'Holiday unknown', hours:H9, date_hours:{'2026-11-26':'unknown'}}), cT = fx({name:'Holiday closed', hours:H9, closed_dates:['2026-11-26']}), oT = fx({name:'Holiday open', hours:H9, date_hours:{'2026-11-26':[['10:00', '22:00']]}});
+  var st = function(it, t){ return statusAt(it, fromChicago(D, t)); };
+  var s1 = st(uT, 720), d1 = describe(s1, uT);
+  eq('V538F-1 Thanksgiving noon, date_hours "unknown": call first with the usual hours as the guide, never Closed', [s1.key, s1.open, d1.text, d1.sub].join(' | '), 'maybe | false | Holiday hours not posted · call first | usually 10 am – 10 pm');
+  var s2 = st(uT, 1410), d2 = describe(s2, uT), s0 = st(uT, 450);
+  ok('V538F-2 ...also before opening (7:30 am) and after the usual close (11:30 pm): still "call first", no "Closed" word', s2.key === 'maybe' && s0.key === 'maybe' && !/closed/i.test(d2.text) && !/closed/i.test(describe(s0, uT).text), [s0.key, s2.key, d2.text].join(' | '));
+  eq('V538F-3 real closed_dates stay Closed; posted date_hours stay open; the next day is ordinary', [st(cT, 720).key, st(oT, 720).open, statusAt(uT, fromChicago('2026-11-27', 720)).open].join(), 'closed,true,true');
+  var T = fromChicago(D, 720), ctx = {lat:41.88, lng:-87.63, budget:'any', mode:'car'}, F = ext(defaultFilters(), {radius:25});
+  var keepPl = UI.planning, keepB = S.budgetOn, keepHM = UI.holMore; UI.planning = false; S.budgetOn = false; UI.holMore = false;
+  try {
+    var res = runPipeline([uT, cT, oT], T, ctx, F), v0 = buildView(res, F, '', ''), vP = buildView(res, F, {gs:['play'], lim:false}, '');
+    var ids = function(l){ return (l || []).map(function(c){ return c.item.name; }).join(','); };
+    eq('V538F-4 Home: the "unknown" place is in the holiday group (not the open picks, not closed); the open one is a pick', [ids(v0.hol), ids(v0.main)].join(' | '), 'Holiday unknown | Holiday open');
+    eq('V538F-5 a kind list: its own visible group, not folded into "Show the rest"', [ids(vP.kind.hol), ids(vP.kind.fits), vP.kind.restN].join(' | '), 'Holiday unknown | Holiday open | 1');
+    var hh = holSectionHTML(v0.hol);
+    ok('V538F-6 the group header + the row show "Holiday hours not posted · call first" and the usual hours', /Holiday hours not posted · call first/.test(hh) && /usually 10 am – 10 pm/.test(hh) && hh.indexOf('Holiday unknown') > 0, hh.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').slice(0, 200));
+  } finally { UI.planning = keepPl; S.budgetOn = keepB; UI.holMore = keepHM; }
+  // Russian words (unverified) and English unchanged
+  var L0 = LANG, ru = {}, lat = function(s){ return /[A-Za-z]{2}/.test(String(s).replace(/\b(?:CTA|Uber|mph|AREA15)\b/g, '')); };
+  try {
+    LANG = 'ru';
+    ru.hol = trStatus(d1.text + ' · ' + d1.sub); ru.hdr = tx('hol.np', 'Holiday hours not posted · call first');
+    ru.le = trStatus('Last entry in 8 min · at 4 pm'); ru.le2 = trStatus('Open now · till 10 pm · last entry 7:15 pm'); ru.le3 = trStatus('last entry 4 pm, before you\'d get there');
+    ru.r = [fmtRadiusL(25), fmtRadiusL(0.5), fmtRadiusL(1)].join(','); ru.past = tx('hm.past', ' · past {r}', {r:fmtRadiusL(25)});
+    ru.pre = freshBandText({n:157, unver:45, pct:50, preview:true}); ru.pct = freshBandText({n:100, unver:10, pct:40, preview:false});
+    ru.dd = tx('end.newest', ' Newest check {d}.', {d:'14 нояб.'}); ru.ell = noDD('Ищем вас...');
+    ru.spot = tr30('Neighborhood, casino or landmark'); ru.aria = [tr30('Close'), tr30('Save'), tr30('Search'), tr30('Back to the three picks'), tr30('Saved and Been'), tr30('Where: near The Loop. Change')].join(' | ');
+    ru.ttd = tx('wx.ttd', 'Things to do there:') + ' ' + ['walk', 'light show'].map(ttdL).join(' · ');
+    ru.show = tx('f.show', 'Show {n} things', {n:61}) + ' / ' + tx('f.show', 'Show {n} things', {n:22}) + ' / ' + tx('f.show', 'Show {n} things', {n:21});
+  } finally { LANG = L0; }
+  ok('V538F-7 ru: the holiday row and header are Russian (unverified)', !lat(ru.hol) && !lat(ru.hdr), ru.hol + ' || ' + ru.hdr);
+  ok('V538F-8 ru: "Last entry in 8 min · at 4 pm", "last entry 7:15 pm" and "before you\'d get there" are Russian', !lat(ru.le) && !lat(ru.le2) && !lat(ru.le3), [ru.le, ru.le2, ru.le3].join(' || '));
+  eq('V538F-9 ru: radius words are "миль", not "mi"', ru.r + ' |' + ru.past, '25 миль,0.5 мили,1 миля | · дальше 25 миль');
+  ok('V538F-10 ru: the preview / freshness bands, the Vegas spot hint, the labels and "Things to do there" are Russian', !lat(ru.pre) && !lat(ru.pct) && !lat(ru.spot) && !lat(ru.aria.replace('The Loop', '')) && !lat(ru.ttd), [ru.pre, ru.spot, ru.aria, ru.ttd].join(' || '));
+  eq('V538F-11 ru: one dot after the short month, a real ellipsis kept', ru.dd + ' | ' + ru.ell, ' Последняя проверка: 14 нояб. | Ищем вас...');
+  eq('V538F-12 ru: "More filters" button counts with the right word, no raw {pl:}', ru.show, 'Показать 61 вариант / Показать 22 варианта / Показать 21 вариант');
+  eq('V538F-13 English unchanged (radius, bands, things to do, f.show)', [fmtRadiusL(25), fmtRadiusL(0.5), freshBandText({n:157, unver:45, pct:50, preview:true}), tx('wx.ttd', 'Things to do there:'), ttdL('walk'), tx('f.show', 'Show {n} things', {n:61})].join(' | '), '25 mi | ½ mi | Preview: 45 of 157 not confirmed yet. Call first if it\'s close. | Things to do there: | walk | Show 61 things');
+  // every key whose Russian text has a plural token: no use site reads it with i18L / i18t and then .replace('{n}' ...) (that prints the raw token)
+  var src = ''; try { src = [].slice.call(document.scripts).map(function(s){ return s.textContent || ''; }).join('\n'); } catch (e) {}
+  var plKeys = Object.keys(STR).filter(function(k){ return String(STR[k][1] || '').indexOf('{pl:') >= 0; }), badUse = [];
+  plKeys.forEach(function(k){ var e = k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); if (new RegExp('i18[Lt]\\(\'' + e + '\'[^)]*\\)\\.replace\\(').test(src)) badUse.push(k); });
+  ok('V538F-14 the ' + plKeys.length + ' plural keys are all read through tx() / i18t(key, {vars}) (no i18L(...).replace)', src.length > 100000 && !badUse.length, badUse.join(', ') || (src.length + ' chars of code read'));
+  // every plural key, filled with numbers, never leaves "{pl:" (all variables given as numbers)
+  var raw = []; try { LANG = 'ru'; plKeys.forEach(function(k){ var v = {}; (String(STR[k][1]).match(/\{(\w+)\}/g) || []).forEach(function(m){ v[m.slice(1, -1)] = 5; }); var o = tx(k, STR[k][0], v); if (o.indexOf('{pl:') >= 0) raw.push(k + ': ' + o); }); } finally { LANG = L0; }
+  ok('V538F-15 every ru plural string comes out without "{pl:" once its numbers are in', !raw.length, raw.join(' | '));
+  // the rendered screens in Russian: Home, the list and the filter button, scanned for "{pl:"
+  var seen = [];
+  try {
+    LANG = 'ru'; UI.homeHTML = null; refresh(); if (typeof renderFilters === 'function' && $('pFiltersGo')) renderFilters();
+    ['homeRoot', 'list', 'listBody', 'pFiltersGo', 'pFiltersBody', 'sheet'].forEach(function(id){ var el = $(id); if (el && (el.textContent || '').indexOf('{pl:') >= 0) seen.push(id); });
+    var tw = document.createTreeWalker(document.body, 4, null), tn;
+    while ((tn = tw.nextNode())) { var pe = tn.parentNode; if (tn.nodeValue.indexOf('{pl:') >= 0 && pe && pe.closest && !pe.closest('script,style,#selftest')) { seen.push('page text: ' + tn.nodeValue.slice(0, 60)); break; } }
+    [].slice.call(document.querySelectorAll('[aria-label],[placeholder],[title]')).some(function(el){ var a = (el.getAttribute('aria-label') || '') + (el.getAttribute('placeholder') || '') + (el.getAttribute('title') || ''); if (a.indexOf('{pl:') >= 0 && !el.closest('#selftest')) { seen.push('label: ' + a.slice(0, 60)); return true; } return false; });
+  } catch (e) { seen.push('error: ' + e); } finally { LANG = L0; UI.homeHTML = null; try { refresh(); if ($('pFiltersGo')) renderFilters(); } catch (e2) {} }
+  ok('V538F-16 no rendered screen text contains "{pl:" in Russian (Home, list, filters button, whole page)', !seen.length, seen.join(', '));
+}
 function i18nSelfTestAsync(ok, eq){
   var R = [];
   function note(n){ ok(n, true); }
@@ -19889,6 +20202,7 @@ function i18nSelfTestAsync(ok, eq){
         eq('real i18n ' + l + ': no translated field shown with a changed number', badNum, 0);
         var one = null; DATA.some(function(it){ if (trm[it.id] && it.hook) { one = it; return true; } return false; });
         if (one) { var hm2 = {}; hm2[one.id] = 'STALE0000000000'; eq('real i18n ' + l + ': a stale hash on ' + one.id + ' shows its English hook', placeTextWith(one, 'hook', l, trm, hm2).v, one.hook); }
+        if (l === 'ru') { try { v538RealRu(ok, eq, trm, r[3]); } catch (e38) { ok('V538-R real Russian checks: crashed', false, e38 && e38.message ? e38.message : String(e38)); } }
       });
       var oh = DATA.filter(function(it){ return it.only_here; }), ohOk = oh.filter(function(it){ return onlyHereOf(it); });
       note('real data: ' + oh.length + ' items carry only_here, ' + ohOk.length + ' with a kind the app shows (only / rare / classic); items without it show no badge');
@@ -19949,6 +20263,7 @@ function i18nSelfTestAsync(ok, eq){
       try { v537b2SelfTestReal(ok, eq, note); } catch (e372) { ok('v5.37-b2 real-data checks: crashed', false, e372 && e372.message ? e372.message : String(e372)); }
       try { v537b3SelfTestReal(ok, eq, note); } catch (e373) { ok('v5.37-b3 real-data checks: crashed', false, e373 && e373.message ? e373.message : String(e373)); }
       try { v537b4SelfTest(ok, eq, note); } catch (e374) { ok('v5.37-b4 checks: crashed', false, e374 && e374.message ? e374.message : String(e374)); }
+      try { v538SelfTest(ok, eq, note); } catch (e38s) { ok('v5.38 checks: crashed', false, e38s && e38s.message ? e38s.message : String(e38s)); }
     });
   });
 }
@@ -20633,7 +20948,7 @@ function wxDetailHTML(c){ // the item's own idea and "things to do there", exact
   var w = c && c.item && c.item.weather; if (!w || typeof w !== 'object') return '';
   var h = '', fits = !!wxIdeaFor(c);
   if (typeof w.idea === 'string' && w.idea.trim() && ideaTimeOkC(c)) h += '<p class="dt-idea' + (fits ? ' fits' : '') + '">' + (fits ? wxSvg(wxIcon(WX.cond.code, WX.cond.night ? 0 : 1, WX.cond.gust)) : '') + '<span>' + wxIdeaHTML(w.idea) + '</span></p>';
-  if (Array.isArray(w.things_to_do) && w.things_to_do.length) h += '<p class="dt-ttd">Things to do there: ' + w.things_to_do.map(function(t){ return esc(String(t)); }).join(' · ') + '</p>';
+  if (Array.isArray(w.things_to_do) && w.things_to_do.length) h += '<p class="dt-ttd">' + esc(tx('wx.ttd', 'Things to do there:')) + ' ' + w.things_to_do.map(function(t){ return esc(ttdL(t)); }).join(' · ') + '</p>';   // v5.38 fix: label + known tag words in the picked language
   return h;
 }
 function wxAboutHTML(){ // v5.31: through A31 (English as before)
@@ -20744,7 +21059,9 @@ function init(){
   $('brandName').textContent = APP_NAME; try { document.title = APP_NAME; } catch (e) {}
   var th = Platform.store.get('cff.theme', 'auto'); if (th === 'light' || th === 'dark') document.documentElement.setAttribute('data-theme', th);
   try { setTextSize(Platform.store.get(TSZ_KEY, 'n'), true); } catch (e) {}   // v5.37-b4: her text size (before the first render)
-  LANG = detectLang(navLangNow(), Platform.store.get(LANG_KEY, null));
+  var ulang = langFromUrl((function(){ try { return location.search; } catch (e) { return ''; } })());   // v5.38: a ?lang=ru link (her request): saved before the first render, beats the device language
+  if (ulang) { Platform.store.set(LANG_KEY, ulang); try { if (window.history && history.replaceState) history.replaceState(history.state, '', langQ(location.href, 'en')); } catch (e) {} }
+  LANG = ulang || detectLang(navLangNow(), Platform.store.get(LANG_KEY, null));
   try { document.documentElement.style.setProperty('--today-w', JSON.stringify(tx('wx.today', 'Today'))); } catch (e) {}   // v5.37-b4: the hours table's Today tag in a saved language (it only followed a switch before)   // v5.21: a saved pick, else ru / zh / ko from the browser, else English
   try { document.documentElement.setAttribute('lang', LANG); } catch (e) {}
   if ($('pThemeTitle')) $('pThemeTitle').textContent = i18t('theme.title');
