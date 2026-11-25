@@ -64549,120 +64549,6 @@
                    ]
     },
     {
-        "id":  "oahu-wk-escape-game-honolulu",
-        "city":  "oahu",
-        "name":  "The Escape Game Honolulu",
-        "kind":  "place",
-        "category":  "escape-room",
-        "genre":  "play",
-        "tags":  [
-                     "date",
-                     "friends",
-                     "escape-room",
-                     "indoor",
-                     "rainy-day"
-                 ],
-        "hook":  "60-minute escape rooms in Ala Moana Center",
-        "description":  "Live escape rooms at Ala Moana Center where your group has an hour to crack clues and get out, with themes like a heist, a gold rush, a submarine and a prison break. The old Breakout Waikiki site now sends visitors here.",
-        "highlights":  [
-                           "7 escape themes",
-                           "60-minute games, free hints",
-                           "Book online; other players may join if spots are open",
-                           "Parking: 3rd open level near Target"
-                       ],
-        "address":  "Ala Moana Center, 1450 Ala Moana Blvd, Suite 2404, Honolulu, HI 96814",
-        "neighborhood":  "Ala Moana",
-        "lat":  21.2914679,
-        "lng":  -157.8437756,
-        "indoor_outdoor":  "indoor",
-        "price_level":  "$$",
-        "price_note":  "",
-        "duration_minutes":  60,
-        "min_minutes":  75,
-        "hours":  {
-                      "mon":  [
-                                  [
-                                      "08:00",
-                                      "00:00"
-                                  ]
-                              ],
-                      "tue":  [
-                                  [
-                                      "08:00",
-                                      "00:00"
-                                  ]
-                              ],
-                      "wed":  [
-                                  [
-                                      "08:00",
-                                      "00:00"
-                                  ]
-                              ],
-                      "thu":  [
-                                  [
-                                      "08:00",
-                                      "00:00"
-                                  ]
-                              ],
-                      "fri":  [
-                                  [
-                                      "08:00",
-                                      "00:00"
-                                  ]
-                              ],
-                      "sat":  [
-                                  [
-                                      "08:00",
-                                      "00:00"
-                                  ]
-                              ],
-                      "sun":  [
-                                  [
-                                      "08:00",
-                                      "00:00"
-                                  ]
-                              ]
-                  },
-        "hours_note":  "Games run at booked times only.",
-        "closed_dates":  [
-
-                         ],
-        "booking":  "required",
-        "age_note":  "",
-        "phone":  "808-736-3834",
-        "website":  "https://theescapegame.com/honolulu/",
-        "source_urls":  [
-                            "https://theescapegame.com/honolulu/",
-                            "https://theescapegame.com/honolulu/book-now/",
-                            "https://www.breakoutwaikiki.com/"
-                        ],
-        "chain_brand":  "The Escape Game",
-        "good_for":  [
-                         "date",
-                         "friends",
-                         "groups"
-                     ],
-        "verified":  {
-                         "status":  "verified",
-                         "checked_on":  "2026-11-14",
-                         "evidence_url":  "https://theescapegame.com/honolulu/"
-                     },
-        "weather":  {
-                        "wind_sensitive":  false,
-                        "snow_friendly":  false,
-                        "rain_ok":  true
-                    },
-        "price_known":  false,
-        "sid":  412,
-        "photos":  [
-                       {
-                           "file":  "photos/oahu-wk-escape-game-honolulu-1.jpg",
-                           "credit":  "The Escape Game Honolulu (official site)",
-                           "page_url":  "https://theescapegame.com/honolulu/"
-                       }
-                   ]
-    },
-    {
         "id":  "oahu-wk-blade-and-timber-honolulu",
         "city":  "oahu",
         "name":  "Blade \u0026 Timber Axe Throwing Honolulu",
@@ -84416,131 +84302,6 @@
                    ]
     },
     {
-        "id":  "vegas-ga-escape-game-forum-shops",
-        "city":  "vegas",
-        "name":  "The Escape Game Las Vegas (Forum Shops)",
-        "kind":  "place",
-        "category":  "escape-room",
-        "genre":  "play",
-        "tags":  [
-                     "date",
-                     "friends",
-                     "escape-room",
-                     "indoor",
-                     "rainy-day"
-                 ],
-        "hook":  "60-minute multi-room escape games inside Caesars\u0027 Forum Shops",
-        "description":  "Live escape rooms inside The Forum Shops at Caesars, where your group has an hour to solve puzzles across multiple rooms, with themes like a heist, a prison break and deep-sea adventures. Hints are unlimited and free, so it stays fun even for first-timers.",
-        "highlights":  [
-                           "8 escape themes",
-                           "60-minute games with unlimited free hints",
-                           "Each game spans multiple rooms",
-                           "Second location at AREA15"
-                       ],
-        "address":  "The Forum Shops, 3500 Las Vegas Blvd S, Ste M-9, Las Vegas, NV 89109",
-        "neighborhood":  "Center Strip",
-        "indoor_outdoor":  "indoor",
-        "price_level":  "$$",
-        "duration_minutes":  60,
-        "min_minutes":  75,
-        "hours":  {
-                      "mon":  [
-                                  [
-                                      "08:00",
-                                      "23:00"
-                                  ]
-                              ],
-                      "tue":  [
-                                  [
-                                      "08:00",
-                                      "23:00"
-                                  ]
-                              ],
-                      "wed":  [
-                                  [
-                                      "08:00",
-                                      "23:00"
-                                  ]
-                              ],
-                      "thu":  [
-                                  [
-                                      "08:00",
-                                      "23:00"
-                                  ]
-                              ],
-                      "fri":  [
-                                  [
-                                      "08:00",
-                                      "00:00"
-                                  ]
-                              ],
-                      "sat":  [
-                                  [
-                                      "08:00",
-                                      "00:00"
-                                  ]
-                              ],
-                      "sun":  [
-                                  [
-                                      "08:00",
-                                      "23:00"
-                                  ]
-                              ]
-                  },
-        "closed_dates":  [
-
-                         ],
-        "phone":  "702-710-8144",
-        "website":  "https://theescapegame.com/lasvegas/",
-        "source_urls":  [
-                            "https://theescapegame.com/lasvegas/"
-                        ],
-        "chain_brand":  "The Escape Game",
-        "good_for":  [
-                         "date",
-                         "friends",
-                         "groups",
-                         "family"
-                     ],
-        "verified":  {
-                         "status":  "verified",
-                         "checked_on":  "2026-11-22",
-                         "evidence_url":  "https://theescapegame.com/lasvegas/"
-                     },
-        "weather":  {
-                        "wind_sensitive":  false,
-                        "snow_friendly":  false,
-                        "rain_ok":  true
-                    },
-        "hours_note":  "Games run at set times. Thanksgiving and Christmas hours not posted.",
-        "price_from":  42.99,
-        "price_note":  "$42.99 per person; ages 4 and under free.",
-        "booking":  "recommended",
-        "age_note":  "Recommended for ages 13+; younger players welcome",
-        "lat":  36.119225,
-        "lng":  -115.178201,
-        "date_hours":  {
-                           "2026-11-26":  "unknown",
-                           "2026-12-25":  "unknown"
-                       },
-        "price_known":  true,
-        "price_from_usd":  42.99,
-        "price_unit":  "per person",
-        "kid_bands":  [
-                          "kids",
-                          "teens"
-                      ],
-        "area_display":  "The Strip",
-        "sid":  605,
-        "photos":  [
-                       {
-                           "file":  "photos/vegas-ga-escape-game-forum-shops-1.jpg",
-                           "credit":  "The Escape Game",
-                           "page_url":  "https://theescapegame.com/lasvegas/"
-                       }
-                   ]
-    },
-    {
         "id":  "vegas-ga-paniq-escape-room",
         "city":  "vegas",
         "name":  "PanIQ Escape Room \u0026 Lounge",
@@ -84658,6 +84419,7 @@
                           "teens"
                       ],
         "area_display":  "The Strip",
+        "award_note":  "Best of Morty 2022 (Haunted Manor)",
         "sid":  606,
         "photos":  [
                        {
@@ -97289,6 +97051,2260 @@
         "lat":  36.10906243168,
         "lng":  -115.173069398838,
         "sid":  719,
+        "photos":  [
+
+                   ]
+    },
+    {
+        "id":  "vegas-ov-hollywood-cars-museum",
+        "city":  "vegas",
+        "name":  "Hollywood Cars Museum",
+        "kind":  "place",
+        "category":  "unique-niche",
+        "genre":  "look-learn",
+        "tags":  [
+                     "museum",
+                     "cars",
+                     "movies",
+                     "date",
+                     "friends",
+                     "off-strip"
+                 ],
+        "neighborhood":  "Off-Strip (Dean Martin Dr, west of the Strip)",
+        "indoor_outdoor":  "indoor",
+        "price_level":  null,
+        "price_from":  null,
+        "price_note":  "Prices not posted. Tickets sold at the museum counter, cash only (ATM on site). Kids under 16 free with a paying adult.",
+        "hours":  {
+                      "mon":  [
+                                  [
+                                      "10:00",
+                                      "21:00"
+                                  ]
+                              ],
+                      "tue":  [
+                                  [
+                                      "10:00",
+                                      "21:00"
+                                  ]
+                              ],
+                      "wed":  [
+                                  [
+                                      "10:00",
+                                      "21:00"
+                                  ]
+                              ],
+                      "thu":  [
+                                  [
+                                      "10:00",
+                                      "21:00"
+                                  ]
+                              ],
+                      "fri":  [
+                                  [
+                                      "10:00",
+                                      "21:00"
+                                  ]
+                              ],
+                      "sat":  [
+                                  [
+                                      "10:00",
+                                      "21:00"
+                                  ]
+                              ],
+                      "sun":  [
+                                  [
+                                      "10:00",
+                                      "21:00"
+                                  ]
+                              ]
+                  },
+        "hours_note":  "Open 7 days, 10 am - 9 pm. Thanksgiving and Christmas hours not posted.",
+        "closed_dates":  [
+
+                         ],
+        "season":  null,
+        "date_hours":  {
+                           "2026-11-26":  "unknown",
+                           "2026-12-25":  "unknown"
+                       },
+        "booking":  "walk-in",
+        "booking_url":  null,
+        "phone":  "(702) 331-6400",
+        "website":  "https://hollywoodcarsmuseum.com/",
+        "source_urls":  [
+                            "https://hollywoodcarsmuseum.com/",
+                            "https://hollywoodcarsmuseum.com/tickets/",
+                            "https://hollywoodcarsmuseum.com/about-hollywood-car-museum-las-vegas/"
+                        ],
+        "good_for":  [
+                         "date",
+                         "friends",
+                         "family"
+                     ],
+        "verified":  {
+                         "status":  "unverified",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://hollywoodcarsmuseum.com/"
+                     },
+        "hook":  "The Batmobile, the DeLorean and Herbie under one roof",
+        "description":  "A 30,000-square-foot museum of real film and TV vehicles a few minutes west of the Strip, built with the collection of car collector Michael Dezer. You walk among cars from more than 100 films and shows: a Batmobile, the Back to the Future DeLorean, KITT from Knight Rider, Herbie, Chitty Chitty Bang Bang, the General Lee, the Munsters coffin dragster, James Bond\u0027s Lotus submarine car and Fast and Furious cars. A newer Liberace Garage shows off the entertainer\u0027s sparkly cars. Tickets are bought at the door with cash only (there is an ATM), and kids under 16 get in free with a paying adult.",
+        "highlights":  [
+                           "Cars from 100+ films and TV shows",
+                           "Batmobile, DeLorean, KITT, Herbie, General Lee",
+                           "Liberace Garage",
+                           "Open daily 10 am - 9 pm",
+                           "Cash only at the door",
+                           "Kids under 16 free with a paying adult"
+                       ],
+        "age_note":  "All ages; kids under 16 free with a paying adult",
+        "duration_minutes":  75,
+        "min_minutes":  45,
+        "address":  "5115 Dean Martin Dr #905, Las Vegas, NV 89118",
+        "lat":  36.097501,
+        "lng":  -115.181392,
+        "sid":  720,
+        "photos":  [
+                       {
+                           "file":  "photos/vegas-ov-hollywood-cars-museum-1.jpg",
+                           "credit":  "Hollywood Cars Museum (official site)",
+                           "page_url":  "https://hollywoodcarsmuseum.com/"
+                       }
+                   ]
+    },
+    {
+        "id":  "vegas-dh-mms-store-las-vegas",
+        "city":  "vegas",
+        "name":  "M\u0026M\u0027S Las Vegas (four-story store)",
+        "kind":  "place",
+        "category":  "unique-niche",
+        "genre":  "eat-drink",
+        "tags":  [
+                     "candy",
+                     "free",
+                     "strip",
+                     "friends",
+                     "family",
+                     "late-night"
+                 ],
+        "neighborhood":  "Center Strip (Showcase Mall, next to MGM Grand)",
+        "indoor_outdoor":  "indoor",
+        "price_level":  "free",
+        "price_from":  0,
+        "price_note":  "Free to walk in; candy and personalized M\u0026M\u0027S cost extra (prices not posted).",
+        "hours":  {
+                      "mon":  [
+                                  [
+                                      "09:00",
+                                      "24:00"
+                                  ]
+                              ],
+                      "tue":  [
+                                  [
+                                      "09:00",
+                                      "24:00"
+                                  ]
+                              ],
+                      "wed":  [
+                                  [
+                                      "09:00",
+                                      "24:00"
+                                  ]
+                              ],
+                      "thu":  [
+                                  [
+                                      "09:00",
+                                      "24:00"
+                                  ]
+                              ],
+                      "fri":  [
+                                  [
+                                      "09:00",
+                                      "24:00"
+                                  ]
+                              ],
+                      "sat":  [
+                                  [
+                                      "09:00",
+                                      "24:00"
+                                  ]
+                              ],
+                      "sun":  [
+                                  [
+                                      "09:00",
+                                      "24:00"
+                                  ]
+                              ]
+                  },
+        "hours_note":  "Open daily 9 am - midnight. Thanksgiving and Christmas hours not posted.",
+        "closed_dates":  [
+
+                         ],
+        "season":  null,
+        "date_hours":  {
+                           "2026-11-26":  "unknown",
+                           "2026-12-25":  "unknown"
+                       },
+        "booking":  "walk-in",
+        "booking_url":  null,
+        "phone":  "(702) 740-2504",
+        "website":  "https://www.mms.com/en-us/explore/mms-stores/las-vegas",
+        "source_urls":  [
+                            "https://www.mms.com/en-us/explore/mms-stores/las-vegas"
+                        ],
+        "good_for":  [
+                         "friends",
+                         "family"
+                     ],
+        "verified":  {
+                         "status":  "unverified",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://www.mms.com/en-us/explore/mms-stores/las-vegas"
+                     },
+        "hook":  "Four floors of M\u0026M\u0027S, and you can print your own",
+        "description":  "The very first M\u0026M\u0027S store, a 28,000-square-foot, four-level candy store on the Strip next to the MGM Grand. Besides walls of every color and flavor, the fun part is the personal printer: in about two minutes you can design your own M\u0026M\u0027S with a message, a face or Vegas images like the Welcome sign, a deck of cards or wedding bells. It is free to walk through and open until midnight, so it works as a quick, silly stop on a Strip walk. The Coca-Cola Store is in the same building.",
+        "highlights":  [
+                           "The first M\u0026M\u0027S store ever",
+                           "Four floors, 28,000 sq ft",
+                           "Print custom M\u0026M\u0027S in about 2 minutes",
+                           "Open daily until midnight",
+                           "Free to walk in"
+                       ],
+        "age_note":  "All ages",
+        "duration_minutes":  30,
+        "min_minutes":  15,
+        "address":  "Showcase Mall, 3785 S Las Vegas Blvd, Las Vegas, NV 89109",
+        "lat":  36.103122,
+        "lng":  -115.172892,
+        "sid":  721,
+        "photos":  [
+
+                   ]
+    },
+    {
+        "id":  "vegas-dh-hersheys-chocolate-world",
+        "city":  "vegas",
+        "name":  "Hershey\u0027s Chocolate World (New York-New York)",
+        "kind":  "place",
+        "category":  "unique-niche",
+        "genre":  "eat-drink",
+        "tags":  [
+                     "chocolate",
+                     "candy",
+                     "free",
+                     "strip",
+                     "friends",
+                     "family",
+                     "late-night"
+                 ],
+        "neighborhood":  "Center Strip (New York-New York)",
+        "indoor_outdoor":  "indoor",
+        "price_level":  "free",
+        "price_from":  0,
+        "price_note":  "Free to walk in; treats and custom bars cost extra (prices not posted).",
+        "hours":  {
+                      "sun":  [
+                                  [
+                                      "09:00",
+                                      "24:00"
+                                  ]
+                              ],
+                      "mon":  [
+                                  [
+                                      "09:00",
+                                      "24:00"
+                                  ]
+                              ],
+                      "tue":  [
+                                  [
+                                      "09:00",
+                                      "24:00"
+                                  ]
+                              ],
+                      "wed":  [
+                                  [
+                                      "09:00",
+                                      "24:00"
+                                  ]
+                              ],
+                      "thu":  [
+                                  [
+                                      "09:00",
+                                      "24:00"
+                                  ]
+                              ],
+                      "fri":  [
+                                  [
+                                      "09:00",
+                                      "01:00"
+                                  ]
+                              ],
+                      "sat":  [
+                                  [
+                                      "09:00",
+                                      "01:00"
+                                  ]
+                              ]
+                  },
+        "hours_note":  "Sunday-Thursday 9 am - midnight, Friday-Saturday 9 am - 1 am. Thanksgiving and Christmas hours not posted.",
+        "closed_dates":  [
+
+                         ],
+        "season":  null,
+        "date_hours":  {
+                           "2026-11-26":  "unknown",
+                           "2026-12-25":  "unknown"
+                       },
+        "booking":  "walk-in",
+        "booking_url":  null,
+        "phone":  "(702) 437-7439",
+        "website":  "https://hersheyschocolateworldlasvegas.com/",
+        "source_urls":  [
+                            "https://hersheyschocolateworldlasvegas.com/"
+                        ],
+        "good_for":  [
+                         "friends",
+                         "family"
+                     ],
+        "verified":  {
+                         "status":  "unverified",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://hersheyschocolateworldlasvegas.com/"
+                     },
+        "hook":  "A Statue of Liberty made of 800 pounds of chocolate",
+        "description":  "Hershey\u0027s two-story West Coast flagship sits in the front of New York-New York on the Strip, with more than 800 Hershey\u0027s candies and a Statue of Liberty sculpted from almost 800 pounds of milk chocolate. You can design your own chocolate bar wrapper, star in a mock Reese\u0027s TV ad, try the Kisses and Jolly Rancher flavor walls, and grab a treat at the Bake Shoppe. It is free to walk in and open late (until 1 am on Fridays and Saturdays), so it works as an easy stop on a Strip walk.",
+        "highlights":  [
+                           "Chocolate Statue of Liberty (almost 800 lbs)",
+                           "Design your own chocolate bar",
+                           "Star in a Reese\u0027s TV ad",
+                           "Bake Shoppe and flavor walls",
+                           "Open until 1 am Fri-Sat"
+                       ],
+        "age_note":  "All ages",
+        "duration_minutes":  30,
+        "min_minutes":  15,
+        "address":  "New York-New York Hotel \u0026 Casino, 3790 S Las Vegas Blvd, Las Vegas, NV 89109",
+        "lat":  36.102301,
+        "lng":  -115.173028,
+        "sid":  722,
+        "photos":  [
+                       {
+                           "file":  "photos/vegas-dh-hersheys-chocolate-world-1.jpg",
+                           "credit":  "Hershey\u0027s Chocolate World Las Vegas (official site)",
+                           "page_url":  "https://hersheyschocolateworldlasvegas.com/"
+                       }
+                   ]
+    },
+    {
+        "id":  "vegas-dh-coca-cola-store",
+        "city":  "vegas",
+        "name":  "Coca-Cola Store Las Vegas (tasting tray)",
+        "kind":  "place",
+        "category":  "food-drink-experience",
+        "genre":  "eat-drink",
+        "tags":  [
+                     "tasting",
+                     "soda",
+                     "strip",
+                     "friends",
+                     "family",
+                     "giant-bottle"
+                 ],
+        "neighborhood":  "Center Strip (Showcase Mall, next to MGM Grand)",
+        "indoor_outdoor":  "indoor",
+        "price_level":  "$",
+        "price_from":  null,
+        "price_note":  "Free to walk in. Tasting tray, floats and mocktails cost extra (prices not posted).",
+        "hours":  {
+                      "mon":  [
+                                  [
+                                      "09:00",
+                                      "23:00"
+                                  ]
+                              ],
+                      "tue":  [
+                                  [
+                                      "09:00",
+                                      "23:00"
+                                  ]
+                              ],
+                      "wed":  [
+                                  [
+                                      "09:00",
+                                      "23:00"
+                                  ]
+                              ],
+                      "thu":  [
+                                  [
+                                      "09:00",
+                                      "23:00"
+                                  ]
+                              ],
+                      "fri":  [
+                                  [
+                                      "09:00",
+                                      "23:00"
+                                  ]
+                              ],
+                      "sat":  [
+                                  [
+                                      "09:00",
+                                      "23:00"
+                                  ]
+                              ],
+                      "sun":  [
+                                  [
+                                      "09:00",
+                                      "23:00"
+                                  ]
+                              ]
+                  },
+        "hours_note":  "Store open daily 9 am - 11 pm; the drinks bar (The Fountain) 9 am - 10 pm. Hours can change. Thanksgiving and Christmas hours not posted.",
+        "closed_dates":  [
+
+                         ],
+        "season":  null,
+        "date_hours":  {
+                           "2026-11-26":  "unknown",
+                           "2026-12-25":  "unknown"
+                       },
+        "booking":  "walk-in",
+        "booking_url":  null,
+        "phone":  "(702) 232-9792",
+        "website":  "https://www.coca-colastore.com/retail/las-vegas",
+        "source_urls":  [
+                            "https://www.coca-colastore.com/retail/las-vegas"
+                        ],
+        "good_for":  [
+                         "friends",
+                         "family",
+                         "date"
+                     ],
+        "verified":  {
+                         "status":  "unverified",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://www.coca-colastore.com/retail/las-vegas"
+                     },
+        "hook":  "Taste 14 Coca-Cola drinks from around the world",
+        "description":  "Coca-Cola\u0027s store on the Strip, in the same Showcase Mall building as M\u0026M\u0027S, has a drinks bar called The Fountain. Its best-known order is the Around the World tray: 14 sparkling and still Coca-Cola drinks sold in other countries, some of them famously odd, which makes a fun group taste test. The bar also does Coke floats and mocktails, and you can personalize your own Coke can or bottle. Park in the Showcase Mall garage next door.",
+        "highlights":  [
+                           "Around the World tray: 14 drinks from other countries",
+                           "Coke floats and mocktails",
+                           "Personalize your own can or bottle",
+                           "Store 9 am - 11 pm, drinks bar until 10 pm"
+                       ],
+        "age_note":  "All ages",
+        "duration_minutes":  30,
+        "min_minutes":  15,
+        "address":  "Showcase Mall, 3785 S Las Vegas Blvd, Las Vegas, NV 89109",
+        "lat":  36.103122,
+        "lng":  -115.172892,
+        "sid":  723,
+        "photos":  [
+
+                   ]
+    },
+    {
+        "id":  "vegas-ov-counts-kustoms",
+        "city":  "vegas",
+        "name":  "Count\u0027s Kustoms showroom (Counting Cars)",
+        "kind":  "place",
+        "category":  "unique-niche",
+        "genre":  "look-learn",
+        "tags":  [
+                     "cars",
+                     "tv",
+                     "free",
+                     "friends",
+                     "off-strip"
+                 ],
+        "neighborhood":  "Off-Strip (Highland Dr, west of the Strip)",
+        "indoor_outdoor":  "indoor",
+        "price_level":  "free",
+        "price_from":  0,
+        "price_note":  "Museum tours are free. A paid VIP tour (Count\u0027s Car Tour) is sold separately.",
+        "hours":  {
+                      "mon":  [
+                                  [
+                                      "10:00",
+                                      "16:00"
+                                  ]
+                              ],
+                      "tue":  [
+                                  [
+                                      "10:00",
+                                      "16:00"
+                                  ]
+                              ],
+                      "wed":  [
+                                  [
+                                      "10:00",
+                                      "16:00"
+                                  ]
+                              ],
+                      "thu":  [
+                                  [
+                                      "10:00",
+                                      "16:00"
+                                  ]
+                              ],
+                      "fri":  [
+                                  [
+                                      "10:00",
+                                      "16:00"
+                                  ]
+                              ],
+                      "sat":  [
+                                  [
+                                      "10:00",
+                                      "16:00"
+                                  ]
+                              ],
+                      "sun":  [
+                                  [
+                                      "10:00",
+                                      "16:00"
+                                  ]
+                              ]
+                  },
+        "hours_note":  "Free museum open daily 10 am - 4 pm. Thanksgiving and Christmas hours not posted.",
+        "closed_dates":  [
+
+                         ],
+        "season":  null,
+        "date_hours":  {
+                           "2026-11-26":  "unknown",
+                           "2026-12-25":  "unknown"
+                       },
+        "booking":  "walk-in",
+        "booking_url":  null,
+        "phone":  "(702) 733-8657",
+        "website":  "https://countskustoms.com/museum-tours/",
+        "source_urls":  [
+                            "https://countskustoms.com/museum-tours/",
+                            "https://countskustoms.com/"
+                        ],
+        "good_for":  [
+                         "friends",
+                         "date"
+                     ],
+        "verified":  {
+                         "status":  "unverified",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://countskustoms.com/museum-tours/"
+                     },
+        "hook":  "Danny Koker\u0027s custom cars and bikes from TV\u0027s Counting Cars",
+        "description":  "The shop of Danny \u0027The Count\u0027 Koker, star of the History Channel show Counting Cars, has a free showroom museum where you can walk through his collection of custom hot rods, muscle cars and bikes. It is open every day from 10 am to 4 pm, just west of the Strip on Highland Drive. Fans can also book a separate paid VIP tour that adds his personal showroom, the Welcome sign and his rock bar, Count\u0027s Vamp\u0027d.",
+        "highlights":  [
+                           "Free showroom, daily 10 am - 4 pm",
+                           "Custom cars and bikes from Counting Cars",
+                           "Paid VIP tour available",
+                           "Just west of the Strip"
+                       ],
+        "age_note":  "All ages",
+        "duration_minutes":  30,
+        "min_minutes":  20,
+        "address":  "2714 S Highland Dr, Las Vegas, NV 89109",
+        "lat":  36.140865,
+        "lng":  -115.170637,
+        "sid":  724,
+        "photos":  [
+                       {
+                           "file":  "photos/vegas-ov-counts-kustoms-1.jpg",
+                           "credit":  "Count\u0027s Kustoms (official site)",
+                           "page_url":  "https://countskustoms.com/museum-tours/"
+                       }
+                   ]
+    },
+    {
+        "id":  "vegas-nd-sloan-canyon-petroglyphs",
+        "city":  "vegas",
+        "name":  "Sloan Canyon Petroglyphs",
+        "kind":  "place",
+        "category":  "nature-outdoors",
+        "genre":  "nature-animals",
+        "tags":  [
+                     "hike",
+                     "rock-art",
+                     "outdoor",
+                     "free",
+                     "henderson",
+                     "history"
+                 ],
+        "neighborhood":  "Henderson (south)",
+        "indoor_outdoor":  "outdoor",
+        "price_level":  null,
+        "price_from":  null,
+        "price_note":  "Fees not posted.",
+        "hours":  null,
+        "hours_note":  "Day use only; hours not posted. Trail access has changed with recent construction, so check BLM\u0027s Sloan Canyon page before going.",
+        "closed_dates":  [
+
+                         ],
+        "season":  null,
+        "date_hours":  {
+
+                       },
+        "booking":  "walk-in",
+        "booking_url":  null,
+        "phone":  "702-515-5350",
+        "website":  "https://www.blm.gov/visit/sloan-canyon-petroglyphs",
+        "source_urls":  [
+                            "https://www.blm.gov/visit/sloan-canyon-petroglyphs",
+                            "https://www.blm.gov/visit/sloan-canyon-nca"
+                        ],
+        "good_for":  [
+                         "date",
+                         "friends"
+                     ],
+        "verified":  {
+                         "status":  "unverified",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://www.blm.gov/visit/sloan-canyon-petroglyphs"
+                     },
+        "hook":  "Hundreds of ancient rock carvings a short drive from the Strip",
+        "description":  "A desert canyon on the edge of Henderson holding one of the most important rock art sites in Southern Nevada: more than 300 panels with about 1,700 carved designs, made by Native peoples from the Archaic era to historic times. It is protected as part of the 48,438-acre Sloan Canyon National Conservation Area, run by the Bureau of Land Management. The trail is a rough desert hike (not wheelchair accessible) and the area is day use only. Access roads and the trail start have been changing because of construction, so check BLM\u0027s page for current directions before you go.",
+        "highlights":  [
+                           "300+ rock art panels, ~1,700 designs",
+                           "Day use only",
+                           "Desert hike; not wheelchair accessible",
+                           "Run by the Bureau of Land Management"
+                       ],
+        "age_note":  null,
+        "duration_minutes":  180,
+        "min_minutes":  120,
+        "address":  "Petroglyph trailhead off Nawghaw Poa Rd, Henderson, NV",
+        "lat":  35.916344,
+        "lng":  -115.125622,
+        "sid":  725,
+        "photos":  [
+                       {
+                           "file":  "photos/vegas-nd-sloan-canyon-petroglyphs-1.jpg",
+                           "credit":  "Bureau of Land Management (via Recreation.gov), shown on BLM\u0027s Sloan Canyon Petroglyphs page",
+                           "page_url":  "https://www.blm.gov/visit/sloan-canyon-petroglyphs"
+                       }
+                   ]
+    },
+    {
+        "id":  "vegas-ga-pinball-hall-of-fame",
+        "city":  "vegas",
+        "name":  "Pinball Hall of Fame",
+        "kind":  "place",
+        "category":  "games-arcade",
+        "genre":  "play",
+        "tags":  [
+                     "friends",
+                     "date",
+                     "arcade",
+                     "pinball",
+                     "retro",
+                     "cheap",
+                     "strip"
+                 ],
+        "neighborhood":  "South Strip (across from the Welcome sign)",
+        "indoor_outdoor":  "indoor",
+        "price_level":  "$",
+        "price_from":  0,
+        "hours":  {
+                      "sun":  [
+                                  [
+                                      "10:00",
+                                      "21:00"
+                                  ]
+                              ],
+                      "mon":  [
+                                  [
+                                      "10:00",
+                                      "21:00"
+                                  ]
+                              ],
+                      "tue":  [
+                                  [
+                                      "10:00",
+                                      "21:00"
+                                  ]
+                              ],
+                      "wed":  [
+                                  [
+                                      "10:00",
+                                      "21:00"
+                                  ]
+                              ],
+                      "thu":  [
+                                  [
+                                      "10:00",
+                                      "21:00"
+                                  ]
+                              ],
+                      "fri":  [
+                                  [
+                                      "10:00",
+                                      "22:00"
+                                  ]
+                              ],
+                      "sat":  [
+                                  [
+                                      "10:00",
+                                      "22:00"
+                                  ]
+                              ]
+                  },
+        "closed_dates":  [
+
+                         ],
+        "season":  null,
+        "date_hours":  {
+                           "2026-11-26":  "unknown",
+                           "2026-12-24":  "unknown",
+                           "2026-12-25":  "unknown",
+                           "2026-12-31":  "unknown"
+                       },
+        "booking":  "walk-in",
+        "booking_url":  "",
+        "phone":  "(702) 597-2627",
+        "website":  "https://pinballmuseum.org/",
+        "source_urls":  [
+                            "https://pinballmuseum.org/",
+                            "https://pinballmuseum.org/direct.php"
+                        ],
+        "good_for":  [
+                         "friends",
+                         "date"
+                     ],
+        "verified":  {
+                         "status":  "unverified",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://pinballmuseum.org/direct.php"
+                     },
+        "hours_note":  "Sun-Thu 10 am-9 pm, Fri-Sat 10 am-10 pm. Holiday hours not posted.",
+        "highlights":  [
+                           "Free entry; games 25-50 cents",
+                           "Restored 1950s-1990s machines, all playable",
+                           "No prize or ticket games",
+                           "Across from the Welcome to Las Vegas sign",
+                           "Non-profit; extra money goes to charity"
+                       ],
+        "age_note":  "All ages.",
+        "duration_minutes":  75,
+        "min_minutes":  30,
+        "address":  "4925 Las Vegas Blvd S, Las Vegas, NV 89119",
+        "lat":  36.0848,
+        "lng":  -115.1719,
+        "hook":  "The world\u0027s biggest playable pinball collection",
+        "description":  "A 25,000-square-foot hall run by the Las Vegas Pinball Collectors Club, filled with restored pinball machines from the 1950s through the 1990s, and every one of them is playable. You pay per game: 25 cents on the older machines and 50 cents on the 1990s ones, so a bag of quarters goes a long way. It is pure pinball plus a few novelty arcade games, with no ticket-spitting prize machines. The hall is a non-profit and extra money goes to charity. It sits on the south end of the Strip, right across from the Welcome to Fabulous Las Vegas sign, so it pairs well with a sign photo stop.",
+        "price_note":  "Older machines are 25 cents a game, 1990s machines 50 cents.",
+        "sid":  726,
+        "photos":  [
+
+                   ]
+    },
+    {
+        "id":  "vegas-ga-player-1-video-game-bar",
+        "city":  "vegas",
+        "name":  "Player 1 Video Game Bar",
+        "kind":  "place",
+        "category":  "games-arcade",
+        "genre":  "play",
+        "tags":  [
+                     "friends",
+                     "date",
+                     "late-night",
+                     "arcade",
+                     "bar",
+                     "retro",
+                     "21+",
+                     "off-strip"
+                 ],
+        "neighborhood":  "Maryland Parkway (east of the Strip, near UNLV)",
+        "indoor_outdoor":  "indoor",
+        "price_level":  "$",
+        "price_from":  null,
+        "price_note":  "Low cover charge and most games are free to play. Sunday cover is $4 for Vegas locals with ID.",
+        "hours":  {
+                      "sun":  [
+                                  [
+                                      "13:00",
+                                      "02:00"
+                                  ]
+                              ],
+                      "mon":  [
+                                  [
+                                      "13:00",
+                                      "02:00"
+                                  ]
+                              ],
+                      "tue":  [
+                                  [
+                                      "13:00",
+                                      "02:00"
+                                  ]
+                              ],
+                      "wed":  [
+                                  [
+                                      "13:00",
+                                      "02:00"
+                                  ]
+                              ],
+                      "thu":  [
+                                  [
+                                      "13:00",
+                                      "02:00"
+                                  ]
+                              ],
+                      "fri":  [
+                                  [
+                                      "13:00",
+                                      "04:00"
+                                  ]
+                              ],
+                      "sat":  [
+                                  [
+                                      "13:00",
+                                      "04:00"
+                                  ]
+                              ]
+                  },
+        "closed_dates":  [
+
+                         ],
+        "season":  null,
+        "date_hours":  {
+                           "2026-11-26":  "unknown",
+                           "2026-12-24":  "unknown",
+                           "2026-12-25":  "unknown",
+                           "2026-12-31":  "unknown"
+                       },
+        "booking":  "walk-in",
+        "booking_url":  "",
+        "phone":  "(725) 204-1399",
+        "website":  "https://www.player1vegas.com/",
+        "source_urls":  [
+                            "https://www.player1vegas.com/"
+                        ],
+        "good_for":  [
+                         "friends",
+                         "date"
+                     ],
+        "verified":  {
+                         "status":  "unverified",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://www.player1vegas.com/"
+                     },
+        "hours_note":  "Sun-Thu 1 pm-2 am, Fri-Sat 1 pm-4 am. Holiday hours not posted.",
+        "hook":  "21+ barcade with games from every console era, open till 4 am on weekends",
+        "description":  "A grown-up video game bar off the Strip on Maryland Parkway, mixing retro arcade cabinets and consoles from every generation with craft beer, imports and game-themed cocktails. You pay a small cover at the door and most of the games are then free to play, so you can bounce between classics all night. Weekly theme nights include Weeb Wednesday and a Thursday tournament night, and Sundays are discounted for Vegas locals. It is 21 and over only and stays open until 2 am on weeknights and 4 am on Fridays and Saturdays, which makes it a good late stop.",
+        "highlights":  [
+                           "21+ only",
+                           "Small cover, most games free",
+                           "Retro arcade plus consoles from every era",
+                           "Craft beer and themed cocktails",
+                           "Open till 2 am, 4 am Fri-Sat"
+                       ],
+        "age_note":  "21+ (bar\u0027s site)",
+        "duration_minutes":  120,
+        "min_minutes":  60,
+        "address":  "2797 S Maryland Pkwy #24, Las Vegas, NV 89109",
+        "lat":  36.138091074536,
+        "lng":  -115.13694978858,
+        "sid":  727,
+        "photos":  [
+
+                   ]
+    },
+    {
+        "id":  "vegas-ga-asylum-bar-arcade-area15",
+        "city":  "vegas",
+        "name":  "Asylum Bar + Arcade (AREA15)",
+        "kind":  "place",
+        "category":  "games-arcade",
+        "genre":  "play",
+        "tags":  [
+                     "friends",
+                     "date",
+                     "arcade",
+                     "pinball",
+                     "bar",
+                     "off-strip"
+                 ],
+        "neighborhood":  "Off-Strip (AREA15, west of I-15)",
+        "indoor_outdoor":  "indoor",
+        "price_level":  "$$",
+        "price_from":  20,
+        "price_note":  "Game tokens; the online deal is $25 of tokens for $20. Drinks from $10. Nevada locals get 25% off drinks Mon-Thu.",
+        "hours":  null,
+        "closed_dates":  [
+
+                         ],
+        "season":  null,
+        "date_hours":  {
+                           "2026-11-26":  "unknown",
+                           "2026-12-24":  "unknown",
+                           "2026-12-25":  "unknown",
+                           "2026-12-31":  "unknown"
+                       },
+        "booking":  "walk-in",
+        "booking_url":  "https://www.area15.com/experiences/asylum",
+        "phone":  "",
+        "website":  "https://www.area15.com/experiences/asylum",
+        "source_urls":  [
+                            "https://www.area15.com/experiences/asylum"
+                        ],
+        "good_for":  [
+                         "friends",
+                         "date"
+                     ],
+        "verified":  {
+                         "status":  "unverified",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://www.area15.com/experiences/asylum"
+                     },
+        "hours_note":  "AREA15 opens at noon daily. The bar\u0027s own closing time isn\u0027t posted and it hosts music nights that run later.",
+        "hook":  "Pinball, Pac-Man and boozy slushies on AREA15\u0027s second floor",
+        "description":  "A bar and arcade upstairs at AREA15 that pairs a long wall of retro and newer cabinets with cocktails, craft beer and alcohol-infused slushies. The lineup covers classic video games like Galaga, Pac-Man, NBA Jam, Street Fighter 2 and Time Crisis 2, a row of modern pinball machines (Deadpool, Metallica, Ghostbusters and more), plus Skee-Ball, shuffleboard, bubble hockey, pool and foosball. Games run on tokens, and buying online gets you $25 of tokens for $20. There are free weekly events like karaoke and local DJ sets, and a pizza kitchen for food. It is 21+ on Friday and Saturday nights after 8 pm.",
+        "highlights":  [
+                           "Retro video games and a big pinball row",
+                           "Skee-Ball, bubble hockey, pool, shuffleboard",
+                           "Cocktails, craft beer, boozy slushies",
+                           "$25 of tokens for $20 online",
+                           "21+ Fri-Sat after 8 pm"
+                       ],
+        "age_note":  "All ages earlier; 21+ on Fridays and Saturdays after 8 pm (AREA15 page).",
+        "duration_minutes":  90,
+        "min_minutes":  45,
+        "address":  "AREA15, 3215 S Rancho Dr, Las Vegas, NV 89102",
+        "lat":  36.131695270791,
+        "lng":  -115.180776413676,
+        "sid":  728,
+        "photos":  [
+                       {
+                           "file":  "photos/vegas-ga-asylum-bar-arcade-area15-1.jpg",
+                           "credit":  "AREA15 (official site)",
+                           "page_url":  "https://www.area15.com/experiences/asylum"
+                       }
+                   ]
+    },
+    {
+        "id":  "vegas-ga-circus-circus-midway",
+        "city":  "vegas",
+        "name":  "Circus Circus Midway \u0026 free circus acts",
+        "kind":  "place",
+        "category":  "games-arcade",
+        "genre":  "play",
+        "tags":  [
+                     "friends",
+                     "carnival-games",
+                     "arcade",
+                     "free",
+                     "retro",
+                     "strip"
+                 ],
+        "neighborhood":  "North Strip (Circus Circus)",
+        "indoor_outdoor":  "indoor",
+        "price_level":  "$",
+        "price_from":  0,
+        "price_note":  "Circus acts are free; carnival and arcade games are paid per play (prices not posted).",
+        "hours":  null,
+        "closed_dates":  [
+
+                         ],
+        "season":  null,
+        "date_hours":  {
+                           "2026-11-26":  "unknown",
+                           "2026-12-24":  "unknown",
+                           "2026-12-25":  "unknown",
+                           "2026-12-31":  "unknown"
+                       },
+        "booking":  "walk-in",
+        "booking_url":  "",
+        "phone":  "(702) 734-0410",
+        "website":  "https://www.circuscircus.com/attractions/midway/",
+        "source_urls":  [
+                            "https://www.circuscircus.com/attractions/midway/",
+                            "https://www.circuscircus.com/attractions/midway-circus-shows/"
+                        ],
+        "good_for":  [
+                         "friends",
+                         "date"
+                     ],
+        "verified":  {
+                         "status":  "unverified",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://www.circuscircus.com/attractions/midway-circus-shows/"
+                     },
+        "hours_note":  "Free circus acts run Fri-Sat 12:30-9:30 pm and Sun-Mon 12:30-8:30 pm. Midway game hours aren\u0027t posted.",
+        "hook":  "Old-school carnival games with trapeze acts flying overhead, free to watch",
+        "description":  "Upstairs at Circus Circus, the Midway is a bright carnival floor of classic midway skill games mixed with modern arcade machines, with prizes from small keepsakes up to premium prizes. The best part is free: live circus acts perform in a ring in the middle of the Midway through the afternoon and evening, with trapeze artists, clowns and strength and balance acts. Acts currently run Friday through Monday. It is a cheap, silly, very old-Vegas stop that fits well before or after the Adventuredome next door.",
+        "highlights":  [
+                           "Free circus acts Fri-Mon afternoons and evenings",
+                           "Classic carnival games plus modern arcade",
+                           "Prizes from keepsakes to premium",
+                           "Same resort as the Adventuredome"
+                       ],
+        "age_note":  "All ages.",
+        "duration_minutes":  60,
+        "min_minutes":  30,
+        "address":  "Circus Circus, 2880 Las Vegas Blvd South, Las Vegas, NV 89109",
+        "lat":  36.135598546741,
+        "lng":  -115.162727331002,
+        "sid":  729,
+        "photos":  [
+
+                   ]
+    },
+    {
+        "id":  "vegas-ga-brooklyn-bowl",
+        "city":  "vegas",
+        "name":  "Brooklyn Bowl Las Vegas",
+        "kind":  "place",
+        "category":  "games-arcade",
+        "genre":  "play",
+        "tags":  [
+                     "friends",
+                     "date",
+                     "bowling",
+                     "live-music",
+                     "evening",
+                     "strip"
+                 ],
+        "neighborhood":  "Center Strip (The LINQ Promenade)",
+        "indoor_outdoor":  "indoor",
+        "price_level":  null,
+        "price_from":  null,
+        "price_note":  "Lane prices vary by night and show; reserve a lane online.",
+        "hours":  null,
+        "closed_dates":  [
+
+                         ],
+        "season":  null,
+        "date_hours":  {
+                           "2026-11-26":  "unknown",
+                           "2026-12-24":  "unknown",
+                           "2026-12-25":  "unknown",
+                           "2026-12-31":  "unknown"
+                       },
+        "booking":  "reservation",
+        "booking_url":  "https://lasvegas.brooklynbowl.com/bowling",
+        "phone":  "(702) 862-2695",
+        "website":  "https://lasvegas.brooklynbowl.com/",
+        "source_urls":  [
+                            "https://lasvegas.brooklynbowl.com/bowling",
+                            "https://lasvegas.brooklynbowl.com/visit"
+                        ],
+        "good_for":  [
+                         "friends",
+                         "date"
+                     ],
+        "verified":  {
+                         "status":  "unverified",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://lasvegas.brooklynbowl.com/visit"
+                     },
+        "hours_note":  "Open around shows only: Fridays from 9 pm and Saturdays from 6 pm; closed other days. Times change with the concert schedule.",
+        "hook":  "32 lanes facing a concert stage on the Strip",
+        "description":  "A big concert hall at The LINQ that also has 32 hardwood bowling lanes facing the stage, with huge screens, leather Chesterfield sofas and food from New York\u0027s Blue Ribbon. You can reserve a lane and bowl while a band plays, or book a VIP lane for the best view of the show. Right now it opens only around shows, usually Friday from 9 pm and Saturday from 6 pm, so check the show calendar and book a lane ahead. Lane prices change by night and event.",
+        "highlights":  [
+                           "32 lanes facing a live music stage",
+                           "VIP lanes with a view of the show",
+                           "Blue Ribbon food at select shows",
+                           "Open around shows, mostly Fri-Sat nights"
+                       ],
+        "age_note":  "Age rules vary by show; check the event page.",
+        "duration_minutes":  120,
+        "min_minutes":  60,
+        "address":  "The LINQ Promenade, 3545 S Las Vegas Blvd, Las Vegas, NV 89109",
+        "lat":  36.11740605877,
+        "lng":  -115.172797334396,
+        "sid":  730,
+        "photos":  [
+
+                   ]
+    },
+    {
+        "id":  "vegas-ga-escape-blair-witch",
+        "city":  "vegas",
+        "name":  "Escape Blair Witch",
+        "kind":  "place",
+        "category":  "escape-room",
+        "genre":  "play",
+        "tags":  [
+                     "friends",
+                     "date",
+                     "horror",
+                     "immersive",
+                     "puzzles",
+                     "off-strip"
+                 ],
+        "neighborhood":  "Off-Strip (Industrial Rd, behind the north Strip)",
+        "indoor_outdoor":  "indoor",
+        "price_level":  null,
+        "price_from":  null,
+        "price_note":  "Price changes by night. General admission, private VIP group and VIP package tickets are sold online.",
+        "hours":  null,
+        "closed_dates":  [
+
+                         ],
+        "season":  null,
+        "date_hours":  {
+                           "2026-11-26":  "unknown",
+                           "2026-12-24":  "unknown",
+                           "2026-12-25":  "unknown",
+                           "2026-12-31":  "unknown"
+                       },
+        "booking":  "reservation",
+        "booking_url":  "https://escapeblairwitch.com/",
+        "phone":  "(702) 333-0770",
+        "website":  "https://escapeblairwitch.com/",
+        "source_urls":  [
+                            "https://escapeblairwitch.com/",
+                            "https://escapeblairwitch.com/faq/",
+                            "https://morty.app/blog/the-2022-morty-top-rooms",
+                            "https://morty.app/blog/best-of-morty-2023"
+                        ],
+        "good_for":  [
+                         "friends",
+                         "date"
+                     ],
+        "award_note":  "Best of Morty award in 2022 and 2023 (Morty escape room app\u0027s yearly list).",
+        "verified":  {
+                         "status":  "unverified",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://escapeblairwitch.com/faq/"
+                     },
+        "hours_note":  "Open Wed-Sun, times vary by booking; closed Mon-Tue. Reservations required, no walk-ups.",
+        "hook":  "Award-winning horror escape room inside the Blair Witch woods",
+        "description":  "An escape experience built with Lionsgate around The Blair Witch Project, where your group joins the search and tries to uncover the truth while live actors, mechanical effects and fog fill every room. It is loud, dark and intense by design, and there are no refunds for getting scared. General admission groups are combined up to 8 people; book a Private VIP slot for 4-8 if you want your group alone, or the VIP package that adds a souvenir photo, hat and t-shirt. It sells out daily, walk-ups are not accepted, and you are not let in if you arrive more than 5 minutes late. Kids under 8 can only come on a private booking and under-16s need a ticketed adult with them.",
+        "highlights":  [
+                           "Best of Morty award 2022 and 2023",
+                           "Live actors, fog and mechanical effects",
+                           "Groups up to 8; private VIP option",
+                           "Open Wed-Sun, book ahead",
+                           "No entry if more than 5 minutes late"
+                       ],
+        "duration_minutes":  null,
+        "min_minutes":  null,
+        "address":  "2121 Industrial Rd, Las Vegas, NV 89102",
+        "lat":  36.147569668141,
+        "lng":  -115.162365980994,
+        "age_note":  "Under 8: private bookings only; under 16 with a ticketed adult; 16-17 need an adult to sign the waiver.",
+        "sid":  731,
+        "photos":  [
+
+                   ]
+    },
+    {
+        "id":  "vegas-ga-lost-games-escape",
+        "city":  "vegas",
+        "name":  "Lost Games Escape Rooms",
+        "kind":  "place",
+        "category":  "escape-room",
+        "genre":  "play",
+        "tags":  [
+                     "friends",
+                     "date",
+                     "puzzles",
+                     "horror",
+                     "off-strip"
+                 ],
+        "neighborhood":  "Off-Strip (Valley View Blvd, west of the Strip)",
+        "indoor_outdoor":  "indoor",
+        "price_level":  null,
+        "price_from":  null,
+        "price_note":  "Prices are shown when you book online.",
+        "hours":  {
+                      "mon":  [
+                                  [
+                                      "13:00",
+                                      "22:00"
+                                  ]
+                              ],
+                      "tue":  [
+                                  [
+                                      "13:00",
+                                      "22:00"
+                                  ]
+                              ],
+                      "wed":  [
+                                  [
+                                      "13:00",
+                                      "22:00"
+                                  ]
+                              ],
+                      "thu":  [
+                                  [
+                                      "13:00",
+                                      "22:00"
+                                  ]
+                              ],
+                      "fri":  [
+                                  [
+                                      "12:00",
+                                      "23:00"
+                                  ]
+                              ],
+                      "sat":  [
+                                  [
+                                      "09:30",
+                                      "24:00"
+                                  ]
+                              ],
+                      "sun":  [
+                                  [
+                                      "12:00",
+                                      "23:00"
+                                  ]
+                              ]
+                  },
+        "closed_dates":  [
+
+                         ],
+        "season":  null,
+        "date_hours":  {
+                           "2026-11-26":  "unknown",
+                           "2026-12-24":  "unknown",
+                           "2026-12-25":  "unknown",
+                           "2026-12-31":  "unknown"
+                       },
+        "booking":  "reservation",
+        "booking_url":  "https://www.lostgameslv.com/",
+        "phone":  "(702) 551-3075",
+        "website":  "https://www.lostgameslv.com/",
+        "source_urls":  [
+                            "https://www.lostgameslv.com/",
+                            "https://morty.app/blog/the-2022-morty-top-rooms",
+                            "https://morty.app/blog/best-of-morty-2023",
+                            "https://morty.app/blog/best-of-morty-2024"
+                        ],
+        "good_for":  [
+                         "friends",
+                         "date"
+                     ],
+        "award_note":  "The Asylum: Playtime won a Best of Morty award in 2022, 2023 and 2024 (Morty escape room app\u0027s yearly list).",
+        "verified":  {
+                         "status":  "unverified",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://www.lostgameslv.com/"
+                     },
+        "hours_note":  "Mon-Thu 1-10 pm, Fri and Sun noon-11 pm, Sat 9:30 am-midnight. Holiday hours not posted.",
+        "hook":  "Movie-set escape rooms with an award-winning asylum game",
+        "description":  "An independent escape room company a few minutes west of the Strip with four 60-minute games built on detailed, movie-style sets. The Asylum pair is the draw: The Doctor\u0027s Secret works well for first-timers, while Playtime is the hardest game here and has won Best of Morty awards three years running. The Fortune Teller is the gentlest option, and The Floor Is Lava is a physical game with jumping and reaching (wear sneakers). Every booking is private to your group, game masters give unlimited hints, and the doors are never locked. Weekend evenings often sell out 1-2 weeks ahead, and parking is free on site.",
+        "highlights":  [
+                           "Playtime: Best of Morty 2022, 2023, 2024",
+                           "Four 60-minute games, all private",
+                           "Unlimited hints; doors never locked",
+                           "Free on-site parking",
+                           "Weekend evenings book up 1-2 weeks out"
+                       ],
+        "duration_minutes":  75,
+        "min_minutes":  60,
+        "address":  "3075 S Valley View Blvd, Las Vegas, NV 89102",
+        "lat":  36.1344085,
+        "lng":  -115.1917408,
+        "age_note":  "Age limits vary by game; 14 and under must come with an adult.",
+        "sid":  732,
+        "photos":  [
+
+                   ]
+    },
+    {
+        "id":  "vegas-ov-interstellar-arc",
+        "city":  "vegas",
+        "name":  "Interstellar Arc (VR voyage at AREA15)",
+        "kind":  "place",
+        "category":  "immersive-popup",
+        "genre":  "play",
+        "tags":  [
+                     "friends",
+                     "date",
+                     "vr",
+                     "immersive",
+                     "sci-fi",
+                     "off-strip"
+                 ],
+        "neighborhood":  "Off-Strip (AREA15, west of I-15)",
+        "indoor_outdoor":  "indoor",
+        "price_level":  "$$",
+        "price_from":  45,
+        "price_note":  "$45 off-peak, $47 peak, $49 high-peak, depending on the date. Card only.",
+        "hours":  {
+                      "sun":  [
+                                  [
+                                      "12:00",
+                                      "20:00"
+                                  ]
+                              ],
+                      "mon":  [
+                                  [
+                                      "12:00",
+                                      "20:00"
+                                  ]
+                              ],
+                      "tue":  [
+                                  [
+                                      "12:00",
+                                      "20:00"
+                                  ]
+                              ],
+                      "wed":  [
+                                  [
+                                      "12:00",
+                                      "20:00"
+                                  ]
+                              ],
+                      "thu":  [
+                                  [
+                                      "12:00",
+                                      "20:00"
+                                  ]
+                              ],
+                      "fri":  [
+                                  [
+                                      "12:00",
+                                      "22:00"
+                                  ]
+                              ],
+                      "sat":  [
+                                  [
+                                      "12:00",
+                                      "22:00"
+                                  ]
+                              ]
+                  },
+        "last_entry_before_close_min":  60,
+        "closed_dates":  [
+
+                         ],
+        "season":  null,
+        "date_hours":  {
+                           "2026-11-26":  "unknown",
+                           "2026-12-24":  "unknown",
+                           "2026-12-25":  "unknown",
+                           "2026-12-31":  "unknown"
+                       },
+        "booking":  "ticket",
+        "booking_url":  "https://www.interstellararc.com/",
+        "phone":  "",
+        "website":  "https://www.interstellararc.com/",
+        "source_urls":  [
+                            "https://www.interstellararc.com/"
+                        ],
+        "good_for":  [
+                         "friends",
+                         "date"
+                     ],
+        "verified":  {
+                         "status":  "unverified",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://www.interstellararc.com/"
+                     },
+        "hours_note":  "Daily noon-8 pm (last entry 7 pm), Fri-Sat until 10 pm (last entry 9 pm). Departures every 15 minutes. Holiday hours not posted.",
+        "hook":  "Walk around a giant starship in VR, an hour from launch to landing",
+        "description":  "A large free-roam virtual reality show at AREA15 where you board a starship bound for a planet 11 light-years away and actually walk around inside it, moving through its spaces and interacting with what happens around you. You check in at a futuristic spaceport, get a mission briefing, then explore the ship on your own or with your group while a blue-fox AI guide called the Diplomat leads the story. The whole voyage, including check-in, takes about an hour, and groups leave every 15 minutes. Tickets run $45-49 depending on the date, all sales are final, and you can reschedule up to 24 hours ahead. Guests must be 8 or older and at least 48 inches tall.",
+        "highlights":  [
+                           "Walk-around VR, alone or with your group",
+                           "About 60 minutes, departures every 15 minutes",
+                           "$45-49 by date",
+                           "Ages 8+, 48 in+",
+                           "Parking free with Nevada plates"
+                       ],
+        "age_note":  "Ages 8+ and at least 48 inches tall.",
+        "duration_minutes":  60,
+        "min_minutes":  60,
+        "address":  "AREA15 Zone 2 (The Terminals), 3072 Rigel Ave, Building 170, Las Vegas, NV 89102",
+        "lat":  36.134336769006,
+        "lng":  -115.181071339591,
+        "sid":  733,
+        "photos":  [
+                       {
+                           "file":  "photos/vegas-ov-interstellar-arc-1.jpg",
+                           "credit":  "Interstellar Arc (official site)",
+                           "page_url":  "https://www.interstellararc.com/"
+                       }
+                   ]
+    },
+    {
+        "id":  "vegas-ev-lisa-viva-la-lisa",
+        "city":  "vegas",
+        "name":  "LISA: VIVA LA LISA at The Colosseum",
+        "kind":  "event",
+        "category":  "show-comedy-music",
+        "genre":  "shows-nights",
+        "tags":  [
+                     "concert",
+                     "k-pop",
+                     "date",
+                     "friends",
+                     "evening",
+                     "strip"
+                 ],
+        "neighborhood":  "The Strip (Caesars Palace)",
+        "indoor_outdoor":  "indoor",
+        "price_level":  null,
+        "price_from":  null,
+        "price_note":  "Ticket prices not posted on the Live Nation page; see the ticket page for seats.",
+        "hours":  null,
+        "event_dates":  [
+                            {
+                                "start":  "2026-11-27T20:00"
+                            },
+                            {
+                                "start":  "2026-11-28T20:00"
+                            },
+                            {
+                                "start":  "2026-11-29T20:00"
+                            }
+                        ],
+        "end_date_confirmed":  true,
+        "hours_note":  "Last three shows: Fri Nov 27, Sat Nov 28 and Sun Nov 29, each at 8:00 pm. End time not posted.",
+        "closed_dates":  [
+
+                         ],
+        "season":  {
+                       "open_from":  "2026-11-27",
+                       "open_to":  "2026-11-29",
+                       "note":  "Final weekend of the residency."
+                   },
+        "date_hours":  {
+
+                       },
+        "booking":  "ticket",
+        "booking_url":  "https://www.livenation.com/event/1Ad0Z_6Gkmx6wSv/viva-la-lisa",
+        "phone":  null,
+        "website":  "https://www.livenation.com/event/1Ad0Z_6Gkmx6wSv/viva-la-lisa",
+        "source_urls":  [
+                            "https://www.livenation.com/event/1Ad0Z_6Gkmx6wSv/viva-la-lisa"
+                        ],
+        "good_for":  [
+                         "date",
+                         "friends"
+                     ],
+        "verified":  {
+                         "status":  "unverified",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://www.livenation.com/event/1Ad0Z_6Gkmx6wSv/viva-la-lisa"
+                     },
+        "hook":  "BLACKPINK\u0027s LISA closes her first Vegas residency",
+        "description":  "LISA, the BLACKPINK member, is playing her VIVA LA LISA residency at The Colosseum, the big theater inside Caesars Palace. Only the final weekend is left: Friday Nov 27, Saturday Nov 28 and Sunday Nov 29, with shows at 8 pm. Tickets are sold through Live Nation and Ticketmaster, and seats for these last nights may be limited, so check the ticket page before you plan around it.",
+        "highlights":  [
+                           "Last shows Nov 27, 28 and 29",
+                           "8:00 pm start",
+                           "The Colosseum at Caesars Palace",
+                           "Tickets via Live Nation / Ticketmaster"
+                       ],
+        "age_note":  null,
+        "duration_minutes":  null,
+        "min_minutes":  null,
+        "address":  "The Colosseum at Caesars Palace, 3570 S Las Vegas Blvd, Las Vegas, NV 89109",
+        "lat":  36.116156,
+        "lng":  -115.175058,
+        "sid":  734,
+        "photos":  [
+
+                   ]
+    },
+    {
+        "id":  "vegas-ev-tamales-mariachi-festival",
+        "city":  "vegas",
+        "name":  "Tamales \u0026 Mariachi Festival",
+        "kind":  "event",
+        "category":  "food-drink-experience",
+        "genre":  "eat-drink",
+        "tags":  [
+                     "festival",
+                     "food",
+                     "music",
+                     "free",
+                     "friends",
+                     "downtown",
+                     "outdoor"
+                 ],
+        "neighborhood":  "Downtown",
+        "indoor_outdoor":  "outdoor",
+        "price_level":  "free",
+        "price_from":  0,
+        "price_note":  "Free to attend. Tamales and other food are sold by the vendors.",
+        "hours":  null,
+        "event_dates":  [
+                            {
+                                "start":  "2026-12-05T11:00",
+                                "end":  "2026-12-05T16:00"
+                            }
+                        ],
+        "end_date_confirmed":  true,
+        "hours_note":  "Saturday Dec 5, 11:00 am to 4:00 pm.",
+        "closed_dates":  [
+
+                         ],
+        "season":  {
+                       "open_from":  "2026-12-05",
+                       "open_to":  "2026-12-05",
+                       "note":  "One day only."
+                   },
+        "date_hours":  {
+
+                       },
+        "booking":  "walk-in",
+        "booking_url":  null,
+        "phone":  "(702) 229-6011",
+        "website":  "https://www.lasvegasnevada.gov/Residents/Arts-Culture/Annual-Festivals",
+        "source_urls":  [
+                            "https://content.govdelivery.com/accounts/NVLASVEGAS/bulletins/425e88c",
+                            "https://www.lasvegasnevada.gov/Residents/Arts-Culture/Annual-Festivals"
+                        ],
+        "good_for":  [
+                         "friends",
+                         "date",
+                         "family"
+                     ],
+        "verified":  {
+                         "status":  "unverified",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://content.govdelivery.com/accounts/NVLASVEGAS/bulletins/425e88c"
+                     },
+        "hook":  "Free tamales-and-mariachi party at City Hall\u0027s plaza",
+        "description":  "The City of Las Vegas throws this free yearly festival to kick off the holidays on the outdoor plaza of the Las Vegas Civic Center downtown. Local vendors sell tamales from Mexico and Central America, and there is live mariachi music plus folklorico dance and other performances. It runs one Saturday, Dec 5, from 11 am to 4 pm, with activities for all ages, so it is an easy lunch-and-music outing with friends. Entry is free; food is sold by the vendors.",
+        "highlights":  [
+                           "Sat Dec 5, 11 am - 4 pm",
+                           "Free entry",
+                           "Tamales from local vendors",
+                           "Live mariachi and folklorico",
+                           "Outdoors at the Civic Center plaza"
+                       ],
+        "age_note":  "All ages",
+        "duration_minutes":  90,
+        "min_minutes":  45,
+        "address":  "Las Vegas Civic Center outdoor plaza, 525 S Main St, Las Vegas, NV 89101",
+        "lat":  36.166700358579,
+        "lng":  -115.149530315372,
+        "sid":  735,
+        "photos":  [
+
+                   ]
+    },
+    {
+        "id":  "vegas-ev-vegas-vanguards",
+        "city":  "vegas",
+        "name":  "Vegas Vanguards home games (PWHL women\u0027s hockey)",
+        "kind":  "event",
+        "category":  "unique-niche",
+        "genre":  "shows-nights",
+        "tags":  [
+                     "sports",
+                     "hockey",
+                     "friends",
+                     "date",
+                     "strip",
+                     "new"
+                 ],
+        "neighborhood":  "The Strip",
+        "indoor_outdoor":  "indoor",
+        "price_level":  null,
+        "price_from":  null,
+        "price_note":  "Ticket prices not posted on the team schedule; see the team ticket page.",
+        "hours":  null,
+        "event_dates":  [
+                            {
+                                "start":  "2026-12-06T17:00"
+                            },
+                            {
+                                "start":  "2026-12-10T19:00"
+                            },
+                            {
+                                "start":  "2026-12-26T16:00"
+                            },
+                            {
+                                "start":  "2026-12-29T19:00"
+                            }
+                        ],
+        "end_date_confirmed":  false,
+        "hours_note":  "Home games at T-Mobile Arena: Sun Dec 6, 5 pm vs Detroit Clutch (first home game ever); Thu Dec 10, 7 pm vs Minnesota Frost; Sat Dec 26, 4 pm vs Boston Fleet; Tue Dec 29, 7 pm vs New York Sirens. More home games from Jan 10.",
+        "closed_dates":  [
+
+                         ],
+        "season":  {
+                       "open_from":  "2026-12-06",
+                       "open_to":  "2027-04-13",
+                       "note":  "First season. Home games at T-Mobile Arena Dec 6 to Apr 7, plus one game at Lee\u0027s Family Forum in Henderson on Apr 13."
+                   },
+        "date_hours":  {
+
+                       },
+        "booking":  "ticket",
+        "booking_url":  "https://www.thepwhl.com/en/teams/vegas-vanguards/tickets",
+        "phone":  null,
+        "website":  "https://www.thepwhl.com/en/teams/vegas-vanguards",
+        "source_urls":  [
+                            "https://www.thepwhl.com/en/teams/vegas-vanguards/schedule",
+                            "https://www.thepwhl.com/en/teams/vegas-vanguards/news/2026/september/28/pwhl-las-vegas-announce-historic-home-opener-december-6-at-t-mobile-arena"
+                        ],
+        "good_for":  [
+                         "friends",
+                         "date",
+                         "family"
+                     ],
+        "verified":  {
+                         "status":  "unverified",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://www.thepwhl.com/en/teams/vegas-vanguards/schedule"
+                     },
+        "hook":  "Vegas\u0027s brand-new pro women\u0027s hockey team drops the puck",
+        "description":  "The Vegas Vanguards are the city\u0027s new Professional Women\u0027s Hockey League team, and their first season starts in December at T-Mobile Arena, the same Strip arena the Golden Knights use. The first home game ever is Sunday Dec 6 at 5 pm against fellow new team the Detroit Clutch, followed by home games Dec 10, Dec 26 and Dec 29 before the season continues into spring. It is a fun, lower-key alternative to an NHL night and a chance to see a team from its very first game. Tickets are sold on the team\u0027s PWHL page.",
+        "highlights":  [
+                           "First home game Sun Dec 6, 5 pm",
+                           "More home games Dec 10, 26 and 29",
+                           "T-Mobile Arena on the Strip",
+                           "Inaugural PWHL season"
+                       ],
+        "age_note":  null,
+        "duration_minutes":  null,
+        "min_minutes":  null,
+        "address":  "T-Mobile Arena, 3780 S Las Vegas Blvd, Las Vegas, NV 89109",
+        "lat":  36.10866,
+        "lng":  -115.17307,
+        "sid":  736,
+        "photos":  [
+
+                   ]
+    },
+    {
+        "id":  "vegas-ev-now-you-see-me-live",
+        "city":  "vegas",
+        "name":  "Now You See Me Live at MGM Grand",
+        "kind":  "event",
+        "category":  "show-comedy-music",
+        "genre":  "shows-nights",
+        "tags":  [
+                     "magic",
+                     "show",
+                     "date",
+                     "friends",
+                     "evening",
+                     "strip"
+                 ],
+        "neighborhood":  "The Strip",
+        "indoor_outdoor":  "indoor",
+        "price_level":  null,
+        "price_from":  null,
+        "price_note":  "Ticket prices not posted on the show site; see the ticket page.",
+        "hours":  null,
+        "event_dates":  null,
+        "end_date_confirmed":  true,
+        "hours_note":  "Limited run through Jan 5, 2027. Show days and times change by date; pick a night on the ticket page.",
+        "closed_dates":  [
+
+                         ],
+        "season":  {
+                       "open_from":  "2026-11-25",
+                       "open_to":  "2027-01-05",
+                       "note":  "Playing now through January 5, 2027 (limited season)."
+                   },
+        "date_hours":  {
+                           "2026-11-26":  "unknown"
+                       },
+        "booking":  "ticket",
+        "booking_url":  "https://vegas.nowyouseemelive.com/",
+        "phone":  null,
+        "website":  "https://vegas.nowyouseemelive.com/",
+        "source_urls":  [
+                            "https://vegas.nowyouseemelive.com/",
+                            "https://nowyouseemelive.com/"
+                        ],
+        "good_for":  [
+                         "date",
+                         "friends",
+                         "family"
+                     ],
+        "verified":  {
+                         "status":  "unverified",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://vegas.nowyouseemelive.com/"
+                     },
+        "hook":  "The heist-magic movies turned into a live illusion show",
+        "description":  "This stage show is built on the Now You See Me heist-magic films: four real illusionists play The Horsemen and do big high-tech illusions, solo stunts and escapes in the MGM Grand Theater. The cast includes Italian escape artist Andrew Basso, South African magician Gabriella Lester, Enzo Weyne and Adam Trent, and it comes from the producers of The Illusionists. It runs about 2 hours with an intermission and is suitable for ages 5 and up, but expect strobe and laser lights, loud bangs, pyrotechnics, haze and even a live scorpion. It is a limited run that ends Jan 5, 2027.",
+        "highlights":  [
+                           "Limited run through Jan 5, 2027",
+                           "About 2 hours with an intermission",
+                           "Ages 5+",
+                           "Four illusionists as The Horsemen",
+                           "Strobes, pyro and a live scorpion"
+                       ],
+        "age_note":  "Ages 5+ (show site)",
+        "duration_minutes":  120,
+        "min_minutes":  120,
+        "address":  "MGM Grand Theater, MGM Grand, 3799 S Las Vegas Blvd, Las Vegas, NV 89109",
+        "lat":  36.102532,
+        "lng":  -115.170282,
+        "sid":  737,
+        "photos":  [
+
+                   ]
+    },
+    {
+        "id":  "vegas-ev-jabbawockeez-freqncy",
+        "city":  "vegas",
+        "name":  "Jabbawockeez: FREQNCY at MGM Grand",
+        "kind":  "place",
+        "category":  "show-comedy-music",
+        "genre":  "shows-nights",
+        "tags":  [
+                     "dance",
+                     "show",
+                     "date",
+                     "friends",
+                     "evening",
+                     "strip"
+                 ],
+        "neighborhood":  "The Strip",
+        "indoor_outdoor":  "indoor",
+        "price_level":  null,
+        "price_from":  null,
+        "price_note":  "Ticket prices not posted on the Jabbawockeez site; see the MGM Grand ticket page.",
+        "hours":  null,
+        "event_dates":  null,
+        "end_date_confirmed":  null,
+        "hours_note":  "Shows nightly. Show times change by date; pick a night on the MGM Grand ticket page.",
+        "closed_dates":  [
+
+                         ],
+        "season":  null,
+        "date_hours":  {
+                           "2026-11-26":  "unknown"
+                       },
+        "booking":  "ticket",
+        "booking_url":  "https://mgmgrand.mgmresorts.com/book-show/jabbawockeez/",
+        "phone":  null,
+        "website":  "https://www.jbwkz.com/pages/events",
+        "source_urls":  [
+                            "https://www.jbwkz.com/pages/events",
+                            "https://www.jbwkz.com/"
+                        ],
+        "good_for":  [
+                         "date",
+                         "friends",
+                         "family"
+                     ],
+        "verified":  {
+                         "status":  "unverified",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://www.jbwkz.com/pages/events"
+                     },
+        "hook":  "The masked dance crew\u0027s new Strip show",
+        "description":  "The Jabbawockeez, the masked dance crew, have a Las Vegas residency at MGM Grand, and FREQNCY is their current show there. Shows run nightly, and the crew also runs a Jabbawockeez merch shop (the Wockshop) inside MGM Grand, where you can pick up their signature masks and gloves. Show times, length, prices and age rules change by date and are on the MGM Grand ticket page, so check there before you go.",
+        "highlights":  [
+                           "Shows nightly",
+                           "Masked dance crew",
+                           "MGM Grand residency",
+                           "Wockshop merch store at MGM Grand"
+                       ],
+        "age_note":  null,
+        "duration_minutes":  null,
+        "min_minutes":  null,
+        "address":  "MGM Grand, 3799 S Las Vegas Blvd, Las Vegas, NV 89109",
+        "lat":  36.102532,
+        "lng":  -115.170282,
+        "sid":  738,
+        "photos":  [
+
+                   ]
+    },
+    {
+        "id":  "vegas-ov-beverly-theater",
+        "city":  "vegas",
+        "name":  "The Beverly Theater (indie film house)",
+        "kind":  "place",
+        "category":  "show-comedy-music",
+        "genre":  "shows-nights",
+        "tags":  [
+                     "film",
+                     "cinema",
+                     "live music",
+                     "books",
+                     "date",
+                     "downtown",
+                     "evening"
+                 ],
+        "neighborhood":  "Downtown",
+        "indoor_outdoor":  "indoor",
+        "price_level":  null,
+        "price_from":  null,
+        "price_note":  "Prices vary by event. The venue is cashless (cards and digital payment only).",
+        "hours":  null,
+        "event_dates":  null,
+        "end_date_confirmed":  null,
+        "hours_note":  "Open for scheduled screenings and shows; see the calendar. Box office: daily 3-9 pm on non-event days.",
+        "closed_dates":  [
+
+                         ],
+        "season":  null,
+        "date_hours":  {
+                           "2026-11-26":  "unknown"
+                       },
+        "booking":  "ticket",
+        "booking_url":  "https://www.thebeverlytheater.com/all-events",
+        "phone":  null,
+        "website":  "https://www.thebeverlytheater.com/",
+        "source_urls":  [
+                            "https://www.thebeverlytheater.com/",
+                            "https://www.thebeverlytheater.com/know-before-you-go",
+                            "https://www.thebeverlytheater.com/all-events"
+                        ],
+        "good_for":  [
+                         "date",
+                         "friends"
+                     ],
+        "verified":  {
+                         "status":  "unverified",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://www.thebeverlytheater.com/know-before-you-go"
+                     },
+        "hook":  "Vegas\u0027s only independent film house, for an art-house date",
+        "description":  "The Beverly Theater bills itself as Las Vegas\u0027s only independent film house and performance venue, a downtown theater run by The Rogers Foundation. Its calendar mixes indie films, revivals and film festivals with concerts, live shows and author and book events, so it is a good pick for a date night that is not a casino show. Check the calendar for what is playing, since everything is ticketed by event. The venue is cashless, and the box office is open daily 3-9 pm on days without events.",
+        "highlights":  [
+                           "Only independent film house in Vegas",
+                           "Films, live shows and book events",
+                           "Downtown, on 6th Street",
+                           "Cashless venue",
+                           "Box office daily 3-9 pm on non-event days"
+                       ],
+        "age_note":  null,
+        "duration_minutes":  150,
+        "min_minutes":  120,
+        "address":  "The Beverly Theater, 515 S 6th St, Las Vegas, NV 89101",
+        "lat":  36.163867048898,
+        "lng":  -115.14262509587,
+        "sid":  739,
+        "photos":  [
+
+                   ]
+    },
+    {
+        "id":  "vegas-ga-flight-club-venetian",
+        "city":  "vegas",
+        "name":  "Flight Club Social Darts (Grand Canal Shoppes)",
+        "kind":  "place",
+        "category":  "games-arcade",
+        "genre":  "play",
+        "tags":  [
+                     "darts",
+                     "bar",
+                     "date",
+                     "friends",
+                     "groups",
+                     "evening",
+                     "strip"
+                 ],
+        "neighborhood":  "Center Strip (The Venetian / Palazzo)",
+        "indoor_outdoor":  "indoor",
+        "price_level":  2,
+        "price_from":  20,
+        "price_note":  "From $20 per person for 90 minutes of darts; food and drinks extra.",
+        "hours":  {
+                      "mon":  [
+                                  [
+                                      "11:30",
+                                      "24:00"
+                                  ]
+                              ],
+                      "tue":  [
+                                  [
+                                      "11:30",
+                                      "24:00"
+                                  ]
+                              ],
+                      "wed":  [
+                                  [
+                                      "11:30",
+                                      "24:00"
+                                  ]
+                              ],
+                      "thu":  [
+                                  [
+                                      "11:30",
+                                      "24:00"
+                                  ]
+                              ],
+                      "fri":  [
+                                  [
+                                      "11:30",
+                                      "01:00"
+                                  ]
+                              ],
+                      "sat":  [
+                                  [
+                                      "11:00",
+                                      "01:00"
+                                  ]
+                              ],
+                      "sun":  [
+                                  [
+                                      "11:00",
+                                      "24:00"
+                                  ]
+                              ]
+                  },
+        "event_dates":  [
+
+                        ],
+        "end_date_confirmed":  null,
+        "hours_note":  "Closed on Thanksgiving (Thu Nov 26). Christmas Eve, Christmas and New Year\u0027s Eve hours not posted yet. 21+ after 5 pm.",
+        "closed_dates":  [
+                             "2026-11-26"
+                         ],
+        "season":  null,
+        "date_hours":  {
+                           "2026-12-24":  "unknown",
+                           "2026-12-25":  "unknown",
+                           "2026-12-31":  "unknown"
+                       },
+        "booking":  "reservations or walk-in",
+        "booking_url":  "https://www.flightclubdartsusa.com/las-vegas",
+        "phone":  "(702) 848-4188",
+        "website":  "https://www.flightclubdartsusa.com/las-vegas",
+        "source_urls":  [
+                            "https://www.flightclubdartsusa.com/las-vegas"
+                        ],
+        "good_for":  [
+                         "date",
+                         "friends",
+                         "groups"
+                     ],
+        "verified":  {
+                         "status":  "unverified",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://www.flightclubdartsusa.com/las-vegas"
+                     },
+        "hook":  "London\u0027s high-tech darts bar: auto-scoring games, cocktails, instant replays",
+        "description":  "Flight Club is the London-born social darts bar, and its Las Vegas branch sits upstairs in the Grand Canal Shoppes at the Palazzo end of The Venetian. You book a private oche (a little themed booth with its own board and screen), and cameras track every throw and keep score automatically, so nobody has to do math. Games are quick multiplayer formats with instant replays of the winning dart, which makes it easy even if you have never played. Darts start at $20 per person for 90 minutes, with craft cocktails and shareable food served at your booth. It is all ages in the daytime, but 21+ after 5 pm; kids under 12 cannot throw and teens need an adult. Park in the Palazzo garage and head to Level 2 above the Palazzo check-in desk, near SUSHISAMBA.",
+        "highlights":  [
+                           "Darts from $20 per person for 90 minutes",
+                           "Automatic scoring with cameras and replays",
+                           "Private themed booths with food and cocktails",
+                           "21+ after 5 pm",
+                           "Closed Thanksgiving Day"
+                       ],
+        "age_note":  "All ages before 5 pm; 21+ after 5 pm. Under 12 may not throw; ages 12-17 need an adult.",
+        "duration_minutes":  90,
+        "min_minutes":  90,
+        "address":  "Grand Canal Shoppes (Palazzo tower), 3327 S Las Vegas Blvd, Suite 2720, Las Vegas, NV 89109",
+        "lat":  36.123348911868,
+        "lng":  -115.1706497384,
+        "sid":  740,
+        "photos":  [
+                       {
+                           "file":  "photos/vegas-ga-flight-club-venetian-1.jpg",
+                           "credit":  "Flight Club Darts USA (official site)",
+                           "page_url":  "https://www.flightclubdartsusa.com/las-vegas"
+                       }
+                   ]
+    },
+    {
+        "id":  "vegas-ov-real-bodies-horseshoe",
+        "city":  "vegas",
+        "name":  "Real Bodies at Horseshoe Las Vegas",
+        "kind":  "place",
+        "category":  "unique-niche",
+        "genre":  "look-learn",
+        "tags":  [
+                     "museum",
+                     "science",
+                     "anatomy",
+                     "indoor",
+                     "date",
+                     "curious",
+                     "strip"
+                 ],
+        "neighborhood":  "Center Strip (Horseshoe, formerly Bally\u0027s)",
+        "indoor_outdoor":  "indoor",
+        "price_level":  null,
+        "price_from":  null,
+        "price_note":  "Ticket prices are not listed on the exhibit\u0027s own site; tickets are sold through Fever and at an on-site box office.",
+        "hours":  {
+                      "mon":  [
+                                  [
+                                      "11:00",
+                                      "19:30"
+                                  ]
+                              ],
+                      "tue":  [
+                                  [
+                                      "11:00",
+                                      "18:30"
+                                  ]
+                              ],
+                      "wed":  [
+                                  [
+                                      "11:00",
+                                      "18:30"
+                                  ]
+                              ],
+                      "thu":  [
+                                  [
+                                      "11:00",
+                                      "18:30"
+                                  ]
+                              ],
+                      "fri":  [
+                                  [
+                                      "11:00",
+                                      "19:30"
+                                  ]
+                              ],
+                      "sat":  [
+                                  [
+                                      "11:00",
+                                      "19:30"
+                                  ]
+                              ],
+                      "sun":  [
+                                  [
+                                      "11:00",
+                                      "19:30"
+                                  ]
+                              ]
+                  },
+        "event_dates":  [
+
+                        ],
+        "end_date_confirmed":  null,
+        "hours_note":  "Last entry 6:30 pm Fri-Mon and 5:30 pm Tue-Thu. Thanksgiving and Christmas hours not posted.",
+        "closed_dates":  [
+
+                         ],
+        "season":  null,
+        "date_hours":  {
+                           "2026-11-26":  "unknown",
+                           "2026-12-24":  "unknown",
+                           "2026-12-25":  "unknown"
+                       },
+        "booking":  "tickets online or walk-in",
+        "booking_url":  "https://realbodiesvegas.com/",
+        "phone":  null,
+        "website":  "https://realbodiesvegas.com/",
+        "source_urls":  [
+                            "https://realbodiesvegas.com/"
+                        ],
+        "good_for":  [
+                         "date",
+                         "friends",
+                         "solo"
+                     ],
+        "verified":  {
+                         "status":  "unverified",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://realbodiesvegas.com/"
+                     },
+        "hook":  "Real preserved human bodies, system by system, right on the Strip",
+        "description":  "Real Bodies is a long-running anatomy exhibition on the lower level of Horseshoe Las Vegas (the former Bally\u0027s). It shows more than 20 real, preserved human specimens and over 200 anatomical pieces across 11 galleries, starting with the history of anatomy and then walking through each body system (breathing, circulation, nerves and more) with bodies posed in motion. There is also a Love Room about the emotional side of the body. It is self-guided and takes most people 45-60 minutes; some tickets add a virtual reality segment, and drink tickets can be used at the Cabinet of Curiosities bar nearby. All ages are allowed, but it is real human remains, so it is better for curious adults and older kids. Park in the shared Horseshoe and Paris garage.",
+        "highlights":  [
+                           "20+ real preserved human specimens",
+                           "11 galleries, about 45-60 minutes",
+                           "Optional VR on some tickets",
+                           "Open daily from 11 am",
+                           "All ages (real human remains)"
+                       ],
+        "age_note":  "All ages allowed (exhibit site); contains real human remains.",
+        "duration_minutes":  60,
+        "min_minutes":  30,
+        "address":  "Horseshoe Las Vegas, Lower Level, Suite A1-A3, 3645 Las Vegas Blvd S, Las Vegas, NV 89109",
+        "lat":  36.1128327823,
+        "lng":  -115.172843773626,
+        "sid":  741,
+        "photos":  [
+
+                   ]
+    },
+    {
+        "id":  "vegas-dh-hello-kitty-cafe-forum-shops",
+        "city":  "vegas",
+        "name":  "Hello Kitty Cafe \u0026 Bow Room afternoon tea (Forum Shops)",
+        "kind":  "place",
+        "category":  "food-drink-experience",
+        "genre":  "eat-drink",
+        "tags":  [
+                     "afternoon tea",
+                     "themed cafe",
+                     "dessert",
+                     "date",
+                     "friends",
+                     "strip"
+                 ],
+        "neighborhood":  "Center Strip (Forum Shops at Caesars Palace)",
+        "indoor_outdoor":  "indoor",
+        "price_level":  null,
+        "price_from":  null,
+        "price_note":  "Afternoon tea price not posted on Sanrio\u0027s cafe page; see the reservation link.",
+        "hours":  {
+                      "mon":  [
+                                  [
+                                      "09:00",
+                                      "21:00"
+                                  ]
+                              ],
+                      "tue":  [
+                                  [
+                                      "09:00",
+                                      "21:00"
+                                  ]
+                              ],
+                      "wed":  [
+                                  [
+                                      "09:00",
+                                      "21:00"
+                                  ]
+                              ],
+                      "thu":  [
+                                  [
+                                      "09:00",
+                                      "21:00"
+                                  ]
+                              ],
+                      "fri":  [
+                                  [
+                                      "09:00",
+                                      "22:00"
+                                  ]
+                              ],
+                      "sat":  [
+                                  [
+                                      "09:00",
+                                      "22:00"
+                                  ]
+                              ],
+                      "sun":  [
+                                  [
+                                      "09:00",
+                                      "21:00"
+                                  ]
+                              ]
+                  },
+        "event_dates":  [
+
+                        ],
+        "end_date_confirmed":  null,
+        "hours_note":  "Cafe hours. Bow Room afternoon tea is by reservation. Thanksgiving and Christmas hours not posted.",
+        "closed_dates":  [
+
+                         ],
+        "season":  null,
+        "date_hours":  {
+                           "2026-11-26":  "unknown",
+                           "2026-12-24":  "unknown",
+                           "2026-12-25":  "unknown"
+                       },
+        "booking":  "required",
+        "booking_url":  "https://www.exploretock.com/hello-kitty-cafe-las-vegas",
+        "phone":  null,
+        "website":  "https://www.sanrio.com/blogs/hellokittycafe/hello-kitty-cafe-las-vegas-at-the-forum-shops-at-caesars-palace",
+        "source_urls":  [
+                            "https://www.sanrio.com/blogs/hellokittycafe/hello-kitty-cafe-las-vegas-at-the-forum-shops-at-caesars-palace"
+                        ],
+        "good_for":  [
+                         "date",
+                         "friends"
+                     ],
+        "verified":  {
+                         "status":  "unverified",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://www.sanrio.com/blogs/hellokittycafe/hello-kitty-cafe-las-vegas-at-the-forum-shops-at-caesars-palace"
+                     },
+        "hook":  "Pink Hello Kitty afternoon tea in the Bow Room at the Forum Shops",
+        "description":  "Sanrio\u0027s newest Las Vegas Hello Kitty Cafe is on the second floor of the Forum Shops at Caesars Palace, next to the famous spiral escalators. The front cafe sells Hello Kitty baked treats, sweets and specialty drinks, plus merchandise you can only buy at this location. The real draw is the Bow Room, a sit-down space with an afternoon tea service, a small savory menu and drinks that are served only there; it is by reservation. The cafe opens at 9 am every day and stays open until 9 pm, or 10 pm on Fridays and Saturdays. It makes a cute, low-key stop between Strip shopping and a show.",
+        "highlights":  [
+                           "Bow Room afternoon tea by reservation",
+                           "Location-only merchandise",
+                           "Open daily from 9 am",
+                           "Forum Shops, Level 2 by the spiral escalators"
+                       ],
+        "age_note":  null,
+        "duration_minutes":  90,
+        "min_minutes":  20,
+        "address":  "The Forum Shops at Caesars Palace, Level 2, 3500 Las Vegas Blvd S, Las Vegas, NV 89109",
+        "lat":  36.120441883779,
+        "lng":  -115.172376183603,
+        "sid":  742,
+        "photos":  [
+
+                   ]
+    },
+    {
+        "id":  "vegas-ev-ski-lodge-rouge-room",
+        "city":  "vegas",
+        "name":  "Ski Lodge at Rouge Room (Red Rock Casino)",
+        "kind":  "event",
+        "category":  "seasonal",
+        "genre":  "shows-nights",
+        "tags":  [
+                     "holiday",
+                     "pop-up bar",
+                     "dj",
+                     "apres-ski",
+                     "21+",
+                     "date",
+                     "friends",
+                     "summerlin",
+                     "free"
+                 ],
+        "neighborhood":  "Summerlin (Red Rock Casino)",
+        "indoor_outdoor":  "both",
+        "price_level":  0,
+        "price_from":  0,
+        "price_note":  "Saturday DJ nights are free with an RSVP; drinks extra. Lounge seating can be reserved.",
+        "hours":  null,
+        "event_dates":  [
+                            {
+                                "start":  "2026-11-28T17:00"
+                            },
+                            {
+                                "start":  "2026-12-05T17:00"
+                            },
+                            {
+                                "start":  "2026-12-12T17:00"
+                            },
+                            {
+                                "start":  "2026-12-19T17:00"
+                            }
+                        ],
+        "end_date_confirmed":  false,
+        "hours_note":  "Saturday DJ nights: doors 5 pm, music outside from 7 pm, then indoors late. Lodge seating can also be booked Thursday to Saturday (Sundays from Nov 29). Nights after Dec 19 not announced.",
+        "closed_dates":  [
+
+                         ],
+        "season":  null,
+        "date_hours":  {
+
+                       },
+        "booking":  "reservations or walk-in",
+        "booking_url":  "https://rougeroomlv.getbento.com/Winter-Ski-Lodge/",
+        "phone":  "(702) 489-2129",
+        "website":  "https://rougeroomlv.getbento.com/Winter-Ski-Lodge/",
+        "source_urls":  [
+                            "https://rougeroomlv.getbento.com/Winter-Ski-Lodge/",
+                            "https://rougeroomlv.getbento.com/location/rougeroom/"
+                        ],
+        "good_for":  [
+                         "date",
+                         "friends"
+                     ],
+        "verified":  {
+                         "status":  "unverified",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://rougeroomlv.getbento.com/Winter-Ski-Lodge/"
+                     },
+        "hook":  "Free apres-ski DJ nights with fire pits and a Ski Bar in Summerlin",
+        "description":  "For the winter, Rouge Room, the cocktail lounge inside Red Rock Casino in Summerlin, turns into an indoor-outdoor ski lodge: snow-covered trees, glowing lights, fireside lounges, fire pits, alpine decor and a Ski Bar pouring festive cocktails. The big nights are Saturdays, when touring DJs play two stages, starting outside on the patio at 7 pm and moving indoors late into the night; doors open at 5 pm. Coming up: J Worra (Nov 28), a Chromeo DJ set (Dec 5), Autograf (Dec 12) and a special guest (Dec 19). Entry is free with an RSVP, and you can reserve your own lodge-style seating Thursday to Saturday (and Sundays from Nov 29). Rouge Room is 21+.",
+        "highlights":  [
+                           "Free Saturday DJ nights with RSVP",
+                           "Fire pits, fireside lounges and a Ski Bar",
+                           "Chromeo DJ set Sat Dec 5",
+                           "Reservable lodge seating Thu-Sun",
+                           "21+"
+                       ],
+        "age_note":  "21+ (Rouge Room page)",
+        "duration_minutes":  180,
+        "min_minutes":  60,
+        "address":  "Rouge Room, Red Rock Casino Resort \u0026 Spa, 11011 W Charleston Blvd, Las Vegas, NV 89135",
+        "lat":  36.158762248322,
+        "lng":  -115.333852044948,
+        "sid":  743,
         "photos":  [
 
                    ]
