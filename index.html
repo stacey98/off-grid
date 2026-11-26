@@ -536,6 +536,25 @@ svg.i{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-widt
 .minimap svg{width:100%;height:100%;display:block}
 .minimap .pt{stroke:var(--paper);stroke-width:2px}
 .minimap .walk{fill:none;stroke:var(--ink);stroke-width:2px;stroke-dasharray:1 5;stroke-linecap:round}
+.minimap.mm-grid{--mmg:var(--rule)}
+@supports (color:color-mix(in srgb,red 50%,blue)){.minimap.mm-grid{--mmg:color-mix(in srgb,var(--ink) 15%,transparent)}}
+.minimap.mm-grid{background-color:var(--land-0,#EEF0F2);background-image:linear-gradient(var(--mmg) 1px,transparent 1px),linear-gradient(90deg,var(--mmg) 1px,transparent 1px),linear-gradient(var(--mmg) 2px,transparent 2px),linear-gradient(90deg,var(--mmg) 2px,transparent 2px);background-size:24px 24px,24px 24px,120px 120px,120px 120px;background-position:-1px -1px}
+.minimap.mm-grid .mm-start{fill:var(--ink)!important}
+.minimap.mm-grid .suburb,.minimap.mm-grid path[class^="t"]{display:none}
+.minimap .mm-gl{position:absolute;inset:0;opacity:0;transition:opacity .25s}
+.minimap.mm-on .mm-gl{opacity:1}
+.minimap.mm-on>svg{visibility:hidden}
+.minimap .mm-note{position:absolute;left:10px;bottom:8px;margin:0;padding:3px 8px;border-radius:8px;background:var(--paper);color:var(--ink-2);font:600 calc(12px*var(--ts,1)) var(--f-body)}
+.mm-mk{position:relative;width:0;height:0}
+.mm-mk i{position:absolute;left:-6px;top:-6px;width:12px;height:12px;border-radius:50%;background:var(--c);border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.35)}
+.mm-mk.mm-you i{left:-5px;top:-5px;width:10px;height:10px}
+.mm-mk span{position:absolute;top:-22px;white-space:nowrap;font:700 calc(11.5px*var(--ts,1)) var(--f-body);color:var(--ink);text-shadow:0 0 3px var(--paper),0 0 3px var(--paper),0 0 2px var(--paper)}
+.mm-mk span.r{left:10px}
+.mm-mk span.l{right:10px}
+.mm-mk span.c{left:0;transform:translateX(-50%)}
+.mm-mk span.c.b{top:9px}
+.minimap .maplibregl-ctrl-attrib{font-size:9px}
+.dt-usemine{margin-left:4px;font-size:inherit}
 .mm-label{font-family:var(--f-body);font-weight:700;fill:var(--ink);paint-order:stroke;stroke:var(--land-0);stroke-linejoin:round}
 .getting{margin-top:10px;display:grid;gap:6px;font:500 calc(14px*var(--ts,1))/1.4 var(--f-body);color:var(--ink-2)}
 .getting b{color:var(--ink)}
@@ -2311,7 +2330,7 @@ html[data-ts="xl"]{--ts:1.3}
 'use strict';
 
 var APP_NAME = 'Off-Grid';  // THE app name: page title, wordmark, About and the share text all read this one constant. The owner picked "Off-Grid" as the working name (2026-11-13).
-var VERSION = 'v5.39 (2026-11-25)';   // v5.39: Home's list shows every open place (count = rows, Show all N) + Not open / the whole city; Blend card off Home; one Only-in switch; no preview banner; V537B3-R2 pick order.   // v5.37-b4: translation leftovers (ru / zh / ko: When sheet, banners, status bits, prices, stations, friend profile, username lines), city wording (search examples, About per city and per copy, phone location-blocked line), a Why? line under hours not confirmed / sources disagree / call first, Access line + Step-free chip, text size (Normal / Large / Larger), 44 px tap targets, map fits a city's places. v5.37-b3: picks (no place inside another, start area first, no unsure-end or card-game top pick, ideas follow their own times), walk time first under 1 mi + nearest CTA stop, quick time chips + city time label + 60 days ahead, real prices on every card, deal chips only on the chosen day + residents, counts match lists, past dates never listed. v5.37-b2: filters (Walk about 20 min, travel both ways in Time I have, Free chip + price by amount + $$$$, kids age bands, No 21+ via adults_only, no 0-result chips, Closest first in lists). v5.37-b1: nothing pops up on first open (sign-in at the first save, taste test = Home card only), language button on the first screen, search by whole words / word starts + synonyms + notes, results open-then-closest, one-tap neighborhood start, 320 px suggestions in view.   // v5.36: Las Vegas city (slug vegas, America/Los_Angeles), hidden while the file has 0 Vegas items. v5.35: shared trips with an invite link (#t_<token>, supabase/trips.sql). v5.34: the picked half of a would-you-rather counts as a liked place for "Save all"
+var VERSION = 'v5.40 (2026-11-25)';   // v5.40: street mini-map in Getting there (grid + 'Map didn't load' on failure), walk first under 1 mi (same number as the card), translated names on map labels, holiday 'times not posted' row in ru/zh/ko, 'from the start point' + Use my location.   // v5.39: Home's list shows every open place (count = rows, Show all N) + Not open / the whole city; Blend card off Home; one Only-in switch; no preview banner; V537B3-R2 pick order.   // v5.37-b4: translation leftovers (ru / zh / ko: When sheet, banners, status bits, prices, stations, friend profile, username lines), city wording (search examples, About per city and per copy, phone location-blocked line), a Why? line under hours not confirmed / sources disagree / call first, Access line + Step-free chip, text size (Normal / Large / Larger), 44 px tap targets, map fits a city's places. v5.37-b3: picks (no place inside another, start area first, no unsure-end or card-game top pick, ideas follow their own times), walk time first under 1 mi + nearest CTA stop, quick time chips + city time label + 60 days ahead, real prices on every card, deal chips only on the chosen day + residents, counts match lists, past dates never listed. v5.37-b2: filters (Walk about 20 min, travel both ways in Time I have, Free chip + price by amount + $$$$, kids age bands, No 21+ via adults_only, no 0-result chips, Closest first in lists). v5.37-b1: nothing pops up on first open (sign-in at the first save, taste test = Home card only), language button on the first screen, search by whole words / word starts + synonyms + notes, results open-then-closest, one-tap neighborhood start, 320 px suggestions in view.   // v5.36: Las Vegas city (slug vegas, America/Los_Angeles), hidden while the file has 0 Vegas items. v5.35: shared trips with an invite link (#t_<token>, supabase/trips.sql). v5.34: the picked half of a would-you-rather counts as a liked place for "Save all"
 // v5.33:   // v5.33: party sizes 1 / 2 / 3-8 / 9+ (old 3-4 / 5-8 read as 3-8); "Save all" the places liked in the test (Result, taste profile, one-time pop-up for earlier tests)
 // v5.32 history:   // v5.32: Retake fix - the taste deck is built from Chicago's places wherever the app's city is (in Oahu it ran out after 1 card), a slot that can't be filled never ends the deck, and a Retake keeps the previous result until the new 35 answers are in. v5.31: the About panel and the Surprise panel in ru / zh-Hans / ko (A31 string table, unverified). v5.30: the rest of the text in ru / zh-Hans / ko (phrase table for the location sheet, friends, privacy, poll, Group Blend, taste result, pop-ups, toasts), rarer leave-now sentences, photo credit words, ko times from Intl, the trip page redrawn on a language switch, the action row at 320 px, stricter food answers. v5.29: Ask about this place (answers only from the item's data), group size + occasion filters, trip party size. v5.28: the app text in ru / zh-Hans / ko (dates and times via Intl, ~230 new keys, data + guide translation plumbing)
 //   // v5.27: Generate my itinerary on the trip page (day-by-day plan from the shortlist + group picks: home base start/end, area clusters, hours/events/sunset, either/or, didn't fit, editable, saved with the trip on this device). v5.26: trip mode lite (on this phone only: city + dates + optional group, a home base that every distance starts from while trip mode is on, a shortlist with a status per trip day, vote link with places only, og.trips.v1 max 5). v5.25: Group Blend v1 (2-5 friends, on this phone only: poster + group match, picks tagged "4 of 5", vote link with places only, saved groups og.groups.v1). v5.24: multi-city (Chicago + Oʻahu): city picker, per-city data, map bounds, spots, travel and badges; open-now in the item's city time zone. v5.23: the rest ofthe UI words in ru / zh-Hans / ko (unverified), Visiting Chicago from the data field us_cities (< 3 US cities; visit_override). v5.22: Google rating line on place pages (edge function, page memory only), holiday status from fields only, more UI words in ru / zh-Hans / ko, Visiting Chicago without chains. v5.21: languages (ru / zh-Hans / ko, picker, per-field English fallback), Only in Chicago badge, Visiting Chicago filter, tester fixes. v5.20: weather (Open-Meteo chip + sheet, weather-aware re-ranking, idea lines, rain/snow on the map). v5.19: Blend with a friend (match %, both characters, tagged picks, share card), friends' stars + one-line reviews. v5.18: guides as articles, been date month/none, friend profile
@@ -5092,6 +5111,13 @@ var STR28 = {
   'dt.travelL':['About {t}.', 'Примерно {t}.', '约 {t}。', '약 {t}.'], 'dt.rough':['Rough estimate, not a route.', 'Это примерная оценка, а не маршрут.', '粗略估算，并非路线。', '대략적인 추정이며 경로가 아니에요.'],
   'dt.ctaPast':['We don’t estimate CTA past {n} miles, so this is a drive time: check Metra, or drive.', 'Для CTA дальше {n} миль мы не считаем, поэтому это время на машине: посмотрите Metra или езжайте на машине.', 'CTA 超过 {n} 英里我们不做估算，所以这是开车时间：可查看 Metra 或开车。', 'CTA는 {n}마일 넘게는 추정하지 않아서 이건 차로 가는 시간이에요. Metra를 확인하거나 차로 가세요.'],
   'dt.website':['Website', 'Сайт', '官网', '웹사이트'], 'dt.copy':['Copy', 'Копировать', '复制', '복사'], 'dt.pin':['Your pin', 'Ваша метка', '你的定位点', '내 위치'],
+  'dt.hrsUnk':['Special hours, times not posted: call first', 'Особые часы, время не указано: позвоните заранее', '特殊营业时间，未公布具体时间：请先致电', '특별 영업시간, 시간 미공개: 먼저 전화하세요'],   // v5.40
+  'dt.fromArea':['from the start point “{x}”.', 'от точки «{x}».', '从起点“{x}”算起。', '출발점 “{x}” 기준.'], 'dt.useMine':['Use my location', 'Считать от меня', '用我的位置', '내 위치로 계산'],
+  'dt.or':[' or ', ' или ', '，或 ', ' 또는 '], 'dt.mmFail':['Map didn’t load.', 'Карта не загрузилась.', '地图没有加载出来。', '지도를 불러오지 못했어요.'], 'dt.finding':['Finding you...', 'Ищем вас...', '正在定位...', '위치 찾는 중...'],
+  'ld.load':['Loading {c}...', 'Загружаем: {c}…', '正在加载{c}…', '{c} 불러오는 중…'], 'ld.slow':['Slow connection, still loading...', 'Медленное соединение, всё ещё загружаем…', '网络较慢，仍在加载…', '연결이 느려요. 아직 불러오는 중…'],
+  'ld.retry':['Try again', 'Повторить', '重试', '다시 시도'], 'ld.failT':['Couldn\'t load the list.', 'Не удалось загрузить список.', '无法加载列表。', '목록을 불러오지 못했어요.'],
+  'ld.failSlow':['The connection is too slow or offline. Your saved things are still here.', 'Соединение слишком медленное или его нет. Сохранённое никуда не делось.', '网络太慢或已断开。你保存的内容都还在。', '연결이 너무 느리거나 끊겼어요. 저장한 항목은 그대로 있어요.'],
+  'ld.saved':['Your saved things are still here.', 'Сохранённое никуда не делось.', '你保存的内容都还在。', '저장한 항목은 그대로 있어요.'],
   'dt.hoursChecked':['Hours checked {d}', 'Часы проверены {d}', '营业时间已于 {d} 核实', '영업시간 확인: {d}'], 'dt.checked':['Checked {d}', 'Проверено {d}', '已于 {d} 核实', '확인: {d}'],
   'dt.onSrc':[' on {s}.', ' на {s}.', '，来源：{s}。', ', 출처: {s}.'], 'dt.source':['Source:', 'Источник:', '来源：', '출처:'], 'dt.srcLink':['source', 'источник', '来源', '출처'],
   'dt.season':['Season: {a} – {b}', 'Сезон: {a} – {b}', '季节：{a} – {b}', '시즌: {a} – {b}'], 'dt.sStart0':['start not stated', 'начало не указано', '开始日期未说明', '시작일 미정'], 'dt.sEnd0':['end not stated', 'конец не указан', '结束日期未说明', '종료일 미정'],
@@ -5586,7 +5612,7 @@ function relang30(){ // setLang with a panel open: rebuild it in the new languag
   go('pTrip', function(){ renderTrip(); }); go('pGroup', function(){ renderGroup(); }); go('pFriends', function(){ renderFriends(); }); go('pFriend', function(){ renderFriend(); });
   go('pPrivacy', function(){ renderPrivacy(); }); go('pPoll', function(){ renderPoll(); }); go('pAbout', function(){ renderAbout(); }); go('pSaved', function(){ renderSaved(); });
   go('taste', function(){ tasteRender(); }); go('pSurprise', function(){ renderSurprise(); });   // v5.31: + Surprise
-  if (open('pLoc') && UI.cand) { try { $('locGo').textContent = 'Start at ' + UI.cand.label; did.push('pLoc'); } catch (e) {} }
+  if (open('pLoc') && UI.cand) { try { $('locGo').textContent = 'Start at ' + areaNameL(UI.cand.label); did.push('pLoc'); } catch (e) {} }
   loc30All(); aria30(document.body);   // v5.38 fix pass: labels back to English too when she switches back
   return did;
 }
@@ -5767,9 +5793,36 @@ function swWordL(k){ return tx('sw.' + k, SW_WORD[k]); }
 function stars28(n){ return tx(n === 1 ? 'bb.star1' : 'bb.stars', n + (n === 1 ? ' star' : ' stars'), {n:n}); }
 function deckHookL(it){ if (LANG !== 'en') { var r = hookL(it); if (r.lang !== 'en' && r.v) return r.v; } return deckHook(it); }   // v5.28 (audit 9): the deck card shows the translated hook
 function getting28(c){ // v5.28: the "Getting there" lines in the picked language (the English lines stay as they were)
-  var t = c.trav || {}, how = t.how === 'walk' ? 'walk' : t.how === 'CTA' ? 'by CTA' : driveWord();
-  return '<span><b>' + esc(tx('dt.crowB', '{d} as the crow flies', {d:fmtMi(c.dist)})) + '</b> ' + esc(S.loc ? tx('dt.fromPinX', 'from your pin ({x}).', {x:locWordsNow()}) : tx('dt.fromPin0', 'from your pin.')) + '</span><span>' +
-    esc((t.how && t.how !== 'unknown' ? tx('dt.travelL', 'About {t}.', {t:trStatus(t.min + ' min ' + how)}) : tx('tt.unknown', 'travel time unknown') + '.') + ' ' + (t.switched ? tx('dt.ctaPast', '', {n:CTA_MAX_MI}) + ' ' : '') + tx('dt.rough', 'Rough estimate, not a route.')) + '</span>';
+  var t = c.trav || {}, how = t.how === 'walk' ? 'walk' : t.how === 'CTA' ? 'by CTA' : driveWord(), wf = walkFirstParts(c);
+  return '<span><b>' + esc(tx('dt.crowB', '{d} as the crow flies', {d:fmtMi(c.dist)})) + '</b> ' + esc(fromStartText()) + useMineHTML() + '</span><span>' +
+    esc((wf ? tx('dt.travelL', 'About {t}.', {t:wf.map(function(s){ return trStatus(s); }).join(tx('dt.or', ' or '))}) : t.how && t.how !== 'unknown' ? tx('dt.travelL', 'About {t}.', {t:trStatus(t.min + ' min ' + how)}) : tx('tt.unknown', 'travel time unknown') + '.') + ' ' + (t.switched && !wf ? tx('dt.ctaPast', '', {n:CTA_MAX_MI}) + ' ' : '') + tx('dt.rough', 'Rough estimate, not a route.')) + '</span>';
+}
+/* v5.40 (her iPhone screenshot, Vegas, ru): under WALK_FIRST_MI the detail leads with the walk time, the same number as the card
+   (walkMinOf: straight line x 1.3 at 20 min/mi); a different mode (drive / CTA) follows as the second time. null = not walk-first. */
+function walkFirstParts(c){
+  if (!c || c.citywide || !isNum(c.dist) || c.dist >= WALK_FIRST_MI) return null;
+  var t = c.trav || {}, out = [walkMinOf(c.dist) + ' min walk'];
+  if (t.how && t.how !== 'unknown' && t.how !== 'walk' && isNum(t.min)) out.push(t.min + ' min ' + (t.how === 'CTA' ? 'by CTA' : driveWord()));
+  return out;
+}
+function startIsArea(loc){ return !!(loc && loc.src !== 'gps'); }   // a picked area / spot / typed address, not her phone's reading
+function fromStartText(){ // "from your pin (Lincoln Park)." for a GPS reading; "from the start point "The Strip"." when the start is a picked area
+  if (!S.loc) return tx('dt.fromPin0', 'from your pin.');
+  if (startIsArea(S.loc)) return tx('dt.fromArea', 'from the start point “{x}”.', {x:areaNameL(locWordsNow())});
+  return tx('dt.fromPinX', 'from your pin ({x}).', {x:locWordsNow()});
+}
+function useMineHTML(){ // the small "Use my location" link under the distance, only when the start is an area and the phone can give a location
+  if (!startIsArea(S.loc) || Platform.onClaude || !navigator.geolocation || UI.geoState === 'none') return '';
+  return ' <button class="linkbtn dt-usemine" type="button" data-dtgps="1">' + esc(tx('dt.useMine', 'Use my location')) + '</button>';
+}
+function dtUseMine(btn){ // the same request as the main "Use my location" button; the page re-renders itself when the reading arrives
+  if (btn) { btn.disabled = true; btn.textContent = tx('dt.finding', 'Finding you...'); }
+  locateMe();
+  var n = 0, iv = setInterval(function(){
+    if (geoBusy && ++n < 80) return;
+    clearInterval(iv);
+    if (!S.loc || S.loc.src !== 'gps') { var ln = $('locNote'); toast(ln && ln.textContent ? ln.textContent : 'Couldn’t find you. Try again.'); var b2 = document.querySelector('[data-dtgps]'); if (b2) { b2.disabled = false; b2.textContent = tx('dt.useMine', 'Use my location'); } }
+  }, 500);
 }
 function ohReason28(it, o){ var rl = placeText(it, 'only_here.reason'), rv = rl.lang !== 'en' && rl.v ? rl.v : o.reason; return '<span' + (LANG === 'en' ? '' : ' lang="' + (rv === o.reason ? 'en' : LANG) + '"') + '>' + esc(rv) + (o.src ? ' <a href="' + esc(o.src) + '" target="_blank" rel="noopener">' + esc(tx('dt.srcLink', 'source')) + '</a>' : ''); }
 function leave28(c){ // v5.28: the most common "if you leave now" sentences in the picked language; null = use the older lines
@@ -5899,6 +5952,13 @@ var STR38 = {
 };
 (function(){ for (var k in STR38) if (Object.prototype.hasOwnProperty.call(STR38, k) && !STR[k]) STR[k] = STR38[k]; })();
 // city names in the picked language (the English name stays the data's)
+// v5.40 (her screenshot: the first screen showed "Chicago / Oʻahu / Las Vegas" and English area chips in Russian): the quick-pick area names in ru / zh-Hans / ko (developer's transliterations, unverified). Display only: the saved label and data-pick stay English.
+var AREA_NAME_L = {'River North':['Ривер-Норт', '河北区', '리버 노스'], 'The Loop':['Луп', '卢普区', '더 루프'], 'West Loop':['Вест-Луп', '西卢普', '웨스트 루프'], 'Wicker Park':['Уикер-Парк', '威克公园', '위커 파크'],
+  'Lakeview':['Лейквью', '湖景区', '레이크뷰'], 'Hyde Park':['Гайд-Парк', '海德公园', '하이드 파크'], 'Waikīkī':['Вайкики', '威基基', '와이키키'], 'Ala Moana':['Ала-Моана', '阿拉莫阿纳', '알라 모아나'],
+  'Downtown Honolulu':['Центр Гонолулу', '檀香山市中心', '호놀룰루 다운타운'], 'Kailua':['Каилуа', '凯卢阿', '카일루아'], 'Haleʻiwa':['Халеива', '哈雷伊瓦', '할레이바'], 'Ko Olina':['Ко-Олина', '科奥利纳', '코 올리나'],
+  'The Strip':['Стрип', '拉斯维加斯大道', '스트립'], 'Fremont Street':['Фримонт-стрит', '弗里蒙特街', '프리몬트 스트리트'], 'Arts District':['Арт-квартал', '艺术区', '아츠 디스트릭트'], 'Chinatown':['Чайнатаун', '唐人街', '차이나타운'],
+  'Henderson':['Хендерсон', '亨德森', '헨더슨'], 'Summerlin':['Саммерлин', '萨默林', '서머린']};
+function areaNameL(n, lang){ var l = isLang(lang) ? lang : LANG, r = AREA_NAME_L[String(n || '')]; return l === 'en' || !r ? String(n || '') : r[(LANG_IX[l] || 1) - 1] || String(n); }
 var CITY_NAME_L = {chicago:['Chicago', 'Чикаго', '芝加哥', '시카고'], vegas:['Las Vegas', 'Лас-Вегас', '拉斯维加斯', '라스베이거스'], oahu:['Oʻahu', 'Оаху', '瓦胡岛', '오아후']};
 function cityNameL(slug, lang){ var l = isLang(lang) ? lang : LANG, s = slug || (CITY && CITY.slug) || 'chicago', r = CITY_NAME_L[s]; return r ? r[LANG_IX[l]] || r[0] : (CITY && CITY.name) || 'Chicago'; }
 // v5.37-b4: status / price / station / residents words that B1-B3 added (checked by trStatus before its older rules)
@@ -6114,6 +6174,7 @@ function setLang(code, keep){ // keep = this visit only (test hooks)
   refresh();
   try { relang30(); loc30Watch(); } catch (e) {}   // v5.30: open panels (the trip page too) redrawn in the new language
   try { locLangLabel(); } catch (e) {}   // v5.37-b1: the language button on the first screen
+  try { applyCityUI(); } catch (e) {}   // v5.40: the city chips, the city button and the area chips in the new language
   return l;
 }
 function langPickerHTML(){ // English first, always; native names
@@ -7865,7 +7926,7 @@ function pinHTML(e, u){
     label = '<span class="mk-label"><b>' + esc(nameL(it)) + '</b> \u00b7 <span class="' + (st.open ? 'o' : '') + '">' + esc(short) + '</span></span>';
   }
   var aria = LANG === 'en' ? it.name + ', ' + genreName(g) + ', ' + c.d.text + (o.tk ? ', limited time' : '') + (c.dist !== null ? ', ' + travelText(c.trav) : '')
-    : it.name + ', ' + genreNameL(g) + ', ' + trStatus(c.d.text) + (o.tk ? ', ' + i18t('dt.limitedTime') : '') + (c.dist !== null && travelShort(c) ? ', ' + trStatus(travelShort(c)) : '');   // v5.23 (tester v5.22 L3)
+    : nameL(it) + ', ' + genreNameL(g) + ', ' + trStatus(c.d.text) + (o.tk ? ', ' + i18t('dt.limitedTime') : '') + (c.dist !== null && travelShort(c) ? ', ' + trStatus(travelShort(c)) : '');   // v5.23 (tester v5.22 L3)
   return '<button class="' + pinClass(c, o) + '" type="button" style="--c:' + genreColor(g) + '" data-id="' + esc(it.id) + '" data-ux="' + r1(u[0]) + '" data-uy="' + r1(u[1]) + '" aria-label="' + esc(aria) + '">' + label +
     '<span class="mk-body">' + kindSvg(g) + (o.tk ? TICKET_SVG : '') + '</span></button>';
 }
@@ -7947,7 +8008,7 @@ function onPinActivate(el){
   }
   var id = el.getAttribute('data-id');
   if (!id) return;
-  if (UI.picking) { var it0 = findItem(id); if (it0) setCandidate(it0.lat, it0.lng, it0.name, 'map'); return; }
+  if (UI.picking) { var it0 = findItem(id); if (it0) setCandidate(it0.lat, it0.lng, nameL(it0), 'map'); return; }
   if (UI.sel === id || isWide()) { UI.sel = id; recluster(); openDetail(id); return; }
   UI.sel = id; recluster();
   renderMapCard();   // v4: the first tap shows the place's card at the bottom of the map; tapping the card (or the pin again) opens it
@@ -7972,7 +8033,7 @@ function renderMapCard(){
   var g = genreOf(c.item);
   el.style.setProperty('--c', genreColor(g));
   el.setAttribute('data-id', c.item.id);
-  el.setAttribute('aria-label', c.item.name + '. ' + factsLine(c) + '. Open');
+  el.setAttribute('aria-label', nameL(c.item) + '. ' + factsLine(c) + '. Open');   // v5.40: nameL
   el.innerHTML = thumbHTML(c, {}) + '<span><b>' + esc(nameL(c.item)) + '</b><span>' + esc(factsLine(c)) + '</span></span>' + glyphSvg('i-right');
   el.hidden = false;
   wireImages(el);
@@ -8546,7 +8607,7 @@ function bandsHTML(p, full){ // v5.37-b4: the list's top bands (map failed, holi
 }
 function renderList(res, vm, more){
   if (!DATA_LOADED) {
-    listRoot.innerHTML = DATA_ERR ? '<div class="empty"><h3>Couldn\'t load the list.</h3><p>Your saved things are still here. ' + esc(DATA_ERR) + '</p><button class="mini-btn" type="button" data-act="retry">Try again</button></div>' : '<p class="loading">Loading Chicago...</p>';
+    listRoot.innerHTML = dataWaitHTML();
     return;
   }
   var p = res.p, h = '';
@@ -9149,7 +9210,7 @@ function renderHome(res, vm, picks){
   h += '<div class="hm-brandrow">' + brandHTML(24, 16) + homeIconsHTML(Acct.state, acctName(), Acct.user, acctType()) + '</div>';
   h += tripBarHTML();   // v5.26: trip mode on: "Oʻahu trip · from <home base>" + Exit   // v5.15: row 1 = the logo + the icon buttons; the title gets the full width below
   h += '<div class="hm-top"><div><h1 class="hm-title">' + esc(ttlL) + '</h1>' +
-    '<button class="hm-sub" type="button" data-act="loc" aria-label="Where: near ' + esc(lab) + (acc ? '. ' + esc(acc) : '') + '. Change"><span>' + (UI.today ? homeWhenBit(ttl) : UI.anyDay ? esc(fmtDayDate(UI.anyDay, cparts(nowMs()).key)) + ' · any time · ' : UI.planning ? esc(fmtTime(p.min)) + ' · ' : '') + esc(i18t('home.near', {x:lab})) + (acc ? ' <small class="acc rough">' + esc(acc) + '</small>' : '') + '</span>' + glyphSvg('i-chev') + '</button></div>' + wxChipHTML() + '</div>';   // v5.20: the weather chip at the right end of the title row   // v5.12 account button: moved up into the brand row in v5.15
+    '<button class="hm-sub" type="button" data-act="loc" aria-label="Where: near ' + esc(lab) + (acc ? '. ' + esc(acc) : '') + '. Change"><span>' + (UI.today ? homeWhenBit(ttl) : UI.anyDay ? esc(fmtDayDate(UI.anyDay, cparts(nowMs()).key)) + ' · any time · ' : UI.planning ? esc(fmtTime(p.min)) + ' · ' : '') + esc(i18t('home.near', {x:areaNameL(lab)})) + (acc ? ' <small class="acc rough">' + esc(acc) + '</small>' : '') + '</span>' + glyphSvg('i-chev') + '</button></div>' + wxChipHTML() + '</div>';   // v5.20: the weather chip at the right end of the title row   // v5.12 account button: moved up into the brand row in v5.15
   // v5.37-b2: a "Free" chip on Home (persona study: 11 wanted it), and a chip that is off and would show 0 at the chosen time is left out
   var hzT = res.T, hzC = ctxNow(), hzS = curSel();
   var homeZero = function(F2){ return DATA_LOADED && countView(DATA, hzT, ext(hzC, {mode:F2.mode}), F2, hzS, UI.sub) === 0; };
@@ -9167,7 +9228,7 @@ function renderHome(res, vm, picks){
   var hsel = selCode(curSel());   // v5: the kinds picked in Browse also narrow the three; one chip says so and clears it
   if (hsel) h += '<div class="hm-ctl"><button class="qchip selchip" type="button" data-act="clearsel" aria-pressed="true" aria-label="Only ' + esc(genreShort(hsel)) + '. Show everything">' + esc(LANG === 'en' ? 'Only ' + genreShort(hsel) : tx('hm.onlySel', 'Only {g}', {g:String(hsel).split('+').map(genreShortL).join(', ')})) + glyphSvg('i-close') + '</button></div>';
   if (!DATA_LOADED) {
-    h += DATA_ERR ? '<div class="empty"><h3>Couldn\'t load the list.</h3><p>Your saved things are still here. ' + esc(DATA_ERR) + '</p><button class="mini-btn" type="button" data-act="retry">Try again</button></div>' : '<p class="loading">Loading Chicago...</p>';
+    h += dataWaitHTML();
   } else {
     var hol = holidayName(p.key);
     var browseBtn = '<button class="hm-btn dark" type="button" data-act="browse">' + esc(i18t('home.browse')) + glyphSvg('i-right') + '</button>';   // v5.39: placed right under the three
@@ -9337,7 +9398,7 @@ function beenPrecPatch(ck, prec, todayKey){ // pure: switching how exact the vis
 }
 function beenListHTML(){
   if (!CHECKINS.length) return '<div class="empty" style="padding:8px 20px"><svg class="i" style="width:40px;height:40px;color:var(--ink-3)"><use href="#i-check"/></svg><h3 style="margin-top:10px">Nowhere yet.</h3><p>Open a place and tap “I’ve been here”. It keeps the date, and you can change or remove it. No photo needed.</p></div>';
-  if (!DATA_LOADED) return '<p class="loading">Loading Chicago...</p>';
+  if (!DATA_LOADED) return dataWaitHTML();
   var T = evalTime(), ctx = ctxNow(), p = cparts(T), today = cparts(nowMs()).key;
   var list = CHECKINS.slice().sort(function(a, b){ return a.date < b.date ? 1 : a.date > b.date ? -1 : 0; });
   return '<ul class="rows">' + list.map(function(ck){
@@ -9610,7 +9671,7 @@ function renderFriend(){
   var h = '';
   if (!DATA_LOADED) { // I5 / I6
     foot.hidden = true;
-    body.innerHTML = DATA_ERR ? '<div class="empty" style="padding:8px 20px"><h3>Couldn\'t load the list.</h3><p>' + esc(DATA_ERR) + '</p><button class="mini-btn" type="button" data-act="retry">Try again</button></div>' : '<p class="loading">Loading Chicago...</p>';
+    body.innerHTML = dataWaitHTML();
     return;
   }
   var T = evalTime(), vw = wlView(rec.sids, SID_INDEX, T, ctxNow(), isSaved), n = vw.n;
@@ -10641,7 +10702,7 @@ function pollVote(i){
 function pollClearHash(){ if (/^#poll=/.test(location.hash || '')) { try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {} } }
 function renderPoll(){
   var v = PL.cur, body = $('pPollBody'); if (!v || !body) return;
-  if (!DATA_LOADED) { body.innerHTML = DATA_ERR ? '<div class="empty"><h3>Couldn\'t load the list.</h3><p>' + esc(DATA_ERR) + '</p><button class="mini-btn" type="button" data-act="retry">Try again</button></div>' : '<p class="loading">Loading Chicago...</p>'; return; }
+  if (!DATA_LOADED) { body.innerHTML = dataWaitHTML(); return; }
   var srv = pollServerOk() || !!PL.demo, vote = !!v.code && srv && PL.err !== 'gone', n = v.sids.length, ty = pollTally(PL.res, n), T = evalTime(), ctx = ctxNow(), h = '';
   if (PL.res && !ty.open) vote = false;
   var note = !v.code ? 'Tap one to see it.' : !srv ? 'Voting works on the website.' : PL.err === 'gone' ? 'This poll ended.' : PL.err ? 'Votes didn\'t load. <button class="linkbtn" type="button" data-poll="reload">Try again</button>' :
@@ -11257,7 +11318,7 @@ function renderGroup(){
   $('pGroupTitle').textContent = page ? (sv ? sv.name : grpT('yourGroup')) : grpT('row');
   if (page) {
     foot.hidden = true; foot.innerHTML = '';
-    if (!DATA_LOADED) { b.innerHTML = '<p class="loading">' + esc(DATA_ERR ? DATA_ERR : 'Loading...') + '</p>'; return; }
+    if (!DATA_LOADED) { b.innerHTML = dataWaitHTML(); return; }
     var r = groupMembersNow(GRP.cur.uids);
     if (r.gone.length && !GRP.told) { GRP.told = true; var gf = acctFriendBy(r.gone[0]); toast(grpT('gone', {x:gf ? acctFriendName(gf) : grpT('goneAny')})); }   // once per open
     var cm = groupCounted(r.members);
@@ -12658,7 +12719,7 @@ function closedDayLabel(k, lang){ var hn = holidayName(k), l = isLang(lang) ? la
 function specialDatesHTML(it, p){ // date_hours and closed_dates in the next 3 weeks
   var rows = [], end = addDays(p.key, 21), seen = {};
   var dh = it.date_hours && typeof it.date_hours === 'object' ? it.date_hours : {};
-  Object.keys(dh).forEach(function(k){ if (isKey(k) && k >= p.key && k <= end) { seen[k] = 1; rows.push([k, Array.isArray(dh[k]) ? rangesText(dh[k]) : 'Special hours, times not posted: call first']); } });   // v2.2: "unknown"
+  Object.keys(dh).forEach(function(k){ if (isKey(k) && k >= p.key && k <= end) { seen[k] = 1; rows.push([k, Array.isArray(dh[k]) ? rangesText(dh[k]) : tx('dt.hrsUnk', 'Special hours, times not posted: call first')]); } });   // v2.2: "unknown"; v5.40: in the picked language
   Object.keys(closedSet(it)).forEach(function(k){ if (k >= p.key && k <= end) rows.push([k, closedDayLabel(k, 'en')]); });
   if (!rows.length) return '';
   rows.sort(function(a, b){ return a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0; });
@@ -12688,6 +12749,7 @@ function miniMapHTML(c){
   if (w / h < W / H) w = h * W / H; else h = w * H / W;
   var vx = (minx + maxx) / 2 - w / 2, vy = (miny + maxy) / 2 - h / 2, k = W / w;
   function hit(bb){ return bb && !(bb[2] < vx || bb[0] > vx + w || bb[3] < vy || bb[1] > vy + h); }
+  var nHit = GEO.areas.filter(function(ar){ return hit(ar.bb); }).length;   // v5.40: outside Chicago (Vegas, Oʻahu) the drawn map has no streets (one flat area at most): the box gets the street-grid placeholder, never a blank box
   var out = '<svg viewBox="' + [vx, vy, w, h].map(r1).join(' ') + '" preserveAspectRatio="xMidYMid slice" style="--lw:2.4px;--halo:4px;--aline:1px;--riverw:5px" role="img" aria-label="' + esc(tx('a.minimap', 'Small map from your pin to {x}', {x:nameL(c.item)})) + '">';
   out += '<path class="suburb" d="' + SUBURBS_D + '"/>';
   GEO.areas.forEach(function(ar){ if (hit(ar.bb)) out += '<path class="t' + (ar.num % 4) + '" fill-rule="evenodd" vector-effect="non-scaling-stroke" d="' + ar.d + '"/>'; });
@@ -12696,12 +12758,99 @@ function miniMapHTML(c){
   ls.forEach(function(l){ out += lineSvg(l, true); }); ls.forEach(function(l){ out += lineSvg(l, false); });
   var fs = 11 / k, sw = 3 / k;
   out += '<path class="walk" vector-effect="non-scaling-stroke" d="M' + r1(a[0]) + ' ' + r1(a[1]) + 'L' + r1(b[0]) + ' ' + r1(b[1]) + '"/>';
-  out += '<circle class="pt" vector-effect="non-scaling-stroke" cx="' + r1(a[0]) + '" cy="' + r1(a[1]) + '" r="' + r1(5 / k) + '" style="fill:var(--you)"/>';
+  out += '<circle class="pt mm-start" vector-effect="non-scaling-stroke" cx="' + r1(a[0]) + '" cy="' + r1(a[1]) + '" r="' + r1(5 / k) + '" style="fill:var(--you)"/>';
   out += '<circle class="pt" vector-effect="non-scaling-stroke" cx="' + r1(b[0]) + '" cy="' + r1(b[1]) + '" r="' + r1(6 / k) + '" style="fill:' + genreColor(genreOf(c.item)) + '"/>';
-  out += '<text class="mm-label" x="' + r1(a[0] - 8 / k) + '" y="' + r1(a[1] + 14 / k) + '" font-size="' + fs.toFixed(2) + '" stroke-width="' + sw.toFixed(2) + '" text-anchor="end">' + esc(tx('dt.pin', 'Your pin')) + '</text>';
-  out += '<text class="mm-label" x="' + r1(b[0] + 9 / k) + '" y="' + r1(b[1] - 7 / k) + '" font-size="' + fs.toFixed(2) + '" stroke-width="' + sw.toFixed(2) + '">' + esc(c.item.name.length > 26 ? c.item.name.slice(0, 24) + '...' : c.item.name) + '</text>';
-  return '<div class="minimap">' + out + '</svg></div>';
+  out += '<text class="mm-label" x="' + r1(a[0] - 8 / k) + '" y="' + r1(a[1] + 14 / k) + '" font-size="' + fs.toFixed(2) + '" stroke-width="' + sw.toFixed(2) + '" text-anchor="end">' + esc(miniStartLabel()) + '</text>';
+  out += '<text class="mm-label" x="' + r1(b[0] + 9 / k) + '" y="' + r1(b[1] - 7 / k) + '" font-size="' + fs.toFixed(2) + '" stroke-width="' + sw.toFixed(2) + '">' + esc(miniPlaceLabel(c.item)) + '</text>';
+  return '<div class="minimap' + (nHit && cityOf(c.item) === 'chicago' ? '' : ' mm-grid') + '" id="dtMini">' + out + '</svg></div>';
 }
+function miniPlaceLabel(it){ var s = shortName(it); return s.length > 26 ? s.slice(0, 24) + '…' : s; }   // v5.40: the translated name (nameL via shortName), never the English one in ru / zh / ko
+function miniStartLabel(){ return startIsArea(S.loc) ? areaNameL(locWordsNow()) : tx('dt.pin', 'Your pin'); }   // v5.40: a picked area says its own name ("The Strip")
+/* v5.40 (her screenshot: the Getting there mini-map was a white box with two dots): on the website the mini-map is a small street map
+   (the main map's MapLibre + OpenFreeMap positron style and colors, not interactive), our two dots, the dotted line and the labels on top.
+   One map is kept and moved into each new detail render, so the minute re-render doesn't reload it. Until it loads (and in claude.ai,
+   a frame or without WebGL) the drawn SVG shows. A style that fails or doesn't load in MINI_TIMEOUT_MS: the street-grid placeholder
+   and "Map didn't load." (never a blank box). */
+var MINI_TIMEOUT_MS = 9000;
+var MM = {map:null, div:null, key:'', state:'', wait:0, tries:0, timer:0};
+function miniGlKey(c){ return [c.item.id, S.loc ? S.loc.lat.toFixed(5) + ',' + S.loc.lng.toFixed(5) : '', LANG, mapVariant(), miniStartLabel()].join('|'); }
+function miniFail(host, why){
+  MM.failKey = MM.key || MM.failKey || ''; MM.state = 'failed'; MM.why = why || MM.why || '';
+  try { if (MM.map) MM.map.remove(); } catch (e) {}
+  try { if (MM.div && MM.div.parentNode) MM.div.parentNode.removeChild(MM.div); } catch (e) {}
+  MM.map = null; MM.div = null; MM.key = '';
+  if (!host) return;
+  host.classList.remove('mm-on'); host.classList.add('mm-grid', 'mm-fail'); host.setAttribute('data-mm', 'failed: ' + (why || ''));
+  if (!host.querySelector('.mm-note')) { var p = document.createElement('p'); p.className = 'mm-note'; p.textContent = tx('dt.mmFail', 'Map didn’t load.'); host.appendChild(p); }
+}
+function miniGlAttach(c){
+  var host = $('dtMini'); if (!host || !c || !S.loc) return;
+  clearTimeout(MM.wait);
+  if (GLM.state === 'svg' || Platform.onClaude) { host.setAttribute('data-mm', 'svg'); return; }   // claude.ai, a frame, no WebGL, #map=svg: the drawn mini-map
+  if (!(window.maplibregl && window.maplibregl.Map)) {
+    if (GLM.state === 'loading' || GLM.state === 'off') { host.setAttribute('data-mm', 'waiting'); MM.wait = setTimeout(function(){ var cc = UI.detailId ? findComputed(UI.detailId) : null; if (cc && cc.item.id === c.item.id) miniGlAttach(cc); }, 1200); return; }
+    miniFail(host, 'MapLibre missing'); return;
+  }
+  if (!isNum(c.item.lat) || !isNum(c.item.lng)) return;
+  var key = miniGlKey(c);
+  if (MM.state === 'failed' && MM.failKey === key) { miniFail(host, MM.why); return; }   // no retry on every minute re-render
+  if (MM.map && MM.div && MM.key === key) { // the same place and start: move the live map into the new render
+    host.insertBefore(MM.div, host.firstChild);
+    if (MM.state === 'on') host.classList.add('mm-on'); else if (MM.state === 'failed') miniFail(host, MM.why);
+    host.setAttribute('data-mm', MM.state);
+    try { MM.map.resize(); } catch (e) {}
+    return;
+  }
+  if (!host.clientWidth) { // the page is still sliding in (hidden): try again shortly
+    if (MM.tries++ < 12) MM.wait = setTimeout(function(){ var cc = UI.detailId ? findComputed(UI.detailId) : null; if (cc && cc.item.id === c.item.id) miniGlAttach(cc); }, 150);
+    return;
+  }
+  MM.tries = 0;
+  try { if (MM.map) MM.map.remove(); } catch (e) {}
+  clearTimeout(MM.timer);
+  var div = document.createElement('div'); div.className = 'mm-gl'; div.setAttribute('aria-hidden', 'true');
+  host.insertBefore(div, host.firstChild);
+  MM.div = div; MM.key = key; MM.state = 'loading'; MM.why = ''; host.setAttribute('data-mm', 'loading');
+  var a = [S.loc.lng, S.loc.lat], b = [c.item.lng, c.item.lat], it = c.item;
+  var map;
+  try {
+    map = new window.maplibregl.Map({container:div, style:glStyleUrl(), bounds:[[Math.min(a[0], b[0]), Math.min(a[1], b[1])], [Math.max(a[0], b[0]), Math.max(a[1], b[1])]],
+      fitBoundsOptions:{padding:{top:38, bottom:30, left:64, right:64}, maxZoom:15.5}, interactive:false, attributionControl:false, fadeDuration:0, pitch:0, maxPitch:0});
+  } catch (e) { miniFail(host, 'start: ' + (e && e.message)); return; }
+  MM.map = map;
+  map.addControl(new window.maplibregl.AttributionControl({compact:true}), 'bottom-right');
+  MM.timer = setTimeout(function(){ if (MM.map === map && MM.state === 'loading') miniFail($('dtMini'), 'took too long'); }, MINI_TIMEOUT_MS);
+  map.on('error', function(e){ var msg = String(e && e.error && e.error.message || ''); if (MM.map === map && MM.state === 'loading' && !map.isStyleLoaded() && /style|json|Failed to fetch|NetworkError|404|403/i.test(msg)) miniFail($('dtMini'), 'style: ' + msg); });
+  map.on('load', function(){
+    if (MM.map !== map) return;
+    clearTimeout(MM.timer);
+    var keepS = GLM.stripped, keepV = GLM.variant;   // glPrepBase / glPaintVariant note counts on GLM for the main map: keep those
+    try { glPrepBase(map); glPaintVariant(map, mapVariant()); } catch (e) {}
+    GLM.stripped = keepS; GLM.variant = keepV;
+    try {
+      map.addSource('mm-line', {type:'geojson', data:{type:'Feature', properties:{}, geometry:{type:'LineString', coordinates:[a, b]}}});
+      map.addLayer({id:'mm-line', type:'line', source:'mm-line', layout:{'line-cap':'round'}, paint:{'line-color':themeIsDark() ? '#E8E6F0' : '#2A2730', 'line-width':2.4, 'line-dasharray':[0.4, 2.2]}});
+    } catch (e) {}
+    function mk(cls, color, label, side){
+      var el = document.createElement('div'); el.className = 'mm-mk ' + cls; el.style.setProperty('--c', color);
+      el.innerHTML = '<i></i><span class="' + side + '">' + esc(label) + '</span>';
+      return el;
+    }
+    try {
+      var side = function(ll, other){ var q = map.project(ll), o = map.project(other), wd = div.clientWidth || 300;   // the label goes toward the middle, so it isn't cut at the edge
+        if (Math.abs(q.x - wd / 2) < wd * 0.18) return q.y > o.y ? 'c b' : 'c';   // near the middle: centered, the lower point's label under its dot (the line never crosses it)
+        return q.x < wd / 2 ? 'r' : 'l'; };
+      new window.maplibregl.Marker({element:mk('mm-you', 'var(--ink)', miniStartLabel(), side(a, b))}).setLngLat(a).addTo(map);
+      new window.maplibregl.Marker({element:mk('mm-it', genreColor(genreOf(it)), miniPlaceLabel(it), side(b, a))}).setLngLat(b).addTo(map);
+    } catch (e) {}
+    function shut(){ try { var ab = div.querySelector('.maplibregl-ctrl-attrib'); if (ab) ab.classList.remove('maplibregl-compact-show'); } catch (e) {} }   // the credit stays a small (i), never over the pins
+    shut(); map.once('idle', shut);
+    MM.state = 'on';
+    var h2 = $('dtMini'); if (h2 && h2.contains(div)) { h2.classList.add('mm-on'); h2.setAttribute('data-mm', 'on'); }
+    try { map.resize(); } catch (e) {}
+  });
+}
+function miniGlDrop(){ clearTimeout(MM.wait); clearTimeout(MM.timer); try { if (MM.map) MM.map.remove(); } catch (e) {} MM.map = null; MM.div = null; MM.key = ''; MM.state = ''; }
 function bookingLink(it){ // v4: a real booking or ticket link in the data, else the website when booking is required
   return safeUrl(it.booking_url) || safeUrl(it.ticket_url) || (it.booking === 'required' ? safeUrl(it.website) : '');
 }
@@ -13066,7 +13215,9 @@ function renderDetail(c, keepScroll){
   if (it.hours_note) { var hnl = placeText(it, 'hours_note'); h += '<p class="small" style="margin-top:8px"' + (hnl.lang !== 'en' ? langAttr(hnl) : '') + '>' + esc(hnl.lang !== 'en' ? hnl.v : fmt24Ranges(it.hours_note)) + '</p>'; }
   // getting there
   h += '<h3>' + esc(i18t('dt.getting')) + '</h3>' + miniMapHTML(c) + '<div class="getting">';
-  if (c.dist !== null) h += LANG !== 'en' ? getting28(c) : '<span><b>' + fmtMi(c.dist) + ' as the crow flies</b> from your pin' + (S.loc ? ' (' + esc(locWordsNow()) + ')' : '') + '.</span><span>' + esc(travelText(c.trav).replace(/^about/, 'About').replace(/ \(too far for our CTA estimate: Metra or drive\)$/, '')) + '. ' + (c.trav.switched ? 'We don\'t estimate CTA past ' + CTA_MAX_MI + ' miles, so this is a drive time: check Metra, or drive. ' : '') + 'Rough estimate, not a route.</span>';
+  var wf40 = c.dist !== null ? walkFirstParts(c) : null;   // v5.40: walk first under 1 mi, same number as the card
+  if (c.dist !== null && LANG === 'en' && wf40) h += '<span><b>' + fmtMi(c.dist) + ' as the crow flies</b> ' + esc(fromStartText()) + useMineHTML() + '</span><span>About ' + esc(wf40.join(' or ')) + '. Rough estimate, not a route.</span>';
+  else if (c.dist !== null) h += LANG !== 'en' ? getting28(c) : '<span><b>' + fmtMi(c.dist) + ' as the crow flies</b> ' + esc(fromStartText()) + useMineHTML() + '</span><span>' + esc(travelText(c.trav).replace(/^about/, 'About').replace(/ \(too far for our CTA estimate: Metra or drive\)$/, '')) + '. ' + (c.trav.switched ? 'We don\'t estimate CTA past ' + CTA_MAX_MI + ' miles, so this is a drive time: check Metra, or drive. ' : '') + 'Rough estimate, not a route.</span>';
   h += '</div><div class="linkrow"><a class="mini-btn" href="' + esc(appleMaps(it)) + '" target="_blank" rel="noopener">' + glyphSvg('i-map') + 'Apple Maps</a><a class="mini-btn" href="' + esc(googleMaps(it)) + '" target="_blank" rel="noopener">' + glyphSvg('i-map') + 'Google Maps</a>' + (web ? '<a class="mini-btn" href="' + esc(web) + '" target="_blank" rel="noopener">' + glyphSvg('i-globe') + esc(tx('dt.website', 'Website')) + '</a>' : '') + '</div></section>';
   // good to know (only when the data has it)
   h += goodToKnowHTML(it);
@@ -13089,6 +13240,7 @@ function renderDetail(c, keepScroll){
   h += '</section></div>';
   sc.innerHTML = h;
   wireImages(sc);
+  try { miniGlAttach(c); } catch (e) {}   // v5.40: the street mini-map on the website
   if (UI.ask && UI.ask.id === it.id) askShow(c, UI.ask.q, UI.ask.shown, UI.ask.typed); else UI.ask = null;   // v5.29: a re-render keeps the last answer
   if (keepScroll) sc.scrollTop = top;
   // the bar under your thumb: main button (Tickets / Reserve when there is a booking link, else Directions) + Share + phone
@@ -13108,7 +13260,7 @@ function renderDetail(c, keepScroll){
   $('dtBar').innerHTML = bar;
   var sv = isSaved(it.id), sb = $('dtSave');
   sb.classList.toggle('on', sv); sb.setAttribute('aria-pressed', String(sv)); sb.setAttribute('aria-label', sv ? 'Saved' : 'Save');
-  el.setAttribute('aria-label', it.name);
+  el.setAttribute('aria-label', nameL(it));
 }
 /* ----- v4: share, calendar, the address bar ----- */
 function shareItem(id){
@@ -13185,6 +13337,7 @@ function openDetail(id){
 }
 function closeDetail(){
   var el = $('detail'), id = UI.detailId; UI.detailId = null; grPageChange();
+  setTimeout(function(){ if (!UI.detailId) miniGlDrop(); }, 400);   // v5.40: free the mini-map's WebGL context after the slide-out
   setHashFor('');
   el.classList.remove('on'); $('app').classList.remove('dt-open');
   setTimeout(function(){ if (!el.classList.contains('on')) el.hidden = true; }, 330);
@@ -13261,7 +13414,7 @@ function labelForPoint(lat, lng, u){
 }
 function setCandidate(lat, lng, label, src){
   UI.cand = {lat:lat, lng:lng, label:label, src:src};
-  $('locGo').textContent = 'Start at ' + label;
+  $('locGo').textContent = 'Start at ' + areaNameL(label);
   Array.prototype.forEach.call($('quickPicks').children, function(b){ b.setAttribute('aria-pressed', String(b.textContent === label)); });
   recluster();
   var u = proj(lat, lng), sp = toScreen(u[0], u[1]), box = mapVisibleBoxForPanel();
@@ -13269,17 +13422,17 @@ function setCandidate(lat, lng, label, src){
 }
 function mapVisibleBoxForPanel(){ var pl = $('pLoc'); var top = 70, bottom = MV.H; if (!isWide() && !pl.hidden) bottom = Math.max(top + 100, MV.H - pl.offsetHeight); return {top:top, bottom:bottom}; }
 /* ----- v5.24 city picker: the chips at the top of "Where are you right now?" and the city button on the map. ----- */
-function cityChipsHTML(){ return openCities().map(function(c){ return '<button class="chip city-chip" type="button" data-city="' + esc(c.slug) + '" aria-pressed="' + (c.slug === CITY.slug) + '">' + esc(c.name) + '</button>'; }).join(''); }
+function cityChipsHTML(){ return openCities().map(function(c){ return '<button class="chip city-chip" type="button" data-city="' + esc(c.slug) + '" aria-pressed="' + (c.slug === CITY.slug) + '">' + esc(cityNameL(c.slug)) + '</button>'; }).join(''); }   // v5.40: the city name in the picked language
 function applyCityUI(){ // words and labels that name the city
   try {
-    var cb = $('cityBtn'); if (cb) { cb.textContent = CITY.name; cb.setAttribute('aria-label', 'City: ' + CITY.name + '. Change'); }
+    var cb = $('cityBtn'); if (cb) { cb.textContent = cityNameL(CITY.slug); cb.setAttribute('aria-label', 'City: ' + CITY.name + '. Change'); }
     var cs = $('citySeg'); if (cs) cs.innerHTML = cityChipsHTML();
     Array.prototype.forEach.call(document.querySelectorAll('.credit, .mapcredit'), function(el){ el.textContent = CITY.credit; });
     if (mapEl) mapEl.setAttribute('aria-label', (GLM.on ? 'Street map of ' : 'Map of ') + CITY.name + '. Drag to move, pinch or scroll to zoom.');
     var ss = $('spotSearch'); if (ss) ss.setAttribute('placeholder', CITY.spotHint);
     document.documentElement.setAttribute('data-city', CITY.slug);
     staticLang();   // v5.37-b4: the search examples follow the city
-    if (!$('pLoc').hidden) { $('quickPicks').innerHTML = QUICK_PICKS.map(function(n){ return '<button class="chip" type="button" data-pick="' + esc(n) + '" aria-pressed="' + (UI.cand && UI.cand.label === n) + '">' + esc(n) + '</button>'; }).join(''); }
+    if (!$('pLoc').hidden) { $('quickPicks').innerHTML = QUICK_PICKS.map(function(n){ return '<button class="chip" type="button" data-pick="' + esc(n) + '" aria-pressed="' + (UI.cand && UI.cand.label === n) + '">' + esc(areaNameL(n)) + '</button>'; }).join(''); }
   } catch (e) {}
 }
 // how: 'pick' (she chose it: remembered, and GPS won't switch it back this visit), 'gps' (her location is in that city), 'boot', 'test'
@@ -13305,7 +13458,7 @@ function setCity(slug, how){
   refresh();
   if (!GLM.on && GLM.map) glJumpToCity(GLM.map, CITY);   // still loading: its bounds follow now
   if (!GLM.on || !glFlyToCity(CITY, UI.flyHold)) { if (S.loc.src === 'default') focusCity(); else focusOn(S.loc.lat, S.loc.lng, Math.min(S.f.radius, 3), false); }
-  if (UI.picking) { $('locGo').textContent = 'Start at ' + UI.cand.label; $('spotSearch').value = ''; $('spotResults').innerHTML = ''; $('pLoc').classList.remove('typing'); try { addrReset(); } catch (e) {} recluster(); }
+  if (UI.picking) { $('locGo').textContent = 'Start at ' + areaNameL(UI.cand.label); $('spotSearch').value = ''; $('spotResults').innerHTML = ''; $('pLoc').classList.remove('typing'); try { addrReset(); } catch (e) {} recluster(); }
   return true;
 }
 function bindCity(){
@@ -13337,8 +13490,8 @@ function openLocation(first){
   $('spotSearch').value = ''; $('spotResults').innerHTML = ''; $('pLoc').classList.remove('typing');
   addrReset();   // v5.5
   if (!geoBusy && S.loc && S.loc.src === 'gps' && locAccFor(S.loc)) setLocNote(locFixNote(S.loc.acc, addrShown()), accRough(S.loc.acc));
-  $('quickPicks').innerHTML = QUICK_PICKS.map(function(n){ return '<button class="chip" type="button" data-pick="' + esc(n) + '" aria-pressed="' + (UI.cand.label === n) + '">' + esc(n) + '</button>'; }).join('');
-  $('locGo').textContent = 'Start at ' + UI.cand.label;
+  $('quickPicks').innerHTML = QUICK_PICKS.map(function(n){ return '<button class="chip" type="button" data-pick="' + esc(n) + '" aria-pressed="' + (UI.cand.label === n) + '">' + esc(areaNameL(n)) + '</button>'; }).join('');
+  $('locGo').textContent = 'Start at ' + areaNameL(UI.cand.label);
   locLangLabel();   // v5.37-b1
   if (!geoBusy) gpsBtnReset();
   openPanel('pLoc', false);
@@ -13428,7 +13581,7 @@ function commitLocation(loc, keepOpen){
   saveLoc();
   UI.sel = null; UI.viewKey = null;   // v3: refresh() re-fits the map to the new pins
   if (keepOpen && !$('pLoc').hidden) {   // v5.5: a rough reading keeps the picker open so she can type her address
-    UI.cand = ext(S.loc, {}); $('locGo').textContent = 'Start at ' + S.loc.label;
+    UI.cand = ext(S.loc, {}); $('locGo').textContent = 'Start at ' + areaNameL(S.loc.label);
     $('pLocClose').hidden = false; $('brand').hidden = true; $('app').classList.remove('onb');
   } else closePanel('pLoc');
   refresh();
@@ -14972,6 +15125,7 @@ function bindUI(){
     var id = UI.detailId; if (!id) return;
     var fwb = e.target.closest('[data-fw]'); if (fwb) { UI.friendReturn = false; closeDetail(); openFriendView(fwb.getAttribute('data-fw')); return; }   // v5.8
     if (e.target.closest('[data-cal]')) { addToCalendar(id); return; }
+    var ugb = e.target.closest('[data-dtgps]'); if (ugb) { dtUseMine(ugb); return; }   // v5.40
     var akb = e.target.closest('[data-ask]'); if (akb) { askRun(akb.getAttribute('data-ask')); return; }   // v5.29 ask chips
     var b = e.target.closest('[data-been]'); if (!b) return;
     var a = b.getAttribute('data-been'), ck = checkinOf(id);
@@ -16842,7 +16996,7 @@ function runSelfTest0(){
     eq('8 tiles: Limited time + 7 kinds', $('tiles') ? $('tiles').querySelectorAll('.tile').length : -1, 8);
     ok('no chip row on the main screen', !document.getElementById('chips'), 'found #chips');
     ok('Relax glyph and genre colors are defined', !!document.getElementById('g-steam') && getComputedStyle(document.documentElement).getPropertyValue('--g-relax').trim() !== '', 'missing');
-    eq('version', VERSION, 'v5.39 (2026-11-25)');
+    eq('version', VERSION, 'v5.40 (2026-11-25)');
     eq('previous version', VERSION_PREV, 'v5.31 (2026-11-15)');
   });
 
@@ -20198,6 +20352,68 @@ function v539SelfTest(ok, eq, note){ // v5.39: Home's full list (count = rows, S
     eq('V539-9 ru (unverified): "Show all" with the right plural; Not open', ruAll + ' | ' + ruNot, 'Показать все 21 место / Показать все 22 места / Показать все 25 мест | Закрыто сейчас');
   } finally { UI.planning = keep.pl; S.budgetOn = keep.b; UI.openMore = keep.om; UI.restMore = keep.rm; UI.farMore = keep.fm; UI.holMore = keep.hm; LANG = keep.L; }
 }
+function v540SelfTest(ok, eq, note){ // v5.40: the street mini-map (grid placeholder / failure line), walk first in the detail, translated names on maps, the holiday row in ru / zh / ko, "from the start point" + Use my location
+  var keep = {L:LANG, loc:S.loc, sel:UI.sel, nl:nameL};
+  try {
+    var T = fromChicago('2026-11-25', 720), it = fx({name:'Walk Fixture (Test Hall)', hours:allDays(['09:00', '23:00']), lat:northOf(0.7)});
+    S.loc = {lat:41.88, lng:-87.63, label:'The Loop', src:'picked', acc:null, t:0, explicit:false, fresh:false};
+    var c = computeItem(it, T, {lat:41.88, lng:-87.63, budget:'any', mode:'car'}), wf = walkFirstParts(c);
+    eq('V540-1 under 1 mi the detail leads with the walk time = the card\'s number (0.7 mi: 18 min walk), the drive time second', [wf && wf[0], wf && wf.length === 2 && /min drive$/.test(wf[1]), travelShort(c) === (wf && wf[0])].join(' | '), '18 min walk | true | true');
+    var cFar = computeItem(fx({name:'Far', hours:allDays(['09:00', '23:00']), lat:northOf(3)}), T, {lat:41.88, lng:-87.63, budget:'any', mode:'car'});
+    eq('V540-1b 1 mi and more: no walk-first (the drive line as before)', walkFirstParts(cFar), null);
+    LANG = 'ru';
+    var g = getting28(c).replace(/<[^>]+>/g, ' ');
+    ok('V540-2 ru detail: walk time first, then the car, joined with "или" (unverified wording)', /Примерно 18 мин пешком или \d+ мин/.test(g), g);
+    eq('V540-3 ru start is an area: "от точки «Луп»." (area name translated) and a "Use my location" link (website only)', [fromStartText(), Platform.onClaude || !navigator.geolocation ? 'skip' : /data-dtgps/.test(useMineHTML())].join(' | '), 'от точки «Луп». | ' + (Platform.onClaude || !navigator.geolocation ? 'skip' : 'true'));
+    S.loc = ext(S.loc, {src:'gps', label:'Your location'});
+    eq('V540-3b a GPS reading: "от вашей метки (...)" and no link', [/^от вашей метки/.test(fromStartText()), useMineHTML()].join(' | '), 'true | ');
+    S.loc = ext(S.loc, {src:'picked', label:'The Strip'});
+    eq('V540-3c the mini-map start label is the area\'s name (ru), not "Ваша метка"', miniStartLabel(), 'Стрип');
+    var hu = fx({name:'Holiday fixture', hours:allDays(['10:00', '22:00']), date_hours:{'2026-11-26':'unknown'}}), p = cparts(T), rowsL = {};
+    ['ru', 'zh-Hans', 'ko', 'en'].forEach(function(l){ LANG = l; rowsL[l] = specialDatesHTML(hu, p).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' '); });
+    ok('V540-4 the "Special hours, times not posted" row is translated in ru / zh / ko (unverified wording); English unchanged', /Особые часы, время не указано/.test(rowsL.ru) && /特殊营业时间/.test(rowsL['zh-Hans']) && /특별 영업시간/.test(rowsL.ko) && /Special hours, times not posted: call first/.test(rowsL.en) && !/Special hours/.test(rowsL.ru + rowsL['zh-Hans'] + rowsL.ko), rowsL.ru);
+    LANG = 'ru';
+    nameL = function(x){ return x && x.id === it.id ? 'Горки «Тест» (Нью-Йорк)' : keep.nl(x); };
+    UI.sel = it.id;
+    var pin = pinHTML({c:c, o:{}}, [0, 0]);
+    eq('V540-5 translated names on maps: mini-map label (short form), the selected pin label and its aria-label', [miniPlaceLabel(it), pin.indexOf('<b>Горки «Тест» (Нью-Йорк)</b>') > 0, /aria-label="Горки «Тест»/.test(pin), pin.indexOf('Walk Fixture') < 0].join(' | '), 'Горки «Тест» | true | true | true');
+    var mmh = GEO.ready ? miniMapHTML(c) : '';
+    if (GEO.ready) ok('V540-5b the drawn mini-map labels use the translated name, never the English one', mmh.indexOf('Горки «Тест»') > 0 && mmh.indexOf('Walk Fixture') < 0 && mmh.indexOf('Стрип') > 0, mmh.replace(/<path[^>]*>/g, '').slice(-300));
+    nameL = keep.nl; UI.sel = keep.sel;
+    // the mini-map: outside Chicago = street-grid placeholder; a failed street map = grid + "Map didn't load."; never a blank box
+    if (GEO.ready) {
+      S.loc = {lat:36.1147, lng:-115.1728, label:'The Strip', src:'picked', acc:null, t:0, explicit:false, fresh:false};
+      var vit = fx({name:'Vegas fixture', city:'vegas', lat:36.1024, lng:-115.1745, hours:allDays(['09:00', '23:00'])}), vc = {item:vit, dist:0.9, trav:{min:11, how:'drive'}};
+      var vh = miniMapHTML(vc), ch = miniMapHTML(c);
+      eq('V540-6 Vegas mini-map (no drawn areas there) gets the street-grid class; Chicago keeps the drawn map', [/class="minimap mm-grid" id="dtMini"/.test(vh), /class="minimap" id="dtMini"/.test(ch)].join(), 'true,true');
+      var box = document.createElement('div'); box.className = 'minimap'; var keepMM = ext(MM, {});
+      miniFail(box, 'test'); var t1 = box.querySelector('.mm-note');
+      eq('V540-7 a failed street map: grid placeholder + "Карта не загрузилась." (ru), once', [box.classList.contains('mm-grid'), box.classList.contains('mm-fail'), t1 && t1.textContent, (miniFail(box, 'again'), box.querySelectorAll('.mm-note').length)].join(' | '), 'true | true | Карта не загрузилась. | 1');
+      Object.keys(keepMM).forEach(function(k){ MM[k] = keepMM[k]; });
+    } else note('V540-6/7 skipped: map shapes not loaded');
+    ok('V540-8 the detail calls the street mini-map after each render; closing the page frees it', /miniGlAttach\(c\)/.test(String(renderDetail)) && /miniGlDrop\(\)/.test(String(closeDetail)), '');
+    eq('V540-9 the mini-map uses the main map\'s pinned MapLibre and the OpenFreeMap style, not interactive', [/glStyleUrl\(\)/.test(String(miniGlAttach)), /interactive:false/.test(String(miniGlAttach)), ML_JS].join(' | '), 'true | true | https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js');
+    // slow loading (her weak-5G screenshot): never "Loading <city>..." alone forever
+    eq('V540-11 loading states: 0 s / 7.9 s load, 8 s / 24.9 s slow, 25 s fail, an error fails at once', [dataWaitState(0, null), dataWaitState(7999, null), dataWaitState(8000, null), dataWaitState(24999, null), dataWaitState(25000, null), dataWaitState(100, 'x')].join(), 'load,load,slow,slow,fail,fail');
+    var kd = {t0:DATA_T0, err:DATA_ERR, to:DATA_TIMEOUT}, wl = [];
+    try { LANG = 'ru'; DATA_ERR = null; DATA_TIMEOUT = false;
+      DATA_T0 = Date.now(); wl.push(dataWaitHTML()); DATA_T0 = Date.now() - 9000; wl.push(dataWaitHTML()); DATA_T0 = Date.now() - 26000; wl.push(dataWaitHTML());
+      LANG = 'en'; wl.push(dataWaitHTML());
+    } finally { DATA_T0 = kd.t0; DATA_ERR = kd.err; DATA_TIMEOUT = kd.to; LANG = 'ru'; }
+    var wt = wl.map(function(h){ return h.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim(); });
+    ok('V540-12 ru: "Загружаем: Чикаго…", after 8 s "Медленное соединение…" + Повторить, after 25 s "Не удалось загрузить список." + Повторить (unverified wording); en after 25 s says why, with Try again', /^Загружаем: Чикаго…$/.test(wt[0]) && /Медленное соединение/.test(wt[1]) && /data-act="retry"/.test(wl[1]) && /Повторить/.test(wt[1]) && /Не удалось загрузить список\./.test(wt[2]) && /data-act="retry"/.test(wl[2]) && /Couldn(&#39;|')t load the list\. The connection is too slow or offline\./.test(wt[3]) && /Try again/.test(wt[3]), wt.join(' || '));
+    ok('V540-13 loadData re-draws at 8 s and 25 s (timers), and a late answer is still used', /DATA_SLOW_MS\)/.test(String(loadData)) && /DATA_GIVEUP_MS\)/.test(String(loadData)) && DATA_SLOW_MS === 8000 && DATA_GIVEUP_MS === 25000 && /DATA_ERR = null; DATA_TIMEOUT = false;/.test(String(loadData)), '');
+    ok('V540-13b no screen draws a bare "Loading Chicago..." any more (list, home, panels use dataWaitHTML)', [renderList, renderHome].every(function(f){ return String(f).indexOf('Loading Chicago') < 0; }), '');
+    // the first screen in the picked language
+    var cn = {}; ['ru', 'zh-Hans', 'ko', 'en'].forEach(function(l){ cn[l] = ['chicago', 'oahu', 'vegas'].map(function(s){ return cityNameL(s, l); }).join('/'); });
+    eq('V540-14 city names on the first screen (ru / zh / ko / en)', [cn.ru, cn['zh-Hans'], cn.ko, cn.en].join(' | '), 'Чикаго/Оаху/Лас-Вегас | 芝加哥/瓦胡岛/拉斯维加斯 | 시카고/오아후/라스베이거스 | Chicago/Oʻahu/Las Vegas');
+    LANG = 'ru'; var chips = cityChipsHTML();
+    ok('V540-14b ru city chips use the translated names, never "Chicago"', chips.indexOf('>Чикаго<') > 0 && chips.indexOf('>Chicago<') < 0, chips.replace(/<[^>]+>/g, ' '));
+    var missA = []; Object.keys(CITY_BY).forEach(function(sl){ (CITY_BY[sl].picks || []).forEach(function(n){ ['ru', 'zh-Hans', 'ko'].forEach(function(l){ if (areaNameL(n, l) === n) missA.push(sl + ':' + n + ':' + l); }); }); });
+    eq('V540-15 every quick-pick area chip has ru / zh / ko (unverified transliterations); en and unknown names unchanged; data-pick stays English', [missA.join(), areaNameL('The Strip', 'ru'), areaNameL('The Strip', 'en'), areaNameL('Nowhere Park', 'ru')].join(' | '), ' | Стрип | The Strip | Nowhere Park');
+    eq('V540-10 version', VERSION, 'v5.40 (2026-11-25)');
+  } finally { LANG = keep.L; S.loc = keep.loc; UI.sel = keep.sel; nameL = keep.nl; }
+}
 function v539SelfTestReal(ok, eq, note){ // v5.39 on the real list: per city at three times, count line = unique open rows; open + call first + longer trip + cutting close + not open = the whole city once
   if (!DATA_LOADED || !ALL_DATA.length) { note('v5.39 real-data checks skipped: no data'); return; }
   var keepC = CITY.slug, keep = {pl:UI.planning, b:S.budgetOn, om:UI.openMore, rm:UI.restMore, fm:UI.farMore, hm:UI.holMore};
@@ -20243,7 +20459,7 @@ function v538SelfTest(ok, eq, note){ // v5.38: Russian plurals, thousands, ?lang
   eq('V538-9 the ' + Object.keys(STR38).length + ' new words (trip sharing, labels, gallery) have en / ru / zh-Hans / ko with the same {placeholders} (ru, zh, ko unverified)', bad.join(), '');
   var pl = [], re = /\{pl:([^|{}]+)\|/g; Object.keys(STR).forEach(function(k){ var s = STR[k][1] || '', m; re.lastIndex = 0; while ((m = re.exec(s))) if (!/^(\{\w+\}|\$\d)$/.test(m[1])) pl.push(k); });
   eq('V538-10 every Russian plural token counts a {placeholder}', pl.join(), '');
-  eq('V538-11 version (v5.39 now)', VERSION, 'v5.39 (2026-11-25)');
+  eq('V538-11 version (v5.40 now)', VERSION, 'v5.40 (2026-11-25)');
   v538FixSelfTest(ok, eq);
 }
 function v538FixSelfTest(ok, eq){ // v5.38 fix pass: {pl:} never raw on screen, English leftovers in Russian, Thanksgiving "holiday hours not posted" (fixtures; nothing saved)
@@ -20389,6 +20605,7 @@ function i18nSelfTestAsync(ok, eq){
       try { v538SelfTest(ok, eq, note); } catch (e38s) { ok('v5.38 checks: crashed', false, e38s && e38s.message ? e38s.message : String(e38s)); }
       try { v539SelfTest(ok, eq, note); } catch (e39s) { ok('v5.39 checks: crashed', false, e39s && e39s.message ? e39s.message : String(e39s)); }
       try { v539SelfTestReal(ok, eq, note); } catch (e39r) { ok('v5.39 real-data checks: crashed', false, e39r && e39r.message ? e39r.message : String(e39r)); }
+      try { v540SelfTest(ok, eq, note); } catch (e40s) { ok('v5.40 checks: crashed', false, e40s && e40s.message ? e40s.message : String(e40s)); }
     });
   });
 }
@@ -20583,9 +20800,29 @@ function worldFromData(){
   GEO.areas.forEach(function(a){ bb = bboxOf([[a.bb[0], a.bb[1]], [a.bb[2], a.bb[3]]], bb); });
   if (bb[0] < 1e9) WORLD = [bb[0] - 2000, bb[1] - 2000, bb[2] + 2000, bb[3] + 2000];
 }
+/* v5.40 (her screenshot: a frozen "Loading Chicago..." on weak 5G): never "Loading <city>..." alone forever. After DATA_SLOW_MS the
+   screen says "Slow connection, still loading..." with Try again; after DATA_GIVEUP_MS a clear error with Try again. A slow answer that
+   still arrives later is used. dataWaitState is pure (self-test). */
+var DATA_SLOW_MS = 8000, DATA_GIVEUP_MS = 25000, DATA_T0 = 0, DATA_TOK = 0, DATA_TIMEOUT = false;
+function dataWaitState(ms, err){ return err ? 'fail' : ms >= DATA_GIVEUP_MS ? 'fail' : ms >= DATA_SLOW_MS ? 'slow' : 'load'; }
+function dataWaitHTML(){
+  var st = dataWaitState(DATA_T0 ? Date.now() - DATA_T0 : 0, DATA_ERR), btn = '<button class="mini-btn" type="button" data-act="retry">' + esc(tx('ld.retry', 'Try again')) + '</button>';
+  if (st === 'load') return '<p class="loading">' + esc(tx('ld.load', 'Loading {c}...', {c:cityNameL()})) + '</p>';
+  if (st === 'slow') return '<div class="empty ld-slow"><p class="loading">' + esc(tx('ld.slow', 'Slow connection, still loading...')) + '</p>' + btn + '</div>';
+  return '<div class="empty ld-fail"><h3>' + esc(tx('ld.failT', 'Couldn\'t load the list.')) + '</h3><p>' + esc(DATA_TIMEOUT || !DATA_ERR ? tx('ld.failSlow', 'The connection is too slow or offline. Your saved things are still here.') : tx('ld.saved', 'Your saved things are still here.') + ' ' + DATA_ERR) + '</p>' + btn + '</div>';
+}
+function dataWaitTick(tok){
+  if (tok !== DATA_TOK || DATA_LOADED) return;
+  if (Date.now() - DATA_T0 >= DATA_GIVEUP_MS - 50 && !DATA_ERR) { DATA_TIMEOUT = true; DATA_ERR = 'The connection is too slow (no answer in ' + Math.round(DATA_GIVEUP_MS / 1000) + ' s).'; }
+  renderList(null); try { refresh(); } catch (e) {}
+}
 function loadData(){
-  DATA_ERR = null; DATA_LOADED = false; renderList(null);
+  DATA_ERR = null; DATA_LOADED = false; DATA_TIMEOUT = false; DATA_T0 = Date.now(); var tok = ++DATA_TOK;
+  setTimeout(function(){ dataWaitTick(tok); }, DATA_SLOW_MS); setTimeout(function(){ dataWaitTick(tok); }, DATA_GIVEUP_MS);
+  renderList(null);
   Platform.fetchJSON(DATA_URL).then(function(raw){
+    if (DATA_LOADED && tok !== DATA_TOK) return;   // an older, slow answer after a newer one already loaded
+    DATA_ERR = null; DATA_TIMEOUT = false;
     var n = normalize(raw);
     ALL_DATA = n.items; SKIPPED = n.skipped; DATA_LOADED = true;
     if (!cityOpen(CITY.slug)) { try { setCity('chicago', 'boot'); } catch (e) { setCityCore('chicago'); S.loc = ext(LOOP, {}); } }   // v5.36: booted into a city the file has no places for (#city=vegas, a remembered spot there): back to Chicago
@@ -20601,6 +20838,8 @@ function loadData(){
     acctAfterData();   // v5.11
     if (!GA.loaded) loadGuides(); else if (UI.pendingGuide) { var pg0 = UI.pendingGuide; UI.pendingGuide = ''; gaDeepLink(pg0); }   // v5.18: guides after the places (a bonus: a failed fetch just means no Guides row)
   })['catch'](function(e){
+    if (DATA_LOADED || tok !== DATA_TOK) return;   // v5.40: a newer try is running, or the data is here
+    DATA_TIMEOUT = false;
     DATA_ERR = 'The file activities.json could not be read (' + (e && e.message ? e.message : 'unknown error') + ').';
     DATA_LOADED = false; renderList(null); refresh();
     if (!$('pFriend').hidden) renderFriend();   // I6: the incoming list stays in sessionStorage, so a reload opens it again
