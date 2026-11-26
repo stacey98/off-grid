@@ -84033,7 +84033,11 @@
         "price_known":  false,
         "sid":  598,
         "photos":  [
-
+                       {
+                           "file":  "photos/vegas-ev-postmodern-jukebox-1.jpg",
+                           "credit":  "BroadwayWorld article image (band promo photo; photographer not named)",
+                           "page_url":  "https://www.broadwayworld.com/las-vegas/article/SCOTT-BRADLEES-POSTMODERN-JUKEBOX-Will-Make-Encore-Theater-Debut-at-Wynn-Las-Vegas-20260505"
+                       }
                    ]
     },
     {
@@ -86856,7 +86860,11 @@
         "area_display":  "Arts District",
         "sid":  621,
         "photos":  [
-
+                       {
+                           "file":  "photos/vegas-dh-ninja-karaoke-downtown-1.jpg",
+                           "credit":  "Steve Marcus / Las Vegas Sun",
+                           "page_url":  "https://lasvegassun.com/photos/galleries/2018/jun/28/0622NinjaKaraoke/"
+                       }
                    ]
     },
     {
@@ -87193,7 +87201,16 @@
         "adults_only":  true,
         "sid":  624,
         "photos":  [
-
+                       {
+                           "file":  "photos/vegas-dh-las-vegas-distillery-1.jpg",
+                           "credit":  "QVegas Magazine (article by Russ White \u0026 Ward Billieisen; photographer not named)",
+                           "page_url":  "https://qvegas.com/articles/view/the-spirit-of-las-vegas-from-mash-to-magic-at-the-las-vegas-distillery"
+                       },
+                       {
+                           "file":  "photos/vegas-dh-las-vegas-distillery-2.jpg",
+                           "credit":  "Photograph: Courtesy Las Vegas Distillery (via Time Out)",
+                           "page_url":  "https://www.timeout.com/las-vegas/bars/las-vegas-distillery"
+                       }
                    ]
     },
     {
@@ -92895,7 +92912,11 @@
         "area_display":  "Downtown",
         "sid":  670,
         "photos":  [
-
+                       {
+                           "file":  "photos/vegas-ev-very-vegas-christmas-1.jpg",
+                           "credit":  "QVegas Magazine (article image, no photo credit shown)",
+                           "page_url":  "https://qvegas.com/articles/view/a-very-vegas-christmas-music-magic-and-holiday-cheer"
+                       }
                    ]
     },
     {
@@ -97543,7 +97564,11 @@
         "lng":  -115.1416,
         "sid":  707,
         "photos":  [
-
+                       {
+                           "file":  "photos/vegas-ev-fremont-nye-countdown-1.jpg",
+                           "credit":  "Fremont Street Experience (official site)",
+                           "page_url":  "https://fremontstreetexperience.com/"
+                       }
                    ]
     },
     {
@@ -97712,7 +97737,11 @@
         "lng":  -114.775050527974,
         "sid":  709,
         "photos":  [
-
+                       {
+                           "file":  "photos/vegas-ev-lake-mead-parade-of-lights-1.jpg",
+                           "credit":  "Provided by CPOL (Las Vegas Sun, 2010)",
+                           "page_url":  "https://lasvegassun.com/news/2010/dec/07/annual-holiday-boat-parade-brings-shimmer-lake-mea/"
+                       }
                    ]
     },
     {
@@ -100127,7 +100156,16 @@
                      },
         "sid":  732,
         "photos":  [
-
+                       {
+                           "file":  "photos/vegas-ga-lost-games-escape-1.jpg",
+                           "credit":  "Room Escape Artist (review of Lost Games\u0027 The Fortune Teller, 2022; no caption credit on the photo)",
+                           "page_url":  "https://roomescapeartist.com/2022/02/03/lost-games-fortune-teller-review/"
+                       },
+                       {
+                           "file":  "photos/vegas-ga-lost-games-escape-2.jpg",
+                           "credit":  "Room Escape Artist (review of Lost Games\u0027 The Fortune Teller, 2022; no caption credit on the photo)",
+                           "page_url":  "https://roomescapeartist.com/2022/02/03/lost-games-fortune-teller-review/"
+                       }
                    ]
     },
     {
@@ -100416,7 +100454,16 @@
                      },
         "sid":  735,
         "photos":  [
-
+                       {
+                           "file":  "photos/vegas-ev-tamales-mariachi-festival-1.jpg",
+                           "credit":  "City of Las Vegas (via News 3 Las Vegas gallery, 2025-12-06)",
+                           "page_url":  "https://news3lv.com/news/local/gallery/tamales-mariachi-festival-brings-festive-flavors-and-rhythms-to-las-vegas-city-hall?photo=1"
+                       },
+                       {
+                           "file":  "photos/vegas-ev-tamales-mariachi-festival-2.jpg",
+                           "credit":  "City of Las Vegas (via News 3 Las Vegas gallery, 2025-12-06)",
+                           "page_url":  "https://news3lv.com/news/local/gallery/tamales-mariachi-festival-brings-festive-flavors-and-rhythms-to-las-vegas-city-hall?photo=1"
+                       }
                    ]
     },
     {
