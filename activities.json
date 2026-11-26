@@ -82663,7 +82663,6 @@
                                 "end":  "2027-01-03"
                             }
                         ],
-        "end_date_confirmed":  false,
         "closed_dates":  [
 
                          ],
@@ -82849,18 +82848,6 @@
         "price_note":  "From $39 per car, $44 for some card payments. Fast Pass $64 on select nights.",
         "age_note":  "Age rules not posted",
         "phone":  "702-222-9777",
-        "source_urls":  [
-                            "https://www.glitteringlightslasvegas.com/faq",
-                            "https://glitteringlightslasvegas.com/fact-sheet/",
-                            "https://glitteringlightslasvegas.com/hours-of-operation/",
-                            "https://glitteringlightslasvegas.com/llms.txt",
-                            "https://www.lvms.com/events/glittering-lights/"
-                        ],
-        "verified":  {
-                         "status":  "conflicting",
-                         "checked_on":  "2026-11-22",
-                         "evidence_url":  "https://www.glitteringlightslasvegas.com/faq"
-                     },
         "price_known":  true,
         "price_from_usd":  39,
         "price_unit":  "per car",
@@ -82868,6 +82855,27 @@
                           "kids",
                           "teens"
                       ],
+        "end_date_confirmed":  true,
+        "source_urls":  [
+                            "https://www.glitteringlightslasvegas.com/faq",
+                            "https://glitteringlightslasvegas.com/fact-sheet/",
+                            "https://glitteringlightslasvegas.com/hours-of-operation/",
+                            "https://glitteringlightslasvegas.com/llms.txt",
+                            "https://www.lvms.com/events/glittering-lights/",
+                            "https://www.lvms.com/"
+                        ],
+        "verified":  {
+                         "status":  "verified",
+                         "checked":  "2026-11-25",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://glitteringlightslasvegas.com/faq/",
+                         "sources":  [
+                                         "https://glitteringlightslasvegas.com/faq/",
+                                         "https://glitteringlightslasvegas.com/hours-of-operation/",
+                                         "https://glitteringlightslasvegas.com/fact-sheet/",
+                                         "https://www.lvms.com/"
+                                     ]
+                     },
         "sid":  588,
         "photos":  [
                        {
@@ -88048,11 +88056,6 @@
                          "friends",
                          "family"
                      ],
-        "verified":  {
-                         "status":  "unverified",
-                         "checked_on":  "2026-11-22",
-                         "evidence_url":  "https://www.visitlasvegas.com/listing/high-roller/36000/"
-                     },
         "weather":  {
                         "wind_sensitive":  true,
                         "snow_friendly":  false,
@@ -88066,6 +88069,15 @@
                           "kids",
                           "teens"
                       ],
+        "verified":  {
+                         "status":  "unverified",
+                         "checked":  "2026-11-25",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  null,
+                         "sources":  [
+
+                                     ]
+                     },
         "sid":  631,
         "photos":  [
                        {
@@ -88121,17 +88133,21 @@
                          "friends",
                          "date"
                      ],
-        "verified":  {
-                         "status":  "unverified",
-                         "checked_on":  "2026-11-22",
-                         "evidence_url":  "https://www.visitlasvegas.com/listing/fly-linq/36512/"
-                     },
         "weather":  {
                         "wind_sensitive":  true,
                         "snow_friendly":  false,
                         "rain_ok":  false
                     },
         "price_known":  false,
+        "verified":  {
+                         "status":  "unverified",
+                         "checked":  "2026-11-25",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://www.visitlasvegas.com/listing/fly-linq/36512/",
+                         "sources":  [
+
+                                     ]
+                     },
         "sid":  632,
         "photos":  [
                        {
@@ -88910,11 +88926,6 @@
                          "date",
                          "family"
                      ],
-        "verified":  {
-                         "status":  "unverified",
-                         "checked_on":  "2026-11-22",
-                         "evidence_url":  "https://www.visitlasvegas.com/listing/flamingo-wildlife-habitat/35014/"
-                     },
         "weather":  {
                         "wind_sensitive":  false,
                         "snow_friendly":  false,
@@ -88927,6 +88938,15 @@
                           "kids",
                           "teens"
                       ],
+        "verified":  {
+                         "status":  "unverified",
+                         "checked":  "2026-11-25",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  null,
+                         "sources":  [
+
+                                     ]
+                     },
         "sid":  639,
         "photos":  [
                        {
@@ -88983,11 +89003,6 @@
                          "date",
                          "friends"
                      ],
-        "verified":  {
-                         "status":  "unverified",
-                         "checked_on":  "2026-11-22",
-                         "evidence_url":  "https://www.visitlasvegas.com/listing/the-strat-hotel-casino-%26-skypod-thrill-rides/34961/"
-                     },
         "weather":  {
                         "wind_sensitive":  true,
                         "snow_friendly":  false,
@@ -88999,6 +89014,15 @@
                           "kind":  "only",
                           "reason":  "Thrill rides on top of the STRAT tower"
                       },
+        "verified":  {
+                         "status":  "unverified",
+                         "checked":  "2026-11-25",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://www.visitlasvegas.com/listing/the-strat-hotel-casino-%26-skypod-thrill-rides/34961/",
+                         "sources":  [
+
+                                     ]
+                     },
         "sid":  640,
         "photos":  [
                        {
@@ -89053,11 +89077,6 @@
         "good_for":  [
                          "friends"
                      ],
-        "verified":  {
-                         "status":  "unverified",
-                         "checked_on":  "2026-11-22",
-                         "evidence_url":  "https://www.visitlasvegas.com/listing/the-strat-hotel-casino-%26-skypod-thrill-rides/34961/"
-                     },
         "weather":  {
                         "wind_sensitive":  true,
                         "snow_friendly":  false,
@@ -89065,6 +89084,15 @@
                     },
         "price_known":  false,
         "area_display":  "The Strip",
+        "verified":  {
+                         "status":  "unverified",
+                         "checked":  "2026-11-25",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  null,
+                         "sources":  [
+
+                                     ]
+                     },
         "sid":  641,
         "photos":  [
                        {
@@ -89121,11 +89149,6 @@
                          "friends",
                          "family"
                      ],
-        "verified":  {
-                         "status":  "unverified",
-                         "checked_on":  "2026-11-22",
-                         "evidence_url":  "https://www.visitlasvegas.com/listing/eiffel-tower-experience/34851/"
-                     },
         "weather":  {
                         "wind_sensitive":  true,
                         "snow_friendly":  false,
@@ -89136,6 +89159,15 @@
                           "kids",
                           "teens"
                       ],
+        "verified":  {
+                         "status":  "unverified",
+                         "checked":  "2026-11-25",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://www.visitlasvegas.com/listing/eiffel-tower-experience/34851/",
+                         "sources":  [
+
+                                     ]
+                     },
         "sid":  642,
         "photos":  [
                        {
@@ -90467,11 +90499,6 @@
                         "snow_friendly":  false,
                         "rain_ok":  true
                     },
-        "verified":  {
-                         "status":  "conflicting",
-                         "checked_on":  "2026-11-22",
-                         "evidence_url":  "https://www.lakemeadcruises.com/cruises/hoover-dam-sightseeing-cruise/"
-                     },
         "price_known":  true,
         "price_from_usd":  52,
         "price_unit":  "per adult",
@@ -90480,6 +90507,16 @@
                           "teens"
                       ],
         "area_display":  "Day trip",
+        "verified":  {
+                         "status":  "conflicting",
+                         "checked":  "2026-11-25",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://www.lakemeadcruises.com/cruises/hoover-dam-sightseeing-cruise/",
+                         "sources":  [
+                                         "https://www.lakemeadcruises.com/cruises/hoover-dam-sightseeing-cruise/",
+                                         "https://www.lakemeadcruises.com/cruises/desert-princess/"
+                                     ]
+                     },
         "sid":  653,
         "photos":  [
                        {
@@ -92362,17 +92399,21 @@
                         "snow_friendly":  false,
                         "rain_ok":  false
                     },
-        "verified":  {
-                         "status":  "unverified",
-                         "checked_on":  "2026-11-22",
-                         "evidence_url":  "https://www.bcnv.org/facilities/facility/details/hemenwayvalleypark-10"
-                     },
         "price_known":  false,
         "kid_bands":  [
                           "kids",
                           "teens"
                       ],
         "area_display":  "Day trip",
+        "verified":  {
+                         "status":  "unverified",
+                         "checked":  "2026-11-25",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://www.bcnv.org/facilities/facility/details/hemenwayvalleypark-10",
+                         "sources":  [
+                                         "https://www.bcnv.org/facilities/facility/details/hemenwayvalleypark-10"
+                                     ]
+                     },
         "sid":  667,
         "photos":  [
                        {
@@ -92523,27 +92564,7 @@
         "price_from":  null,
         "price_note":  "Prices on the Enchant ticket site. Ice skating, snow slide, s\u0027mores pit and parking cost extra; Premier Pass upgrade $30 (drink, gift, fast pass).",
         "hours":  null,
-        "event_dates":  [
-                            {
-                                "start":  "2026-11-24",
-                                "end":  "2026-12-27"
-                            }
-                        ],
         "end_date_confirmed":  true,
-        "hours_note":  "Open through Dec 27. Evening event with timed arrival windows; nightly hours are not posted, so check the ticket site before going. Opening date not posted.",
-        "closed_dates":  [
-
-                         ],
-        "season":  {
-                       "open_from":  null,
-                       "open_to":  "2026-12-27",
-                       "note":  "Holiday season, open through Dec 27."
-                   },
-        "date_hours":  {
-                           "2026-11-26":  "unknown",
-                           "2026-12-24":  "unknown",
-                           "2026-12-25":  "unknown"
-                       },
         "booking":  "ticket",
         "booking_url":  "https://tickets.enchantchristmas.com/",
         "phone":  "",
@@ -92557,11 +92578,6 @@
                          "friends",
                          "family"
                      ],
-        "verified":  {
-                         "status":  "unverified",
-                         "checked_on":  "2026-11-24",
-                         "evidence_url":  "https://www.enchantchristmas.com/las-vegas/plan-your-visit/"
-                     },
         "hook":  "A huge walk-through Christmas light maze with skating and a holiday village",
         "description":  "Enchant fills the Las Vegas Ballpark in Summerlin with what it bills as the world\u0027s largest Christmas light maze, this year a storyline called The Great Search where you hunt for Santa\u0027s missing reindeer among glowing light sculptures. General admission also covers the shopping village with seasonal food and drink, live music and caroling, photo spots, a Santa visit and a light-up dance floor. Ice skating, a snow slide and a s\u0027mores pit cost extra, as does parking (free lots are first come, first served). You pick an arrival window when you book and can then stay until closing; the event is cashless and only soft bags up to 16x16x8 in are allowed.",
         "highlights":  [
@@ -92583,6 +92599,220 @@
                           "teens"
                       ],
         "area_display":  "Summerlin",
+        "event_dates":  [
+                            {
+                                "start":  "2026-11-20",
+                                "end":  "2026-12-27"
+                            }
+                        ],
+        "season":  {
+                       "open_from":  "2026-11-20",
+                       "open_to":  "2026-12-27",
+                       "note":  "Holiday season, Nov 20 to Dec 27. Closed some Mondays and Tuesdays and on Thanksgiving."
+                   },
+        "hours_note":  "Evening hours change by date; front gate closes 1 hour before closing. Closed Thanksgiving. Open Christmas Eve and Christmas Day 4:30-10:30 pm.",
+        "last_entry_before_close_min":  60,
+        "closed_dates":  [
+                             "2026-11-26",
+                             "2026-11-30",
+                             "2026-12-01",
+                             "2026-12-07",
+                             "2026-12-14",
+                             "2026-12-15"
+                         ],
+        "date_hours":  {
+                           "2026-11-25":  [
+                                              [
+                                                  "17:30",
+                                                  "22:30"
+                                              ]
+                                          ],
+                           "2026-11-26":  [
+
+                                          ],
+                           "2026-11-27":  [
+                                              [
+                                                  "16:30",
+                                                  "22:30"
+                                              ]
+                                          ],
+                           "2026-11-28":  [
+                                              [
+                                                  "16:30",
+                                                  "22:30"
+                                              ]
+                                          ],
+                           "2026-11-29":  [
+                                              [
+                                                  "16:30",
+                                                  "21:30"
+                                              ]
+                                          ],
+                           "2026-11-30":  [
+
+                                          ],
+                           "2026-12-01":  [
+
+                                          ],
+                           "2026-12-02":  [
+                                              [
+                                                  "17:30",
+                                                  "21:30"
+                                              ]
+                                          ],
+                           "2026-12-03":  [
+                                              [
+                                                  "17:30",
+                                                  "22:30"
+                                              ]
+                                          ],
+                           "2026-12-04":  [
+                                              [
+                                                  "17:30",
+                                                  "22:30"
+                                              ]
+                                          ],
+                           "2026-12-05":  [
+                                              [
+                                                  "16:30",
+                                                  "22:30"
+                                              ]
+                                          ],
+                           "2026-12-06":  [
+                                              [
+                                                  "16:30",
+                                                  "21:30"
+                                              ]
+                                          ],
+                           "2026-12-07":  [
+
+                                          ],
+                           "2026-12-08":  [
+                                              [
+                                                  "17:30",
+                                                  "21:30"
+                                              ]
+                                          ],
+                           "2026-12-09":  [
+                                              [
+                                                  "17:30",
+                                                  "21:30"
+                                              ]
+                                          ],
+                           "2026-12-10":  [
+                                              [
+                                                  "17:30",
+                                                  "22:30"
+                                              ]
+                                          ],
+                           "2026-12-11":  [
+                                              [
+                                                  "16:30",
+                                                  "22:30"
+                                              ]
+                                          ],
+                           "2026-12-12":  [
+                                              [
+                                                  "16:30",
+                                                  "22:30"
+                                              ]
+                                          ],
+                           "2026-12-13":  [
+                                              [
+                                                  "16:30",
+                                                  "21:30"
+                                              ]
+                                          ],
+                           "2026-12-14":  [
+
+                                          ],
+                           "2026-12-15":  [
+
+                                          ],
+                           "2026-12-16":  [
+                                              [
+                                                  "17:30",
+                                                  "21:30"
+                                              ]
+                                          ],
+                           "2026-12-17":  [
+                                              [
+                                                  "16:30",
+                                                  "21:30"
+                                              ]
+                                          ],
+                           "2026-12-18":  [
+                                              [
+                                                  "16:30",
+                                                  "22:30"
+                                              ]
+                                          ],
+                           "2026-12-19":  [
+                                              [
+                                                  "16:30",
+                                                  "22:30"
+                                              ]
+                                          ],
+                           "2026-12-20":  [
+                                              [
+                                                  "16:30",
+                                                  "22:30"
+                                              ]
+                                          ],
+                           "2026-12-21":  [
+                                              [
+                                                  "16:30",
+                                                  "22:30"
+                                              ]
+                                          ],
+                           "2026-12-22":  [
+                                              [
+                                                  "16:30",
+                                                  "22:30"
+                                              ]
+                                          ],
+                           "2026-12-23":  [
+                                              [
+                                                  "16:30",
+                                                  "22:30"
+                                              ]
+                                          ],
+                           "2026-12-24":  [
+                                              [
+                                                  "16:30",
+                                                  "22:30"
+                                              ]
+                                          ],
+                           "2026-12-25":  [
+                                              [
+                                                  "16:30",
+                                                  "22:30"
+                                              ]
+                                          ],
+                           "2026-12-26":  [
+                                              [
+                                                  "16:30",
+                                                  "22:30"
+                                              ]
+                                          ],
+                           "2026-12-27":  [
+                                              [
+                                                  "16:30",
+                                                  "22:30"
+                                              ]
+                                          ]
+                       },
+        "verified":  {
+                         "status":  "verified",
+                         "checked":  "2026-11-25",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://help.enchantchristmas.com/en/articles/12670977-hours-of-operation-las-vegas-nv",
+                         "sources":  [
+                                         "https://help.enchantchristmas.com/en/articles/12670977-hours-of-operation-las-vegas-nv",
+                                         "https://www.enchantchristmas.com/las-vegas/",
+                                         "https://www.enchantchristmas.com/las-vegas/plan-your-visit/"
+                                     ]
+                     },
         "sid":  669,
         "photos":  [
 
@@ -94384,11 +94614,6 @@
                          "date",
                          "friends"
                      ],
-        "verified":  {
-                         "status":  "unverified",
-                         "checked_on":  "2026-11-24",
-                         "evidence_url":  "https://digthisvegas.com/faqs/"
-                     },
         "hours_note":  "Opening hours not posted; book a time slot online or call. Holiday hours not posted.",
         "description":  "Dig This lets you climb into real construction machines, such as a full-size excavator or bulldozer, and play in a giant dirt yard just off the Strip. Each session starts with a safety briefing and in-cab training on every lever and button, then an instructor coaches you by radio while you dig trenches, move mounds and try challenges. No experience or driver\u0027s license is needed, and the cabs are heated and air-conditioned, so winter weather is not a problem. Most sessions are for 1-4 operators; groups of 4 or more can build a custom dig, and there are separate kids digs.",
         "hook":  "Drive a real bulldozer or excavator in a giant Vegas sandbox",
@@ -94419,6 +94644,16 @@
                           "teens"
                       ],
         "area_display":  "Off-Strip",
+        "verified":  {
+                         "status":  "unverified",
+                         "checked":  "2026-11-25",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://digthisvegas.com/contact-us/",
+                         "sources":  [
+                                         "https://digthisvegas.com/",
+                                         "https://digthisvegas.com/contact-us/"
+                                     ]
+                     },
         "sid":  685,
         "photos":  [
                        {
@@ -94588,11 +94823,6 @@
                          "date",
                          "friends"
                      ],
-        "verified":  {
-                         "status":  "unverified",
-                         "checked_on":  "2026-11-24",
-                         "evidence_url":  "https://burlesquehall.com/"
-                     },
         "hours_note":  "Hours not posted; call (888) 661-6465 before going.",
         "description":  "A small museum in the Arts District run by the nonprofit Burlesque Hall of Fame, which preserves the history of burlesque. It holds costumes, photos and memorabilia from legends such as Gypsy Rose Lee, Lili St. Cyr, Tempest Storm, Sally Rand and Jennie Lee, and has a museum store. It pairs well with an evening of Arts District bars and galleries on Main Street.",
         "hook":  "Feathers, fans and showgirl history in the Arts District",
@@ -94619,6 +94849,15 @@
                           "kind":  "only",
                           "reason":  "Museum of burlesque history and costumes"
                       },
+        "verified":  {
+                         "status":  "unverified",
+                         "checked":  "2026-11-25",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  null,
+                         "sources":  [
+
+                                     ]
+                     },
         "sid":  687,
         "photos":  [
 
@@ -96505,11 +96744,6 @@
                          "date",
                          "friends"
                      ],
-        "verified":  {
-                         "status":  "conflicting",
-                         "checked_on":  "2026-11-25",
-                         "evidence_url":  "https://www.riolasvegas.com/shows/penn-teller"
-                     },
         "hook":  "The longest-running headliners in Vegas history, back Jan 1",
         "description":  "Penn \u0026 Teller are the longest-running headliners in Las Vegas history, celebrating 50 years together and 25 at the Rio. The Rio bills the show as edgy, provocative and funny, with new twists on five decades of their act; their TV show Penn \u0026 Teller: Fool Us has launched many magic careers.",
         "highlights":  [
@@ -96525,6 +96759,16 @@
         "address":  "Rio Hotel \u0026 Casino, 3700 W Flamingo Rd, Las Vegas, NV 89103",
         "lat":  36.115284403095,
         "lng":  -115.186853754961,
+        "verified":  {
+                         "status":  "conflicting",
+                         "checked":  "2026-11-25",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://www.riolasvegas.com/shows/penn-teller",
+                         "sources":  [
+                                         "https://www.riolasvegas.com/shows/penn-teller",
+                                         "https://www.riolasvegas.com/shows/teller-friends"
+                                     ]
+                     },
         "sid":  698,
         "photos":  [
                        {
@@ -96975,11 +97219,6 @@
                          "friends",
                          "date"
                      ],
-        "verified":  {
-                         "status":  "unverified",
-                         "checked_on":  "2026-11-25",
-                         "evidence_url":  "https://magicmikelive.com/las-vegas/faqs/"
-                     },
         "hook":  "Channing Tatum\u0027s 360-degree dance show for a girls\u0027 night out",
         "description":  "Created and co-directed by Channing Tatum and inspired by the Magic Mike films, this is an in-the-round show of dancing, acrobatics, live music and comedy, pitched as the ultimate girls\u0027 night out or a fun date. Cocktail servers bring drinks to your seat during the show.",
         "highlights":  [
@@ -96996,6 +97235,16 @@
         "lat":  36.142938822703,
         "lng":  -115.157760901552,
         "price_note":  "Prices are not posted on the show\u0027s site. Locals, students and military save 20% at the box office.",
+        "verified":  {
+                         "status":  "unverified",
+                         "checked":  "2026-11-25",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://magicmikelive.com/las-vegas/tickets/",
+                         "sources":  [
+                                         "https://magicmikelive.com/las-vegas/tickets/",
+                                         "https://magicmikelive.com/las-vegas/"
+                                     ]
+                     },
         "sid":  703,
         "photos":  [
 
@@ -97194,11 +97443,6 @@
                          "friends",
                          "family"
                      ],
-        "verified":  {
-                         "status":  "unverified",
-                         "checked_on":  "2026-11-25",
-                         "evidence_url":  "https://www.thesphere.com/shows/wizard-of-oz-experience"
-                     },
         "hook":  "The 1939 classic wrapped around you in 4D on the world\u0027s biggest screen",
         "description":  "Sphere\u0027s remastered, expanded version of the 1939 film plays on the venue\u0027s wraparound screen with Sphere Immersive Sound and a full set of 4D effects: seats that rumble and move, wind, fog, mist, bubbles, scents, falling objects and indoor fireworks over the Emerald City. The newest version adds new visuals and more effects.",
         "highlights":  [
@@ -97214,6 +97458,16 @@
         "address":  "Sphere, 255 Sands Ave, Las Vegas, NV 89169",
         "lat":  36.122308504464,
         "lng":  -115.16307108047,
+        "verified":  {
+                         "status":  "unverified",
+                         "checked":  "2026-11-25",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://www.thesphere.com/shows/wizard-of-oz-experience",
+                         "sources":  [
+                                         "https://www.thesphere.com/shows/wizard-of-oz-experience",
+                                         "https://www.thesphere.com/shows/calendar"
+                                     ]
+                     },
         "sid":  706,
         "photos":  [
 
@@ -97895,11 +98149,8 @@
         "indoor_outdoor":  "indoor",
         "price_level":  2,
         "price_from":  60,
-        "price_note":  "Ultimate Candle Making Experience $60 per person (two candles, 4 oz and 10 oz; more can be added on site). Other themed nights priced on the booking page.",
-        "hours":  null,
         "event_dates":  null,
         "end_date_confirmed":  null,
-        "hours_note":  "Booked 2-hour sessions daily; the studio mentions 12 pm and 3 pm as quieter early slots. Exact session times are on the booking page. Thanksgiving hours not posted.",
         "closed_dates":  [
 
                          ],
@@ -97923,11 +98174,6 @@
                          "friends",
                          "date"
                      ],
-        "verified":  {
-                         "status":  "unverified",
-                         "checked_on":  "2026-11-25",
-                         "evidence_url":  "https://www.rewaxandunwinevegas.com/faq-s"
-                     },
         "hook":  "Pour two custom-scented candles, then karaoke while they set",
         "description":  "A candle-making party studio in the southeast valley. In the first hour a host helps you pick a jar color and mix as many scents as you like into organic coconut wax for two candles (a 4 oz and a 10 oz).",
         "highlights":  [
@@ -97944,6 +98190,64 @@
         "address":  "9911 S Eastern Ave, Suite 140, Las Vegas, NV 89183",
         "lat":  36.009620463944,
         "lng":  -115.117184111771,
+        "hours":  {
+                      "mon":  [
+                                  [
+                                      "12:00",
+                                      "23:00"
+                                  ]
+                              ],
+                      "tue":  [
+                                  [
+                                      "12:00",
+                                      "23:00"
+                                  ]
+                              ],
+                      "wed":  [
+                                  [
+                                      "12:00",
+                                      "23:00"
+                                  ]
+                              ],
+                      "thu":  [
+                                  [
+                                      "12:00",
+                                      "23:00"
+                                  ]
+                              ],
+                      "fri":  [
+                                  [
+                                      "12:00",
+                                      "23:00"
+                                  ]
+                              ],
+                      "sat":  [
+                                  [
+                                      "12:00",
+                                      "23:00"
+                                  ]
+                              ],
+                      "sun":  [
+                                  [
+                                      "12:00",
+                                      "23:00"
+                                  ]
+                              ]
+                  },
+        "hours_note":  "Booked 2-hour sessions between noon and 11 pm, every day. Noon and 3 pm are the quieter slots.",
+        "price_from_usd":  49,
+        "price_note":  "Ultimate Candle Making Experience $60 per person (two candles). Themed nights per person: Wine Down Wednesday $49, Ladies Night and Romantic Date Night $55, GALmas (Dec 12-13, 6 pm) $55, Ugly Christmas Sweater Party (Dec 19, 6 pm) $60.",
+        "verified":  {
+                         "status":  "verified",
+                         "checked":  "2026-11-25",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://www.rewaxandunwinevegas.com/contact-us",
+                         "sources":  [
+                                         "https://www.rewaxandunwinevegas.com/contact-us",
+                                         "https://www.rewaxandunwinevegas.com/public-events",
+                                         "https://www.rewaxandunwinevegas.com/"
+                                     ]
+                     },
         "sid":  714,
         "photos":  [
 
@@ -98576,11 +98880,6 @@
                          "friends",
                          "family"
                      ],
-        "verified":  {
-                         "status":  "unverified",
-                         "checked_on":  "2026-11-25",
-                         "evidence_url":  "https://hollywoodcarsmuseum.com/"
-                     },
         "hook":  "The Batmobile, the DeLorean and Herbie under one roof",
         "description":  "A 30,000-square-foot museum of real film and TV vehicles a few minutes west of the Strip, built with the collection of car collector Michael Dezer. You walk among cars from more than 100 films and shows: a Batmobile, the Back to the Future DeLorean, KITT from Knight Rider, Herbie, Chitty Chitty Bang Bang, the General Lee, the Munsters coffin dragster, James Bond\u0027s Lotus submarine car and Fast and Furious cars. A newer Liberace Garage shows off the entertainer\u0027s sparkly cars. Tickets are bought at the door with cash only (there is an ATM), and kids under 16 get in free with a paying adult.",
         "highlights":  [
@@ -98597,6 +98896,15 @@
         "address":  "5115 Dean Martin Dr #905, Las Vegas, NV 89118",
         "lat":  36.097501,
         "lng":  -115.181392,
+        "verified":  {
+                         "status":  "unverified",
+                         "checked":  "2026-11-25",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://hollywoodcarsmuseum.com/",
+                         "sources":  [
+                                         "https://hollywoodcarsmuseum.com/"
+                                     ]
+                     },
         "sid":  720,
         "photos":  [
                        {
@@ -98690,11 +98998,6 @@
                          "friends",
                          "family"
                      ],
-        "verified":  {
-                         "status":  "unverified",
-                         "checked_on":  "2026-11-25",
-                         "evidence_url":  "https://www.mms.com/en-us/explore/mms-stores/las-vegas"
-                     },
         "hook":  "Four floors of M\u0026M\u0027S, and you can print your own",
         "description":  "The very first M\u0026M\u0027S store, a 28,000-square-foot, four-level candy store on the Strip next to the MGM Grand. Besides walls of every color and flavor, the fun part is the personal printer: in about two minutes you can design your own M\u0026M\u0027S with a message, a face or Vegas images like the Welcome sign, a deck of cards or wedding bells. It is free to walk through and open until midnight, so it works as a quick, silly stop on a Strip walk. The Coca-Cola Store is in the same building.",
         "highlights":  [
@@ -98710,6 +99013,15 @@
         "address":  "Showcase Mall, 3785 S Las Vegas Blvd, Las Vegas, NV 89109",
         "lat":  36.103122,
         "lng":  -115.172892,
+        "verified":  {
+                         "status":  "verified",
+                         "checked":  "2026-11-25",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://www.mms.com/en-us/explore/mms-stores/las-vegas",
+                         "sources":  [
+                                         "https://www.mms.com/en-us/explore/mms-stores/las-vegas"
+                                     ]
+                     },
         "sid":  721,
         "photos":  [
 
@@ -98894,15 +99206,10 @@
                                   ]
                               ]
                   },
-        "hours_note":  "Store open daily 9 am - 11 pm; the drinks bar (The Fountain) 9 am - 10 pm. Hours can change. Thanksgiving and Christmas hours not posted.",
         "closed_dates":  [
 
                          ],
         "season":  null,
-        "date_hours":  {
-                           "2026-11-26":  "unknown",
-                           "2026-12-25":  "unknown"
-                       },
         "booking":  "walk-in",
         "booking_url":  null,
         "phone":  "(702) 232-9792",
@@ -98915,11 +99222,6 @@
                          "family",
                          "date"
                      ],
-        "verified":  {
-                         "status":  "unverified",
-                         "checked_on":  "2026-11-25",
-                         "evidence_url":  "https://www.coca-colastore.com/retail/las-vegas"
-                     },
         "hook":  "Taste 14 Coca-Cola drinks from around the world",
         "description":  "Coca-Cola\u0027s store on the Strip, in the same Showcase Mall building as M\u0026M\u0027S, has a drinks bar called The Fountain. Its best-known order is the Around the World tray: 14 sparkling and still Coca-Cola drinks sold in other countries, some of them famously odd, which makes a fun group taste test. The bar also does Coke floats and mocktails, and you can personalize your own Coke can or bottle. Park in the Showcase Mall garage next door.",
         "highlights":  [
@@ -98934,6 +99236,23 @@
         "address":  "Showcase Mall, 3785 S Las Vegas Blvd, Las Vegas, NV 89109",
         "lat":  36.103122,
         "lng":  -115.172892,
+        "date_hours":  {
+                           "2026-11-26":  "unknown",
+                           "2026-12-24":  "unknown",
+                           "2026-12-25":  "unknown",
+                           "2026-12-31":  "unknown",
+                           "2027-01-01":  "unknown"
+                       },
+        "hours_note":  "Store open daily 9 am - 11 pm; the drinks bar (The Fountain) 9 am - 10 pm. Hours can change. Holiday hours (Thanksgiving, Dec 24, 25, 31, Jan 1) not posted; call first.",
+        "verified":  {
+                         "status":  "verified",
+                         "checked":  "2026-11-25",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://www.coca-colastore.com/retail/las-vegas",
+                         "sources":  [
+                                         "https://www.coca-colastore.com/retail/las-vegas"
+                                     ]
+                     },
         "sid":  723,
         "photos":  [
 
@@ -99023,11 +99342,6 @@
                          "friends",
                          "date"
                      ],
-        "verified":  {
-                         "status":  "unverified",
-                         "checked_on":  "2026-11-25",
-                         "evidence_url":  "https://countskustoms.com/museum-tours/"
-                     },
         "hook":  "Danny Koker\u0027s custom cars and bikes from TV\u0027s Counting Cars",
         "description":  "The shop of Danny \u0027The Count\u0027 Koker, star of the History Channel show Counting Cars, has a free showroom museum where you can walk through his collection of custom hot rods, muscle cars and bikes. It is open every day from 10 am to 4 pm, just west of the Strip on Highland Drive. Fans can also book a separate paid VIP tour that adds his personal showroom, the Welcome sign and his rock bar, Count\u0027s Vamp\u0027d.",
         "highlights":  [
@@ -99042,6 +99356,16 @@
         "address":  "2714 S Highland Dr, Las Vegas, NV 89109",
         "lat":  36.140865,
         "lng":  -115.170637,
+        "price_from_usd":  0,
+        "verified":  {
+                         "status":  "verified",
+                         "checked":  "2026-11-25",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://countskustoms.com/museum-tours/",
+                         "sources":  [
+                                         "https://countskustoms.com/museum-tours/"
+                                     ]
+                     },
         "sid":  724,
         "photos":  [
                        {
@@ -99092,11 +99416,6 @@
                          "date",
                          "friends"
                      ],
-        "verified":  {
-                         "status":  "unverified",
-                         "checked_on":  "2026-11-25",
-                         "evidence_url":  "https://www.blm.gov/visit/sloan-canyon-petroglyphs"
-                     },
         "hook":  "Hundreds of ancient rock carvings a short drive from the Strip",
         "description":  "A desert canyon on the edge of Henderson holding one of the most important rock art sites in Southern Nevada: more than 300 panels with about 1,700 carved designs, made by Native peoples from the Archaic era to historic times. It is protected as part of the 48,438-acre Sloan Canyon National Conservation Area, run by the Bureau of Land Management. The trail is a rough desert hike (not wheelchair accessible) and the area is day use only. Access roads and the trail start have been changing because of construction, so check BLM\u0027s page for current directions before you go.",
         "highlights":  [
@@ -99111,6 +99430,15 @@
         "address":  "Petroglyph trailhead off Nawghaw Poa Rd, Henderson, NV",
         "lat":  35.916344,
         "lng":  -115.125622,
+        "verified":  {
+                         "status":  "unverified",
+                         "checked":  "2026-11-25",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://www.blm.gov/visit/sloan-canyon-petroglyphs",
+                         "sources":  [
+                                         "https://www.blm.gov/visit/sloan-canyon-petroglyphs"
+                                     ]
+                     },
         "sid":  725,
         "photos":  [
                        {
@@ -99200,11 +99528,6 @@
                          "friends",
                          "date"
                      ],
-        "verified":  {
-                         "status":  "unverified",
-                         "checked_on":  "2026-11-25",
-                         "evidence_url":  "https://pinballmuseum.org/direct.php"
-                     },
         "highlights":  [
                            "Free entry; games 25-50 cents",
                            "Restored 1950s-1990s machines, all playable",
@@ -99220,7 +99543,6 @@
         "lng":  -115.1719,
         "hook":  "The world\u0027s biggest playable pinball collection",
         "description":  "A 25,000-square-foot hall run by the Las Vegas Pinball Collectors Club, filled with restored pinball machines from the 1950s through the 1990s, and every one of them is playable. You pay per game: 25 cents on the older machines and 50 cents on the 1990s ones, so a bag of quarters goes a long way. It is pure pinball plus a few novelty arcade games, with no ticket-spitting prize machines. The hall is a non-profit and extra money goes to charity. It sits on the south end of the Strip, right across from the Welcome to Fabulous Las Vegas sign, so it pairs well with a sign photo stop.",
-        "price_note":  "Older machines are 25 cents a game, 1990s machines 50 cents.",
         "date_hours":  {
                            "2026-11-26":  [
                                               [
@@ -99233,6 +99555,18 @@
                            "2026-12-31":  "unknown"
                        },
         "hours_note":  "Open every day: Sun-Thu 10 am-9 pm, Fri-Sat 10 am-10 pm. Christmas and New Year\u0027s hours not posted.",
+        "price_from_usd":  0,
+        "price_note":  "Free to enter. Older machines are 25 cents a game, 1990s machines 50 cents.",
+        "verified":  {
+                         "status":  "verified",
+                         "checked":  "2026-11-25",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://pinballmuseum.org/direct.php",
+                         "sources":  [
+                                         "https://pinballmuseum.org/direct.php",
+                                         "https://pinballmuseum.org/"
+                                     ]
+                     },
         "sid":  726,
         "photos":  [
                        {
@@ -99334,11 +99668,6 @@
                          "friends",
                          "date"
                      ],
-        "verified":  {
-                         "status":  "unverified",
-                         "checked_on":  "2026-11-25",
-                         "evidence_url":  "https://www.player1vegas.com/"
-                     },
         "hours_note":  "Sun-Thu 1 pm-2 am, Fri-Sat 1 pm-4 am. Holiday hours not posted.",
         "hook":  "21+ barcade with games from every console era, open till 4 am on weekends",
         "description":  "A grown-up video game bar off the Strip on Maryland Parkway, mixing retro arcade cabinets and consoles from every generation with craft beer, imports and game-themed cocktails. You pay a small cover at the door and most of the games are then free to play, so you can bounce between classics all night. Weekly theme nights include Weeb Wednesday and a Thursday tournament night, and Sundays are discounted for Vegas locals. It is 21 and over only and stays open until 2 am on weeknights and 4 am on Fridays and Saturdays, which makes it a good late stop.",
@@ -99355,6 +99684,15 @@
         "address":  "2797 S Maryland Pkwy #24, Las Vegas, NV 89109",
         "lat":  36.138091074536,
         "lng":  -115.13694978858,
+        "verified":  {
+                         "status":  "unverified",
+                         "checked":  "2026-11-25",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://www.player1vegas.com/",
+                         "sources":  [
+                                         "https://www.player1vegas.com/"
+                                     ]
+                     },
         "sid":  727,
         "photos":  [
                        {
@@ -99406,11 +99744,6 @@
                          "friends",
                          "date"
                      ],
-        "verified":  {
-                         "status":  "unverified",
-                         "checked_on":  "2026-11-25",
-                         "evidence_url":  "https://www.area15.com/experiences/asylum"
-                     },
         "hours_note":  "AREA15 opens at noon daily. The bar\u0027s own closing time isn\u0027t posted and it hosts music nights that run later.",
         "hook":  "Pinball, Pac-Man and boozy slushies on AREA15\u0027s second floor",
         "description":  "A bar and arcade upstairs at AREA15 that pairs a long wall of retro and newer cabinets with cocktails, craft beer and alcohol-infused slushies. The lineup covers classic video games like Galaga, Pac-Man, NBA Jam, Street Fighter 2 and Time Crisis 2, a row of modern pinball machines (Deadpool, Metallica, Ghostbusters and more), plus Skee-Ball, shuffleboard, bubble hockey, pool and foosball. Games run on tokens, and buying online gets you $25 of tokens for $20. There are free weekly events like karaoke and local DJ sets, and a pizza kitchen for food. It is 21+ on Friday and Saturday nights after 8 pm.",
@@ -99421,12 +99754,21 @@
                            "$25 of tokens for $20 online",
                            "21+ Fri-Sat after 8 pm"
                        ],
-        "age_note":  "All ages earlier; 21+ on Fridays and Saturdays after 8 pm (AREA15 page).",
         "duration_minutes":  90,
         "min_minutes":  45,
         "address":  "AREA15, 3215 S Rancho Dr, Las Vegas, NV 89102",
         "lat":  36.131695270791,
         "lng":  -115.180776413676,
+        "age_note":  "All ages earlier; 21+ on Fridays and Saturdays after 8 pm, ID required.",
+        "verified":  {
+                         "status":  "unverified",
+                         "checked":  "2026-11-25",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://www.area15.com/experiences/asylum",
+                         "sources":  [
+                                         "https://www.area15.com/experiences/asylum"
+                                     ]
+                     },
         "sid":  728,
         "photos":  [
                        {
@@ -99479,11 +99821,6 @@
                          "friends",
                          "date"
                      ],
-        "verified":  {
-                         "status":  "unverified",
-                         "checked_on":  "2026-11-25",
-                         "evidence_url":  "https://www.circuscircus.com/attractions/midway-circus-shows/"
-                     },
         "hours_note":  "Free circus acts run Fri-Sat 12:30-9:30 pm and Sun-Mon 12:30-8:30 pm. Midway game hours aren\u0027t posted.",
         "hook":  "Old-school carnival games with trapeze acts flying overhead, free to watch",
         "description":  "Upstairs at Circus Circus, the Midway is a bright carnival floor of classic midway skill games mixed with modern arcade machines, with prizes from small keepsakes up to premium prizes. The best part is free: live circus acts perform in a ring in the middle of the Midway through the afternoon and evening, with trapeze artists, clowns and strength and balance acts. Acts currently run Friday through Monday. It is a cheap, silly, very old-Vegas stop that fits well before or after the Adventuredome next door.",
@@ -99499,6 +99836,16 @@
         "address":  "Circus Circus, 2880 Las Vegas Blvd South, Las Vegas, NV 89109",
         "lat":  36.135598546741,
         "lng":  -115.162727331002,
+        "verified":  {
+                         "status":  "unverified",
+                         "checked":  "2026-11-25",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://www.circuscircus.com/attractions/midway-circus-shows/",
+                         "sources":  [
+                                         "https://www.circuscircus.com/attractions/midway-circus-shows/",
+                                         "https://www.circuscircus.com/attractions/midway/"
+                                     ]
+                     },
         "sid":  729,
         "photos":  [
                        {
@@ -99551,11 +99898,6 @@
                          "friends",
                          "date"
                      ],
-        "verified":  {
-                         "status":  "unverified",
-                         "checked_on":  "2026-11-25",
-                         "evidence_url":  "https://lasvegas.brooklynbowl.com/visit"
-                     },
         "hours_note":  "Open around shows only: Fridays from 9 pm and Saturdays from 6 pm; closed other days. Times change with the concert schedule.",
         "hook":  "32 lanes facing a concert stage on the Strip",
         "description":  "A big concert hall at The LINQ that also has 32 hardwood bowling lanes facing the stage, with huge screens, leather Chesterfield sofas and food from New York\u0027s Blue Ribbon. You can reserve a lane and bowl while a band plays, or book a VIP lane for the best view of the show. Right now it opens only around shows, usually Friday from 9 pm and Saturday from 6 pm, so check the show calendar and book a lane ahead. Lane prices change by night and event.",
@@ -99571,6 +99913,15 @@
         "address":  "The LINQ Promenade, 3545 S Las Vegas Blvd, Las Vegas, NV 89109",
         "lat":  36.11740605877,
         "lng":  -115.172797334396,
+        "verified":  {
+                         "status":  "unverified",
+                         "checked":  "2026-11-25",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  null,
+                         "sources":  [
+
+                                     ]
+                     },
         "sid":  730,
         "photos":  [
                        {
@@ -99626,11 +99977,6 @@
                          "date"
                      ],
         "award_note":  "Best of Morty award in 2022 and 2023 (Morty escape room app\u0027s yearly list).",
-        "verified":  {
-                         "status":  "unverified",
-                         "checked_on":  "2026-11-25",
-                         "evidence_url":  "https://escapeblairwitch.com/faq/"
-                     },
         "hours_note":  "Open Wed-Sun, times vary by booking; closed Mon-Tue. Reservations required, no walk-ups.",
         "hook":  "Award-winning horror escape room inside the Blair Witch woods",
         "description":  "An escape experience built with Lionsgate around The Blair Witch Project, where your group joins the search and tries to uncover the truth while live actors, mechanical effects and fog fill every room. It is loud, dark and intense by design, and there are no refunds for getting scared. General admission groups are combined up to 8 people; book a Private VIP slot for 4-8 if you want your group alone, or the VIP package that adds a souvenir photo, hat and t-shirt. It sells out daily, walk-ups are not accepted, and you are not let in if you arrive more than 5 minutes late. Kids under 8 can only come on a private booking and under-16s need a ticketed adult with them.",
@@ -99647,6 +99993,16 @@
         "lat":  36.147569668141,
         "lng":  -115.162365980994,
         "age_note":  "Under 8: private bookings only; under 16 with a ticketed adult; 16-17 need an adult to sign the waiver.",
+        "verified":  {
+                         "status":  "unverified",
+                         "checked":  "2026-11-25",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://escapeblairwitch.com/",
+                         "sources":  [
+                                         "https://escapeblairwitch.com/",
+                                         "https://escapeblairwitch.com/faq/"
+                                     ]
+                     },
         "sid":  731,
         "photos":  [
                        {
@@ -99744,11 +100100,6 @@
                          "date"
                      ],
         "award_note":  "The Asylum: Playtime won a Best of Morty award in 2022, 2023 and 2024 (Morty escape room app\u0027s yearly list).",
-        "verified":  {
-                         "status":  "unverified",
-                         "checked_on":  "2026-11-25",
-                         "evidence_url":  "https://www.lostgameslv.com/"
-                     },
         "hours_note":  "Mon-Thu 1-10 pm, Fri and Sun noon-11 pm, Sat 9:30 am-midnight. Holiday hours not posted.",
         "hook":  "Movie-set escape rooms with an award-winning asylum game",
         "description":  "An independent escape room company a few minutes west of the Strip with four 60-minute games built on detailed, movie-style sets. The Asylum pair is the draw: The Doctor\u0027s Secret works well for first-timers, while Playtime is the hardest game here and has won Best of Morty awards three years running. The Fortune Teller is the gentlest option, and The Floor Is Lava is a physical game with jumping and reaching (wear sneakers). Every booking is private to your group, game masters give unlimited hints, and the doors are never locked. Weekend evenings often sell out 1-2 weeks ahead, and parking is free on site.",
@@ -99765,6 +100116,15 @@
         "lat":  36.1344085,
         "lng":  -115.1917408,
         "age_note":  "Age limits vary by game; 14 and under must come with an adult.",
+        "verified":  {
+                         "status":  "verified",
+                         "checked":  "2026-11-25",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://www.lostgameslv.com/",
+                         "sources":  [
+                                         "https://www.lostgameslv.com/"
+                                     ]
+                     },
         "sid":  732,
         "photos":  [
 
@@ -99850,12 +100210,6 @@
                          "friends",
                          "date"
                      ],
-        "verified":  {
-                         "status":  "unverified",
-                         "checked_on":  "2026-11-25",
-                         "evidence_url":  "https://www.interstellararc.com/"
-                     },
-        "hours_note":  "Daily noon-8 pm (last entry 7 pm), Fri-Sat until 10 pm (last entry 9 pm). Departures every 15 minutes. Holiday hours not posted.",
         "hook":  "Walk around a giant starship in VR, an hour from launch to landing",
         "description":  "A large free-roam virtual reality show at AREA15 where you board a starship bound for a planet 11 light-years away and actually walk around inside it, moving through its spaces and interacting with what happens around you. You check in at a futuristic spaceport, get a mission briefing, then explore the ship on your own or with your group while a blue-fox AI guide called the Diplomat leads the story. The whole voyage, including check-in, takes about an hour, and groups leave every 15 minutes. Tickets run $45-49 depending on the date, all sales are final, and you can reschedule up to 24 hours ahead. Guests must be 8 or older and at least 48 inches tall.",
         "highlights":  [
@@ -99872,37 +100226,22 @@
         "lat":  36.134336769006,
         "lng":  -115.181071339591,
         "date_hours":  {
-                           "2026-11-26":  [
-                                              [
-                                                  "12:00",
-                                                  "20:00"
-                                              ]
-                                          ],
-                           "2026-12-24":  [
-                                              [
-                                                  "12:00",
-                                                  "20:00"
-                                              ]
-                                          ],
-                           "2026-12-25":  [
-                                              [
-                                                  "12:00",
-                                                  "22:00"
-                                              ]
-                                          ],
-                           "2026-12-31":  [
-                                              [
-                                                  "12:00",
-                                                  "20:00"
-                                              ]
-                                          ],
-                           "2027-01-01":  [
-                                              [
-                                                  "12:00",
-                                                  "22:00"
-                                              ]
-                                          ]
+                           "2026-11-26":  "unknown",
+                           "2026-12-24":  "unknown",
+                           "2026-12-25":  "unknown",
+                           "2026-12-31":  "unknown",
+                           "2027-01-01":  "unknown"
                        },
+        "hours_note":  "Daily noon-8 pm (last entry 7 pm), Fri-Sat until 10 pm (last entry 9 pm). Departures every 15 minutes. Holiday hours not posted; check your booking first.",
+        "verified":  {
+                         "status":  "verified",
+                         "checked":  "2026-11-25",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://www.interstellararc.com/",
+                         "sources":  [
+                                         "https://www.interstellararc.com/"
+                                     ]
+                     },
         "sid":  733,
         "photos":  [
                        {
@@ -99968,11 +100307,6 @@
                          "date",
                          "friends"
                      ],
-        "verified":  {
-                         "status":  "unverified",
-                         "checked_on":  "2026-11-25",
-                         "evidence_url":  "https://www.livenation.com/event/1Ad0Z_6Gkmx6wSv/viva-la-lisa"
-                     },
         "hook":  "BLACKPINK\u0027s LISA closes her first Vegas residency",
         "description":  "LISA, the BLACKPINK member, is playing her VIVA LA LISA residency at The Colosseum, the big theater inside Caesars Palace. Only the final weekend is left: Friday Nov 27, Saturday Nov 28 and Sunday Nov 29, with shows at 8 pm. Tickets are sold through Live Nation and Ticketmaster, and seats for these last nights may be limited, so check the ticket page before you plan around it.",
         "highlights":  [
@@ -99987,6 +100321,15 @@
         "address":  "The Colosseum at Caesars Palace, 3570 S Las Vegas Blvd, Las Vegas, NV 89109",
         "lat":  36.116156,
         "lng":  -115.175058,
+        "verified":  {
+                         "status":  "verified",
+                         "checked":  "2026-11-25",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://www.livenation.com/event/1Ad0Z_6Gkmx6wSv/viva-la-lisa",
+                         "sources":  [
+                                         "https://www.livenation.com/event/1Ad0Z_6Gkmx6wSv/viva-la-lisa"
+                                     ]
+                     },
         "sid":  734,
         "photos":  [
 
@@ -100046,11 +100389,6 @@
                          "date",
                          "family"
                      ],
-        "verified":  {
-                         "status":  "unverified",
-                         "checked_on":  "2026-11-25",
-                         "evidence_url":  "https://content.govdelivery.com/accounts/NVLASVEGAS/bulletins/425e88c"
-                     },
         "hook":  "Free tamales-and-mariachi party at City Hall\u0027s plaza",
         "description":  "The City of Las Vegas throws this free yearly festival to kick off the holidays on the outdoor plaza of the Las Vegas Civic Center downtown. Local vendors sell tamales from Mexico and Central America, and there is live mariachi music plus folklorico dance and other performances. It runs one Saturday, Dec 5, from 11 am to 4 pm, with activities for all ages, so it is an easy lunch-and-music outing with friends. Entry is free; food is sold by the vendors.",
         "highlights":  [
@@ -100066,6 +100404,16 @@
         "address":  "Las Vegas Civic Center outdoor plaza, 525 S Main St, Las Vegas, NV 89101",
         "lat":  36.166700358579,
         "lng":  -115.149530315372,
+        "verified":  {
+                         "status":  "verified",
+                         "checked":  "2026-11-25",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://content.govdelivery.com/accounts/NVLASVEGAS/bulletins/425e88c",
+                         "sources":  [
+                                         "https://content.govdelivery.com/accounts/NVLASVEGAS/bulletins/425e88c",
+                                         "https://www.lasvegasnevada.gov/Residents/Arts-Culture/Annual-Festivals"
+                                     ]
+                     },
         "sid":  735,
         "photos":  [
 
@@ -100132,11 +100480,6 @@
                          "date",
                          "family"
                      ],
-        "verified":  {
-                         "status":  "unverified",
-                         "checked_on":  "2026-11-25",
-                         "evidence_url":  "https://www.thepwhl.com/en/teams/vegas-vanguards/schedule"
-                     },
         "hook":  "Vegas\u0027s brand-new pro women\u0027s hockey team drops the puck",
         "description":  "The Vegas Vanguards are the city\u0027s new Professional Women\u0027s Hockey League team, and their first season starts in December at T-Mobile Arena, the same Strip arena the Golden Knights use. The first home game ever is Sunday Dec 6 at 5 pm against fellow new team the Detroit Clutch, followed by home games Dec 10, Dec 26 and Dec 29 before the season continues into spring. It is a fun, lower-key alternative to an NHL night and a chance to see a team from its very first game. Tickets are sold on the team\u0027s PWHL page.",
         "highlights":  [
@@ -100151,6 +100494,16 @@
         "address":  "T-Mobile Arena, 3780 S Las Vegas Blvd, Las Vegas, NV 89109",
         "lat":  36.10866,
         "lng":  -115.17307,
+        "verified":  {
+                         "status":  "verified",
+                         "checked":  "2026-11-25",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://www.thepwhl.com/en/teams/vegas-vanguards/schedule",
+                         "sources":  [
+                                         "https://www.thepwhl.com/en/teams/vegas-vanguards/schedule",
+                                         "https://www.thepwhl.com/en/teams/vegas-vanguards/tickets"
+                                     ]
+                     },
         "sid":  736,
         "photos":  [
 
@@ -100430,15 +100783,9 @@
         "price_from_usd":  62.83,
         "price_known":  true,
         "price_note":  "From $62.83 per ticket including the ticket fee, before tax.",
-        "age_note":  "Ages 5 and up.",
         "phone":  "(866) 799-7711",
         "booking":  "ticket",
         "booking_url":  "https://mgmgrand.mgmresorts.com/en/entertainment/now-you-see-me-live.html",
-        "verified":  {
-                         "status":  "conflicting",
-                         "checked_on":  "2026-11-25",
-                         "evidence_url":  "https://mgmgrand.mgmresorts.com/en/entertainment/now-you-see-me-live.html"
-                     },
         "kind":  "event",
         "price_from":  62.83,
         "price_unit":  "per ticket",
@@ -100447,6 +100794,17 @@
                             "https://nowyouseemelive.com/",
                             "https://mgmgrand.mgmresorts.com/en/entertainment/now-you-see-me-live.html"
                         ],
+        "age_note":  "Ages 5 and up; under 18 must be with an adult.",
+        "verified":  {
+                         "status":  "verified",
+                         "checked":  "2026-11-25",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://mgmgrand.mgmresorts.com/en/entertainment/now-you-see-me-live.html",
+                         "sources":  [
+                                         "https://mgmgrand.mgmresorts.com/en/entertainment/now-you-see-me-live.html",
+                                         "https://vegas.nowyouseemelive.com/"
+                                     ]
+                     },
         "sid":  737,
         "photos":  [
                        {
@@ -100820,11 +101178,6 @@
                          "date",
                          "friends"
                      ],
-        "verified":  {
-                         "status":  "unverified",
-                         "checked_on":  "2026-11-25",
-                         "evidence_url":  "https://www.thebeverlytheater.com/know-before-you-go"
-                     },
         "hook":  "Vegas\u0027s only independent film house, for an art-house date",
         "description":  "The Beverly Theater bills itself as Las Vegas\u0027s only independent film house and performance venue, a downtown theater run by The Rogers Foundation. Its calendar mixes indie films, revivals and film festivals with concerts, live shows and author and book events, so it is a good pick for a date night that is not a casino show. Check the calendar for what is playing, since everything is ticketed by event. The venue is cashless, and the box office is open daily 3-9 pm on days without events.",
         "highlights":  [
@@ -100840,6 +101193,15 @@
         "address":  "The Beverly Theater, 515 S 6th St, Las Vegas, NV 89101",
         "lat":  36.163867048898,
         "lng":  -115.14262509587,
+        "verified":  {
+                         "status":  "verified",
+                         "checked":  "2026-11-25",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://www.thebeverlytheater.com/know-before-you-go",
+                         "sources":  [
+                                         "https://www.thebeverlytheater.com/know-before-you-go"
+                                     ]
+                     },
         "sid":  739,
         "photos":  [
                        {
@@ -100918,16 +101280,10 @@
 
                         ],
         "end_date_confirmed":  null,
-        "hours_note":  "Closed on Thanksgiving (Thu Nov 26). Christmas Eve, Christmas and New Year\u0027s Eve hours not posted yet. 21+ after 5 pm.",
         "closed_dates":  [
                              "2026-11-26"
                          ],
         "season":  null,
-        "date_hours":  {
-                           "2026-12-24":  "unknown",
-                           "2026-12-25":  "unknown",
-                           "2026-12-31":  "unknown"
-                       },
         "booking":  "reservations or walk-in",
         "booking_url":  "https://www.flightclubdartsusa.com/las-vegas",
         "phone":  "(702) 848-4188",
@@ -100940,11 +101296,6 @@
                          "friends",
                          "groups"
                      ],
-        "verified":  {
-                         "status":  "unverified",
-                         "checked_on":  "2026-11-25",
-                         "evidence_url":  "https://www.flightclubdartsusa.com/las-vegas"
-                     },
         "hook":  "London\u0027s high-tech darts bar: auto-scoring games, cocktails, instant replays",
         "description":  "Flight Club is the London-born social darts bar, and its Las Vegas branch sits upstairs in the Grand Canal Shoppes at the Palazzo end of The Venetian. You book a private oche (a little themed booth with its own board and screen), and cameras track every throw and keep score automatically, so nobody has to do math. Games are quick multiplayer formats with instant replays of the winning dart, which makes it easy even if you have never played. Darts start at $20 per person for 90 minutes, with craft cocktails and shareable food served at your booth. It is all ages in the daytime, but 21+ after 5 pm; kids under 12 cannot throw and teens need an adult. Park in the Palazzo garage and head to Level 2 above the Palazzo check-in desk, near SUSHISAMBA.",
         "highlights":  [
@@ -100960,6 +101311,22 @@
         "address":  "Grand Canal Shoppes (Palazzo tower), 3327 S Las Vegas Blvd, Suite 2720, Las Vegas, NV 89109",
         "lat":  36.123348911868,
         "lng":  -115.1706497384,
+        "date_hours":  {
+                           "2026-12-24":  "unknown",
+                           "2026-12-25":  "unknown",
+                           "2026-12-31":  "unknown",
+                           "2027-01-01":  "unknown"
+                       },
+        "hours_note":  "Closed on Thanksgiving (Thu Nov 26). Christmas Eve, Christmas, New Year\u0027s Eve and New Year\u0027s Day hours not posted yet; call first. 21+ after 5 pm.",
+        "verified":  {
+                         "status":  "verified",
+                         "checked":  "2026-11-25",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://www.flightclubdartsusa.com/las-vegas",
+                         "sources":  [
+                                         "https://www.flightclubdartsusa.com/las-vegas"
+                                     ]
+                     },
         "sid":  740,
         "photos":  [
                        {
@@ -100994,7 +101361,6 @@
         "indoor_outdoor":  "indoor",
         "price_level":  null,
         "price_from":  null,
-        "price_note":  "Ticket prices are not listed on the exhibit\u0027s own site; tickets are sold through Fever and at an on-site box office.",
         "hours":  {
                       "mon":  [
                                   [
@@ -101065,11 +101431,6 @@
                          "friends",
                          "solo"
                      ],
-        "verified":  {
-                         "status":  "unverified",
-                         "checked_on":  "2026-11-25",
-                         "evidence_url":  "https://realbodiesvegas.com/"
-                     },
         "hook":  "Real preserved human bodies, system by system, right on the Strip",
         "description":  "Real Bodies is a long-running anatomy exhibition on the lower level of Horseshoe Las Vegas (the former Bally\u0027s). It shows more than 20 real, preserved human specimens and over 200 anatomical pieces across 11 galleries, starting with the history of anatomy and then walking through each body system (breathing, circulation, nerves and more) with bodies posed in motion. There is also a Love Room about the emotional side of the body. It is self-guided and takes most people 45-60 minutes; some tickets add a virtual reality segment, and drink tickets can be used at the Cabinet of Curiosities bar nearby. All ages are allowed, but it is real human remains, so it is better for curious adults and older kids. Park in the shared Horseshoe and Paris garage.",
         "highlights":  [
@@ -101079,12 +101440,25 @@
                            "Open daily from 11 am",
                            "All ages (real human remains)"
                        ],
-        "age_note":  "All ages allowed (exhibit site); contains real human remains.",
         "duration_minutes":  60,
         "min_minutes":  30,
         "address":  "Horseshoe Las Vegas, Lower Level, Suite A1-A3, 3645 Las Vegas Blvd S, Las Vegas, NV 89109",
         "lat":  36.1128327823,
         "lng":  -115.172843773626,
+        "price_from_usd":  35,
+        "price_unit":  "per adult",
+        "price_note":  "Adults (13+) $35, kids 4-12 $26, under 4 free. 20% off online through Nov 30 ($28 adults, $20.80 kids).",
+        "age_note":  "All ages; contains real human remains.",
+        "verified":  {
+                         "status":  "verified",
+                         "checked":  "2026-11-25",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://realbodiesvegas.com/",
+                         "sources":  [
+                                         "https://realbodiesvegas.com/",
+                                         "https://feverup.com/m/338106"
+                                     ]
+                     },
         "sid":  741,
         "photos":  [
 
@@ -101179,11 +101553,6 @@
                          "date",
                          "friends"
                      ],
-        "verified":  {
-                         "status":  "unverified",
-                         "checked_on":  "2026-11-25",
-                         "evidence_url":  "https://www.sanrio.com/blogs/hellokittycafe/hello-kitty-cafe-las-vegas-at-the-forum-shops-at-caesars-palace"
-                     },
         "hook":  "Pink Hello Kitty afternoon tea in the Bow Room at the Forum Shops",
         "description":  "Sanrio\u0027s newest Las Vegas Hello Kitty Cafe is on the second floor of the Forum Shops at Caesars Palace, next to the famous spiral escalators. The front cafe sells Hello Kitty baked treats, sweets and specialty drinks, plus merchandise you can only buy at this location. The real draw is the Bow Room, a sit-down space with an afternoon tea service, a small savory menu and drinks that are served only there; it is by reservation. The cafe opens at 9 am every day and stays open until 9 pm, or 10 pm on Fridays and Saturdays. It makes a cute, low-key stop between Strip shopping and a show.",
         "highlights":  [
@@ -101198,6 +101567,15 @@
         "address":  "The Forum Shops at Caesars Palace, Level 2, 3500 Las Vegas Blvd S, Las Vegas, NV 89109",
         "lat":  36.120441883779,
         "lng":  -115.172376183603,
+        "verified":  {
+                         "status":  "unverified",
+                         "checked":  "2026-11-25",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://www.sanrio.com/blogs/hellokittycafe/hello-kitty-cafe-las-vegas-at-the-forum-shops-at-caesars-palace",
+                         "sources":  [
+                                         "https://www.sanrio.com/blogs/hellokittycafe/hello-kitty-cafe-las-vegas-at-the-forum-shops-at-caesars-palace"
+                                     ]
+                     },
         "sid":  742,
         "photos":  [
 
@@ -101262,11 +101640,6 @@
                          "date",
                          "friends"
                      ],
-        "verified":  {
-                         "status":  "unverified",
-                         "checked_on":  "2026-11-25",
-                         "evidence_url":  "https://rougeroomlv.getbento.com/Winter-Ski-Lodge/"
-                     },
         "hook":  "Free apres-ski DJ nights with fire pits and a Ski Bar in Summerlin",
         "description":  "For the winter, Rouge Room, the cocktail lounge inside Red Rock Casino in Summerlin, turns into an indoor-outdoor ski lodge: snow-covered trees, glowing lights, fireside lounges, fire pits, alpine decor and a Ski Bar pouring festive cocktails. The big nights are Saturdays, when touring DJs play two stages, starting outside on the patio at 7 pm and moving indoors late into the night; doors open at 5 pm. Coming up: J Worra (Nov 28), a Chromeo DJ set (Dec 5), Autograf (Dec 12) and a special guest (Dec 19). Entry is free with an RSVP, and you can reserve your own lodge-style seating Thursday to Saturday (and Sundays from Nov 29). Rouge Room is 21+.",
         "highlights":  [
@@ -101276,12 +101649,22 @@
                            "Reservable lodge seating Thu-Sun",
                            "21+"
                        ],
-        "age_note":  "21+ (Rouge Room page)",
         "duration_minutes":  180,
         "min_minutes":  60,
         "address":  "Rouge Room, Red Rock Casino Resort \u0026 Spa, 11011 W Charleston Blvd, Las Vegas, NV 89135",
         "lat":  36.158762248322,
         "lng":  -115.333852044948,
+        "age_note":  "21+",
+        "verified":  {
+                         "status":  "verified",
+                         "checked":  "2026-11-25",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://rougeroomlv.getbento.com/Winter-Ski-Lodge/",
+                         "sources":  [
+                                         "https://rougeroomlv.getbento.com/Winter-Ski-Lodge/",
+                                         "https://rougeroomlv.getbento.com/location/rougeroom/"
+                                     ]
+                     },
         "sid":  743,
         "photos":  [
 
@@ -101457,11 +101840,6 @@
                          "family",
                          "friends"
                      ],
-        "verified":  {
-                         "status":  "unverified",
-                         "checked_on":  "2026-11-25",
-                         "evidence_url":  "https://bellagio.mgmresorts.com/en/entertainment/conservatory-botanical-garden.html"
-                     },
         "hook":  "A 14,000 sq ft indoor garden dressed as a giant Christmas postcard",
         "description":  "Bellagio\u0027s glass-roofed conservatory is rebuilt by its horticulture team for each season; this winter\u0027s Postcards From Christmas display fills the 14,000-square-foot garden with flowers, trees and oversized holiday scenes.",
         "highlights":  [
@@ -101475,6 +101853,16 @@
         "address":  "Bellagio, 3600 S Las Vegas Blvd, Las Vegas, NV 89109",
         "lat":  36.112626,
         "lng":  -115.176705,
+        "verified":  {
+                         "status":  "unverified",
+                         "checked":  "2026-11-25",
+                         "checked_on":  "2026-11-25",
+                         "evidence_url":  "https://bellagio.mgmresorts.com/en/entertainment/conservatory-botanical-garden.html",
+                         "sources":  [
+                                         "https://bellagio.mgmresorts.com/en/entertainment/conservatory-botanical-garden.html",
+                                         "https://bellagio.mgmresorts.com/en/entertainment.html"
+                                     ]
+                     },
         "sid":  745,
         "photos":  [
 
