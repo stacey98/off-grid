@@ -95598,8 +95598,13 @@
         "photos":  [
                        {
                            "file":  "photos/vegas-ev-cirque-o-1.jpg",
-                           "credit":  "Cirque du Soleil (official site)",
-                           "page_url":  "https://www.cirquedusoleil.com/o"
+                           "credit":  "Bellagio / MGM Resorts (official site)",
+                           "page_url":  "https://bellagio.mgmresorts.com/en/entertainment/o-by-cirque-du-soleil.html"
+                       },
+                       {
+                           "file":  "photos/vegas-ev-cirque-o-2.jpg",
+                           "credit":  "Bellagio / MGM Resorts (official site)",
+                           "page_url":  "https://bellagio.mgmresorts.com/en/entertainment/o-by-cirque-du-soleil.html"
                        }
                    ]
     },
@@ -95846,8 +95851,18 @@
         "photos":  [
                        {
                            "file":  "photos/vegas-ev-ka-1.jpg",
-                           "credit":  "Cirque du Soleil (official site)",
-                           "page_url":  "https://www.cirquedusoleil.com/ka"
+                           "credit":  "MGM Grand / MGM Resorts (official site)",
+                           "page_url":  "https://mgmgrand.mgmresorts.com/en/entertainment/ka-cirque-du-soleil-show.html"
+                       },
+                       {
+                           "file":  "photos/vegas-ev-ka-2.jpg",
+                           "credit":  "MGM Grand / MGM Resorts (official site)",
+                           "page_url":  "https://mgmgrand.mgmresorts.com/en/entertainment/ka-cirque-du-soleil-show.html"
+                       },
+                       {
+                           "file":  "photos/vegas-ev-ka-3.jpg",
+                           "credit":  "MGM Grand / MGM Resorts (official site)",
+                           "page_url":  "https://mgmgrand.mgmresorts.com/en/entertainment/ka-cirque-du-soleil-show.html"
                        }
                    ]
     },
@@ -101175,8 +101190,18 @@
         "photos":  [
                        {
                            "file":  "photos/vegas-ev-jabbawockeez-freqncy-1.jpg",
-                           "credit":  "Courtesy photo (via Las Vegas Magazine)",
-                           "page_url":  "https://lasvegasmagazine.com/entertainment/2026/feb/02/jabbawockeez-new-las-vegas-show-mgm-grand/"
+                           "credit":  "MGM Grand / MGM Resorts (official site)",
+                           "page_url":  "https://mgmgrand.mgmresorts.com/en/entertainment/jabbawockeez.html"
+                       },
+                       {
+                           "file":  "photos/vegas-ev-jabbawockeez-freqncy-2.jpg",
+                           "credit":  "MGM Grand / MGM Resorts (official site)",
+                           "page_url":  "https://mgmgrand.mgmresorts.com/en/entertainment/jabbawockeez.html"
+                       },
+                       {
+                           "file":  "photos/vegas-ev-jabbawockeez-freqncy-3.jpg",
+                           "credit":  "MGM Grand / MGM Resorts (official site)",
+                           "page_url":  "https://mgmgrand.mgmresorts.com/en/entertainment/jabbawockeez.html"
                        }
                    ]
     },
@@ -101831,7 +101856,11 @@
         "lng":  -115.176164,
         "sid":  744,
         "photos":  [
-
+                       {
+                           "file":  "photos/vegas-ov-shark-reef-aquarium-1.jpg",
+                           "credit":  "Mandalay Bay / MGM Resorts (official site)",
+                           "page_url":  "https://mandalaybay.mgmresorts.com/en/entertainment/shark-reef-aquarium.html"
+                       }
                    ]
     },
     {
@@ -101912,7 +101941,21 @@
                      },
         "sid":  745,
         "photos":  [
-
+                       {
+                           "file":  "photos/vegas-ev-bellagio-holiday-conservatory-1.jpg",
+                           "credit":  "Bellagio / MGM Resorts (official site)",
+                           "page_url":  "https://bellagio.mgmresorts.com/en/entertainment/conservatory-botanical-garden.html"
+                       },
+                       {
+                           "file":  "photos/vegas-ev-bellagio-holiday-conservatory-2.jpg",
+                           "credit":  "Bellagio / MGM Resorts (official site)",
+                           "page_url":  "https://bellagio.mgmresorts.com/en/entertainment/conservatory-botanical-garden.html"
+                       },
+                       {
+                           "file":  "photos/vegas-ev-bellagio-holiday-conservatory-3.jpg",
+                           "credit":  "Bellagio / MGM Resorts (official site)",
+                           "page_url":  "https://bellagio.mgmresorts.com/en/entertainment/conservatory-botanical-garden.html"
+                       }
                    ]
     },
     {
@@ -102041,7 +102084,21 @@
         "lng":  -115.1760672,
         "sid":  746,
         "photos":  [
-
+                       {
+                           "file":  "photos/vegas-ov-titanic-artifact-exhibition-1.jpg",
+                           "credit":  "Luxor / MGM Resorts (official site)",
+                           "page_url":  "https://luxor.mgmresorts.com/en/entertainment/titanic.html"
+                       },
+                       {
+                           "file":  "photos/vegas-ov-titanic-artifact-exhibition-2.jpg",
+                           "credit":  "Luxor / MGM Resorts (official site)",
+                           "page_url":  "https://luxor.mgmresorts.com/en/entertainment/titanic.html"
+                       },
+                       {
+                           "file":  "photos/vegas-ov-titanic-artifact-exhibition-3.jpg",
+                           "credit":  "Luxor / MGM Resorts (official site)",
+                           "page_url":  "https://luxor.mgmresorts.com/en/entertainment/titanic.html"
+                       }
                    ]
     },
     {
@@ -102158,7 +102215,11 @@
         "lng":  -115.173028,
         "sid":  747,
         "photos":  [
-
+                       {
+                           "file":  "photos/vegas-ga-big-apple-coaster-1.jpg",
+                           "credit":  "New York-New York / MGM Resorts (official site)",
+                           "page_url":  "https://newyorknewyork.mgmresorts.com/en/entertainment/the-big-apple-coaster-and-arcade.html"
+                       }
                    ]
     },
     {
